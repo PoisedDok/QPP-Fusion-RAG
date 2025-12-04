@@ -10,13 +10,16 @@
     "test327",
     "test44",
     "test356",
+    "test614",
     "test251",
     "test252",
     "test218",
+    "test630",
     "test476",
     "test544",
     "test410",
     "test222",
+    "test638",
     "test470",
     "test571",
     "test403",
@@ -42,8 +45,10 @@
     "test87",
     "test17",
     "test545",
+    "test624",
     "test509",
     "test339",
+    "test612",
     "test333",
     "test156",
     "test374",
@@ -54,6 +59,7 @@
     "test49",
     "test245",
     "test449",
+    "test615",
     "test596",
     "test337",
     "test539",
@@ -75,12 +81,14 @@
     "test61",
     "test556",
     "test401",
+    "test603",
     "test0",
     "test430",
     "test173",
     "test326",
     "test475",
     "test349",
+    "test622",
     "test334",
     "test341",
     "test308",
@@ -127,6 +135,7 @@
     "test244",
     "test310",
     "test566",
+    "test609",
     "test303",
     "test416",
     "test233",
@@ -172,9 +181,11 @@
     "test469",
     "test555",
     "test510",
+    "test629",
     "test513",
     "test224",
     "test377",
+    "test627",
     "test275",
     "test322",
     "test466",
@@ -223,6 +234,7 @@
     "test126",
     "test143",
     "test101",
+    "test610",
     "test120",
     "test585",
     "test578",
@@ -238,6 +250,7 @@
     "test362",
     "test235",
     "test164",
+    "test606",
     "test109",
     "test196",
     "test77",
@@ -253,6 +266,7 @@
     "test583",
     "test400",
     "test389",
+    "test618",
     "test417",
     "test329",
     "test296",
@@ -261,6 +275,7 @@
     "test481",
     "test217",
     "test240",
+    "test631",
     "test246",
     "test427",
     "test45",
@@ -278,6 +293,8 @@
     "test437",
     "test55",
     "test259",
+    "test600",
+    "test634",
     "test162",
     "test508",
     "test34",
@@ -285,6 +302,7 @@
     "test184",
     "test139",
     "test163",
+    "test636",
     "test548",
     "test542",
     "test1",
@@ -294,6 +312,9 @@
     "test504",
     "test141",
     "test107",
+    "test637",
+    "test620",
+    "test611",
     "test364",
     "test541",
     "test54",
@@ -326,6 +347,7 @@
     "test511",
     "test367",
     "test438",
+    "test633",
     "test300",
     "test178",
     "test21",
@@ -336,6 +358,7 @@
     "test554",
     "test5",
     "test175",
+    "test605",
     "test84",
     "test448",
     "test450",
@@ -346,6 +369,7 @@
     "test226",
     "test574",
     "test50",
+    "test639",
     "test36",
     "test121",
     "test312",
@@ -359,6 +383,7 @@
     "test189",
     "test131",
     "test506",
+    "test623",
     "test137",
     "test465",
     "test150",
@@ -371,6 +396,7 @@
     "test82",
     "test592",
     "test229",
+    "test632",
     "test530",
     "test132",
     "test453",
@@ -381,6 +407,7 @@
     "test269",
     "test94",
     "test328",
+    "test608",
     "test62",
     "test16",
     "test420",
@@ -393,6 +420,7 @@
     "test567",
     "test47",
     "test392",
+    "test602",
     "test85",
     "test343",
     "test265",
@@ -402,6 +430,7 @@
     "test287",
     "test538",
     "test151",
+    "test604",
     "test58",
     "test500",
     "test315",
@@ -442,6 +471,7 @@
     "test288",
     "test486",
     "test582",
+    "test617",
     "test307",
     "test321",
     "test227",
@@ -458,9 +488,11 @@
     "test276",
     "test250",
     "test445",
+    "test613",
     "test531",
     "test580",
     "test573",
+    "test635",
     "test160",
     "test309",
     "test346",
@@ -493,9 +525,11 @@
     "test29",
     "test9",
     "test371",
+    "test601",
     "test86",
     "test520",
     "test493",
+    "test607",
     "test305",
     "test576",
     "test468",
@@ -538,10 +572,13 @@
     "test462",
     "test515",
     "test138",
+    "test619",
     "test597",
     "test368",
     "test180",
+    "test628",
     "test258",
+    "test621",
     "test472",
     "test135",
     "test415",
@@ -552,9 +589,11 @@
     "test439",
     "test551",
     "test31",
+    "test616",
     "test93",
     "test221",
     "test507",
+    "test625",
     "test102",
     "test170",
     "test407",
@@ -590,6 +629,7 @@
     "test282",
     "test496",
     "test205",
+    "test626",
     "test167",
     "test494",
     "test590",
@@ -52201,6 +52241,3446 @@
           "has_relevant": true
         }
       }
+    },
+    {
+      "qid": "test600",
+      "query": "how does metallic bonding result in useful properties of metals",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Metallic bonding results in properties like high electrical and thermal conductivity, malleability, ductility, and shiny appearance due to the free movement of electrons in a 'ea' of electrons surrounding positively charged metal ions.",
+          "context_length": 0,
+          "latency_ms": 3038.06209564209,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Metallic bonding results in useful properties of metals by allowing the sharing of free electrons among a lattice of positively charged metal ions. This creates a \"sea\" of delocalized electrons that can move freely, contributing to properties such as high electrical and thermal conductivity, strength, ductility, and luster.",
+          "context_length": 540,
+          "latency_ms": 4329.92696762085,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Metallic bonding results in useful properties of metals such as strength, ductility, thermal and electrical resistivity and conductivity, opacity, and luster. This is due to the sharing of free electrons among a lattice of positively charged ions, which allows for efficient electron movement and contributes to these properties.",
+          "context_length": 858,
+          "latency_ms": 4389.463663101196,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Metallic bonding results in useful properties of metals such as strength, ductility, thermal and electrical resistivity and conductivity, opacity, and luster. This is due to the sharing of free electrons among a lattice of positively charged ions, which accounts for these physical properties.",
+          "context_length": 1499,
+          "latency_ms": 4424.781799316406,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Metallic bonding results in useful properties of metals by allowing the delocalization of electrons among a lattice of positively charged ions, which accounts for properties such as strength, ductility, thermal and electrical resistivity and conductivity, opacity, and luster. The collective nature of electron sharing among metal atoms also leads to malleability, enabling metals to deform without breaking. Additionally, the free electrons contribute to good electrical and thermal conductivity, as well as the shiny appearance of metals.",
+          "context_length": 2751,
+          "latency_ms": 7984.330654144287,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Metallic bonding results in useful properties of metals such as strength, ductility, thermal and electrical resistivity and conductivity, opacity, and luster. This is due to the sharing of free electrons among a lattice of positively charged ions, which accounts for these physical properties.",
+          "context_length": 3206,
+          "latency_ms": 5323.170185089111,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Metallic bonding results in useful properties of metals such as strength, ductility, thermal and electrical resistivity and conductivity, opacity, and luster. This is due to the delocalized electrons in metallic bonding which allows for free movement and sharing among metal ions, contributing to the collective nature of the bond. This delocalization also facilitates easy deformation and movement of atoms, resulting in malleability and ductility. Additionally, the free electrons contribute to high conductivity and reflectivity of metals.",
+          "context_length": 4054,
+          "latency_ms": 8848.515033721924,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Metallic bonding results in useful properties of metals such as strength, ductility, thermal and electrical conductivity, opacity, and luster. This is due to the delocalized electrons that form an 'electron sea' around positively charged metal ions, allowing for free movement and sharing of electrons which contribute to these properties.",
+          "context_length": 5584,
+          "latency_ms": 7529.09779548645,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test601",
+      "query": "when does the world cup of hockey start",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The World Cup of Hockey typically starts on the first day of its tournament, which varies each year. I cannot provide a specific start date without additional context.",
+          "context_length": 0,
+          "latency_ms": 2107.2356700897217,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Hockey World Cup starts every four years, but the specific start date is not provided in the context.",
+          "context_length": 269,
+          "latency_ms": 1791.2850379943848,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The World Cup of Hockey started in 1996.",
+          "context_length": 809,
+          "latency_ms": 1408.4842205047607,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The World Cup of Hockey starts from 1996.",
+          "context_length": 1071,
+          "latency_ms": 1641.6609287261963,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The World Cup of Hockey started in 1996.",
+          "context_length": 1339,
+          "latency_ms": 1744.1668510437012,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The World Cup of Hockey starts on 28 November and ends on 16 December.",
+          "context_length": 1666,
+          "latency_ms": 2293.2119369506836,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The World Cup of Hockey starts on 28 November and ends on 16 December.",
+          "context_length": 2445,
+          "latency_ms": 2729.947328567505,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Hockey World Cup starts on 28 November to 16 December 2018.",
+          "context_length": 3536,
+          "latency_ms": 3236.0892295837402,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test602",
+      "query": "who were the judges on dancing on ice 2014",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The judges on \"Dancing on Ice\" 2014 were Yulia Shcherbakova, Olga Kuznetsova, and Natalia Kuznetsova.",
+          "context_length": 0,
+          "latency_ms": 2691.1160945892334,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Nicky Slater was the judge for Dancing on Ice 2014, as Robin Cousins was absent due to commentating the 2014 Winter Olympics.",
+          "context_length": 476,
+          "latency_ms": 2570.1382160186768,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The judges on Dancing on Ice in 2014 were Robin Cousins, Jayne Torvill, Karen Barber, Jason Gardiner, and Ashley Roberts.",
+          "context_length": 911,
+          "latency_ms": 2603.6717891693115,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Robin Cousins and Ashley Roberts were the judges on Dancing on Ice 2014.",
+          "context_length": 1345,
+          "latency_ms": 2313.1420612335205,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The judges on Dancing on Ice for the 2014 series were Robin Cousins, Jason Gardiner, and Ashley Roberts.",
+          "context_length": 1895,
+          "latency_ms": 3122.486114501953,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "In Dancing on Ice 2014, the judges were Robin Cousins and Ashley Roberts.",
+          "context_length": 2203,
+          "latency_ms": 2550.0059127807617,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The judges on Dancing on Ice in 2014 were Robin Cousins, Jason Gardiner, Ashley Roberts, and Phillip Schofield.",
+          "context_length": 2781,
+          "latency_ms": 3659.2681407928467,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "In Dancing on Ice 2014, the judges were Robin Cousins, Jason Gardiner, and Ashley Roberts.",
+          "context_length": 3399,
+          "latency_ms": 4030.082941055298,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test603",
+      "query": "where does some like it hot take place",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Some like it hot takes place in various locations, but specific examples are not provided in the context.",
+          "context_length": 0,
+          "latency_ms": 1400.0778198242188,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Some Like It Hot takes place in New York City.",
+          "context_length": 257,
+          "latency_ms": 1208.479881286621,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Some Like It Hot takes place in a fictional city called Los Angeles.",
+          "context_length": 466,
+          "latency_ms": 1331.6240310668945,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Some Like It Hot takes place at Camp Modin in Belgrade, Maine, and also features a scene set in Waterville, Maine.",
+          "context_length": 1178,
+          "latency_ms": 2410.3009700775146,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Some Like It Hot takes place at Camp Modin in Belgrade, Maine, and also features a scene set in Waterville, Maine.",
+          "context_length": 1329,
+          "latency_ms": 2555.4850101470947,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Some Like It Hot takes place at Camp Modin in Belgrade, Maine, and also features a scene set in Waterville, Maine.",
+          "context_length": 1741,
+          "latency_ms": 3162.980079650879,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Some Like It Hot takes place at Camp Modin, a Jewish camp in Belgrade, Maine, and also features scenes set in Waterville, Maine.",
+          "context_length": 2315,
+          "latency_ms": 3679.985284805298,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Some Like It Hot takes place at Camp Modin, a Jewish camp in Belgrade, Maine, and also features scenes set in Waterville, Maine.",
+          "context_length": 4466,
+          "latency_ms": 5335.705041885376,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test604",
+      "query": "who plays young voldemort in the half blood prince",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Jude Law plays young Voldemort in the Half-Blood Prince.",
+          "context_length": 0,
+          "latency_ms": 1298.2099056243896,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 361,
+          "latency_ms": 811.1050128936768,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Ralph Fiennes played Lord Voldemort in the 2005 fantasy film Harry Potter and the Goblet of Fire, which is the first film in the Half-Blood Prince series. However, he did not portray the character as young Voldemort in any other films of the series.",
+          "context_length": 689,
+          "latency_ms": 4486.095905303955,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Hero Fiennes-Tiffin plays young Voldemort in Harry Potter and the Half Blood Prince.",
+          "context_length": 1130,
+          "latency_ms": 2557.6822757720947,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Hero Fiennes-Tiffin plays young Voldemort in Harry Potter and the Half Blood Prince.",
+          "context_length": 1531,
+          "latency_ms": 2696.6898441314697,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Hero Fiennes-Tiffin plays young Voldemort in Harry Potter and the Half-Blood Prince.",
+          "context_length": 1986,
+          "latency_ms": 2812.4547004699707,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Hero Fiennes-Tiffin plays young Voldemort in Harry Potter and the Half-Blood Prince.",
+          "context_length": 2899,
+          "latency_ms": 3325.1609802246094,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Hero Fiennes-Tiffin plays young Voldemort in Harry Potter and the Half-Blood Prince.",
+          "context_length": 5050,
+          "latency_ms": 4658.220052719116,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test605",
+      "query": "when did goku first go super saiyan 4",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Goku first went Super Saiyan 4 in the anime \"Dragon Ball Super: Broly\" which aired in 2023. However, the context provided does not specify when this occurred in the original \"Dragon Ball\" series.",
+          "context_length": 0,
+          "latency_ms": 3415.9512519836426,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Goku first went Super Saiyan 4 in Dragon Ball GT, as per the design by Katsuyoshi Nakatsuru.",
+          "context_length": 613,
+          "latency_ms": 2527.390956878662,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Goku first went Super Saiyan 4 in Dragon Ball GT, as per the context provided.",
+          "context_length": 1203,
+          "latency_ms": 2730.185031890869,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Goku first went Super Saiyan 4 after defeating Majin Buu in Dragon Ball GT.",
+          "context_length": 2094,
+          "latency_ms": 2750.676155090332,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Goku first went Super Saiyan 4 in Dragon Ball GT, which was released in 1996.",
+          "context_length": 3153,
+          "latency_ms": 3793.7521934509277,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Goku first went Super Saiyan 4 in Dragon Ball GT, which was released in 1996.",
+          "context_length": 3520,
+          "latency_ms": 4055.595874786377,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Goku first went Super Saiyan 4 after defeating Majin Buu in Dragon Ball GT.",
+          "context_length": 4629,
+          "latency_ms": 4217.780113220215,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Goku first went Super Saiyan 4 during the film \"Dragon Ball GT\" while in his \u014czaru (Great Ape) form, as mentioned in Document 1.",
+          "context_length": 9375,
+          "latency_ms": 8813.920736312866,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test606",
+      "query": "what happens to vanessa at the end of gossip girl",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Vanessa ends up as a minor character in the final episode of Gossip Girl, where she is revealed to be a clone created by the antagonist, Mr. X.",
+          "context_length": 0,
+          "latency_ms": 2562.3795986175537,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Vanessa receives a Gossip Girl message implying Dan has cheated on her, but the specific outcome is not detailed in the provided context.",
+          "context_length": 207,
+          "latency_ms": 2267.9970264434814,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "At the end of Gossip Girl, Vanessa reconciles with Nate and returns to his life in Brooklyn.",
+          "context_length": 859,
+          "latency_ms": 2372.0738887786865,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "At the end of Gossip Girl season 4, Vanessa joins Juliet's scheme to bring down Serena by taking photos of her and Colin in a romantic embrace.",
+          "context_length": 1399,
+          "latency_ms": 3130.2390098571777,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Vanessa reconciles with Dan and returns to his old life in Brooklyn.",
+          "context_length": 2035,
+          "latency_ms": 2288.2230281829834,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "At the end of Gossip Girl, Vanessa runs away after discovering a picture of her and Nate kissing on the Snowflake Ball, embarrassing her. Jenny watches from afar and tells Nate that she's not the girl he thought she was. Vanessa chooses to speed away with Nate, leaving Jenny heartbroken.",
+          "context_length": 2736,
+          "latency_ms": 5966.268301010132,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "At the end of Gossip Girl, Vanessa Abrams repairs her relationship with Nate after discovering a picture of them kissing on Gossip Girl, but she embarrasses herself by giving Nate a see-through dress at the Snowflake Ball, leading to her leaving Jenny and Nate's relationship. She tries not to interfere with Serena and Dan's relationship but celebrates Nate's 2-month anniversary with him at the opera.",
+          "context_length": 3103,
+          "latency_ms": 8140.729904174805,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "At the end of Gossip Girl season 4, Vanessa gets caught in the middle when Juliet sets her up for stealing Serena's phone and sending an incriminating email. She later leaves town when only Dan believes her.",
+          "context_length": 4870,
+          "latency_ms": 5987.825870513916,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test607",
+      "query": "how many seasons are there for the good doctor",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "There are four seasons for \"The Good Doctor.\"",
+          "context_length": 0,
+          "latency_ms": 1015.023946762085,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "There are 3 seasons for Doctor Doctor in Season 3 (2018).",
+          "context_length": 65,
+          "latency_ms": 1271.2173461914062,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "There are 3 seasons for the Good Doctor, specifically Season 3 (2018), Season 2 (2017), and Season 1 (2015).",
+          "context_length": 132,
+          "latency_ms": 2494.3859577178955,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "There are three seasons for Doctor Doctor: Season 1 (2016), Season 2 (2017), and Season 3 (2018).",
+          "context_length": 199,
+          "latency_ms": 2332.1940898895264,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "There are three seasons for the Doctor Doctor series: Season 1 (2016), Season 2 (2017), and Season 3 (2018).",
+          "context_length": 489,
+          "latency_ms": 2485.9189987182617,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "There are three seasons for Doctor Who, including Season 1 (2016), Season 2 (2017), and Season 3 (2018).",
+          "context_length": 701,
+          "latency_ms": 2810.1727962493896,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "There are four seasons for Doctor Who, including Season 1 (2016), Season 2 (2017), Season 3 (2018), and Season 6 (series 6).",
+          "context_length": 1563,
+          "latency_ms": 3340.839147567749,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "There are five seasons for Doctor Who, as mentioned in Document 4 and Document 10.",
+          "context_length": 3865,
+          "latency_ms": 3494.8112964630127,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test608",
+      "query": "who did corbin dance with on dancing with the stars",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Corbin Dancing with the Stars did not have a specific partner mentioned in the context provided.",
+          "context_length": 0,
+          "latency_ms": 1619.3490028381348,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Corbin Bleu danced with professional dancer Karina Smirnoff on Dancing with the Stars.",
+          "context_length": 521,
+          "latency_ms": 1979.6581268310547,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Corbin Bleu danced with professional dancer Karina Smirnoff on Dancing with the Stars.",
+          "context_length": 1307,
+          "latency_ms": 2314.7408962249756,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Corbin Bleu partnered with professional dancer Karina Smirnoff on Dancing with the Stars.",
+          "context_length": 1702,
+          "latency_ms": 2462.766170501709,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Corbin Bleu partnered with professional dancer Karina Smirnoff on Dancing with the Stars.",
+          "context_length": 1948,
+          "latency_ms": 2629.41312789917,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Corbin Bleu partnered with professional dancer Karina Smirnoff on Dancing with the Stars.",
+          "context_length": 3204,
+          "latency_ms": 3416.3291454315186,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Corbin Bleu partnered with professional dancer Karina Smirnoff on Dancing with the Stars.",
+          "context_length": 3305,
+          "latency_ms": 3564.7220611572266,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Corbin Bleu danced with professional dancer Karina Smirnoff on Dancing with the Stars.",
+          "context_length": 4910,
+          "latency_ms": 4469.7020053863525,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test609",
+      "query": "description of greg from diary of a wimpy kid",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not contain a description of Greg from \"Diary of a Wimpy Kid.\"",
+          "context_length": 0,
+          "latency_ms": 1747.2867965698242,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Greg Heffley is described as an unreliable narrator and the antihero of the Diary of a Wimpy Kid series by Jeff Kinney. He is a fictional character.",
+          "context_length": 272,
+          "latency_ms": 2672.4302768707275,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Greg Heffley is described as an unreliable narrator and the main protagonist who struggles to fit in as he begins middle school.",
+          "context_length": 597,
+          "latency_ms": 2927.7260303497314,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Greg Heffley is described as an unreliable narrator and the main protagonist, a boy struggling to fit in as he begins middle school. He is portrayed as an antihero with hand-written notes and simple drawings in his diary entries.",
+          "context_length": 956,
+          "latency_ms": 3958.3511352539062,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Greg Heffley is described as an unreliable narrator, a wimpy boy struggling with family, friends, and middle school, concerned about his popularity, daydreaming about being rich and famous, and generally having trouble fitting in.",
+          "context_length": 1394,
+          "latency_ms": 4246.011018753052,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Greg Heffley is described as an unreliable narrator, a wimpy protagonist, and someone who struggles with fitting in at middle school. He is concerned about his popularity and daydreams about being rich and famous, often facing challenges that backfire on him.",
+          "context_length": 1516,
+          "latency_ms": 4617.329835891724,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Greg Heffley is described as an unreliable narrator, a boy struggling to fit in as middle school begins, concerned about his popularity, and daydreaming about being rich and famous. He faces challenges with family, friends, and school, often trying to fit in but usually failing.",
+          "context_length": 1897,
+          "latency_ms": 5147.451877593994,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Greg Heffley is an unreliable narrator, a fictional character struggling with fitting in at middle school, concerned about his popularity, and daydreaming about being rich and famous. He is Greg's main protagonist in the Diary of a Wimpy Kid series, known for his creative but often unsuccessful attempts to fit in.",
+          "context_length": 3227,
+          "latency_ms": 6247.866153717041,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test610",
+      "query": "where does the skyline drive begin and end",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 661.0939502716064,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Skyline Drive begins at an intersection with US 340 south of Front Royal and ends at the Shenandoah Valley Overlook on the west side of the road.",
+          "context_length": 494,
+          "latency_ms": 2493.5810565948486,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Skyline Drive begins at an intersection with US 340 south of Front Royal and ends at an interchange with US 250 near Interstate 64 (I-64) in Rockfish Gap.",
+          "context_length": 1242,
+          "latency_ms": 3568.8869953155518,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Skyline Drive begins at an intersection with US 340 south of Front Royal and ends at an interchange with US 250 near Interstate 64 (I-64) in Rockfish Gap.",
+          "context_length": 1554,
+          "latency_ms": 3438.462972640991,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Skyline Drive begins at an intersection with US 340 south of Front Royal in Warren County and ends at an interchange with US 250 near Interstate 64 (I-64) in Rockfish Gap.",
+          "context_length": 2450,
+          "latency_ms": 4135.479927062988,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Skyline Drive begins at an intersection with US 340 south of Front Royal in Warren County and ends at an interchange with US 250 near Interstate 64 (I-64) in Rockfish Gap.",
+          "context_length": 3234,
+          "latency_ms": 4809.9470138549805,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Skyline Drive begins at an intersection with US 340 south of Front Royal in Warren County and ends at an interchange with US 250 near Interstate 64 (I-64) in Rockfish Gap.",
+          "context_length": 4314,
+          "latency_ms": 5238.336086273193,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Skyline Drive begins at an intersection with US 340 south of Front Royal in Warren County and ends at an interchange with US 250 near I-64 in Rockfish Gap, where it connects to the Blue Ridge Parkway.",
+          "context_length": 8377,
+          "latency_ms": 7824.183940887451,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test611",
+      "query": "when did the military plane crash in mississippi",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not contain information about a military plane crash in Mississippi.",
+          "context_length": 0,
+          "latency_ms": 1518.035888671875,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The military plane crashed in a wooded area near Gillsburg, Mississippi, on 1977.",
+          "context_length": 518,
+          "latency_ms": 1945.2428817749023,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The military plane crashed in a wooded area near Gillsburg, Mississippi, on February 25, 1978.",
+          "context_length": 848,
+          "latency_ms": 2503.70192527771,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The military plane crashed in a wooded area near Gillsburg, Mississippi, on February 25, 1978.",
+          "context_length": 919,
+          "latency_ms": 2212.745189666748,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The military plane crashed in a wooded area near Gillsburg, Mississippi, on October 20, 1977.",
+          "context_length": 1443,
+          "latency_ms": 2437.1731281280518,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The military plane crashed in a wooded area near Gillsburg, Mississippi on October 20, 1977.",
+          "context_length": 1765,
+          "latency_ms": 2735.0380420684814,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The military plane crashed on October 20, 1977.",
+          "context_length": 2275,
+          "latency_ms": 2216.1052227020264,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The military plane crashed in a wooded area near Gillsburg, Mississippi on October 20, 1977.",
+          "context_length": 4964,
+          "latency_ms": 4279.629945755005,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test612",
+      "query": "when did they stop using aluminum wiring in ontario",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "They stopped using aluminum wiring in Ontario in 1990.",
+          "context_length": 0,
+          "latency_ms": 968.7619209289551,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 741,
+          "latency_ms": 848.848819732666,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "I cannot answer.",
+          "context_length": 1506,
+          "latency_ms": 1181.5240383148193,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "I cannot answer.",
+          "context_length": 1748,
+          "latency_ms": 1189.3031597137451,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The provided context does not contain information about when they stopped using aluminum wiring in Ontario. Did you forget to attach the relevant document? Please provide it, and I will be able to determine when they stopped using aluminum wiring in Ontario.",
+          "context_length": 2034,
+          "latency_ms": 4084.2950344085693,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The document does not specify when they stopped using aluminum wiring in Ontario. It only mentions that aluminum wiring was used from the 1960s to mid-1970s and that revised manufacturing standards were developed later to address issues.",
+          "context_length": 2559,
+          "latency_ms": 4210.261821746826,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The context provided does not specify when they stopped using aluminum wiring in Ontario. It only mentions that aluminum building wiring was used from the 1960s to mid-1970s due to high copper prices and issues with the properties of aluminum wire.",
+          "context_length": 3242,
+          "latency_ms": 5153.417110443115,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The provided context does not contain information about when they stopped using aluminum wiring in Ontario. Did you forget to include the relevant document that contains this information? Once I have access to the document, I will be able to determine when aluminum wiring was phased out in Ontario.",
+          "context_length": 6029,
+          "latency_ms": 6440.645217895508,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test613",
+      "query": "who is the girl on parle g biscuit pack",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not mention a specific girl on the parle g biscuit pack.",
+          "context_length": 0,
+          "latency_ms": 1644.8020935058594,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 189,
+          "latency_ms": 647.324800491333,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "I cannot answer.",
+          "context_length": 407,
+          "latency_ms": 762.6841068267822,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The girl on Parle-G biscuit pack is an illustration by Everest creative Maganlal Daiya from the 1960s.",
+          "context_length": 726,
+          "latency_ms": 2572.615146636963,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The girl on Parle-G biscuit pack is an illustration by Everest creative Maganlal Daiya from the 1960s.",
+          "context_length": 1063,
+          "latency_ms": 2705.502986907959,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The illustration of a young girl on the Parl\u00e9-G biscuit pack was created by Everest creative Maganlal Daiya in the 1960s.",
+          "context_length": 1463,
+          "latency_ms": 3171.447992324829,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The girl on Parle-G biscuit pack is an illustration by Everest creative Maganlal Daiya from the 1960s.",
+          "context_length": 1704,
+          "latency_ms": 3284.0969562530518,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The girl on Parle-G biscuit pack is an illustration by Everest creative Maganlal Daiya from the 1960s.",
+          "context_length": 3329,
+          "latency_ms": 4276.557207107544,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test614",
+      "query": "who is going to host the 2018 winter olympics",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The 2018 Winter Olympics were hosted by Pyeongchang, South Korea.",
+          "context_length": 0,
+          "latency_ms": 1410.7329845428467,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "South Korea is hosting the 2018 Winter Olympics.",
+          "context_length": 108,
+          "latency_ms": 1076.1940479278564,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "South Korea is hosting the 2018 Winter Olympics.",
+          "context_length": 220,
+          "latency_ms": 1086.7588520050049,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "South Korea is hosting the 2018 Winter Olympics.",
+          "context_length": 301,
+          "latency_ms": 1267.176866531372,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "South Korea is going to host the 2018 Winter Olympics.",
+          "context_length": 661,
+          "latency_ms": 1457.6339721679688,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "South Korea is going to host the 2018 Winter Olympics.",
+          "context_length": 779,
+          "latency_ms": 1624.894142150879,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "South Korea is going to host the 2018 Winter Olympics.",
+          "context_length": 972,
+          "latency_ms": 1755.1119327545166,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "South Korea is going to host the 2018 Winter Olympics.",
+          "context_length": 2659,
+          "latency_ms": 2845.555067062378,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test615",
+      "query": "this type of nuclear decay effectively turns a proton into a neutron",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "This type of nuclear decay is called beta-minus decay.",
+          "context_length": 0,
+          "latency_ms": 1153.8608074188232,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Yes, this type of nuclear decay effectively turns a proton into a neutron.",
+          "context_length": 222,
+          "latency_ms": 1315.2711391448975,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "In the opposite process, which only happens within a nucleus and not to free particles, a proton may become a neutron by ejecting a positron. However, the specific process mentioned in the context is electron capture, where a proton electron captures one of the atom's K orbital electrons, emits a neutrino, and becomes a neutron. But the direct conversion mentioned in the context is electron capture, not positron emission. The answer focuses on electron capture as the process that effectively turns a proton into a neutron.",
+          "context_length": 1226,
+          "latency_ms": 8022.794961929321,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Yes, in the simplest beta decay, neutrons are converted to protons by emitting a negative electron and an antineutrino, effectively turning a proton into a neutron.",
+          "context_length": 1768,
+          "latency_ms": 3450.345993041992,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Yes, inverse beta decay effectively turns a proton into a neutron.",
+          "context_length": 2021,
+          "latency_ms": 2060.904026031494,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "In the process of inverse beta decay, a proton can transform into a neutron if an energetically allowed quantum state is available for the neutron. This transformation occurs by emission of a positron and an electron neutrino.",
+          "context_length": 3040,
+          "latency_ms": 4286.787271499634,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "In the simplest beta decay, neutrons are converted to protons by emitting a negative electron and an antineutrino. This process turns a proton into a neutron.",
+          "context_length": 3437,
+          "latency_ms": 4050.6019592285156,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "In electron capture, a proton transforms into a neutron when an energetically allowed quantum state is available for the proton resulting from the decay.",
+          "context_length": 4903,
+          "latency_ms": 4671.838998794556,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test616",
+      "query": "what event marks the beginning of the great depression",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The stock market crash of 1929 marks the beginning of the Great Depression.",
+          "context_length": 0,
+          "latency_ms": 1256.3519477844238,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Wall Street Crash in October 1929 marks the beginning of the Great Depression.",
+          "context_length": 719,
+          "latency_ms": 1977.6933193206787,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Wall Street Crash in October 1929 marks the beginning of the Great Depression.",
+          "context_length": 1045,
+          "latency_ms": 1854.984998703003,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Wall Street Crash in October 1929 marks the beginning of the Great Depression.",
+          "context_length": 1651,
+          "latency_ms": 2176.478147506714,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Wall Street Crash in October 1929, also known as Black Tuesday, marks the beginning of the Great Depression.",
+          "context_length": 1995,
+          "latency_ms": 2933.617115020752,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Wall Street Crash in October 1929, known as Black Tuesday, marks the beginning of the Great Depression.",
+          "context_length": 2192,
+          "latency_ms": 2937.549114227295,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Wall Street Crash in October 1929, known as Black Tuesday, marks the beginning of the Great Depression.",
+          "context_length": 2687,
+          "latency_ms": 2941.7710304260254,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Wall Street Crash in October 1929, known as Black Tuesday, marks the beginning of the Great Depression.",
+          "context_length": 5188,
+          "latency_ms": 4364.004135131836,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test617",
+      "query": "what is the main source of nutrients in an estuary",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 627.05397605896,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The main source of nutrients in an estuary is detritus from the settlement of sedimentation.",
+          "context_length": 185,
+          "latency_ms": 1721.2202548980713,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The main source of nutrients in an estuary is detritus from the settlement of sedimentation.",
+          "context_length": 962,
+          "latency_ms": 1779.918909072876,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The main source of nutrients in an estuary is detritus from the settlement of sedimentation.",
+          "context_length": 1281,
+          "latency_ms": 2096.5449810028076,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The main source of nutrients in an estuary is detritus from the settlement of sedimentation.",
+          "context_length": 1748,
+          "latency_ms": 2292.417049407959,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The main source of nutrients in an estuary is detritus from the settlement of sedimentation.",
+          "context_length": 2140,
+          "latency_ms": 2573.65083694458,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The main source of nutrients in an estuary is waste water treatment facilities, agricultural and urban drainage, and the ocean.",
+          "context_length": 2889,
+          "latency_ms": 3163.8150215148926,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The main source of nutrients in an estuary is waste water treatment facilities, agricultural and urban drainage, and the ocean.",
+          "context_length": 5837,
+          "latency_ms": 4326.147794723511,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test618",
+      "query": "where does the us men's national soccer team practice",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify the exact location of US Men's National Soccer Team's practice facilities.",
+          "context_length": 0,
+          "latency_ms": 1871.0927963256836,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The U.S. Men's National Soccer Team practices at the StubHub Center, which is part of the United States Soccer Federation's National Training Center.",
+          "context_length": 487,
+          "latency_ms": 2769.102096557617,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The U.S. men's national soccer team practices at the StubHub Center, which includes a soccer-specific stadium and four grass soccer fields.",
+          "context_length": 1227,
+          "latency_ms": 2438.4679794311523,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The U.S. men's national soccer team practices at the StubHub Center in Carson, California.",
+          "context_length": 1385,
+          "latency_ms": 2376.6121864318848,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The US men's national soccer team practices at the U.S. Soccer Federation's National Training Center at StubHub Center in Carson, California.",
+          "context_length": 1590,
+          "latency_ms": 2733.1268787384033,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The U.S. men's national soccer team practices at the StubHub Center in Carson, California.",
+          "context_length": 2353,
+          "latency_ms": 2845.431089401245,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The U.S. men's national soccer team practices at the StubHub Center in Carson, California, which includes a soccer-specific stadium.",
+          "context_length": 3177,
+          "latency_ms": 4055.3689002990723,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The U.S. men's national soccer team practices at the StubHub Center in Carson, California, which includes a soccer-specific stadium.",
+          "context_length": 5519,
+          "latency_ms": 4649.230241775513,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test619",
+      "query": "where does a brisket come from on a cow",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Brisket comes from the lower part of the cow's ribcage.",
+          "context_length": 0,
+          "latency_ms": 1181.9729804992676,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "A brisket comes from the lower part of the cow's rib cage, specifically from the left side.",
+          "context_length": 240,
+          "latency_ms": 1678.8220405578613,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "A brisket comes from the breast or lower chest of beef or veal on a cow.",
+          "context_length": 773,
+          "latency_ms": 1850.3539562225342,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "A brisket comes from the breast or lower chest of beef or veal on a cow.",
+          "context_length": 1062,
+          "latency_ms": 1995.2268600463867,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "A brisket comes from the breast or lower chest of beef or veal.",
+          "context_length": 1601,
+          "latency_ms": 2186.400890350342,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "A brisket comes from the breast or lower chest of beef or veal on a cow.",
+          "context_length": 1756,
+          "latency_ms": 2417.8502559661865,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "A brisket comes from the breast or lower chest of beef or veal.",
+          "context_length": 1829,
+          "latency_ms": 2230.391263961792,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "A brisket comes from the breast or lower chest of beef or veal.",
+          "context_length": 3655,
+          "latency_ms": 3477.7469635009766,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test620",
+      "query": "when did to kill a mockingbird become popular",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "To Kill a Mockingbird was published in 1960.",
+          "context_length": 0,
+          "latency_ms": 1282.7329635620117,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "To Kill a Mockingbird became popular in 1960.",
+          "context_length": 386,
+          "latency_ms": 1165.585994720459,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "To Kill a Mockingbird became popular after winning the Pulitzer Prize in 1960.",
+          "context_length": 739,
+          "latency_ms": 1796.1690425872803,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "To Kill a Mockingbird became popular during the years immediately following its publication in 1960, specifically when it was in its 41st week on the bestseller list in 1961.",
+          "context_length": 1930,
+          "latency_ms": 3664.5140647888184,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "To Kill a Mockingbird became popular during the years immediately following its publication in 1960, specifically when it was in its 41st week on the bestseller list in 1961.",
+          "context_length": 2044,
+          "latency_ms": 3811.9521141052246,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "To Kill a Mockingbird became popular during the years immediately following its publication in 1960.",
+          "context_length": 2518,
+          "latency_ms": 2885.8718872070312,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "To Kill a Mockingbird became popular during the years immediately following its publication in 1960, specifically when it was in its 41st week on the bestseller list in 1961.",
+          "context_length": 2995,
+          "latency_ms": 4926.7258644104,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "To Kill a Mockingbird became popular during the years immediately following its publication in 1960, when it was awarded the Pulitzer Prize in 1961.",
+          "context_length": 3631,
+          "latency_ms": 4556.9939613342285,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test621",
+      "query": "who wrote the theme song for the winter olympics",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The specific theme song for the Winter Olympics is \"Winter Dreams\" by Yanni, but it was not written by a single author. It's a collaboration between Yanni and the Olympic Committee.",
+          "context_length": 0,
+          "latency_ms": 3203.5269737243652,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Dmitri Shostakovich wrote the Festive Overture, opus 96, which was used as the theme music for the 1980 Summer Olympics. However, the question asks about the Winter Olympics, and there is no mention of a specific theme song for the Winter Olympics in the provided context. I cannot answer without additional information.",
+          "context_length": 305,
+          "latency_ms": 5067.049026489258,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Dmitri Shostakovich wrote the theme song for the 2004 Summer Olympics in Athens, Greece. However, it was not used at the 1992 Winter Olympics as CBS declined to use 'In Celebration of Man' by Yanni.",
+          "context_length": 1004,
+          "latency_ms": 4493.556976318359,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "NBC Olympic broadcasts used 'In Celebration of Man' by Yanni during a preview special for the 1992 Summer Olympics, but it was not specifically attributed to Leo Arnaud. However, John Williams wrote 'Olympic Fanfare and Theme' for the 1984 Summer Olympics, which is commonly used in Olympic coverage. Leo Arnaud's 'Bugler's Dream' was also referenced, but not directly for the Winter Olympics. The specific composer for the Winter Olympics theme song is not mentioned in the provided context.",
+          "context_length": 1611,
+          "latency_ms": 8200.669765472412,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "John Williams wrote the theme song for the 1984 Summer Olympics in Los Angeles, California, which included \"Bugler's Dream.\" However, Leo Arnaud's composition \"The Charge Suite\" was used for the 1964 Winter Olympics in Innsbruck, Austria. I cannot answer definitively based on the provided context as both composers were involved in Olympic themes, but the specific question asks for the Winter Olympics. The context does not specify which composer wrote the theme song for the Winter Olympics, only that John Williams' arrangement was used for the 1964 Winter Olympics.",
+          "context_length": 2274,
+          "latency_ms": 8325.906991958618,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "John Williams wrote the theme song for the 1988 Winter Olympics in Seoul, South Korea. However, Leo Arnaud's \"Bugler's Dream\" was also used in the 1992 Winter Olympics in Barcelona, Spain. There is no direct mention of Arnaud's work being used for the Winter Olympics in the provided context.",
+          "context_length": 2415,
+          "latency_ms": 6019.161701202393,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Leo Arnaud wrote the theme song for the 1984 Summer Olympics in Los Angeles, California, but for the 2002 Winter Olympics in Salt Lake City, Utah, David Bowie's \"Let's Dance\" was used instead. However, the context provided does not mention David Bowie writing a theme song for the Winter Olympics. Leo Arnaud's \"The Charge Suite\" was used for the 1964 Winter Olympics in Innsbruck, Austria.",
+          "context_length": 3258,
+          "latency_ms": 7933.578968048096,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "David Bowie wrote \"Let's Dance\" for the 2018 Winter Olympics on NBC, but the theme song for the 2002 Winter Olympics was composed by Chuck Mangione.",
+          "context_length": 4974,
+          "latency_ms": 6147.670030593872,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test622",
+      "query": "who plays the genie in aladdin the musical",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The genie in Aladdin the Musical is played by actor John DiMaggio.",
+          "context_length": 0,
+          "latency_ms": 1668.8189506530762,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Genie in Aladdin the musical is played by Jasmine.",
+          "context_length": 95,
+          "latency_ms": 1682.9559803009033,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Genie in Aladdin the musical is played by Jasmine.",
+          "context_length": 173,
+          "latency_ms": 1959.468126296997,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Will Smith plays the genie in Aladdin the musical.",
+          "context_length": 421,
+          "latency_ms": 1856.0030460357666,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "American actor Michael James Scott plays the role of Genie in the original Australian production of Aladdin the musical.",
+          "context_length": 1314,
+          "latency_ms": 3200.685977935791,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "American actor Michael James Scott plays the role of Genie in the original Australian production and also in the Broadway musical adaptation.",
+          "context_length": 1434,
+          "latency_ms": 2985.402822494507,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "American actor Michael James Scott plays the role of Genie in the original Australian production and also in the Broadway musical adaptation.",
+          "context_length": 1892,
+          "latency_ms": 3101.0289192199707,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "American actress Arielle Jacobs plays the role of Genie in the original Australian production and in the Broadway musical adaptation.",
+          "context_length": 4384,
+          "latency_ms": 4696.355104446411,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test623",
+      "query": "how long were the pyramids the tallest structure",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The statement is not provided in the context given.",
+          "context_length": 0,
+          "latency_ms": 1271.7161178588867,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Great Pyramid was the tallest man-made structure for over 3,800 years.",
+          "context_length": 144,
+          "latency_ms": 1627.2659301757812,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Great Pyramid of Giza was the tallest man-made structure in the world for over 3,800 years.",
+          "context_length": 749,
+          "latency_ms": 2264.1208171844482,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Great Pyramid of Giza was the tallest man-made structure in the world for over 3,800 years.",
+          "context_length": 1442,
+          "latency_ms": 2762.606143951416,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Great Pyramid of Giza was the tallest man-made structure in the world for over 3,800 years.",
+          "context_length": 2364,
+          "latency_ms": 3259.183883666992,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Great Pyramid of Giza was the tallest man-made structure in the world for over 3,800 years.",
+          "context_length": 2901,
+          "latency_ms": 3564.0408992767334,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Great Pyramid of Giza was the tallest man-made structure in the world for over 3,800 years.",
+          "context_length": 3346,
+          "latency_ms": 4019.8309421539307,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Great Pyramid of Giza was the tallest man-made structure in the world for over 3,800 years.",
+          "context_length": 5420,
+          "latency_ms": 4906.219959259033,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test624",
+      "query": "which of these mountain ranges in india's longest railway tunnel constructed",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The Himalayas mountain range, specifically the Darbari Tunnel in Darbari district of Himachal Pradesh, is associated with India's longest railway tunnel. However, the question asks for a mountain range, not a specific tunnel. I cannot answer without specifying a mountain range.",
+          "context_length": 0,
+          "latency_ms": 3991.635799407959,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Pir Panjal Railway Tunnel in the Himalayas, specifically in Jammu & Kashmir.",
+          "context_length": 614,
+          "latency_ms": 1874.7856616973877,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Pir Panjal Range in Jammu and Kashmir is the mountain range where India's longest railway tunnel, the Pir Panjal Railway Tunnel, is constructed, measuring 11.215 kilometers (6.969 miles).",
+          "context_length": 1014,
+          "latency_ms": 3729.292154312134,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Western Ghats and the Pir Panjal Range are mentioned in relation to India's longest railway tunnels. However, the specific mountain range associated with the JUSBRL Project and the Pir Panjal Railway Tunnel is the Pir Panjal Range.",
+          "context_length": 1936,
+          "latency_ms": 4947.143793106079,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Pir Panjal Range in Jammu and Kashmir has India's longest railway tunnel, the Pir Panjal Railway Tunnel, which is 11.215 kilometers long.",
+          "context_length": 2667,
+          "latency_ms": 4109.477996826172,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Western Ghats mountain range in India has the longest railway tunnel constructed, which is the Pir Panjal Railway Tunnel at 11.2 km long.",
+          "context_length": 2980,
+          "latency_ms": 4119.546890258789,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Pir Panjal Range in Jammu and Kashmir has India's longest railway tunnel, the Pir Panjal Railway Tunnel, which is 11.215 kilometers long.",
+          "context_length": 3252,
+          "latency_ms": 4927.335023880005,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Rohtang Pass in the eastern Pir Panjal range of the Himalayas is where the Rohtang Tunnel, which is 8.8 km long, is being built. However, the Rohtang Tunnel is not specifically mentioned in relation to a mountain range in the context of being part of a railway project. The longest railway tunnel mentioned in the context of a mountain range is the Pir Panjal Railway Tunnel, which is 11.215 kilometers long and passes through the Pir Panjal Range in Jammu and Kashmir.",
+          "context_length": 4960,
+          "latency_ms": 11307.292222976685,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test625",
+      "query": "what year did bennie and the jets come out",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Bennie and the Jets came out in 1972.",
+          "context_length": 0,
+          "latency_ms": 1253.972053527832,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Bennie and the Jets came out in 1973.",
+          "context_length": 476,
+          "latency_ms": 1485.2190017700195,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "1973",
+          "context_length": 1293,
+          "latency_ms": 1256.5250396728516,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "1973",
+          "context_length": 1928,
+          "latency_ms": 1509.6793174743652,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "1973",
+          "context_length": 2566,
+          "latency_ms": 1922.7252006530762,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "1973",
+          "context_length": 2942,
+          "latency_ms": 2241.0287857055664,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "1973",
+          "context_length": 3241,
+          "latency_ms": 2305.6721687316895,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Bennie and the Jets first appeared on the Goodbye Yellow Brick Road album in 1973.",
+          "context_length": 4821,
+          "latency_ms": 4694.684743881226,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test626",
+      "query": "who plays rachel on jessie punch dumped love",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not mention Rachel or her role in the movie \"Jessie Punch Dumped Love.\"",
+          "context_length": 0,
+          "latency_ms": 2365.266799926758,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Isabella Palmieri plays Rachel Kapowski on Jessie Punch Dumped Love.",
+          "context_length": 149,
+          "latency_ms": 1687.7517700195312,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Lea Michele plays Rachel Kapowski on Jessie Punch Dumped Love.",
+          "context_length": 503,
+          "latency_ms": 1703.4759521484375,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Lea Michele plays Rachel Kapowski on Jessie Punch Dumped Love.",
+          "context_length": 595,
+          "latency_ms": 1589.7657871246338,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Lea Michele plays Rachel Kapowski in Jessie Punch Dumped Love.",
+          "context_length": 1057,
+          "latency_ms": 1858.4058284759521,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Jackson Odell plays Rachel Kapowski in Jessie Punch Dumped Love.",
+          "context_length": 1381,
+          "latency_ms": 2110.0099086761475,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Lea Michele plays Rachel Kapowski in Jessie's Girl.",
+          "context_length": 2105,
+          "latency_ms": 2143.280267715454,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Cory Monteith plays Rachel Berry in the Disney Channel Original Series Jessie as herself.",
+          "context_length": 5134,
+          "latency_ms": 3901.989221572876,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test627",
+      "query": "how many hoops are used in a game of croquet",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "A standard game of croquet uses 7 hoops.",
+          "context_length": 0,
+          "latency_ms": 1013.6990547180176,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Six hoops are used in a game of croquet.",
+          "context_length": 413,
+          "latency_ms": 1355.496883392334,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Six hoops are used in a game of croquet.",
+          "context_length": 644,
+          "latency_ms": 1254.4810771942139,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Six hoops are used in a game of croquet.",
+          "context_length": 980,
+          "latency_ms": 1755.6438446044922,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Six hoops are used in a game of croquet.",
+          "context_length": 1159,
+          "latency_ms": 1665.0938987731934,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Six hoops are used in a game of croquet.",
+          "context_length": 1462,
+          "latency_ms": 2025.7830619812012,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Six hoops are used in a game of croquet.",
+          "context_length": 2011,
+          "latency_ms": 2195.9657669067383,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Six hoops are used in a game of croquet.",
+          "context_length": 3784,
+          "latency_ms": 3102.108955383301,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test628",
+      "query": "who starred in the movie romancing the stone",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The movie 'Romancing the Stone' starred John Lithgow and Jennifer Grey.",
+          "context_length": 0,
+          "latency_ms": 1259.7341537475586,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Michael Douglas, Kathleen Turner, and Danny DeVito starred in the movie Romancing the Stone.",
+          "context_length": 297,
+          "latency_ms": 1659.4328880310059,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Michael Douglas, Kathleen Turner, and Danny DeVito starred in the movie Romancing the Stone.",
+          "context_length": 520,
+          "latency_ms": 1870.30029296875,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Michael Douglas, Kathleen Turner, and Danny DeVito starred in the movie Romancing the Stone.",
+          "context_length": 1334,
+          "latency_ms": 2199.193000793457,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Michael Douglas, Kathleen Turner, and Danny DeVito starred in the movie Romancing the Stone.",
+          "context_length": 1564,
+          "latency_ms": 2460.142135620117,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Michael Douglas, Kathleen Turner, and Danny DeVito starred in the movie Romancing the Stone.",
+          "context_length": 1898,
+          "latency_ms": 2962.712049484253,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Michael Douglas, Kathleen Turner, and Danny DeVito starred in the movie Romancing the Stone.",
+          "context_length": 2020,
+          "latency_ms": 2983.301877975464,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Michael Douglas, Kathleen Turner, and Danny DeVito starred in Romancing the Stone.",
+          "context_length": 3229,
+          "latency_ms": 3572.3800659179688,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test629",
+      "query": "two days after the day after tomorrow south park",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The answer is not provided in the context. The phrase \"two days after the day after tomorrow\" is ambiguous and does not directly relate to a movie title or plot. I cannot determine the specific reference without additional context.",
+          "context_length": 0,
+          "latency_ms": 2962.6388549804688,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The answer is not provided in the context. The context only gives information about the episode \"Two Days Before the Day After Tomorrow\" in South Park, but does not mention events occurring two days after the day after tomorrow.",
+          "context_length": 415,
+          "latency_ms": 2971.0679054260254,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The episode \"Two Days Before the Day After Tomorrow South Park\" is the eighth episode in the ninth season of the show, originally aired on October 19, 2005. It parodies the 2004 film \"The Day After Tomorrow\" and responds to Hurricane Katrina.",
+          "context_length": 766,
+          "latency_ms": 3951.349973678589,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The episode \"Two Days Before the Day After Tomorrow\" takes place two days after the catastrophic event in the film The Day After Tomorrow, where the town of Beaverton is destroyed due to a dam collapse. In South Park, the declaration of scientists causing mass hysteria and people fleeing \"global warming\" leads to a crowd gathering at the community center. Randy argues that global warming is causing an ice age, which would be fatal if they were to leave.",
+          "context_length": 1089,
+          "latency_ms": 6959.595680236816,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The episode \"Two Days Before the Day After Tomorrow\" parodies the 2004 film The Day After Tomorrow and general responses to Hurricane Katrina, including references to Stan calling his father on the phone as he witnesses rising water levels and a final scene where everyone says \"I broke the dam,\" similar to Spartacus.",
+          "context_length": 1731,
+          "latency_ms": 4961.606979370117,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The episode \"Two Days Before the Day After Tomorrow\" features Nurse Gollum's last appearance in a minor cameo, and her reference to the date October 19th is a nod to the episode's air date.",
+          "context_length": 2231,
+          "latency_ms": 4009.4962120056152,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The episode \"Two Days Before the Day After Tomorrow\" in South Park refers to the scenario where the disaster caused by Stan and Cartman's dam destruction occurs two days before the expected \"day after tomorrow.\" This is referenced in the context of mass hysteria and blame-shifting following the disaster, as well as a scene where Stan calls his father on the phone while the water level rises, paralleling a similar scene in The Day After Tomorrow where Sam calls his father to outlast the cold.",
+          "context_length": 2899,
+          "latency_ms": 8324.26118850708,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The episode \"Two Days Before the Day After Tomorrow\" in South Park parodies the 2004 film The Day After Tomorrow, depicting a scenario where the disaster occurs two days before the expected day after tomorrow. The town of Beaverton is destroyed by a dam collapse, and the characters react to this catastrophic event in humorous ways.",
+          "context_length": 4310,
+          "latency_ms": 6646.924018859863,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test630",
+      "query": "who founded amazon where is the headquarters of amazon",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Amazon was founded by Jeff Bezos. The headquarters of Amazon is in Seattle, Washington.",
+          "context_length": 0,
+          "latency_ms": 1632.3809623718262,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer. The context provided does not mention the founder of Amazon or specify the location of its headquarters.",
+          "context_length": 168,
+          "latency_ms": 1747.671127319336,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Amazon was founded by Jeff Bezos in 1994. The headquarters of Amazon is located in the South Lake Union neighborhood of Seattle, Washington.",
+          "context_length": 709,
+          "latency_ms": 2348.8588333129883,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Amazon was founded by Jeff Bezos in 1994 in Bellevue, Washington. The headquarters of Amazon is located in the South Lake Union neighborhood of Seattle.",
+          "context_length": 913,
+          "latency_ms": 2623.866081237793,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Amazon was founded by Jeff Bezos in Bellevue, Washington. The headquarters of Amazon is located in the South Lake Union neighborhood of Seattle.",
+          "context_length": 1029,
+          "latency_ms": 2545.3639030456543,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Amazon was founded by Jeff Bezos in 1994 in Bellevue, Washington. The headquarters of Amazon is located in Seattle's South Lake Union neighborhood.",
+          "context_length": 1471,
+          "latency_ms": 3001.711845397949,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Amazon.com was founded by Jeff Bezos in 1994 in Bellevue, Washington. The headquarters of Amazon is in Seattle's South Lake Union neighborhood.",
+          "context_length": 1917,
+          "latency_ms": 3286.947727203369,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Amazon.com was founded by Jeff Bezos in Bellevue, Washington. The headquarters of Amazon is in Seattle, Washington.",
+          "context_length": 2936,
+          "latency_ms": 3449.2223262786865,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test631",
+      "query": "when was the last time mount etna exploded",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Mount Etna last erupted in 2021.",
+          "context_length": 0,
+          "latency_ms": 1116.7287826538086,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The last eruption of Mount Etna occurred on 16 March 2017.",
+          "context_length": 162,
+          "latency_ms": 1576.2150287628174,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The last time Mount Etna exploded was on the morning of 13 May 2008.",
+          "context_length": 906,
+          "latency_ms": 1967.1907424926758,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The last time Mount Etna exploded was on 16 March 2017.",
+          "context_length": 1065,
+          "latency_ms": 1928.1129837036133,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The last eruption of Mount Etna mentioned in the context occurred on 13 May 2008.",
+          "context_length": 1379,
+          "latency_ms": 2122.6749420166016,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The last time Mount Etna exploded was in 2001, following six years of unusually intense activity.",
+          "context_length": 2168,
+          "latency_ms": 2665.5449867248535,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The last time Mount Etna exploded was in 2001, according to Document 4.",
+          "context_length": 2469,
+          "latency_ms": 2872.907876968384,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The last time Mount Etna exploded was on 11 March 1669.",
+          "context_length": 6370,
+          "latency_ms": 4469.19584274292,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test632",
+      "query": "do i have to sign a police caution",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer without more context. Generally, you may need to sign a police caution if you've been involved in a traffic violation or other minor offense, but this isn't guaranteed. It depends on the specific circumstances and local laws.",
+          "context_length": 0,
+          "latency_ms": 2967.2939777374268,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 315,
+          "latency_ms": 598.397970199585,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Yes, you must sign a police caution form that explains the consequences in considerable detail.",
+          "context_length": 596,
+          "latency_ms": 1630.525827407837,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "No, you do not need to sign a police caution. However, it's important to understand the implications and consequences as outlined in the Home Office circular from 2008.",
+          "context_length": 797,
+          "latency_ms": 2807.9710006713867,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "No, you do not have to sign a police caution. It is a discretionary procedure adopted by the police under Home Office guidance, and you can refuse it.",
+          "context_length": 963,
+          "latency_ms": 2817.640781402588,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Yes, you must sign a police caution form that explains the consequences in considerable detail.",
+          "context_length": 1115,
+          "latency_ms": 1921.5898513793945,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "No, you do not have to sign a police caution.",
+          "context_length": 1374,
+          "latency_ms": 1751.6207695007324,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "No, you do not have to sign a police caution.",
+          "context_length": 2032,
+          "latency_ms": 2107.1107387542725,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test633",
+      "query": "how many kashmiri pandits were killed in kashmir",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The exact number of Kashmiri Pandits killed in Kashmir is disputed and not definitively known, as it involves sensitive historical and political issues.",
+          "context_length": 0,
+          "latency_ms": 2188.606023788452,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "According to the document, 399 Kashmiri Pandits were killed by insurgents from 1990 to 2011, with 75% of them being killed during the first year of the Kashmiri insurgency. Additionally, Kashmiri Pandit Sangharsh Samiti estimates 357 pandits were killed in Kashmir in 1990. However, the total number of Kashmiri Pandits killed over the last 20 years is stated as approximately 650. The exact number for the entire period from 1990 to 2011 is not specified, but it's implied to be higher than 399 due to the additional estimates. Therefore, a precise answer is not provided in the context, but we can infer that at least 399 were killed during the first year and around 650 over the last 20 years.",
+          "context_length": 509,
+          "latency_ms": 10627.120733261108,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "According to the provided context, 399 Kashmiri Pandits were killed by insurgents from 1990 to 2011, and estimates by the Kashmiri Pandit Sangharsh Samiti indicate that 357 pandits were killed in Kashmir in 1990. However, the question asks for a total number, and the context mentions both figures. The most direct answer from the context is 399 Kashmiri Pandits killed by insurgents between 1990 and 2011. The estimate of 357 from the Sangharsh Samiti is also relevant, but without a clear timeframe, it's difficult to provide an exact total. Given the context's emphasis on insurgents from 1990 to 2011, we can infer that the total could be around 399, but it's not explicitly stated. The question might imply a need for a combined figure, but based strictly on the provided context, 399 is the most accurate answer.",
+          "context_length": 1563,
+          "latency_ms": 13393.850803375244,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "According to the provided documents, Kashmiri Pandits were killed in various incidents between September 1989 to 1990 and early 1990. Specifically, 300 Kashmiri Pandits were killed between September 1989 to 1990, and in early 1990, local Urdu newspapers ordered the expulsion of all Hindus choosing to remain in Kashmir, resulting in approximately 399 Kashmiri Pandits being killed. However, the total number of killings by insurgents from 1990 to 2011 is reported as 357, and the total number of Pandits killed in the last 20 years is around 650. The exact number from the early 1990s is not specified, but it's clear that the total number of Kashmiri Pandits killed over these periods is significant.",
+          "context_length": 2121,
+          "latency_ms": 11359.211921691895,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "According to the documents, 399 Kashmiri Pandits were killed by insurgents from 1990 to 2011, with estimates of 357 pandits killed in Kashmir in 1990. However, the document also mentions that Kashmiri Pandit Sangharsh Samiti claims 399 Kashmiri Pandits were killed by insurgents. Additionally, reports by the Indian government state 219 Kashmiri Pandits were killed and around 140,000 migrated due to militancy. Therefore, the total number of Kashmiri Pandits killed in Kashmir is likely higher than 399, considering the estimates and reports from different sources. However, a precise figure is not provided in the documents.",
+          "context_length": 2430,
+          "latency_ms": 9934.1139793396,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "According to the documents, approximately 399 Kashmiri Pandits were killed by insurgents from 1990 to 2011, and Kashmiri Pandit Sangharsh Samiti estimates 357 pandits were killed in Kashmir in 1990. However, the total number of Kashmiri Pandits killed is not explicitly stated in the documents provided. The documents mention incidents and estimates but do not provide a comprehensive total number of deaths across the entire period.",
+          "context_length": 2935,
+          "latency_ms": 7261.866807937622,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "According to the documents, approximately 399 Kashmiri Pandits were killed by insurgents from 1990 to 2011, and Kashmiri Pandit Sangharsh Samiti estimates 357 pandits were killed in Kashmir in 1990. However, the total number of Kashmiri Pandits killed is not explicitly stated in the documents provided.",
+          "context_length": 3249,
+          "latency_ms": 6314.00203704834,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "According to the provided context, between 399 Kashmiri Pandits were killed by insurgents from 1990 to 2011, with 75% of them being killed during the first year of the Kashmiri insurgency. Additionally, Kashmiri Pandit Sangharsh Samiti estimates 357 pandits were killed in Kashmir in 1990. However, the total number of Pandits killed over the last 20 years is not explicitly stated in the context. The context mentions 650 Pandits murdered by militants in the last 20 years, but does not provide a specific breakdown for the period from 1990 to 2011. Therefore, based solely on the given context, we can only confirm that approximately 399 Kashmiri Pandits were killed between 1990 and 2011, with an additional estimate of 357 in 1990. The total number for the last 20 years cannot be accurately determined from the provided information.",
+          "context_length": 5927,
+          "latency_ms": 15480.349063873291,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test634",
+      "query": "when did ford change the f150 body style",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Ford changed the F150 body style in 2013.",
+          "context_length": 0,
+          "latency_ms": 1057.3251247406006,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Ford changed the F-250 HD body style during the second half of 1997, but not the F-150 body style. The F-250 HD's body style remained the same until the end of 1997.",
+          "context_length": 729,
+          "latency_ms": 3361.8407249450684,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Ford changed the F-250 HD and F-350 body style in the second half of 1997, but the Fusion became the new body style for Ford automobiles in NASCAR starting in 2006.",
+          "context_length": 1033,
+          "latency_ms": 3478.2493114471436,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Ford changed the F-150 body style in the second half of 1997, with the F-250 HD and F-350 having their classic style tailgates replaced by stainless steel caps with the nameplate labeled on them. However, the F-150 body style itself remained unchanged until the end of 1997.",
+          "context_length": 1684,
+          "latency_ms": 5252.630949020386,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Ford changed the F-150 body style in 1980 with an all-new chassis and larger body.",
+          "context_length": 2196,
+          "latency_ms": 2900.6471633911133,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Ford changed the F-150 body style in 2015, introducing the thirteenth-generation F-150 while maintaining its original dimensions for fuel economy.",
+          "context_length": 2776,
+          "latency_ms": 3490.078926086426,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Ford changed the F-150 body style in 2015, introducing the thirteenth-generation F-150 with a redesigned exterior focusing on fuel economy and durability.",
+          "context_length": 3066,
+          "latency_ms": 3925.6696701049805,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Ford changed the F-150 body style in 2013 with the introduction of the Generation 6 body design.",
+          "context_length": 4652,
+          "latency_ms": 4277.324199676514,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test635",
+      "query": "an open-source clone of unix created in the early 1990s",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "NetBSD is an open-source clone of Unix created in the early 1990s.",
+          "context_length": 0,
+          "latency_ms": 1418.8201427459717,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Austin Group, formed starting in 1998 by the Open Group and IEEE, aimed to provide a common definition of POSIX and the Single UNIX Specification, which later became the Open Group Base Specification. This effort was not an open-source clone but rather a standardization initiative. However, the context does mention the Single UNIX Specification (SUS), which is related to Unix.",
+          "context_length": 746,
+          "latency_ms": 5750.0269412994385,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "A separate but very similar effort to Unix, the Common Open Software Environment (COSE) initiative, which eventually became the Single UNIX Specification (SUS), started in the early 1990s. However, an open-source clone of Unix specifically created during this period is not explicitly mentioned in the provided context.",
+          "context_length": 967,
+          "latency_ms": 4906.430006027222,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "MINIX is an open-source clone of Unix created in the early 1990s.",
+          "context_length": 1420,
+          "latency_ms": 2020.7111835479736,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "MINIX is an open-source clone of Unix created in the early 1990s.",
+          "context_length": 1983,
+          "latency_ms": 2225.5029678344727,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "MINIX is an open-source clone of Unix created in the early 1990s.",
+          "context_length": 2326,
+          "latency_ms": 2500.465154647827,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "MINIX",
+          "context_length": 2824,
+          "latency_ms": 1786.454200744629,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "GNU/Linux, a free and open-source Unix-like operating system, was created in the early 1990s.",
+          "context_length": 5707,
+          "latency_ms": 4792.953968048096,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test636",
+      "query": "information about the song imagine by john lennon",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The song \"Imagine\" by John Lennon is about a vision of a world without borders, religions, or possessions. It encourages listeners to dream of a peaceful and unified world.",
+          "context_length": 0,
+          "latency_ms": 2501.129388809204,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The song \"Imagine\" by John Lennon encourages envisioning a world at peace without borders, religion, or nationality, and suggests that humanity could live without material possessions.",
+          "context_length": 403,
+          "latency_ms": 2483.80708694458,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The song \"Imagine\" by John Lennon encourages a world at peace without barriers of borders or religious and national divisions, and it envisions humanity living without material possessions. It was written and performed by John Lennon, with his earliest known live recording at the Apollo Theater in Harlem in December 1971. The song was later included on the John Lennon Anthology in 1998.",
+          "context_length": 789,
+          "latency_ms": 5545.057058334351,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The song \"Imagine\" by John Lennon encourages a world at peace without barriers of borders, religion, and nationality. It was written and performed by John Lennon, with Yoko Ono as a co-author. The earliest known live recording was made in December 1971 at the Apollo Theater in Harlem, and it was later included on the John Lennon Anthology. The song was performed live during his final public performance in 1975.",
+          "context_length": 984,
+          "latency_ms": 6969.254970550537,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The song \"Imagine\" by John Lennon encourages a world at peace without barriers and divisions, promoting unattachedness to material possessions. It was written and performed by John Lennon. The song has been recognized for its cultural impact, including a Centennial Song Award in 2017 by the National Music Publishers Association, acknowledging Yoko Ono as a co-author. However, shipment figures based on certification alone are not provided in the context.",
+          "context_length": 1073,
+          "latency_ms": 5988.940954208374,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The song \"Imagine\" by John Lennon encourages envisioning a world at peace without barriers, material possessions, or religious and national divisions. It was written and performed by Lennon, became a best-selling single, and has been recognized for its impact on peace movements. The song was performed live at the Apollo Theater in 1971 and later included in his Anthology. It was awarded a Centennial Song Award in 2017 by the National Music Publishers Association, acknowledging Yoko Ono's co-authorship. Despite its significance, it was included on Clear Channel Communications' post-9/11 \"do not play\" list.",
+          "context_length": 1624,
+          "latency_ms": 8972.22876548767,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The song \"Imagine\" by John Lennon encourages listeners to envision a world at peace without barriers of borders, religion, and nationality. It promotes the idea that humanity could live without material possessions. The song was written and performed by Lennon, became the best-selling single of his solo career, and has been recognized for its enduring impact, being awarded a Centennial Song Award in 2017. It has been performed at significant events like the Apollo Theater's Harlem performance and the unveiling of the John Lennon Peace Monument. Despite its powerful message, it was included on Clear Channel Communications' post-9/11 \"do not play\" list. Rolling Stone ranked it number three on its list of \"The 500 Greatest Songs of All Time.\"",
+          "context_length": 2576,
+          "latency_ms": 10886.494159698486,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "\"Imagine\" is a song by John Lennon, written and performed by him. It encourages envisioning a world at peace without barriers of borders or divisions, and it was released as a single in the United States in 1971. The song has been featured in various contexts, including the closing ceremony of the 2012 Summer Olympics, and it has sold over 1.6 million copies in the UK. The lyrics promote unity and detachment from material possessions, reflecting Lennon's ideals of peace and equality.",
+          "context_length": 5396,
+          "latency_ms": 9057.708740234375,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test637",
+      "query": "where are the first nations located in canada",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "First Nations in Canada are located across the country, but they are primarily found in the northern regions, particularly in the territories of Nunavut, Yukon, and Northwest Territories. I cannot answer without specifying regions within these territories.",
+          "context_length": 0,
+          "latency_ms": 3138.291120529175,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "First Nations are located south of the Arctic in Canada.",
+          "context_length": 513,
+          "latency_ms": 1238.2230758666992,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "First Nations are predominantly located south of the Arctic in Canada.",
+          "context_length": 1078,
+          "latency_ms": 1295.9160804748535,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "First Nations are predominantly located south of the Arctic in Canada. Those in the Arctic area are distinct and known as Inuit.",
+          "context_length": 1331,
+          "latency_ms": 2369.7757720947266,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "First Nations are predominantly located south of the Arctic in Canada. Those in the Arctic area are distinct and known as Inuit.",
+          "context_length": 1505,
+          "latency_ms": 2440.5529499053955,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "First Nations are predominantly located south of the Arctic in Canada. Those in the Arctic area are distinct and known as Inuit.",
+          "context_length": 1687,
+          "latency_ms": 2740.593910217285,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "First Nations are predominantly located south of the Arctic in Canada.",
+          "context_length": 1794,
+          "latency_ms": 1666.6109561920166,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "First Nations are predominantly located south of the Arctic in Canada.",
+          "context_length": 4220,
+          "latency_ms": 2650.845766067505,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test638",
+      "query": "who discovered the great red spot on jupiter",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The discovery of the Great Red Spot on Jupiter is attributed to Giovanni Cassini in 1665, not a later discovery by another individual. However, the question as posed does not provide context about Cassini's work or the Great Red Spot's discovery.",
+          "context_length": 0,
+          "latency_ms": 3418.1981086730957,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Robert Hooke and Cassini may have observed the Great Red Spot as early as 1664, but Heinrich Schwabe produced the earliest known drawing to show details of the Great Red Spot in 1831.",
+          "context_length": 338,
+          "latency_ms": 2974.6501445770264,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Robert Hooke and Cassini may have observed the Great Red Spot as early as 1664 and 1665, respectively, but Heinrich Schwabe produced the earliest known drawing in 1831.",
+          "context_length": 834,
+          "latency_ms": 3233.7000370025635,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Robert Hooke and Cassini may have observed the Great Red Spot as early as 1664, but Heinrich Schwabe produced the earliest known drawing to show details of the Great Red Spot in 1831. However, the first recorded observation is attributed to Robert Hooke and possibly Cassini, though this is disputed.",
+          "context_length": 1709,
+          "latency_ms": 4706.269979476929,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Heinrich Schwabe produced the earliest known drawing to show details of the Great Red Spot in 1831.",
+          "context_length": 2306,
+          "latency_ms": 2974.601984024048,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Heinrich Schwabe produced the earliest known drawing to show details of the Great Red Spot in 1831.",
+          "context_length": 2772,
+          "latency_ms": 3106.236219406128,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Heinrich Schwabe produced the earliest known drawing to show details of the Great Red Spot in 1831.",
+          "context_length": 3206,
+          "latency_ms": 3046.7159748077393,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Robert Hooke and Cassini observed the Great Red Spot as early as 1664, but the earliest known drawing showing details of the Great Red Spot was produced by Heinrich Schwabe in 1831.",
+          "context_length": 4563,
+          "latency_ms": 4806.878328323364,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test639",
+      "query": "what is the origin of the name robinson",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The origin of the name 'Robinson' is not specified in the provided context.",
+          "context_length": 0,
+          "latency_ms": 1448.716163635254,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The name Robinson originates from England as an English language patronymic surname meaning \"son of Robin (a diminutive of Robert).\"",
+          "context_length": 458,
+          "latency_ms": 2010.1642608642578,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The name Robinson originates from England as an English language patronymic surname meaning \"son of Robin (a diminutive of Robert).\"",
+          "context_length": 639,
+          "latency_ms": 2059.016227722168,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The name Robinson originates from England as an English language patronymic surname meaning \"son of Robin,\" a diminutive of Robert.",
+          "context_length": 925,
+          "latency_ms": 2248.188018798828,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The name Robinson originates from England as an English language patronymic surname meaning \"son of Robin,\" a diminutive of Robert. It is the 15th most common surname in the United Kingdom.",
+          "context_length": 1231,
+          "latency_ms": 3055.525064468384,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The name Robinson originates from England as an English language patronymic surname meaning \"son of Robin (a diminutive of Robert).\" It is also a rare given name and its derivative, Robin, can be used as both masculine and feminine names.",
+          "context_length": 1680,
+          "latency_ms": 4026.4530181884766,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The name Robinson originates from England as an English language patronymic surname meaning \"son of Robin,\" a diminutive of Robert. It is the 15th most common surname in the United Kingdom. The name can also be an Anglicization of Jewish surnames like Rabinowitz and Rubinstein.",
+          "context_length": 2474,
+          "latency_ms": 5051.286935806274,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Robinson is an English language patronymic surname, originating in England meaning \"son of Robin (a diminutive of Robert).\"",
+          "context_length": 4547,
+          "latency_ms": 3809.316873550415,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
     }
   ],
   "config": {
@@ -52218,5 +55698,5 @@
     ],
     "run_path": "data/nq/fused/wrrf_rsd.res"
   },
-  "last_updated": "2025-12-04 10:26:16"
+  "last_updated": "2025-12-04 10:43:55"
 }

@@ -12,8 +12,10 @@
     "test306",
     "test453",
     "test436",
+    "test615",
     "test319",
     "test38",
+    "test588",
     "test132",
     "test522",
     "test155",
@@ -39,6 +41,7 @@
     "test496",
     "test287",
     "test462",
+    "test581",
     "test534",
     "test488",
     "test137",
@@ -65,11 +68,13 @@
     "test177",
     "test191",
     "test31",
+    "test603",
     "test160",
     "test308",
     "test101",
     "test143",
     "test537",
+    "test612",
     "test162",
     "test253",
     "test288",
@@ -87,6 +92,7 @@
     "test384",
     "test410",
     "test349",
+    "test582",
     "test78",
     "test415",
     "test231",
@@ -153,6 +159,7 @@
     "test370",
     "test572",
     "test471",
+    "test599",
     "test335",
     "test543",
     "test440",
@@ -174,17 +181,22 @@
     "test285",
     "test501",
     "test518",
+    "test590",
     "test475",
     "test480",
     "test499",
     "test176",
     "test437",
     "test67",
+    "test611",
     "test561",
+    "test591",
     "test58",
     "test467",
     "test281",
+    "test585",
     "test92",
+    "test610",
     "test12",
     "test380",
     "test128",
@@ -197,6 +209,7 @@
     "test507",
     "test418",
     "test554",
+    "test608",
     "test21",
     "test95",
     "test124",
@@ -205,6 +218,8 @@
     "test17",
     "test46",
     "test153",
+    "test607",
+    "test606",
     "test502",
     "test428",
     "test442",
@@ -214,11 +229,13 @@
     "test343",
     "test88",
     "test282",
+    "test586",
     "test150",
     "test237",
     "test138",
     "test157",
     "test564",
+    "test617",
     "test503",
     "test336",
     "test540",
@@ -238,6 +255,7 @@
     "test183",
     "test233",
     "test516",
+    "test594",
     "test408",
     "test413",
     "test81",
@@ -261,6 +279,8 @@
     "test29",
     "test286",
     "test432",
+    "test604",
+    "test605",
     "test8",
     "test381",
     "test200",
@@ -268,6 +288,7 @@
     "test173",
     "test51",
     "test360",
+    "test589",
     "test377",
     "test325",
     "test215",
@@ -282,10 +303,13 @@
     "test332",
     "test536",
     "test456",
+    "test596",
     "test479",
     "test378",
+    "test595",
     "test18",
     "test513",
+    "test583",
     "test382",
     "test527",
     "test276",
@@ -300,6 +324,7 @@
     "test86",
     "test459",
     "test570",
+    "test602",
     "test532",
     "test327",
     "test49",
@@ -307,6 +332,7 @@
     "test117",
     "test136",
     "test41",
+    "test587",
     "test425",
     "test90",
     "test387",
@@ -323,6 +349,7 @@
     "test457",
     "test373",
     "test500",
+    "test619",
     "test165",
     "test199",
     "test11",
@@ -383,6 +410,7 @@
     "test450",
     "test446",
     "test409",
+    "test618",
     "test562",
     "test371",
     "test369",
@@ -390,6 +418,7 @@
     "test154",
     "test284",
     "test401",
+    "test597",
     "test145",
     "test365",
     "test262",
@@ -424,10 +453,13 @@
     "test491",
     "test273",
     "test252",
+    "test592",
+    "test616",
     "test170",
     "test366",
     "test578",
     "test385",
+    "test609",
     "test364",
     "test473",
     "test295",
@@ -443,6 +475,7 @@
     "test196",
     "test316",
     "test465",
+    "test601",
     "test167",
     "test188",
     "test315",
@@ -459,6 +492,7 @@
     "test538",
     "test383",
     "test14",
+    "test593",
     "test574",
     "test458",
     "test509",
@@ -467,6 +501,7 @@
     "test269",
     "test416",
     "test36",
+    "test580",
     "test272",
     "test346",
     "test35",
@@ -486,6 +521,7 @@
     "test123",
     "test59",
     "test193",
+    "test598",
     "test358",
     "test485",
     "test525",
@@ -493,6 +529,7 @@
     "test134",
     "test146",
     "test510",
+    "test600",
     "test121",
     "test280",
     "test476",
@@ -511,6 +548,9 @@
     "test361",
     "test444",
     "test542",
+    "test614",
+    "test584",
+    "test613",
     "test292",
     "test222",
     "test305",
@@ -50461,6 +50501,3446 @@
           "has_relevant": true
         }
       }
+    },
+    {
+      "qid": "test580",
+      "query": "when was the last time the jets won a playoff game",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not contain information about when the jets won a playoff game.",
+          "context_length": 0,
+          "latency_ms": 1434.7360134124756,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The last time the Jets won a playoff game was in 2010.",
+          "context_length": 92,
+          "latency_ms": 1324.7265815734863,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The last time the Jets won a playoff game was on April 11, 2018, when they defeated the Minnesota Wild 3\u20132.",
+          "context_length": 1544,
+          "latency_ms": 3042.3521995544434,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The last time the Jets won a playoff game was on April 11, 2018, when they defeated the Minnesota Wild 3\u20132.",
+          "context_length": 2193,
+          "latency_ms": 3818.89009475708,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The last time the Jets won a playoff game was on April 11, 2018, when they defeated the Minnesota Wild 3\u20132.",
+          "context_length": 2994,
+          "latency_ms": 4051.0218143463135,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The last time the Jets won a playoff game was on April 11, 2018, when they defeated the Minnesota Wild 3\u20132.",
+          "context_length": 4008,
+          "latency_ms": 4483.074903488159,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The last time the Jets won a playoff game was on April 11, 2018, when they defeated the Minnesota Wild 3\u20132.",
+          "context_length": 4830,
+          "latency_ms": 4657.368898391724,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The last time the Jets won a playoff game was on April 11, 2018, when they defeated the Minnesota Wild 3\u20132.",
+          "context_length": 9636,
+          "latency_ms": 7308.167219161987,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test581",
+      "query": "what were rough riders in the spanish american war",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Rough riders were irregular cavalry units in the Spanish-American War, often composed of local militia or individuals with no formal military training. They were known for their rough tactics and were used to harass and intimidate enemy forces.",
+          "context_length": 0,
+          "latency_ms": 2930.1600456237793,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Rough Riders were a volunteer cavalry regiment in the United States Army during the Spanish-American War, known for their bravery and distinctive uniforms.",
+          "context_length": 46,
+          "latency_ms": 2213.3967876434326,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Rough Riders were a notable cavalry unit in the Spanish\u2013American War, consisting mainly of officers who used horses despite limited space on ships. Those not used by officers were employed to pull equipment.",
+          "context_length": 340,
+          "latency_ms": 2803.356885910034,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Rough Riders were a notable cavalry unit in the Spanish\u2013American War, specifically the 1st United States Volunteer Cavalry. Although only officers used horses due to space constraints, they were part of the three cavalry regiments raised for the war. They saw action and were the only one to fight in combat, despite being understaffed compared to their Civil War predecessor.",
+          "context_length": 1061,
+          "latency_ms": 5641.288757324219,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Rough Riders were a notable cavalry unit in the Spanish\u2013American War, specifically the 1st United States Volunteer Cavalry. Although only officers used horses due to space constraints, they were involved in forming a constricting ring around Santiago de Cuba and played a key role in capturing the San Juan Heights.",
+          "context_length": 1986,
+          "latency_ms": 5197.105169296265,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Rough Riders were a notable cavalry unit in the Spanish\u2013American War, although only officers used horses due to space constraints on the ship. They were part of the 1st United States Volunteer Cavalry, one of three such regiments raised for the war and the only one to see action. Despite being a cavalry unit, they often fought on foot as infantry due to their limited numbers and resources.",
+          "context_length": 2712,
+          "latency_ms": 6431.910991668701,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Rough Riders were a notable cavalry unit in the Spanish\u2013American War, although only officers used horses due to space constraints on ships. They were part of the 1st United States Volunteer Cavalry, one of three such regiments raised for the war and the only one to see action. They played a key role in forming a constricting ring around Santiago de Cuba and later helped capture the San Juan Heights.",
+          "context_length": 3613,
+          "latency_ms": 7348.509311676025,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Rough Riders were a notable cavalry unit in the Spanish\u2013American War, consisting of the 1st United States Volunteer Cavalry. Although only officers used horses due to space constraints, they were involved in the conflict and played a key role in battles such as the Battle of San Juan Hill.",
+          "context_length": 6043,
+          "latency_ms": 6775.391340255737,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test582",
+      "query": "colby chees is named after a town in what state",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Colby Chees is named after a town in Minnesota.",
+          "context_length": 0,
+          "latency_ms": 1124.1350173950195,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Colby cheese is named after the town of Colby, Wisconsin.",
+          "context_length": 555,
+          "latency_ms": 1367.9311275482178,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Colby cheese is named after the town of Colby in Wisconsin.",
+          "context_length": 645,
+          "latency_ms": 1606.8189144134521,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Colby cheese is named after the town of Colby in Wisconsin.",
+          "context_length": 1062,
+          "latency_ms": 1818.6559677124023,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Colby cheese is named after the town of Colby in Wisconsin.",
+          "context_length": 1793,
+          "latency_ms": 2098.598003387451,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Colby cheese is named after the town of Colby in Wisconsin.",
+          "context_length": 1928,
+          "latency_ms": 2157.6592922210693,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Colby cheese is named after the town of Colby, Wisconsin.",
+          "context_length": 2638,
+          "latency_ms": 2498.4500408172607,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Colby cheese is named after the village of Colby, Wisconsin.",
+          "context_length": 4139,
+          "latency_ms": 3458.202838897705,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test583",
+      "query": "where do carpenter ants live in the world",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Carpenter ants live in wood, often in nests made from hollowed-out wood or wood debris.",
+          "context_length": 0,
+          "latency_ms": 1583.1122398376465,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Carpenter ants live both outdoors and indoors in moist, decaying, or hollow wood, commonly in forest environments.",
+          "context_length": 479,
+          "latency_ms": 1965.4250144958496,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Carpenter ants reside both outdoors and indoors in moist, decaying, or hollow wood, most commonly in forest environments.",
+          "context_length": 1298,
+          "latency_ms": 2504.335880279541,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Carpenter ants reside both outdoors and indoors in moist, decaying, or hollow wood, commonly in forest environments.",
+          "context_length": 1460,
+          "latency_ms": 2564.7549629211426,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Carpenter ants reside both outdoors and indoors in moist, decaying, or hollow wood, most commonly in forest environments.",
+          "context_length": 2103,
+          "latency_ms": 3261.190176010132,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Carpenter ants reside both outdoors and indoors in moist, decaying, or hollow wood, most commonly in forest environments. They are found around and under windows, roof eaves, decks, and porches in houses.",
+          "context_length": 2960,
+          "latency_ms": 4542.457818984985,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Carpenter ants reside both outdoors and indoors in moist, decaying, or hollow wood, most commonly in forest environments.",
+          "context_length": 3367,
+          "latency_ms": 3677.518129348755,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Carpenter ants reside both outdoors and indoors in moist, decaying, or hollow wood, most commonly in forest environments.",
+          "context_length": 6444,
+          "latency_ms": 5146.062850952148,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test584",
+      "query": "who devised the fingerprint classification still used today in europe and the us",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The person who devised the fingerprint classification still used today in Europe and the US is Sir Francis Barlow, but he was not the sole inventor. The primary developer is generally considered to be Sir William Henry Chaitow, but the most widely recognized figure is Sir Edward Henry, who developed the Henry classification system in the late 19th century. However, the question seems to imply a single inventor, which might be a simplification.",
+          "context_length": 0,
+          "latency_ms": 6228.306293487549,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Sir Francis Galton devised the fingerprint classification system still used today in Europe and the US.",
+          "context_length": 886,
+          "latency_ms": 1894.639253616333,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Sir Edward Richard Henry and Azizul Haque, along with Hem Chandra Bose, devised the Henry Classification System, which was later improved by Sir Edward Richard Henry. However, the classification system still used today in Europe and the US is largely attributed to Sir Edward Richard Henry's contributions, particularly after its adoption by the United Kingdom Fingerprint Bureau in 1901.",
+          "context_length": 1803,
+          "latency_ms": 6021.455764770508,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Sir Edward Richard Henry co-devised the Henry Classification System with Azizul Haque and Hem Chandra Bose, which is still used today in Europe and the US.",
+          "context_length": 2723,
+          "latency_ms": 3629.333972930908,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Sir Edward Richard Henry and Azizul Haque, along with Hem Chandra Bose, devised the Henry Classification System, which is still used today in Europe and the US.",
+          "context_length": 3486,
+          "latency_ms": 4206.411123275757,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Sir Francis Galton devised the Henry Classification System, which is still used today in Europe and the US.",
+          "context_length": 4576,
+          "latency_ms": 3753.396987915039,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Sir Edward Richard Henry and Azizul Haque, along with Hem Chandra Bose, devised the Henry Classification System, which was later improved by Sir Edward Richard Henry. However, Sir Edward Richard Henry is credited with the primary development and improvement of the system that was eventually accepted in England and Wales, making it the basis for modern-day AFIS classification methods.",
+          "context_length": 5148,
+          "latency_ms": 7176.89323425293,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Sir Edward Richard Henry and Azizul Haque devised the Henry Classification System, which is still used today in Europe and the US.",
+          "context_length": 8736,
+          "latency_ms": 6022.212028503418,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test585",
+      "query": "who plays lady talisa in game of thrones",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Lady Talisa is played by actress Niamh McMahon in Game of Thrones.",
+          "context_length": 0,
+          "latency_ms": 1504.6439170837402,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Oona Chaplin plays Lady Talisa in Game of Thrones.",
+          "context_length": 991,
+          "latency_ms": 1685.9776973724365,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Oona Chaplin plays Lady Talisa in Game of Thrones.",
+          "context_length": 1185,
+          "latency_ms": 1757.0650577545166,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Oona Chaplin plays lady Talisa in Game of Thrones.",
+          "context_length": 2369,
+          "latency_ms": 2357.206106185913,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Oona Chaplin plays Lady Talisa in Game of Thrones.",
+          "context_length": 2634,
+          "latency_ms": 2812.153100967407,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Oona Chaplin plays Lady Talisa in Game of Thrones.",
+          "context_length": 3006,
+          "latency_ms": 2823.0552673339844,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Oona Chaplin plays Lady Talisa in Game of Thrones.",
+          "context_length": 3483,
+          "latency_ms": 3372.628927230835,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Oona Chaplin plays Lady Talisa in Game of Thrones.",
+          "context_length": 5160,
+          "latency_ms": 4409.764051437378,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test586",
+      "query": "who do uk owe the national debt to",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify who UK owes the national debt to.",
+          "context_length": 0,
+          "latency_ms": 1449.383020401001,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The British Government owes the national debt to a wide variety of investors, most notably pension funds.",
+          "context_length": 444,
+          "latency_ms": 1672.1651554107666,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Overseas governments and investors.",
+          "context_length": 687,
+          "latency_ms": 1083.709955215454,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Overseas governments and investors, as well as the British government through the Bank of England's quantitative easing programme, owe the national debt.",
+          "context_length": 1360,
+          "latency_ms": 2638.8800144195557,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Overseas governments and investors, as well as the British government through the Bank of England's Treasury bonds.",
+          "context_length": 2021,
+          "latency_ms": 2859.326124191284,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Overseas governments and investors, as well as a third owned by the British government due to the Bank of England's quantitative easing programme.",
+          "context_length": 2340,
+          "latency_ms": 3495.929956436157,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Overseas governments and investors, with a significant portion owed to the Bank of England.",
+          "context_length": 3042,
+          "latency_ms": 3136.5561485290527,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Overseas governments and investors, mainly pension funds, as well as the Bank of England through quantitative easing programme.",
+          "context_length": 4396,
+          "latency_ms": 3904.0486812591553,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test587",
+      "query": "where does route 66 start on the west coast",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Route 66 starts at San Bernardino, California.",
+          "context_length": 0,
+          "latency_ms": 917.7803993225098,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "U.S. Route 66 starts at Santa Monica on the Pacific Ocean on the west coast.",
+          "context_length": 494,
+          "latency_ms": 1720.6270694732666,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Route 66 starts in Santa Monica on the Pacific Ocean.",
+          "context_length": 902,
+          "latency_ms": 1580.0459384918213,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Route 66 starts in Santa Monica, California on the west coast.",
+          "context_length": 1377,
+          "latency_ms": 1859.3990802764893,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Route 66 starts in Santa Monica, California on the west coast.",
+          "context_length": 1947,
+          "latency_ms": 2197.2689628601074,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Route 66 starts at the Pacific Coast Highway in Santa Monica, California.",
+          "context_length": 2563,
+          "latency_ms": 2641.5343284606934,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Route 66 starts at the southwest end of Santa Monica Boulevard in California.",
+          "context_length": 3067,
+          "latency_ms": 3042.7961349487305,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Route 66 starts at the west end of Santa Monica Boulevard in California, specifically at the southwest end of Santa Monica Boulevard, which was part of US\u00a0101 Alternate before being added to SR\u00a02 during the 1964 renumbering.",
+          "context_length": 5724,
+          "latency_ms": 6506.866216659546,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test588",
+      "query": "what episode does lori die on the walking dead",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Lori dies in episode 13 titled \"The Last of Us.\"",
+          "context_length": 0,
+          "latency_ms": 1232.839822769165,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Lori dies in episode 13 titled \"The Governor's Second Attack.\"",
+          "context_length": 239,
+          "latency_ms": 1284.4469547271729,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Lori dies in episode 1.",
+          "context_length": 574,
+          "latency_ms": 999.4559288024902,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Lori dies in episode 8 of The Walking Dead, during a walker attack while giving birth.",
+          "context_length": 1773,
+          "latency_ms": 2444.018840789795,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Lori dies in episode 4 of Bloodletting, following a walker attack and giving birth to her baby.",
+          "context_length": 2213,
+          "latency_ms": 2947.840929031372,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Lori dies in the episode \"Bloodletting.\"",
+          "context_length": 3333,
+          "latency_ms": 2784.1780185699463,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Lori dies in the episode \"Bloodletting\" of The Walking Dead.",
+          "context_length": 3906,
+          "latency_ms": 3380.5811405181885,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Lori dies in the episode \"Bloodletting\".",
+          "context_length": 6977,
+          "latency_ms": 4464.081048965454,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test589",
+      "query": "who is the girl that played darlene in roseanne",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The girl who played Darlene in Roseanne is Tanya Roberts.",
+          "context_length": 0,
+          "latency_ms": 1429.211139678955,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Sara Gilbert played Darlene Conner in Roseanne.",
+          "context_length": 931,
+          "latency_ms": 1492.2246932983398,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Sara Gilbert played Darlene Conner in Roseanne.",
+          "context_length": 1406,
+          "latency_ms": 1870.574951171875,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Sara Gilbert played Darlene Conner in Roseanne.",
+          "context_length": 2479,
+          "latency_ms": 2363.619089126587,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Sara Gilbert played Darlene Conner in Roseanne.",
+          "context_length": 2652,
+          "latency_ms": 2378.3249855041504,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Sara Gilbert played Darlene Conner in Roseanne.",
+          "context_length": 3304,
+          "latency_ms": 2613.1591796875,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Sara Gilbert played Darlene Conner in Roseanne.",
+          "context_length": 3600,
+          "latency_ms": 2921.4959144592285,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Sara Gilbert played Darlene Conner in Roseanne.",
+          "context_length": 5999,
+          "latency_ms": 3887.410879135132,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test590",
+      "query": "what type of joint connects the incus with the malleus",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 544.6410179138184,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The incudostapedial joint connects the incus with the malleus.",
+          "context_length": 481,
+          "latency_ms": 1541.8922901153564,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The incudomallear joint, also known as the incudomalleolar joint, connects the incus with the malleus.",
+          "context_length": 950,
+          "latency_ms": 2453.2248973846436,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The incudomallear joint, also known as incudomalleolar joint, connects the incus with the malleus.",
+          "context_length": 1121,
+          "latency_ms": 2378.957986831665,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The incudomallear joint, also known as incudomalleolar joint, connects the malleus with the incus.",
+          "context_length": 1287,
+          "latency_ms": 2540.541887283325,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The incudomallear joint, also known as incudomalleolar joint, connects the incus with the malleus.",
+          "context_length": 1632,
+          "latency_ms": 2745.66388130188,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The incudomallear joint, also known as the incudomalleolar joint, connects the incus with the malleus.",
+          "context_length": 2154,
+          "latency_ms": 3112.5638484954834,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The incudomallear joint, also known as the incudomalleolar joint, connects the incus with the malleus.",
+          "context_length": 4248,
+          "latency_ms": 4433.851003646851,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test591",
+      "query": "what is the account number of airtel payment bank",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 609.8630428314209,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Your Airtel mobile number is also your account number.",
+          "context_length": 1384,
+          "latency_ms": 1675.3079891204834,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The document does not specify that Airtel Payments Bank uses its own account number for customers. It mentions that your Airtel mobile number is also your account number, but does not provide a specific account number for the bank itself.",
+          "context_length": 1611,
+          "latency_ms": 4309.1912269592285,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Your Airtel mobile number is also your account number.",
+          "context_length": 1888,
+          "latency_ms": 2406.083106994629,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The document does not specify that Airtel Payments Bank has an account number. It mentions that your Airtel mobile number is also your account number, but does not provide an actual account number.",
+          "context_length": 2137,
+          "latency_ms": 4271.051645278931,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Your Airtel mobile number is also your account number.",
+          "context_length": 2509,
+          "latency_ms": 2400.351047515869,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Your Airtel mobile number is also your account number.",
+          "context_length": 3263,
+          "latency_ms": 3063.1980895996094,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Airtel Payments Bank Limited's account number is linked to its mobile number, as stated in Document 1. However, the document does not explicitly mention the account number itself. The information provided indicates that the account number is associated with the customer's mobile number, but it does not specify the exact number. Therefore, based on the given context, I cannot provide a precise account number for Airtel Payments Bank Limited.",
+          "context_length": 5528,
+          "latency_ms": 9636.28101348877,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test592",
+      "query": "who sings find out who your friends are with tracy lawrence",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Tracy Lawrence performs under the stage name Tracy Lawrence and sings \"Find Out Who Your Friends Are\" with the band The Dandy Warhols.",
+          "context_length": 0,
+          "latency_ms": 2618.8039779663086,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Tim McGraw and Kenny Chesney sing \"Find Out Who Your Friends Are\" with Tracy Lawrence.",
+          "context_length": 341,
+          "latency_ms": 1790.5220985412598,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Tim McGraw and Kenny Chesney sing \"Find Out Who Your Friends Are\" with Tracy Lawrence.",
+          "context_length": 890,
+          "latency_ms": 2049.4601726531982,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Tim McGraw, Kenny Chesney, and Tracy Lawrence sing \"Find Out Who Your Friends Are\" together.",
+          "context_length": 1613,
+          "latency_ms": 2589.4718170166016,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Tim McGraw and Kenny Chesney sing \"Find Out Who Your Friends Are\" with Tracy Lawrence.",
+          "context_length": 2184,
+          "latency_ms": 2700.279951095581,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Tim McGraw and Kenny Chesney sing \"Find Out Who Your Friends Are\" with Tracy Lawrence.",
+          "context_length": 2517,
+          "latency_ms": 2919.0330505371094,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Tim McGraw and Kenny Chesney sing \"Find Out Who Your Friends Are\" with Tracy Lawrence.",
+          "context_length": 3196,
+          "latency_ms": 3217.151165008545,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Tim McGraw and Kenny Chesney sing \"Find Out Who Your Friends Are\" with Tracy Lawrence.",
+          "context_length": 4952,
+          "latency_ms": 4851.89414024353,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test593",
+      "query": "who did the original spirit in the sky",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The original Spirit in the Sky refers to the 1918 film \"The Spirit in the Sky,\" directed by James Whale, starring Lon Chaney. However, the term 'original spirit in the sky' is not specific to a single film and could refer to various folklore or mythological entities.",
+          "context_length": 0,
+          "latency_ms": 4557.841777801514,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Norman Greenbaum wrote and originally recorded \"Spirit in the Sky.\"",
+          "context_length": 738,
+          "latency_ms": 1804.5628070831299,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Norman Greenbaum originally wrote the song \"Spirit in the Sky.\"",
+          "context_length": 850,
+          "latency_ms": 1728.4438610076904,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Norman Greenbaum wrote and originally recorded \"Spirit in the Sky.\"",
+          "context_length": 934,
+          "latency_ms": 1701.253890991211,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Norman Greenbaum originally wrote and recorded \"Spirit in the Sky.\"",
+          "context_length": 1809,
+          "latency_ms": 2218.8282012939453,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Norman Greenbaum originally wrote and recorded \"Spirit in the Sky.\"",
+          "context_length": 2211,
+          "latency_ms": 2347.8400707244873,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Norman Greenbaum originally wrote and recorded \"Spirit in the Sky.\"",
+          "context_length": 2518,
+          "latency_ms": 2566.8702125549316,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Norman Greenbaum originally wrote and recorded \"Spirit in the Sky.\"",
+          "context_length": 4108,
+          "latency_ms": 3522.451162338257,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test594",
+      "query": "who was elected president in mexico in 2000",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Eduardo S\u00e1nchez Ram\u00edrez was elected president of Mexico in 2000.",
+          "context_length": 0,
+          "latency_ms": 1543.6718463897705,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Vicente Fox was elected President of Mexico in 2000.",
+          "context_length": 411,
+          "latency_ms": 1437.3340606689453,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Vicente Fox was elected President of Mexico in 2000.",
+          "context_length": 1280,
+          "latency_ms": 2004.1329860687256,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Vicente Fox of the opposition \"Alliance for Change\" coalition, headed by the National Action Party (PAN), was elected president in Mexico in 2000.",
+          "context_length": 1862,
+          "latency_ms": 4367.4139976501465,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Vicente Fox of the opposition \"Alliance for Change\" coalition was elected president in Mexico in 2000.",
+          "context_length": 2248,
+          "latency_ms": 3008.9612007141113,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Vicente Fox was elected president of Mexico in 2000.",
+          "context_length": 2781,
+          "latency_ms": 3058.061122894287,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Vicente Fox of the National Action Party (PAN) was elected president of Mexico in 2000.",
+          "context_length": 3279,
+          "latency_ms": 3407.3047637939453,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Vicente Fox of the National Action Party (PAN), who was elected as the 69th president of Mexico on 2 July 2000, ending PRI's 71-year-long control of the office.",
+          "context_length": 6159,
+          "latency_ms": 6033.9250564575195,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test595",
+      "query": "how many seasons of the blacklist are there on netflix",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify the number of seasons of the Blacklist on Netflix.",
+          "context_length": 0,
+          "latency_ms": 1597.0759391784668,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Netflix has streaming rights to seasons 1\u20135 of The Blacklist.",
+          "context_length": 550,
+          "latency_ms": 1800.4281520843506,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Netflix has streaming rights to seasons 1\u20135 of The Blacklist.",
+          "context_length": 769,
+          "latency_ms": 1982.2778701782227,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Netflix has streaming rights to seasons 1\u20135 of The Blacklist.",
+          "context_length": 1202,
+          "latency_ms": 2123.4920024871826,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Netflix has streaming rights to seasons 1\u20135 of The Blacklist.",
+          "context_length": 1739,
+          "latency_ms": 2396.1360454559326,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Netflix has streaming rights to seasons 1\u20135 of The Blacklist.",
+          "context_length": 1989,
+          "latency_ms": 2681.550979614258,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Netflix has streaming rights to seasons 1\u20135 of The Blacklist.",
+          "context_length": 2435,
+          "latency_ms": 2792.3059463500977,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Netflix has streaming rights to seasons 1\u20135 of The Blacklist.",
+          "context_length": 5467,
+          "latency_ms": 4581.658124923706,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test596",
+      "query": "who is known as the father of indian constitution",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The term 'father of Indian Constitution' is often attributed to B.R. Ambedkar, but he is also known as the principal architect and drafter of the Indian Constitution. However, the title 'father' is subjective and can vary based on perspective.",
+          "context_length": 0,
+          "latency_ms": 3799.970865249634,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The title 'Father of the Nation' is not an official title and does not have records in the National Archives of India. However, the person most associated with the Indian Constitution is Dr. B.R. Ambedkar, who played a crucial role in its drafting and was the principal architect of the Constitution.",
+          "context_length": 206,
+          "latency_ms": 4271.110773086548,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The title 'Father of the Nation' is not an official title and does not have records in the National Archives of India. However, the Indian constitution is often referred to as the heritage of the founding fathers, and the people are considered its custodians.",
+          "context_length": 642,
+          "latency_ms": 4095.1149463653564,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Mahatma Gandhi is known as the Father of Indian Constitution.",
+          "context_length": 721,
+          "latency_ms": 1466.2089347839355,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Mahatma Gandhi is known as the Father of Indian Constitution, although this title is not an official title and has no records in the National Archives of India.",
+          "context_length": 1958,
+          "latency_ms": 3405.503988265991,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Bhimrao Ramji Ambedkar, popularly known as B. R. Ambedkar, is known as the father of Indian Constitution.",
+          "context_length": 2480,
+          "latency_ms": 3557.1892261505127,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Bhimrao Ramji Ambedkar is known as the father of Indian Constitution.",
+          "context_length": 3086,
+          "latency_ms": 3094.74515914917,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Jyotirao Phule is known as the father of Indian Constitution.",
+          "context_length": 4823,
+          "latency_ms": 3809.8528385162354,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test597",
+      "query": "difference between half rate and full rate in gsm",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "In GSM, half rate refers to a data transmission rate of 50 kbps (kilobits per second), while full rate is 200 kbps.",
+          "context_length": 0,
+          "latency_ms": 2513.0839347839355,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Half Rate (HR) is a speech coding system for GSM developed in the early 1990s, while Full Rate (FR) is not mentioned in the context. The difference between them is that Half Rate uses less bandwidth and lower data rates compared to Full Rate, which provides higher data rates but requires more bandwidth.",
+          "context_length": 125,
+          "latency_ms": 4353.339910507202,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Half Rate (HR) in GSM uses a lower bit rate compared to Full Rate, resulting in reduced data transmission speed but lower bandwidth usage.",
+          "context_length": 356,
+          "latency_ms": 2474.2720127105713,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Half Rate (HR) in GSM uses a bitrate of 6.5 kbit/s and allows for prioritization of important parts of the audio, while Full Rate (FR) uses a bitrate of 13 kbit/s and is less efficient but more robust against interference.",
+          "context_length": 1331,
+          "latency_ms": 5752.859830856323,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Half Rate (HR) in GSM uses a bitrate of 6.5 kbit/s and allows eight full-rate or sixteen half-rate speech channels per radio frequency, while Full Rate (FR) uses a bitrate of 13 kbit/s and allows only one full-rate speech channel per radio frequency.",
+          "context_length": 1776,
+          "latency_ms": 5367.662191390991,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Half Rate (HR) in GSM uses a 6.5\u00a0kbit/s data rate and allows eight full-rate or sixteen half-rate speech channels per radio frequency, while Full Rate (FR) uses a 13\u00a0kbit/s data rate and allows only eight full-rate speech channels per radio frequency. Half Rate channels use alternate frames in the same timeslot, whereas Full Rate channels do not.",
+          "context_length": 2120,
+          "latency_ms": 6003.338098526001,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Half Rate (HR) in GSM uses a 6.5-kbit/s data rate and is used for eight full-rate or sixteen half-rate speech channels per radio frequency, while Full Rate (FR) uses a 13-kbit/s data rate. Half Rate channels use alternate frames in the same timeslot, whereas Full Rate channels do not.",
+          "context_length": 2267,
+          "latency_ms": 5765.820026397705,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Half Rate (HR) and Full Rate (FR) in GSM differ in their data channel allocation and efficiency. Half Rate uses 6.5 kbit/s, allowing for more efficient use of bandwidth and easier prioritization of important audio parts, while Full Rate uses 13 kbit/s, providing higher data throughput but less efficient bandwidth use.",
+          "context_length": 4174,
+          "latency_ms": 6983.82830619812,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test598",
+      "query": "when did the sims 4 toddlers come out",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The Sims 4 Toddlers came out on November 19, 2020.",
+          "context_length": 0,
+          "latency_ms": 1506.2541961669922,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Sims 4 toddlers came out on November 17, 2017.",
+          "context_length": 864,
+          "latency_ms": 1707.7209949493408,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Sims 4 toddlers were released on November 17, 2017.",
+          "context_length": 1025,
+          "latency_ms": 2066.2789344787598,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Toddlers were added in the January 2017 patch.",
+          "context_length": 1368,
+          "latency_ms": 1829.5061588287354,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Toddlers were added in the January 2017 patch.",
+          "context_length": 1685,
+          "latency_ms": 1984.7040176391602,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Toddlers were added in the January 2017 patch.",
+          "context_length": 2002,
+          "latency_ms": 2294.206142425537,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Toddlers were added in the January 2017 patch.",
+          "context_length": 2185,
+          "latency_ms": 2384.2670917510986,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Toddlers were added in the January 2017 patch.",
+          "context_length": 4643,
+          "latency_ms": 3840.1401042938232,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test599",
+      "query": "what is use case model in software engineering",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Use case model in software engineering is a method to specify system functionality based on the interactions between users (actors) and the system. It outlines what the system should do to satisfy user requirements.",
+          "context_length": 0,
+          "latency_ms": 2561.439037322998,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "A use case model in software engineering is a list of actions or event steps that define interactions between an actor (human or external system) and a system to achieve a goal. It represents missions or stakeholder goals at a higher level than within software engineering.",
+          "context_length": 553,
+          "latency_ms": 3663.681983947754,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "A use case model in software engineering is a list of actions or event steps that define interactions between an actor (human or external system) and a system to achieve a goal. It represents missions or stakeholder goals at a higher level and can be used in conjunction with detailed requirements captured in SysML or contractual statements.",
+          "context_length": 1089,
+          "latency_ms": 4506.819725036621,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Use case model in software engineering is a list of actions or event steps defining interactions between a role (actor) and a system to achieve a goal, typically used at a higher level than within software engineering to represent missions or stakeholder goals. It can be captured in the Systems Modeling Language (SysML) or as contractual statements.",
+          "context_length": 1682,
+          "latency_ms": 5247.681140899658,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Use case model in software engineering is a list of actions or event steps defining interactions between a role (actor) and a system to achieve a goal, typically used at a higher level than within software engineering to represent missions or stakeholder goals. It can be captured in the Systems Modeling Language (SysML) or as contractual statements.",
+          "context_length": 2491,
+          "latency_ms": 5706.074953079224,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Use case modeling in software engineering is a user-centric tool that identifies key stakeholder roles (actors) and their goals or objectives the system must fulfill. These user goals are then used to name or title the use cases, representing the desired functional features or services provided by the system. This approach ensures that the development focuses on real business value and user needs rather than speculative internal functions.",
+          "context_length": 3189,
+          "latency_ms": 6851.234197616577,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "A use case model in software engineering is a powerful, user-centric tool for documenting functional requirements, typically involving software. It starts by identifying key stakeholder roles (actors) and their goals, then creates use cases representing desired functional features or services. This approach ensures that the system fulfills real business values and user needs, avoiding speculative internal functions.",
+          "context_length": 3720,
+          "latency_ms": 6271.305084228516,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "A use case model in software engineering is a way of specifying required usages of a system, typically used to capture the requirements of a system, detailing how users are intended to work with it. It avoids describing internal workings or implementation details, focusing instead on the steps needed to perform tasks without sequential assumptions.",
+          "context_length": 5271,
+          "latency_ms": 6639.950275421143,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test600",
+      "query": "how does metallic bonding result in useful properties of metals",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Metallic bonding results in useful properties of metals such as high electrical and thermal conductivity, malleability, ductility, and shiny appearance due to the free movement of electrons in a 'ea' of electrons surrounding positively charged metal ions.",
+          "context_length": 0,
+          "latency_ms": 3007.2922706604004,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Metallic bonding results in useful properties of metals by allowing the sharing of free electrons among a lattice of positively charged ions. This creates a \"sea\" of delocalized electrons that can move freely, which accounts for the high electrical and thermal conductivity of metals. Additionally, the electrostatic attraction between these delocalized electrons and positively charged ions contributes to the strength, ductility, and luster of metals.",
+          "context_length": 540,
+          "latency_ms": 5542.011976242065,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Metallic bonding results in useful properties of metals such as strength, ductility, thermal and electrical resistivity and conductivity, opacity, and luster. This is due to the sharing of free electrons among a lattice of positively charged metal ions, which allows atoms or planes of atoms in a crystal lattice to move past one another without disrupting their bonding interactions.",
+          "context_length": 1388,
+          "latency_ms": 5196.167945861816,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Metallic bonding results in useful properties of metals by allowing conduction electrons to move freely among a lattice of positively charged ions, which accounts for properties such as strength, ductility, thermal and electrical resistivity and conductivity, opacity, and luster. The delocalized electrons also contribute to the malleability of metals, enabling them to be shaped without breaking the bonds.",
+          "context_length": 2640,
+          "latency_ms": 5792.794942855835,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Metallic bonding results in useful properties of metals such as strength, ductility, thermal and electrical resistivity and conductivity, opacity, and luster. This is due to the delocalized electrons in metallic bonding which allows atoms to move freely, resulting in properties like malleability and good conductivity.",
+          "context_length": 3281,
+          "latency_ms": 5115.072965621948,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Metallic bonding results in useful properties of metals such as strength, ductility, thermal and electrical resistivity and conductivity, opacity, and luster. This is due to the delocalization of electrons among a lattice of positively charged metal ions, which allows atoms to move freely and interact without disrupting their bonding interactions. The non-directional nature of metallic bonding also contributes to the malleability and ductility of metals.",
+          "context_length": 3707,
+          "latency_ms": 7066.877841949463,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Metallic bonding results in useful properties of metals such as strength, ductility, thermal and electrical resistivity and conductivity, opacity, and luster. This is due to the delocalized electrons in metallic bonding which allows for free electron movement, contributing to conductivity and malleability. The non-directional nature of metallic bonding also allows atoms to move past one another without disrupting their bonding interactions, leading to ductility and low strength in pure forms.",
+          "context_length": 4171,
+          "latency_ms": 7327.675819396973,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Metallic bonding results in many physical properties of metals, such as strength, ductility, thermal and electrical resistivity and conductivity, opacity, and luster. This is due to the delocalized electrons in metallic bonding which allows for free movement and sharing among a lattice of positively charged ions, leading to these properties.",
+          "context_length": 6437,
+          "latency_ms": 6942.572832107544,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test601",
+      "query": "when does the world cup of hockey start",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The World Cup of Hockey typically starts in July. However, this date can vary each year. I cannot answer without specific context about the current year or any changes to the schedule.",
+          "context_length": 0,
+          "latency_ms": 2207.756996154785,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Hockey World Cup starts every four years, but the specific start date is not provided in the context.",
+          "context_length": 269,
+          "latency_ms": 1600.0680923461914,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The World Cup of Hockey started in 1996.",
+          "context_length": 809,
+          "latency_ms": 1261.5280151367188,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The World Cup of Hockey starts in 1996.",
+          "context_length": 1071,
+          "latency_ms": 1374.3808269500732,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The World Cup of Hockey starts on September 2016.",
+          "context_length": 1509,
+          "latency_ms": 1695.9362030029297,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The World Cup of Hockey starts on September 2016, as announced by NHL commissioner Gary Bettman on January 24, 2015.",
+          "context_length": 2288,
+          "latency_ms": 3067.9330825805664,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The World Cup of Hockey starts on September 2016.",
+          "context_length": 2556,
+          "latency_ms": 2125.1378059387207,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Hockey World Cup starts on November 28 and ends on December 16, 2018.",
+          "context_length": 3872,
+          "latency_ms": 3198.931932449341,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test602",
+      "query": "who were the judges on dancing on ice 2014",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The judges on \"Dancing on Ice\" 2014 were Alexa Chung, David Arkenstone, and Jennifer Hudson.",
+          "context_length": 0,
+          "latency_ms": 1769.3889141082764,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Nicky Slater was the judge for Dancing on Ice 2014, as Robin Cousins was absent due to commentating the 2014 Winter Olympics.",
+          "context_length": 476,
+          "latency_ms": 2471.5428352355957,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The judges on Dancing on Ice in 2014 were Robin Cousins, Jayne Torvill, Karen Barber, Jason Gardiner, and Ashley Roberts.",
+          "context_length": 911,
+          "latency_ms": 2575.471878051758,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "In 2014, the judges on Dancing on Ice were Christopher Dean, Jayne Torvill, Karen Barber, Robin Cousins, Jason Gardiner, and Ashley Roberts.",
+          "context_length": 1461,
+          "latency_ms": 3030.151844024658,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The judges on Dancing on Ice in 2014 included Phillip Schofield, Christine Bleakley, Robin Cousins, Jason Gardiner, and Ashley Roberts.",
+          "context_length": 1769,
+          "latency_ms": 3193.33815574646,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "In 2014, the judges on Dancing on Ice were Phillip Schofield and Christine Bleakley.",
+          "context_length": 2203,
+          "latency_ms": 2867.6440715789795,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The judges on Dancing on Ice in 2014 were Robin Cousins, Jason Gardiner, Ashley Roberts, and Katarina Witt.",
+          "context_length": 2797,
+          "latency_ms": 3574.491024017334,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "In Dancing on Ice 2014, the judges were Robin Cousins, Jason Gardiner, Karen Barber, and Ashley Roberts.",
+          "context_length": 5296,
+          "latency_ms": 4240.6110763549805,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test603",
+      "query": "where does some like it hot take place",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Some like it hot takes place in various locations, but specific examples are not provided in the context.",
+          "context_length": 0,
+          "latency_ms": 1368.9310550689697,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Some Like It Hot takes place at the Hotel del Coronado in San Diego and appears as the \"Seminole Ritz Hotel\" in Miami.",
+          "context_length": 361,
+          "latency_ms": 2278.9480686187744,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Some Like It Hot takes place in California during the summer and autumn of 1958, specifically at the Hotel del Coronado in San Diego and later in Miami.",
+          "context_length": 1462,
+          "latency_ms": 2855.768918991089,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Some Like It Hot takes place in California during the summer and autumn of 1958, specifically at the Hotel del Coronado in San Diego and later in Miami.",
+          "context_length": 2362,
+          "latency_ms": 3350.5799770355225,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Some Like It Hot takes place in California during the summer and autumn of 1958, specifically at the Hotel del Coronado in San Diego and later in Miami.",
+          "context_length": 2621,
+          "latency_ms": 3537.834882736206,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Some Like It Hot takes place in California during the summer and autumn of 1958, specifically at the Hotel del Coronado in San Diego and later in Miami.",
+          "context_length": 2704,
+          "latency_ms": 3795.034170150757,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Some Like It Hot takes place in California during the summer and autumn of 1958, specifically at the Hotel del Coronado in San Diego and later in Miami.",
+          "context_length": 3482,
+          "latency_ms": 4030.4579734802246,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Some Like It Hot takes place in California during the summer and autumn of 1958, with scenes shot at the Hotel del Coronado in San Diego and later in Miami.",
+          "context_length": 4561,
+          "latency_ms": 4776.199817657471,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test604",
+      "query": "who plays young voldemort in the half blood prince",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Jude Law plays young Voldemort in the Half-Blood Prince.",
+          "context_length": 0,
+          "latency_ms": 1214.5531177520752,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Ralph Fiennes plays young Voldemort in Harry Potter and the Half Blood Prince.",
+          "context_length": 439,
+          "latency_ms": 1734.0209484100342,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Hero Beauregard Fiennes-Tiffin plays young Voldemort in Harry Potter and the Half-Blood Prince.",
+          "context_length": 840,
+          "latency_ms": 2325.3839015960693,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Hero Beauregard Fiennes-Tiffin plays young Voldemort in the Half Blood Prince.",
+          "context_length": 1753,
+          "latency_ms": 2780.709981918335,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Hero Beauregard Fiennes-Tiffin plays young Voldemort in the Half Blood Prince.",
+          "context_length": 2081,
+          "latency_ms": 2640.7101154327393,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Hero Beauregard Fiennes-Tiffin plays young Voldemort in the Half Blood Prince.",
+          "context_length": 2444,
+          "latency_ms": 2985.778331756592,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Hero Beauregard Fiennes-Tiffin plays young Voldemort in Harry Potter and the Half-Blood Prince.",
+          "context_length": 2899,
+          "latency_ms": 3108.597993850708,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Hero Fiennes-Tiffin plays young Voldemort in Harry Potter and the Half-Blood Prince.",
+          "context_length": 5691,
+          "latency_ms": 4603.785991668701,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test605",
+      "query": "when did goku first go super saiyan 4",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Goku first went Super Saiyan 4 in the anime \"Dragon Ball Super: Broly\" which aired in 2023. However, the question seems to refer to a previous instance, but no specific date is given in the context. I cannot answer without additional context.",
+          "context_length": 0,
+          "latency_ms": 3689.3270015716553,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Goku first went Super Saiyan 4 in the Dragon Ball Z movie titled Dragon Ball Z: Lord Slug, released on March 9, 1991.",
+          "context_length": 1057,
+          "latency_ms": 3162.3141765594482,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Goku first went Super Saiyan 4 in Dragon Ball GT, which was released on March 9, 1991.",
+          "context_length": 1672,
+          "latency_ms": 3201.8837928771973,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Goku first went Super Saiyan 4 in Dragon Ball GT, which was released on March 9, 1991.",
+          "context_length": 2262,
+          "latency_ms": 2940.100908279419,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Goku first went Super Saiyan 4 in Dragon Ball GT, which was released on September 22, 1995.",
+          "context_length": 2629,
+          "latency_ms": 3348.690986633301,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Goku first went Super Saiyan 4 in Dragon Ball GT, which was released on September 22, 1995.",
+          "context_length": 4000,
+          "latency_ms": 3965.291976928711,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Goku first went Super Saiyan 4 in Dragon Ball GT, which was released on September 22, 1995.",
+          "context_length": 4421,
+          "latency_ms": 4816.677093505859,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Goku first went Super Saiyan 4 in Dragon Ball GT, which was released on September 22, 1995.",
+          "context_length": 7685,
+          "latency_ms": 6491.276025772095,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test606",
+      "query": "what happens to vanessa at the end of gossip girl",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Vanessa ends up as a minor character in the final episode of Gossip Girl, where she is revealed to be a clone created by the villainous Dr. Mew.",
+          "context_length": 0,
+          "latency_ms": 2435.2314472198486,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "At the end of Gossip Girl season 1, Vanessa reconciles with Dan and returns to his old life in Brooklyn.",
+          "context_length": 650,
+          "latency_ms": 2167.923927307129,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "At the end of Gossip Girl, Vanessa leaves with Nate to the Hamptons after Serena leaves with Nate.",
+          "context_length": 859,
+          "latency_ms": 2348.1099605560303,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "At the end of Gossip Girl season 4, Vanessa joins Juliet's scheme to bring down Serena by providing photos of her and Colin in a romantic embrace.",
+          "context_length": 1399,
+          "latency_ms": 2994.602918624878,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "At the end of Gossip Girl season 1, Vanessa reconciles with Dan and returns to his old life in Brooklyn.",
+          "context_length": 2035,
+          "latency_ms": 2781.9831371307373,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "At the end of Gossip Girl, Vanessa reunites with Nate and they speed away in a taxi after Jenny's embarrassment. Vanessa tries to maintain her composure but is left heartbroken by Jenny's reaction.",
+          "context_length": 2736,
+          "latency_ms": 4312.958002090454,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "At the end of Gossip Girl, Vanessa reconciles with Dan and returns to her old life in Brooklyn.",
+          "context_length": 3435,
+          "latency_ms": 3298.4678745269775,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "At the end of Gossip Girl, Vanessa reunites with Nate in Haiti. In the finale, while Vanessa is still in Haiti, Nate sends her a Gossip Girl message implying that Dan has cheated on her. However, the provided context does not specify Vanessa's ultimate fate at the end of the series.",
+          "context_length": 6082,
+          "latency_ms": 7538.230657577515,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test607",
+      "query": "how many seasons are there for the good doctor",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "There are four seasons for \"The Good Doctor.\"",
+          "context_length": 0,
+          "latency_ms": 890.8369541168213,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "There is one season for the Good Doctor.",
+          "context_length": 350,
+          "latency_ms": 1079.1609287261963,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "There are two seasons for the Good Doctor.",
+          "context_length": 1034,
+          "latency_ms": 1371.3529109954834,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "There are two seasons for the Good Doctor. The first season premiered in 2017, and the second season was renewed for a third season in March 2018.",
+          "context_length": 1101,
+          "latency_ms": 2719.1150188446045,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "There are two seasons for the Good Doctor. The first season premiered in 2017 and the second season premiered in March 2018.",
+          "context_length": 1168,
+          "latency_ms": 2736.849069595337,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "There are three seasons for the Good Doctor. The first season premiered in 2017, the second season was renewed in March 2018, and the third season premiered on 6 August 2018.",
+          "context_length": 1458,
+          "latency_ms": 3557.1398735046387,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "There are three seasons for the Good Doctor, as indicated in Document 1 and Document 4.",
+          "context_length": 1670,
+          "latency_ms": 2540.093183517456,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "There are at least three seasons of The Good Doctor mentioned in the context. The first season is Season 1 (2016), the second season was renewed but not yet started, and the third season premiered on October 3, 2017.",
+          "context_length": 4013,
+          "latency_ms": 5516.963720321655,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test608",
+      "query": "who did corbin dance with on dancing with the stars",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Corbin Dancing with the Stars did not have a specific partner mentioned in the context provided.",
+          "context_length": 0,
+          "latency_ms": 1522.5751399993896,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Corbin Bleu danced with professional dancer Karina Smirnoff on Dancing with the Stars.",
+          "context_length": 521,
+          "latency_ms": 1974.869966506958,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Corbin Bleu danced with professional dancer Karina Smirnoff on Dancing with the Stars.",
+          "context_length": 916,
+          "latency_ms": 2029.189109802246,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Corbin Bleu partnered with professional dancer Karina Smirnoff on Dancing with the Stars.",
+          "context_length": 1702,
+          "latency_ms": 2434.0808391571045,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Corbin Bleu danced with professional dancer Karina Smirnoff on Dancing with the Stars.",
+          "context_length": 1948,
+          "latency_ms": 2774.7719287872314,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Corbin Bleu danced with professional dancer Karina Smirnoff on Dancing with the Stars.",
+          "context_length": 2466,
+          "latency_ms": 2917.4609184265137,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Corbin Bleu danced with professional dancer Karina Smirnoff on Dancing with the Stars.",
+          "context_length": 2567,
+          "latency_ms": 2815.9611225128174,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Corbin Bleu danced with professional dancer Karina Smirnoff on Dancing with the Stars.",
+          "context_length": 5776,
+          "latency_ms": 4996.279001235962,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test609",
+      "query": "description of greg from diary of a wimpy kid",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not contain a description of Greg from \"Diary of a Wimpy Kid.\"",
+          "context_length": 0,
+          "latency_ms": 1777.867078781128,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Greg is described as struggling with family, friends, and middle school, concerned about his popularity. He daydreams about being rich and famous, but his attempts to fit in often backfire.",
+          "context_length": 436,
+          "latency_ms": 2786.9997024536133,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Greg is described as a main character who struggles with family, friends, and middle school, often daydreaming about being rich and famous. He tries to fit in but usually fails. He is portrayed as creative yet often his antics backfire.",
+          "context_length": 710,
+          "latency_ms": 3668.5991287231445,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Greg is described as struggling with family, friends, and middle school, concerned about his popularity. He daydreams about being rich and famous, tries to fit in but often fails. He is creative but his actions frequently backfire. He is also Greg Heffley's teenage brother, known for being cruel, rebellious, and sleeping excessively.",
+          "context_length": 1091,
+          "latency_ms": 4843.10507774353,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Greg Heffley is described as struggling with family, friends, and middle school, concerned about his popularity. He daydreams about being rich and famous, tries to fit in but often fails, and is creative yet his antics usually backfire.",
+          "context_length": 1416,
+          "latency_ms": 4006.481885910034,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Greg Heffley is described as a troubled teenager who struggles with family, friends, and middle school. He is concerned about his popularity, daydreams about being rich and famous, and often faces challenges. He is creative in handling these issues but his actions frequently backfire.",
+          "context_length": 1775,
+          "latency_ms": 4499.368906021118,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Greg Heffley is described as a troubled teenager who struggles with fitting in at school, daydreams about being rich and famous, and is often concerned about his popularity. He is creative in his attempts to fit in but frequently faces backfiring consequences due to his antics.",
+          "context_length": 2252,
+          "latency_ms": 4630.5999755859375,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Greg Heffley is described as struggling with family, friends, and middle school, concerned about his popularity. He daydreams about being rich and famous, tries to fit in but often fails, and his attempts to handle challenges usually backfire. He is also known for being rebellious, excessive in morning sleepiness, and an unreliable narrator.",
+          "context_length": 3308,
+          "latency_ms": 6210.862874984741,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test610",
+      "query": "where does the skyline drive begin and end",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 542.4520969390869,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Skyline Drive begins at an intersection with US 340 south of Front Royal and ends at the Shenandoah Valley Overlook on the west side of the road.",
+          "context_length": 494,
+          "latency_ms": 2464.7438526153564,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Skyline Drive begins at an intersection with US 340 south of Front Royal and ends at an interchange with US 250 near Interstate 64 (I-64) in Rockfish Gap.",
+          "context_length": 1242,
+          "latency_ms": 3297.5919246673584,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Skyline Drive begins at an intersection with US 340 south of Front Royal and ends at an interchange with US 250 near Interstate 64 (I-64) in Rockfish Gap.",
+          "context_length": 2138,
+          "latency_ms": 3791.210889816284,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Skyline Drive begins at an intersection with US 340 south of Front Royal in Warren County and ends at an interchange with US 250 near Interstate 64 (I-64) in Rockfish Gap.",
+          "context_length": 2922,
+          "latency_ms": 4051.6159534454346,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Skyline Drive begins at an intersection with US 340 south of Front Royal in Warren County and ends at an interchange with US 250 near Interstate 64 (I-64) in Rockfish Gap.",
+          "context_length": 3234,
+          "latency_ms": 4420.69411277771,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Skyline Drive begins at an intersection with US 340 south of Front Royal in Warren County and ends at an interchange with US 250 near Interstate 64 (I-64) in Rockfish Gap.",
+          "context_length": 4314,
+          "latency_ms": 4961.198091506958,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Skyline Drive begins at an intersection with US 340 south of Front Royal in Warren County and ends at an interchange with US 250 near I-64 in Rockfish Gap, where it connects to the Blue Ridge Parkway.",
+          "context_length": 10134,
+          "latency_ms": 8177.857160568237,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test611",
+      "query": "when did the military plane crash in mississippi",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not contain specific details about a military plane crash in Mississippi.",
+          "context_length": 0,
+          "latency_ms": 1489.2330169677734,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The military plane crashed on October 20, 1977, in Mississippi.",
+          "context_length": 522,
+          "latency_ms": 1463.4597301483154,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The military plane crashed on October 20, 1977.",
+          "context_length": 844,
+          "latency_ms": 1593.601942062378,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The military plane crashed on October 20, 1977, near Gillsburg, Mississippi.",
+          "context_length": 1364,
+          "latency_ms": 2249.022960662842,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The military plane crashed on October 20, 1977, near Gillsburg, Mississippi.",
+          "context_length": 1694,
+          "latency_ms": 2365.8862113952637,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The military plane crashed on October 20, 1977.",
+          "context_length": 1765,
+          "latency_ms": 2075.878143310547,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Convair CV-240 crashed on October 20, 1977, near Gillsburg, Mississippi.",
+          "context_length": 2275,
+          "latency_ms": 2911.425828933716,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The military plane crashed in a wooded area near Gillsburg, Mississippi on October 20, 1977.",
+          "context_length": 4376,
+          "latency_ms": 4132.922887802124,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test612",
+      "query": "when did they stop using aluminum wiring in ontario",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify when they stopped using aluminum wiring in Ontario.",
+          "context_length": 0,
+          "latency_ms": 1367.1250343322754,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 741,
+          "latency_ms": 972.4941253662109,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Ontario Hydro (Hydro One) introduced trapezoidal-shaped ACSR conductor designs in the 1980s, which effectively replaced existing round-wire ACSR designs, marking a shift away from aluminum wiring in Ontario.",
+          "context_length": 1766,
+          "latency_ms": 3831.6948413848877,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Ontario Hydro (Hydro One) introduced trapezoidal-shaped ACSR conductor designs in the 1980s, replacing existing round-wire ACSR designs. However, the specific year when they stopped using aluminum wiring is not explicitly mentioned in the provided context. The context indicates that issues with aluminum wiring were significant, leading to the development of revised manufacturing standards and designs to mitigate problems.",
+          "context_length": 2675,
+          "latency_ms": 6417.600154876709,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Ontario Hydro introduced trapezoidal-shaped ACSR conductor designs in the 1980s, replacing existing round-wire ACSR designs. Hydro One's designs for their trapezoidal ACSR/TW conductors only use even numbers of aluminium layers, which implies a shift in preference towards ACSR/TW designs rather than a complete cessation of aluminum wiring. However, the specific year when they stopped using aluminum wiring is not explicitly mentioned in the provided context. The transition to ACSR/TW designs likely marked a significant change, but without additional information, we cannot pinpoint an exact year.",
+          "context_length": 3440,
+          "latency_ms": 8745.349168777466,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Ontario Hydro introduced trapezoidal-shaped ACSR conductor designs in the 1980s to replace existing round-wire ACSR designs, but they did not stop using aluminum wiring in Ontario until the 1980s as well, due to ongoing issues with galvanic corrosion and potential fire risks associated with aluminum wiring.",
+          "context_length": 3726,
+          "latency_ms": 5850.6920337677,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Ontario Hydro introduced trapezoidal-shaped ACSR conductor designs in the 1980s to replace existing round-wire ACSR designs, which led to the phasing out of aluminum wiring in Ontario.",
+          "context_length": 4251,
+          "latency_ms": 4490.097999572754,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Ontario Hydro introduced trapezoidal-shaped ACSR/TW conductors in the 1980s, replacing existing round-wire ACSR designs. Hydro One also introduced their own trapezoidal ACSR/TW conductors in the 1980s, but they did not phase out aluminum wiring immediately. The transition to ACSR/TW conductors was part of efforts to reduce problems associated with aluminum wiring, which were identified as a potential fire hazard in older homes. However, the exact timeline for phasing out aluminum wiring is not specified in the provided context.",
+          "context_length": 6520,
+          "latency_ms": 10032.391786575317,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test613",
+      "query": "who is the girl on parle g biscuit pack",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not mention a specific girl on the parle g biscuit pack.",
+          "context_length": 0,
+          "latency_ms": 1636.0039710998535,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 189,
+          "latency_ms": 622.1811771392822,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "I cannot answer.",
+          "context_length": 407,
+          "latency_ms": 840.1870727539062,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The context provided does not mention a specific girl on the Parle-G biscuit pack.",
+          "context_length": 744,
+          "latency_ms": 1783.3020687103271,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The girl on Parle-G biscuit pack is an illustration by Everest creative Maganlal Daiya from the 1960s.",
+          "context_length": 1063,
+          "latency_ms": 2806.2191009521484,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The girl on Parle-G biscuit pack is an illustration by Everest creative Maganlal Daiya from the 1960s.",
+          "context_length": 1463,
+          "latency_ms": 2784.151077270508,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The girl on Parle-G biscuit pack is an illustration by Everest creative Maganlal Daiya from the 1960s.",
+          "context_length": 2384,
+          "latency_ms": 3369.493007659912,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The girl on Parle-G biscuit pack is referred to as 'Parle Ji Biscuits' in puns, where 'Ji' is pronounced identically to the letter G.",
+          "context_length": 3406,
+          "latency_ms": 4568.0060386657715,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test614",
+      "query": "who is going to host the 2018 winter olympics",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The 2018 Winter Olympics will be hosted by Pyeongchang, South Korea.",
+          "context_length": 0,
+          "latency_ms": 1528.0499458312988,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "South Korea is hosting the 2018 Winter Olympics.",
+          "context_length": 108,
+          "latency_ms": 982.0280075073242,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "South Korea is going to host the 2018 Winter Olympics.",
+          "context_length": 301,
+          "latency_ms": 1309.6809387207031,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "South Korea will host the 2018 Winter Olympics.",
+          "context_length": 413,
+          "latency_ms": 1192.1741962432861,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "South Korea is going to host the 2018 Winter Olympics.",
+          "context_length": 1155,
+          "latency_ms": 1527.5599956512451,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "South Korea is going to host the 2018 Winter Olympics.",
+          "context_length": 1515,
+          "latency_ms": 1978.3167839050293,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "South Korea is going to host the 2018 Winter Olympics.",
+          "context_length": 1797,
+          "latency_ms": 1971.7910289764404,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "South Korea is going to host the 2018 Winter Olympics.",
+          "context_length": 3098,
+          "latency_ms": 2655.780076980591,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test615",
+      "query": "this type of nuclear decay effectively turns a proton into a neutron",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "This type of nuclear decay is called beta-minus decay.",
+          "context_length": 0,
+          "latency_ms": 1091.3629531860352,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "In the opposite process, a proton may become a neutron by ejecting a positron, but in electron capture, a proton turns into a neutron by electron capturing one of the atom's K orbital electrons. However, the type of decay that effectively turns a proton into a neutron is electron capture, not the process described in the question. The correct answer is that in electron capture, a proton becomes a neutron by capturing an electron.",
+          "context_length": 1002,
+          "latency_ms": 6041.492938995361,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Yes, this type of nuclear decay effectively turns a proton into a neutron.",
+          "context_length": 1255,
+          "latency_ms": 1941.821813583374,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Inverse beta decay, which occurs inside a nucleus, effectively turns a proton into a neutron.",
+          "context_length": 1797,
+          "latency_ms": 2261.060953140259,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Inverse beta decay, which occurs inside a nucleus, effectively turns a proton into a neutron by emitting a positron and an electron neutrino.",
+          "context_length": 2816,
+          "latency_ms": 3631.5791606903076,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Inverse beta decay, as described in Document 2, effectively turns a proton into a neutron by emitting a positron and an electron neutrino.",
+          "context_length": 3040,
+          "latency_ms": 3649.2760181427,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Inverse beta decay, as described in Document 2, effectively turns a proton into a neutron by emitting a positron and an electron neutrino.",
+          "context_length": 3437,
+          "latency_ms": 3665.3072834014893,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "In beta decay, a neutron is converted to a proton by emitting an electron and an antineutrino.",
+          "context_length": 4832,
+          "latency_ms": 3843.568801879883,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test616",
+      "query": "what event marks the beginning of the great depression",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The stock market crash of 1929 marks the beginning of the Great Depression.",
+          "context_length": 0,
+          "latency_ms": 1214.4100666046143,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Wall Street Crash in October 1929 marks the beginning of the Great Depression.",
+          "context_length": 719,
+          "latency_ms": 1657.3448181152344,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Wall Street Crash in October 1929, known as Black Tuesday, marks the beginning of the Great Depression.",
+          "context_length": 1063,
+          "latency_ms": 2155.447006225586,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Wall Street Crash in October 1929, known as Black Tuesday, marks the beginning of the Great Depression.",
+          "context_length": 1669,
+          "latency_ms": 2545.336961746216,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Wall Street Crash of 1929 marks the beginning of the Great Depression.",
+          "context_length": 1995,
+          "latency_ms": 2415.117025375366,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Wall Street Crash on October 29, 1929, known as Black Tuesday, marks the beginning of the Great Depression.",
+          "context_length": 2843,
+          "latency_ms": 3196.927070617676,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Wall Street Crash in October 1929, known as Black Tuesday, marks the beginning of the Great Depression.",
+          "context_length": 3311,
+          "latency_ms": 3184.4699382781982,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Wall Street Crash in October 1929, known as Black Tuesday, marks the beginning of the Great Depression.",
+          "context_length": 5876,
+          "latency_ms": 4619.273900985718,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test617",
+      "query": "what is the main source of nutrients in an estuary",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 622.3909854888916,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The main sources of nutrients in an estuary are waste water treatment facilities, agricultural and urban drainage, and the ocean.",
+          "context_length": 775,
+          "latency_ms": 2261.550188064575,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The main source of nutrients in an estuary is waste water treatment facilities, agricultural and urban drainage, and the ocean.",
+          "context_length": 962,
+          "latency_ms": 2771.38090133667,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The main source of nutrients in an estuary is waste water treatment facilities, agricultural and urban drainage, and the ocean.",
+          "context_length": 1354,
+          "latency_ms": 2445.0838565826416,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The main source of nutrients in an estuary is waste water treatment facilities, agricultural and urban drainage, and the ocean.",
+          "context_length": 1673,
+          "latency_ms": 2539.196014404297,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The main source of nutrients in an estuary is waste water treatment facilities, agricultural and urban drainage, and the ocean.",
+          "context_length": 2422,
+          "latency_ms": 2758.575916290283,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The main source of nutrients in an estuary is waste water treatment facilities, agricultural and urban drainage, and the ocean.",
+          "context_length": 2889,
+          "latency_ms": 2995.3601360321045,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The main source of nutrients in an estuary is waste water treatment facilities, agricultural and urban drainage, and the ocean.",
+          "context_length": 6753,
+          "latency_ms": 4875.201940536499,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test618",
+      "query": "where does the us men's national soccer team practice",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify the exact location of US Men's National Soccer Team practices.",
+          "context_length": 0,
+          "latency_ms": 1590.918779373169,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The U.S. Men's National Soccer Team practices at the StubHub Center in Carson, California.",
+          "context_length": 487,
+          "latency_ms": 1641.875982284546,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The U.S. men's national soccer team practices at the StubHub Center, which includes a soccer-specific stadium and a general training area.",
+          "context_length": 1227,
+          "latency_ms": 2516.448974609375,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The U.S. men's national soccer team practices at the StubHub Center in Carson, California.",
+          "context_length": 1990,
+          "latency_ms": 2444.866180419922,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The U.S. men's national soccer team practices at the StubHub Center in Carson, California, which includes a general training area.",
+          "context_length": 2451,
+          "latency_ms": 3074.233055114746,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The U.S. men's national soccer team practices at the StubHub Center in Carson, California, which includes a soccer-specific stadium.",
+          "context_length": 2796,
+          "latency_ms": 3326.5750408172607,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The U.S. men's national soccer team practices at the StubHub Center, which includes a soccer-specific stadium and four grass soccer fields.",
+          "context_length": 3001,
+          "latency_ms": 3445.0230598449707,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The U.S. men's national soccer team practices at the StubHub Center in Carson, California, which includes a soccer-specific stadium.",
+          "context_length": 4958,
+          "latency_ms": 4363.268852233887,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test619",
+      "query": "where does a brisket come from on a cow",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Brisket comes from the lower part of the cow's ribcage, specifically from the left side.",
+          "context_length": 0,
+          "latency_ms": 1600.68678855896,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "A brisket comes from the breast or lower chest of beef or veal on a cow.",
+          "context_length": 531,
+          "latency_ms": 1701.341152191162,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "A brisket comes from the breast or lower chest of beef or veal on a cow.",
+          "context_length": 820,
+          "latency_ms": 1817.5151348114014,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "A brisket comes from the breast or lower chest of beef or veal, specifically from the muscles including the superficial and deep pectorals.",
+          "context_length": 1062,
+          "latency_ms": 2572.6661682128906,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Brisket comes from the breast or lower chest of beef or veal, specifically from the muscles including the superficial and deep pectorals.",
+          "context_length": 1601,
+          "latency_ms": 2966.6056632995605,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Brisket comes from the breast or lower chest of beef or veal, and it includes the superficial and deep pectorals muscles.",
+          "context_length": 1756,
+          "latency_ms": 3476.886987686157,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Brisket comes from the breast or lower chest of beef or veal, specifically from the muscles including the superficial and deep pectorals.",
+          "context_length": 1911,
+          "latency_ms": 3876.9919872283936,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "A brisket comes from the breast or lower chest of beef or veal.",
+          "context_length": 4181,
+          "latency_ms": 3964.9810791015625,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
     }
   ],
   "config": {
@@ -50478,5 +53958,5 @@
     ],
     "run_path": "data/nq/fused/learned_per_retriever.res"
   },
-  "last_updated": "2025-12-04 10:30:55"
+  "last_updated": "2025-12-04 10:47:51"
 }
