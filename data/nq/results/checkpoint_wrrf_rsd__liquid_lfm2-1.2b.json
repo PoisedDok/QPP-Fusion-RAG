@@ -54,6 +54,7 @@
     "test49",
     "test245",
     "test449",
+    "test596",
     "test337",
     "test539",
     "test304",
@@ -94,6 +95,7 @@
     "test153",
     "test350",
     "test408",
+    "test593",
     "test213",
     "test232",
     "test99",
@@ -157,6 +159,7 @@
     "test546",
     "test354",
     "test204",
+    "test599",
     "test263",
     "test255",
     "test301",
@@ -182,6 +185,7 @@
     "test234",
     "test318",
     "test330",
+    "test591",
     "test523",
     "test24",
     "test253",
@@ -189,6 +193,7 @@
     "test563",
     "test480",
     "test295",
+    "test598",
     "test182",
     "test440",
     "test81",
@@ -196,6 +201,7 @@
     "test412",
     "test549",
     "test7",
+    "test584",
     "test177",
     "test436",
     "test76",
@@ -209,6 +215,7 @@
     "test391",
     "test483",
     "test383",
+    "test594",
     "test60",
     "test335",
     "test340",
@@ -217,6 +224,7 @@
     "test143",
     "test101",
     "test120",
+    "test585",
     "test578",
     "test338",
     "test382",
@@ -242,6 +250,7 @@
     "test347",
     "test125",
     "test446",
+    "test583",
     "test400",
     "test389",
     "test417",
@@ -280,6 +289,7 @@
     "test542",
     "test1",
     "test376",
+    "test587",
     "test336",
     "test504",
     "test141",
@@ -309,6 +319,7 @@
     "test418",
     "test512",
     "test188",
+    "test589",
     "test208",
     "test279",
     "test547",
@@ -358,6 +369,7 @@
     "test201",
     "test381",
     "test82",
+    "test592",
     "test229",
     "test530",
     "test132",
@@ -385,6 +397,7 @@
     "test343",
     "test265",
     "test522",
+    "test586",
     "test231",
     "test287",
     "test538",
@@ -400,6 +413,7 @@
     "test165",
     "test497",
     "test260",
+    "test588",
     "test557",
     "test127",
     "test365",
@@ -427,6 +441,7 @@
     "test52",
     "test288",
     "test486",
+    "test582",
     "test307",
     "test321",
     "test227",
@@ -444,6 +459,7 @@
     "test250",
     "test445",
     "test531",
+    "test580",
     "test573",
     "test160",
     "test309",
@@ -522,6 +538,7 @@
     "test462",
     "test515",
     "test138",
+    "test597",
     "test368",
     "test180",
     "test258",
@@ -529,6 +546,7 @@
     "test135",
     "test415",
     "test302",
+    "test581",
     "test3",
     "test560",
     "test439",
@@ -551,6 +569,7 @@
     "test432",
     "test537",
     "test473",
+    "test595",
     "test71",
     "test471",
     "test130",
@@ -573,6 +592,7 @@
     "test205",
     "test167",
     "test494",
+    "test590",
     "test534",
     "test211",
     "test69",
@@ -50461,6 +50481,1726 @@
           "has_relevant": true
         }
       }
+    },
+    {
+      "qid": "test580",
+      "query": "when was the last time the jets won a playoff game",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not contain information about when the jets won a playoff game.",
+          "context_length": 0,
+          "latency_ms": 1688.9960765838623,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The last time the Jets won a playoff game was in 2010.",
+          "context_length": 92,
+          "latency_ms": 1397.3429203033447,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The last time the Jets won a playoff game was in 2010\u201311 NFL playoffs.",
+          "context_length": 893,
+          "latency_ms": 2155.9040546417236,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The last time the Jets won a playoff game was in 2010, specifically during the 2010\u201311 NFL playoffs.",
+          "context_length": 1542,
+          "latency_ms": 3573.807716369629,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The last time the Jets won a playoff game was on April 11, 2018, when they defeated the Minnesota Wild 3\u20132 in the first playoff game in the history of the Atlanta/Winnipeg franchise.",
+          "context_length": 2994,
+          "latency_ms": 5578.886270523071,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The last time the Jets won a playoff game was on April 11, 2018, when they defeated the Minnesota Wild 3\u20132.",
+          "context_length": 4008,
+          "latency_ms": 5291.610240936279,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The last time the Jets won a playoff game was on April 11, 2018, when they defeated the Minnesota Wild 3\u20132.",
+          "context_length": 5710,
+          "latency_ms": 5997.929811477661,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The last time the Jets won a playoff game was on March 25, 2018, when they beat the Nashville Predators 5\u20134 in a shootout.",
+          "context_length": 9212,
+          "latency_ms": 8155.339002609253,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test581",
+      "query": "what were rough riders in the spanish american war",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Rough riders were irregular cavalry units in the Spanish-American War, often composed of local militias or individuals with little to no military training, who engaged in hit-and-run tactics against American forces.",
+          "context_length": 0,
+          "latency_ms": 2822.273015975952,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Rough Riders were a volunteer cavalry regiment during the Spanish-American War, known for their bravery and distinctive uniforms.",
+          "context_length": 46,
+          "latency_ms": 1985.0890636444092,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Rough Riders were a notable cavalry unit in the Spanish\u2013American War, consisting mainly of officers who used horses despite limited space on ships, and those horses were used to pull equipment.",
+          "context_length": 340,
+          "latency_ms": 2861.3908290863037,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Rough Riders were a notable cavalry unit in the Spanish\u2013American War, specifically the 1st United States Volunteer Cavalry. Although only officers used horses due to space constraints, they were part of the three cavalry regiments raised for the war. They saw action and were the only one to fight in combat.",
+          "context_length": 1061,
+          "latency_ms": 4561.574220657349,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Rough Riders were a notable cavalry unit in the Spanish\u2013American War, although only officers used horses due to space constraints. They were part of the 1st United States Volunteer Cavalry, one of three such regiments raised for the war and the only one to see action. Despite being a cavalry unit, they often fought on foot as infantry due to their limited numbers and resources.",
+          "context_length": 1787,
+          "latency_ms": 6085.607051849365,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Rough Riders were a notable cavalry unit in the Spanish\u2013American War, specifically the 1st United States Volunteer Cavalry. Although only officers used horses due to space constraints, they were part of the cavalry unit and saw action. They were also involved in training at San Pedro Park in San Antonio.",
+          "context_length": 2043,
+          "latency_ms": 5097.053050994873,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Rough Riders were a notable cavalry unit in the Spanish\u2013American War, specifically the 1st United States Volunteer Cavalry. Although only officers used horses due to space constraints, those horses were used for pulling equipment. They fought in action and were the only one of three such regiments raised for the war to see combat.",
+          "context_length": 2968,
+          "latency_ms": 5975.993871688843,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Rough Riders were a notable cavalry unit in the Spanish\u2013American War, consisting of mostly college athletes, cowboys, ranchers, miners, and other outdoorsmen. They were part of the 1st United States Volunteer Cavalry, one of three such regiments raised for the war. They were known for their horsemanship skills, strategic positioning, and use of smokeless powder to conceal their movements.",
+          "context_length": 5669,
+          "latency_ms": 8447.376012802124,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test582",
+      "query": "colby chees is named after a town in what state",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Colby Chees is named after a town in Minnesota.",
+          "context_length": 0,
+          "latency_ms": 1053.9040565490723,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Colby cheese is named after the town of Colby in Iowa.",
+          "context_length": 88,
+          "latency_ms": 1121.3970184326172,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Colby cheese is named after the town of Colby in Wisconsin.",
+          "context_length": 645,
+          "latency_ms": 1758.4478855133057,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Colby cheese is named after the town of Colby, Wisconsin.",
+          "context_length": 849,
+          "latency_ms": 1616.3649559020996,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Colby cheese is named after the town of Colby, which is in Wisconsin.",
+          "context_length": 984,
+          "latency_ms": 1911.3280773162842,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Colby cheese is named after the town of Colby in Wisconsin.",
+          "context_length": 1715,
+          "latency_ms": 1921.703815460205,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Colby cheese is named after the town of Colby in Wisconsin.",
+          "context_length": 2132,
+          "latency_ms": 2328.1490802764893,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Colby cheese is named after the town of Colby, which was founded three years earlier in Arlington, Massachusetts.",
+          "context_length": 3600,
+          "latency_ms": 3909.472942352295,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test583",
+      "query": "where do carpenter ants live in the world",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Carpenter ants live in wood, often in nests made from hollowed-out wood or wood debris.",
+          "context_length": 0,
+          "latency_ms": 1620.3999519348145,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Carpenter ants live in many forested parts of the world.",
+          "context_length": 160,
+          "latency_ms": 1586.824893951416,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Carpenter ants live in many forested parts of the world, both outdoors and indoors in moist, decaying, or hollow wood.",
+          "context_length": 641,
+          "latency_ms": 2337.5320434570312,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Carpenter ants live in moist, decaying, or hollow wood, most commonly in forest environments. They are found both outdoors and indoors.",
+          "context_length": 1460,
+          "latency_ms": 3066.4358139038086,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Carpenter ants live both outdoors and indoors in moist, decaying, or hollow wood, most commonly in forest environments.",
+          "context_length": 1867,
+          "latency_ms": 3112.1819019317627,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Carpenter ants live both outdoors and indoors in moist, decaying, or hollow wood, most commonly in forest environments.",
+          "context_length": 2510,
+          "latency_ms": 3223.5982418060303,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Carpenter ants live both outdoors and indoors in moist, decaying, or hollow wood, most commonly in forest environments.",
+          "context_length": 3367,
+          "latency_ms": 3737.4918460845947,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Carpenter ants live both outdoors and indoors in moist, decaying, or hollow wood, most commonly in forest environments. They are found in areas such as around and under windows, roof eaves, decks, and porches.",
+          "context_length": 5145,
+          "latency_ms": 6263.973951339722,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test584",
+      "query": "who devised the fingerprint classification still used today in europe and the us",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The person who devised the fingerprint classification still used today in Europe and the US is Sir Francis Barlow, but he was not the primary developer. The modern classification system largely stems from the work of Sir Edward Henry, who developed the Henry Classification System in the early 20th century. However, Sir Francis Barlow's work on fingerprint classification laid foundational principles that influenced Henry's system.",
+          "context_length": 0,
+          "latency_ms": 5678.474187850952,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Sir Edward Richard Henry co-developed the Henry Classification System, which is still used today in Europe and the US.",
+          "context_length": 915,
+          "latency_ms": 2293.282985687256,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Sir Edward Richard Henry co-devised the Henry Classification System, which is still used today in Europe and the US.",
+          "context_length": 1835,
+          "latency_ms": 2552.870988845825,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Sir Francis Galton devised the fingerprint classification system still used today in Europe and the US.",
+          "context_length": 2723,
+          "latency_ms": 2770.408868789673,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Sir Francis Galton co-developed the Henry Classification System, which was later improved by Sir Edward Richard Henry. The system eventually became widely accepted and used in Europe and the US, leading to its continued use today.",
+          "context_length": 3486,
+          "latency_ms": 5087.162971496582,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Sir Francis Galton co-developed the Henry Classification System, which was later improved by Sir Edward Richard Henry. The system eventually evolved into the modern-day AFIS (Automated Fingerprint Identification System) classification methods used in Europe and the US.",
+          "context_length": 4058,
+          "latency_ms": 5711.946725845337,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Sir Edward Richard Henry devised the Henry Classification System, which is still used today in Europe and the US.",
+          "context_length": 5148,
+          "latency_ms": 4115.746021270752,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Henry Classification System devised by Hem Chandra Bose, Azizul Haque, and Sir Edward Henry is still used today in Europe and the US.",
+          "context_length": 8833,
+          "latency_ms": 6757.024049758911,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test585",
+      "query": "who plays lady talisa in game of thrones",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Lady Talisa is played by actress Rachael Harris in Game of Thrones.",
+          "context_length": 0,
+          "latency_ms": 1515.5909061431885,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Oona Chaplin plays Lady Talisa in Game of Thrones.",
+          "context_length": 991,
+          "latency_ms": 1969.5568084716797,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Oona Chaplin plays Lady Talisa in Game of Thrones.",
+          "context_length": 1185,
+          "latency_ms": 2055.577039718628,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Oona Chaplin plays lady Talisa in Game of Thrones.",
+          "context_length": 2369,
+          "latency_ms": 2560.6658458709717,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Oona Chaplin plays Lady Talisa in Game of Thrones.",
+          "context_length": 2634,
+          "latency_ms": 2762.28404045105,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Oona Chaplin plays Lady Talisa in Game of Thrones.",
+          "context_length": 3006,
+          "latency_ms": 2957.956075668335,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Oona Chaplin plays Lady Talisa in Game of Thrones.",
+          "context_length": 3483,
+          "latency_ms": 3316.1659240722656,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Oona Chaplin plays Lady Talisa in Game of Thrones.",
+          "context_length": 4669,
+          "latency_ms": 4194.735050201416,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test586",
+      "query": "who do uk owe the national debt to",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The UK does not owe the national debt to a specific country; it owes it to its citizens, banks, and other domestic and international creditors.",
+          "context_length": 0,
+          "latency_ms": 2468.9149856567383,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The UK owes the national debt to its government agencies, including the British Treasury.",
+          "context_length": 241,
+          "latency_ms": 1450.8800506591797,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The UK owes the national debt to a wide variety of investors, most notably pension funds.",
+          "context_length": 687,
+          "latency_ms": 2004.2328834533691,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The UK owes the national debt to a wide variety of investors, most notably pension funds. These funds have Treasury bonds on deposit, and the debt is offset by liabilities of the government. As of 2016, 27.6% of the national debt was owed to overseas governments and investors.",
+          "context_length": 992,
+          "latency_ms": 4846.333265304565,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The UK owes the national debt to a wide variety of investors, most notably pension funds. These funds hold Treasury bonds at the Bank of England and have liabilities that need to be offset by the government's debt. As of 2016, 27.6% of the national debt was owed to overseas governments and investors.",
+          "context_length": 1311,
+          "latency_ms": 5601.13000869751,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Overseas governments and investors, with a significant portion owed to UK pension funds.",
+          "context_length": 1984,
+          "latency_ms": 2554.525136947632,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The UK owes the national debt to a wide variety of investors, most notably pension funds. These funds are on deposit, mainly in the form of Treasury bonds at the Bank of England.",
+          "context_length": 2645,
+          "latency_ms": 4509.704113006592,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The UK owes its national debt to a wide variety of investors, most notably pension funds. These funds are on deposit, mainly in the form of Treasury bonds at the Bank of England. Additionally, overseas governments and investors own 27.6% of the national debt as of the end of 2016.",
+          "context_length": 4506,
+          "latency_ms": 6785.902261734009,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test587",
+      "query": "where does route 66 start on the west coast",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Route 66 starts at San Bernardino, California.",
+          "context_length": 0,
+          "latency_ms": 1066.5700435638428,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Route 66 starts at its intersection with US\u00a066 in Springfield, Missouri, on the west coast.",
+          "context_length": 406,
+          "latency_ms": 2149.3940353393555,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "U.S. Route 66 starts at Needles at the Arizona state line on the west coast.",
+          "context_length": 902,
+          "latency_ms": 2155.456066131592,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Route 66 starts in Santa Monica, California.",
+          "context_length": 1377,
+          "latency_ms": 1806.3037395477295,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Route 66 starts in Santa Monica, California on the Pacific Ocean.",
+          "context_length": 1947,
+          "latency_ms": 2422.163963317871,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Route 66 starts at Santa Monica, California, on the Pacific Ocean.",
+          "context_length": 2522,
+          "latency_ms": 2720.0140953063965,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Route 66 starts at its intersection with US\u00a066 in Springfield, Missouri on the west coast.",
+          "context_length": 2986,
+          "latency_ms": 3471.557855606079,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Route 66 starts at Gardner on the other (west) side of the Southern Pacific railroad tracks, taking over portions of IL\u00a059 and IL\u00a0126.",
+          "context_length": 5643,
+          "latency_ms": 5993.3021068573,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test588",
+      "query": "what episode does lori die on the walking dead",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Lori dies in episode 12 titled \"The Last of Us.\"",
+          "context_length": 0,
+          "latency_ms": 1417.220115661621,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Lori dies in episode 12 titled \"The Governor's Second Attack.\"",
+          "context_length": 239,
+          "latency_ms": 1308.3341121673584,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Lori dies in episode 13 titled \"The Governor's Second Attack.\"",
+          "context_length": 679,
+          "latency_ms": 1778.8240909576416,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Lori dies in the concluding sequence of the episode \"Secrets.\"",
+          "context_length": 1014,
+          "latency_ms": 1763.6349201202393,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Lori dies in the concluding sequence of the episode \"Secrets.\"",
+          "context_length": 1587,
+          "latency_ms": 1944.7219371795654,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Lori dies in the episode titled \"Secrets,\" which is the sixth episode of the second season and 12th episode overall of The Walking Dead.",
+          "context_length": 2277,
+          "latency_ms": 3739.2940521240234,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Lori dies in the episode \"Secrets,\" which is the sixth episode of the second season and the 12th episode overall of The Walking Dead.",
+          "context_length": 2753,
+          "latency_ms": 3779.216766357422,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Lori dies in episode 7 of season 2 titled \"Secrets\".",
+          "context_length": 6421,
+          "latency_ms": 5071.38991355896,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test589",
+      "query": "who is the girl that played darlene in roseanne",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The girl who played Darlene in Roseanne is Lori Loughlim.",
+          "context_length": 0,
+          "latency_ms": 1385.373830795288,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Sara Gilbert played Darlene Conner (later Healy) in Roseanne.",
+          "context_length": 931,
+          "latency_ms": 1917.7069664001465,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Sara Gilbert played Darlene Conner in Roseanne.",
+          "context_length": 1104,
+          "latency_ms": 1741.4608001708984,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Sara Gilbert played Darlene in Roseanne.",
+          "context_length": 1315,
+          "latency_ms": 1696.1321830749512,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Sara Gilbert played Darlene in Roseanne.",
+          "context_length": 1611,
+          "latency_ms": 1838.9880657196045,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Sara Gilbert played Darlene in Roseanne.",
+          "context_length": 2684,
+          "latency_ms": 2481.6691875457764,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Sara Gilbert played Darlene Conner in Roseanne.",
+          "context_length": 3336,
+          "latency_ms": 2732.222080230713,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Sara Gilbert played Darlene Conner in Roseanne.",
+          "context_length": 5588,
+          "latency_ms": 4018.768072128296,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test590",
+      "query": "what type of joint connects the incus with the malleus",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 653.904914855957,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The incudostapedial joint connects the incus with the malleus.",
+          "context_length": 481,
+          "latency_ms": 1626.3270378112793,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The type of joint connecting the incus with the malleus is an incudostapedial joint.",
+          "context_length": 652,
+          "latency_ms": 1990.3450012207031,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The incudomallear joint, also known as the incudomalleolar joint, connects the malleus (hammer) and the incus (anvil).",
+          "context_length": 1121,
+          "latency_ms": 3247.0052242279053,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The incudomallear joint, also known as the incudomalleolar joint, connects the malleus with the incus.",
+          "context_length": 1287,
+          "latency_ms": 3031.2743186950684,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The type of joint connecting the incus with the malleus is a small synovial joint known as the incudomallear joint or articulatio incudomallearis.",
+          "context_length": 1632,
+          "latency_ms": 3480.926036834717,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The incudomallear joint, also known as the incudomalleolar joint, connects the incus with the malleus.",
+          "context_length": 2154,
+          "latency_ms": 3637.3019218444824,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The incudomallear joint, also known as the incudomalleolar joint, connects the incus with the malleus.",
+          "context_length": 3466,
+          "latency_ms": 3967.832088470459,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test591",
+      "query": "what is the account number of airtel payment bank",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 612.5590801239014,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 225,
+          "latency_ms": 650.2370834350586,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "I cannot answer.",
+          "context_length": 474,
+          "latency_ms": 797.7769374847412,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "I cannot answer.",
+          "context_length": 751,
+          "latency_ms": 941.8270587921143,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The document does not explicitly state the account number of Airtel Payments Bank. However, it mentions that your Airtel mobile number is also your account number.",
+          "context_length": 2137,
+          "latency_ms": 3364.528179168701,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The document does not provide the specific account number of Airtel Payment Bank Limited. It only mentions that their capital was Rs 3,000 crore and reported deposits of Rs 68.33 crore at the end of the financial year ended 31st March 2017, but does not specify an account number.",
+          "context_length": 2509,
+          "latency_ms": 5759.643077850342,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The document does not specify that Airtel Payments Bank has an account number. It mentions that your Airtel mobile number is also your account number, but does not provide a specific account number for the bank.",
+          "context_length": 3263,
+          "latency_ms": 4612.106800079346,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The account number of Airtel Payments Bank Limited is not explicitly mentioned in the provided context. However, it is noted that Airtel Payments Bank Limited uses the customer's Airtel mobile number as their account number.",
+          "context_length": 5528,
+          "latency_ms": 5872.015953063965,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test592",
+      "query": "who sings find out who your friends are with tracy lawrence",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Tracy Lawrence performs under the stage name Tracy Lawrence and sings \"Find Out Who Your Friends Are\" with the band The Dirty Heads.",
+          "context_length": 0,
+          "latency_ms": 2341.8638706207275,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Tim McGraw and Kenny Chesney sing \"Find Out Who Your Friends Are\" with Tracy Lawrence.",
+          "context_length": 341,
+          "latency_ms": 1746.5019226074219,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Tim McGraw and Kenny Chesney sing \"Find Out Who Your Friends Are\" with Tracy Lawrence.",
+          "context_length": 890,
+          "latency_ms": 1967.2350883483887,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Tim McGraw and Kenny Chesney sing \"Find Out Who Your Friends Are\" with Tracy Lawrence.",
+          "context_length": 1461,
+          "latency_ms": 2318.19486618042,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Tim McGraw and Kenny Chesney sing \"Find Out Who Your Friends Are\" with Tracy Lawrence.",
+          "context_length": 2184,
+          "latency_ms": 2709.604024887085,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Tim McGraw and Kenny Chesney sing \"Find Out Who Your Friends Are\" with Tracy Lawrence.",
+          "context_length": 2517,
+          "latency_ms": 2805.2849769592285,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Tim McGraw and Kenny Chesney sing \"Find Out Who Your Friends Are\" with Tracy Lawrence.",
+          "context_length": 3196,
+          "latency_ms": 3448.5909938812256,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Tim McGraw and Kenny Chesney sing \"Find Out Who Your Friends Are\" with Tracy Lawrence.",
+          "context_length": 4952,
+          "latency_ms": 4063.8928413391113,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test593",
+      "query": "who did the original spirit in the sky",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The term \"original spirit in the sky\" is not associated with a specific historical or mythological figure in the provided context.",
+          "context_length": 0,
+          "latency_ms": 1995.7787990570068,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The original Spirit in the Sky was Dorothy Combs Morrison.",
+          "context_length": 110,
+          "latency_ms": 1169.2211627960205,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The original Spirit in the Sky was written by Dorothy Combs Morrison.",
+          "context_length": 194,
+          "latency_ms": 1549.833059310913,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Norman Greenbaum originally wrote and recorded \"Spirit in the Sky.\"",
+          "context_length": 934,
+          "latency_ms": 1886.9140148162842,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Norman Greenbaum wrote and originally recorded \"Spirit in the Sky.\"",
+          "context_length": 1238,
+          "latency_ms": 1862.8239631652832,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Norman Greenbaum originally wrote and recorded \"Spirit in the Sky.\"",
+          "context_length": 1545,
+          "latency_ms": 2072.336196899414,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Norman Greenbaum originally wrote and recorded \"Spirit in the Sky.\"",
+          "context_length": 1800,
+          "latency_ms": 2348.3331203460693,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Norman Greenbaum originally wrote and recorded \"Spirit in the Sky.\"",
+          "context_length": 2777,
+          "latency_ms": 2899.3680477142334,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test594",
+      "query": "who was elected president in mexico in 2000",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Eduardo L\u00f3pez Ayala was not elected president in Mexico in 2000. The correct answer is Vicente Fox, who was elected as the 41st President of Mexico in that year.",
+          "context_length": 0,
+          "latency_ms": 2673.9089488983154,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Vicente Fox was elected President of Mexico in 2000.",
+          "context_length": 411,
+          "latency_ms": 1255.1672458648682,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Vicente Fox was elected President of Mexico in 2000.",
+          "context_length": 944,
+          "latency_ms": 1829.946756362915,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Vicente Fox was elected President of Mexico in 2000.",
+          "context_length": 1330,
+          "latency_ms": 1900.493860244751,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Vicente Fox was elected President of Mexico in 2000.",
+          "context_length": 1869,
+          "latency_ms": 2108.307123184204,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Vicente Fox Quesada was elected president of Mexico in 2000.",
+          "context_length": 2738,
+          "latency_ms": 2918.1292057037354,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Vicente Fox was elected President of Mexico in 2000.",
+          "context_length": 3236,
+          "latency_ms": 2743.8907623291016,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Vicente Fox was elected President of Mexico in 2000.",
+          "context_length": 4585,
+          "latency_ms": 3678.839683532715,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test595",
+      "query": "how many seasons of the blacklist are there on netflix",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify the number of seasons of the Blacklist on Netflix.",
+          "context_length": 0,
+          "latency_ms": 1796.5290546417236,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "There are 6 seasons of The Blacklist on Netflix.",
+          "context_length": 217,
+          "latency_ms": 1361.2861633300781,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Netflix has streaming rights to seasons 1\u20135 of The Blacklist.",
+          "context_length": 769,
+          "latency_ms": 1858.4859371185303,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Netflix has streaming rights to seasons 1\u20135 of The Blacklist.",
+          "context_length": 1202,
+          "latency_ms": 1915.2121543884277,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Netflix has streaming rights to seasons 1\u20135 of The Blacklist.",
+          "context_length": 1452,
+          "latency_ms": 2147.129774093628,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Netflix has streaming rights to seasons 1\u20135 of The Blacklist.",
+          "context_length": 1989,
+          "latency_ms": 2409.3949794769287,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Netflix has streaming rights to seasons 1\u20135 of The Blacklist.",
+          "context_length": 2104,
+          "latency_ms": 2472.0191955566406,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "There are six seasons of The Blacklist on Netflix.",
+          "context_length": 3220,
+          "latency_ms": 2788.9652252197266,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test596",
+      "query": "who is known as the father of indian constitution",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The term 'father of Indian Constitution' is often attributed to B.R. Ambedkar, but it's not universally agreed upon. However, based on the context provided, B.R. Ambedkar is commonly recognized as a key figure in the drafting of India's constitution, though not exclusively as the 'father.'",
+          "context_length": 0,
+          "latency_ms": 4748.9988803863525,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The title 'Father of the Nation' is not an official title and does not have records in the National Archives of India. However, the person most associated with the Indian Constitution is Dr. B.R. Ambedkar, who played a crucial role in its drafting and was the principal architect of the Constitution.",
+          "context_length": 206,
+          "latency_ms": 4511.305093765259,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The title 'Father of the Nation' is not an official title and has no records in the National Archives of India. However, the context mentions that the Indian constitution is bequeathed to us by our founding fathers, implying that the person who played a significant role in its creation is likely one of them. The context does not specify the name directly but emphasizes the responsibility of the people to uphold the constitution.",
+          "context_length": 642,
+          "latency_ms": 5931.590795516968,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Bhimrao Ramji Ambedkar, popularly known as Baba Saheb, is recognized as the father of the Indian Constitution.",
+          "context_length": 1164,
+          "latency_ms": 2813.3881092071533,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Bhimrao Ramji Ambedkar, popularly known as Baba Saheb, is known as the father of Indian Constitution.",
+          "context_length": 2401,
+          "latency_ms": 3320.9500312805176,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "B. R. Ambedkar is known as the father of Indian Constitution.",
+          "context_length": 2914,
+          "latency_ms": 2758.488893508911,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Bhimrao Ramji Ambedkar is known as the father of the Indian Constitution.",
+          "context_length": 3270,
+          "latency_ms": 3347.2578525543213,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Bhimrao Ramji Ambedkar is known as the father of Indian constitution.",
+          "context_length": 5245,
+          "latency_ms": 4286.748170852661,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test597",
+      "query": "difference between half rate and full rate in gsm",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Half Rate (HR) and Full Rate (FR) in GSM refer to the data transmission rates. Half Rate means half the maximum data rate, while Full Rate means the maximum data rate.",
+          "context_length": 0,
+          "latency_ms": 2906.7599773406982,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Half Rate (HR) is a speech coding system used in GSM, developed in the early 1990s, where speech data is encoded at half the bit rate compared to Full Rate (FR).",
+          "context_length": 125,
+          "latency_ms": 3074.3961334228516,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Half Rate (HR) in GSM uses a reduced bit rate compared to Full Rate, specifically at 06.20 kbps, while Full Rate operates at 14.4 kbps.",
+          "context_length": 356,
+          "latency_ms": 3079.1120529174805,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Half Rate (HR) and Full Rate (FR) in GSM differ in the data rate used for speech coding. Half Rate operates at half the data rate of Full Rate, resulting in lower quality audio but reduced bandwidth usage.",
+          "context_length": 700,
+          "latency_ms": 3621.1600303649902,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Half Rate (HR) in GSM uses a fixed data rate of 6.5 to 13 kbit/s and employs linear predictive coding (LPC), while Full Rate (FR) uses a higher data rate of 13 kbit/s and also employs LPC. The main difference lies in the data rate and efficiency, with Half Rate being more efficient but potentially less robust against interference compared to Full Rate.",
+          "context_length": 1675,
+          "latency_ms": 6791.694164276123,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Half Rate (HR) in GSM uses a fixed data rate of 6.5 kbit/s and allows for prioritization of important parts of the audio signal, while Full Rate (FR) uses a higher data rate of 13 kbit/s and is less efficient with bitrates but provides better error correction.",
+          "context_length": 2120,
+          "latency_ms": 5901.212215423584,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Half Rate (HR) in GSM uses a fixed data rate of 6.5 to 13 kbit/s, while Full Rate (FR) uses a higher data rate of 13 kbit/s. Half Rate employs linear predictive coding (LPC) and allows for prioritization of important audio parts, whereas Full Rate is more efficient with bitrates.",
+          "context_length": 2267,
+          "latency_ms": 6589.986801147461,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Half Rate (HR) in GSM uses a fixed data rate of 6.5 kbit/s, while Full Rate (FR) uses a fixed data rate of 13 kbit/s. Half Rate is more energy-efficient, consuming up to 30% less power than Full Rate, but it sacrifices some audio quality.",
+          "context_length": 3677,
+          "latency_ms": 6828.425884246826,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test598",
+      "query": "when did the sims 4 toddlers come out",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The Sims 4 toddlers came out on November 19, 2021.",
+          "context_length": 0,
+          "latency_ms": 1397.4590301513672,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Toddlers were added in the January 2017 patch.",
+          "context_length": 341,
+          "latency_ms": 1216.9480323791504,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Sims 4 toddlers were added in the January 2017 patch.",
+          "context_length": 524,
+          "latency_ms": 1662.315845489502,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Toddlers were added in the January 2017 patch.",
+          "context_length": 685,
+          "latency_ms": 1544.132947921753,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Toddlers were added in the January 2017 patch.",
+          "context_length": 1551,
+          "latency_ms": 1937.5629425048828,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Toddlers were added in the January 2017 patch.",
+          "context_length": 2659,
+          "latency_ms": 2611.4501953125,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Toddlers were added in the January 2017 patch.",
+          "context_length": 3123,
+          "latency_ms": 2951.641798019409,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The toddlers in The Sims 4 were added in the January 2017 patch.",
+          "context_length": 4825,
+          "latency_ms": 3999.2587566375732,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test599",
+      "query": "what is use case model in software engineering",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Use case model in software engineering is a method to specify system functionality from the user's perspective, detailing interactions between users (actors) and the system.",
+          "context_length": 0,
+          "latency_ms": 2000.3409385681152,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "A use case model in software engineering is a list of actions or event steps that define interactions between an actor (human or external system) and the system to achieve a goal. It represents missions or stakeholder goals at a higher level than within software engineering.",
+          "context_length": 553,
+          "latency_ms": 3649.2297649383545,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "A use case model in software engineering is a list of actions or event steps defining interactions between an actor (human or external system) and a system to achieve a goal. It represents missions or stakeholder goals at a higher level and can be captured in the Systems Modeling Language (SysML) or as contractual statements.",
+          "context_length": 1089,
+          "latency_ms": 4741.636753082275,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Use case model in software engineering is a list of actions or event steps that define interactions between a role (actor) and a system to achieve a goal. It represents missions or stakeholder goals at a higher level than within software engineering and can be captured in the Systems Modeling Language (SysML) or as contractual statements.",
+          "context_length": 1682,
+          "latency_ms": 5593.580961227417,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Use case model in software engineering is a list of actions or event steps that define interactions between an actor (human or external system) and a system to achieve a goal. It is used at a higher level than within software engineering, often representing missions or stakeholder goals, and detailed requirements can be captured in the Systems Modeling Language (SysML) or as contractual statements.",
+          "context_length": 2491,
+          "latency_ms": 6191.251039505005,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "A use case model in software engineering is a list of actions or event steps defining interactions between an actor (human or external system) and a system to achieve a goal. It represents missions or stakeholder goals at a higher level than within software engineering and can be used in systems engineering using languages like SysML or as contractual statements.",
+          "context_length": 2655,
+          "latency_ms": 5710.506916046143,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "A use case model in software engineering is a list of actions or event steps that define interactions between an actor (human or external system) and a system to achieve a goal. It represents missions or stakeholder goals at a higher level than within software engineering and can be used to capture detailed requirements in systems modeling languages like SysML or as contractual statements.",
+          "context_length": 2766,
+          "latency_ms": 6315.290927886963,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Use case model in software engineering is a list of actions or event steps defining interactions between an actor (human or external system) and a system to achieve a goal. It represents missions or stakeholder goals at a higher level than within software engineering and can be captured in the Systems Modeling Language (SysML) or as contractual statements.",
+          "context_length": 4312,
+          "latency_ms": 6822.493076324463,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
     }
   ],
   "config": {
@@ -50478,5 +52218,5 @@
     ],
     "run_path": "data/nq/fused/wrrf_rsd.res"
   },
-  "last_updated": "2025-12-04 10:17:50"
+  "last_updated": "2025-12-04 10:26:16"
 }

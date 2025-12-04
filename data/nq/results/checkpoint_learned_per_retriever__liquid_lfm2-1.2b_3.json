@@ -3,6 +3,7 @@
     "test148",
     "test241",
     "test533",
+    "test544",
     "test73",
     "test63",
     "test391",
@@ -33,6 +34,7 @@
     "test454",
     "test486",
     "test504",
+    "test555",
     "test42",
     "test496",
     "test287",
@@ -97,6 +99,7 @@
     "test108",
     "test508",
     "test103",
+    "test568",
     "test112",
     "test530",
     "test339",
@@ -104,6 +107,7 @@
     "test363",
     "test53",
     "test412",
+    "test548",
     "test379",
     "test192",
     "test84",
@@ -147,8 +151,10 @@
     "test223",
     "test251",
     "test370",
+    "test572",
     "test471",
     "test335",
+    "test543",
     "test440",
     "test10",
     "test431",
@@ -164,6 +170,7 @@
     "test172",
     "test279",
     "test374",
+    "test577",
     "test285",
     "test501",
     "test518",
@@ -173,6 +180,7 @@
     "test176",
     "test437",
     "test67",
+    "test561",
     "test58",
     "test467",
     "test281",
@@ -188,10 +196,12 @@
     "test186",
     "test507",
     "test418",
+    "test554",
     "test21",
     "test95",
     "test124",
     "test214",
+    "test556",
     "test17",
     "test46",
     "test153",
@@ -208,8 +218,10 @@
     "test237",
     "test138",
     "test157",
+    "test564",
     "test503",
     "test336",
+    "test540",
     "test140",
     "test13",
     "test320",
@@ -231,6 +243,7 @@
     "test81",
     "test494",
     "test147",
+    "test541",
     "test468",
     "test309",
     "test105",
@@ -261,6 +274,7 @@
     "test278",
     "test421",
     "test438",
+    "test559",
     "test529",
     "test443",
     "test19",
@@ -285,6 +299,7 @@
     "test224",
     "test86",
     "test459",
+    "test570",
     "test532",
     "test327",
     "test49",
@@ -299,6 +314,7 @@
     "test321",
     "test156",
     "test131",
+    "test560",
     "test122",
     "test299",
     "test519",
@@ -310,6 +326,7 @@
     "test165",
     "test199",
     "test11",
+    "test558",
     "test168",
     "test149",
     "test323",
@@ -324,16 +341,19 @@
     "test212",
     "test304",
     "test205",
+    "test545",
     "test448",
     "test126",
     "test219",
     "test464",
     "test447",
+    "test576",
     "test57",
     "test435",
     "test109",
     "test202",
     "test376",
+    "test553",
     "test114",
     "test289",
     "test161",
@@ -341,11 +361,13 @@
     "test180",
     "test102",
     "test139",
+    "test573",
     "test411",
     "test129",
     "test113",
     "test347",
     "test300",
+    "test566",
     "test451",
     "test33",
     "test198",
@@ -361,6 +383,7 @@
     "test450",
     "test446",
     "test409",
+    "test562",
     "test371",
     "test369",
     "test482",
@@ -380,6 +403,7 @@
     "test216",
     "test220",
     "test405",
+    "test549",
     "test106",
     "test372",
     "test330",
@@ -395,17 +419,21 @@
     "test267",
     "test331",
     "test190",
+    "test565",
     "test20",
     "test491",
     "test273",
     "test252",
     "test170",
     "test366",
+    "test578",
     "test385",
     "test364",
     "test473",
     "test295",
+    "test557",
     "test400",
+    "test546",
     "test463",
     "test417",
     "test69",
@@ -426,10 +454,12 @@
     "test9",
     "test64",
     "test393",
+    "test550",
     "test74",
     "test538",
     "test383",
     "test14",
+    "test574",
     "test458",
     "test509",
     "test423",
@@ -441,9 +471,11 @@
     "test346",
     "test35",
     "test184",
+    "test552",
     "test294",
     "test264",
     "test403",
+    "test575",
     "test23",
     "test255",
     "test127",
@@ -478,12 +510,15 @@
     "test230",
     "test361",
     "test444",
+    "test542",
     "test292",
     "test222",
     "test305",
     "test498",
     "test314",
     "test16",
+    "test551",
+    "test571",
     "test345",
     "test329",
     "test182",
@@ -505,6 +540,7 @@
     "test163",
     "test247",
     "test310",
+    "test579",
     "test404",
     "test83",
     "test495",
@@ -519,10 +555,12 @@
     "test34",
     "test521",
     "test324",
+    "test563",
     "test350",
     "test87",
     "test430",
     "test493",
+    "test569",
     "test5",
     "test357",
     "test44",
@@ -535,8 +573,10 @@
     "test60",
     "test65",
     "test94",
+    "test567",
     "test386",
     "test490",
+    "test547",
     "test512",
     "test82",
     "test119"
@@ -46981,6 +47021,3446 @@
           "has_relevant": true
         }
       }
+    },
+    {
+      "qid": "test540",
+      "query": "baga beach is in north or south goa",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Baga Beach is located in North Goa.",
+          "context_length": 0,
+          "latency_ms": 913.0370616912842,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Baga Beach is in North Goa.",
+          "context_length": 236,
+          "latency_ms": 1041.7711734771729,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Baga Beach is in North Goa.",
+          "context_length": 472,
+          "latency_ms": 1130.2320957183838,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Baga Beach is in North Goa.",
+          "context_length": 606,
+          "latency_ms": 1316.344976425171,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Baga Beach is located in North Goa.",
+          "context_length": 895,
+          "latency_ms": 1444.9002742767334,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Baga Beach is in North Goa.",
+          "context_length": 1013,
+          "latency_ms": 1416.1510467529297,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Baga Beach is located in North Goa.",
+          "context_length": 1379,
+          "latency_ms": 1831.6526412963867,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Baga Beach is in North Goa.",
+          "context_length": 1886,
+          "latency_ms": 2172.420024871826,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test541",
+      "query": "when was the first case of alzheimer's diagnosed",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The first documented case of Alzheimer's disease was reported in 1906 by German physician Alois Alzheimer.",
+          "context_length": 0,
+          "latency_ms": 2143.0108547210693,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The first case of Alzheimer's disease was diagnosed in 1901.",
+          "context_length": 1020,
+          "latency_ms": 1785.186767578125,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The first case of Alzheimer's disease was diagnosed in 1901.",
+          "context_length": 1435,
+          "latency_ms": 2115.1998043060303,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The first case of Alzheimer's disease was diagnosed in 1901 by German psychiatrist Alois Alzheimer.",
+          "context_length": 1897,
+          "latency_ms": 2994.4701194763184,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The first case of Alzheimer's disease was diagnosed in 1901 by German psychiatrist Alois Alzheimer.",
+          "context_length": 2258,
+          "latency_ms": 3259.5698833465576,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The first case of Alzheimer's disease was diagnosed in 1901 by German psychiatrist Alois Alzheimer.",
+          "context_length": 2755,
+          "latency_ms": 2849.675178527832,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The first case of Alzheimer's disease was diagnosed in 1901 by German psychiatrist Alois Alzheimer.",
+          "context_length": 3278,
+          "latency_ms": 4048.8579273223877,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The first case of Alzheimer's disease was diagnosed in 1901 by German psychiatrist Alois Alzheimer in a fifty-year-old woman named Auguste D.",
+          "context_length": 5365,
+          "latency_ms": 5601.968050003052,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test542",
+      "query": "who wrote the theme to last of the mohicans",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The theme to \"Last of the Mohicans\" was written by James Fenimore Cooper.",
+          "context_length": 0,
+          "latency_ms": 1451.1699676513672,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Dougie MacLean wrote the main theme to Last of the Mohicans.",
+          "context_length": 188,
+          "latency_ms": 1605.0896644592285,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Dougie MacLean wrote the main theme for The Last of the Mohicans, while Randy Edelman composed tracks 10\u201315.",
+          "context_length": 368,
+          "latency_ms": 2581.2699794769287,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Dougie MacLean wrote the main theme for The Last of the Mohicans, while Trevor Jones composed tracks 1\u20139 and Randy Edelman composed tracks 10\u201315.",
+          "context_length": 812,
+          "latency_ms": 2840.522050857544,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "James Fenimore Cooper wrote the theme to Last of the Mohicans, specifically the main theme.",
+          "context_length": 1359,
+          "latency_ms": 2204.754114151001,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Dougie MacLean wrote the main theme to Last of the Mohicans.",
+          "context_length": 1509,
+          "latency_ms": 1776.346206665039,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Dougie MacLean wrote the main theme to Last of the Mohicans.",
+          "context_length": 1649,
+          "latency_ms": 2129.5289993286133,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Dougie MacLean wrote the main theme to Last of the Mohicans.",
+          "context_length": 3055,
+          "latency_ms": 3110.8357906341553,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test543",
+      "query": "who was the german leader who signed the treaty of versailles",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The German leader who signed the Treaty of Versailles was Gustav Stresemann. However, it's important to note that the treaty was signed by all the Allied powers, not just Germany.",
+          "context_length": 0,
+          "latency_ms": 2688.3671283721924,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Friedrich Ebert of the SPD signed the new German constitution into law on 11 August 1919, but he was not the leader who signed the Treaty of Versailles. The treaty was signed by the German peace delegation in France.",
+          "context_length": 915,
+          "latency_ms": 3803.224802017212,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Friedrich Ebert of the SPD signed the treaty of versailles.",
+          "context_length": 1823,
+          "latency_ms": 2044.39377784729,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Friedrich Ebert was the German leader who signed the Treaty of Versailles as the first Reichspr\u00e4sident of the Weimar Republic.",
+          "context_length": 2376,
+          "latency_ms": 3080.42311668396,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Friedrich Ebert was the German leader who signed the Treaty of Versailles as the first Reichspr\u00e4sident of the Weimar Republic.",
+          "context_length": 3629,
+          "latency_ms": 3627.0687580108643,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Friedrich Ebert was the German leader who signed the Treaty of Versailles as the first Reichspr\u00e4sident of the Weimar Republic.",
+          "context_length": 4384,
+          "latency_ms": 3890.4919624328613,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Friedrich Ebert was the German leader who signed the Treaty of Versailles as the first Reichspr\u00e4sident (\"Reich President\") of the Weimar Republic.",
+          "context_length": 5270,
+          "latency_ms": 4858.226776123047,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Friedrich Ebert was the German leader who signed the Treaty of Versailles as the first Reichspr\u00e4sident of the Weimar Republic.",
+          "context_length": 9427,
+          "latency_ms": 6781.070947647095,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test544",
+      "query": "where is fight or flight in the brain",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The fight or flight response involves multiple brain regions, but primarily activates the amygdala and hypothalamus. The amygdala processes fear and triggers the response, while the hypothalamus initiates the physiological reactions.",
+          "context_length": 0,
+          "latency_ms": 9271.12603187561,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The fight or flight response occurs in the clusters of the amygdala, which is the primary structure of the brain responsible for this response.",
+          "context_length": 364,
+          "latency_ms": 3325.3941535949707,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The fight or flight response occurs in the clusters of the amygdala, which is part of the limbic system.",
+          "context_length": 1085,
+          "latency_ms": 2465.1827812194824,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The fight or flight response originates in the parasympathetic nervous system, which is physically surrounding the sympathetic origin in the sacral spinal cord and medulla.",
+          "context_length": 1538,
+          "latency_ms": 3237.9801273345947,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The fight or flight response originates in the parasympathetic nervous system, which originates in the sacral spinal cord and medulla, and works in concert with the sympathetic nervous system. The parasympathetic nervous system is responsible for activating the \"rest and digest\" response and returning the body to homeostasis after the fight or flight response.",
+          "context_length": 1869,
+          "latency_ms": 5654.9530029296875,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The fight or flight response originates in the parasympathetic nervous system, which is physically surrounding the sympathetic origin in the sacral spinal cord and medulla. However, the sympathetic nervous system, which is central to the fight or flight response, originates in the spinal cord and its main function is to activate physiological changes during this response.",
+          "context_length": 2016,
+          "latency_ms": 5477.404832839966,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The fight or flight response originates in the parasympathetic nervous system and the sympathetic nervous system, with the sympathetic nervous system being the primary component responsible for activating physiological changes during this response.",
+          "context_length": 2374,
+          "latency_ms": 3698.293924331665,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The fight or flight response originates in the parasympathetic nervous system and the sympathetic nervous system, with the sympathetic nervous system being the primary component responsible for activating this response. The parasympathetic nervous system works in concert with the sympathetic system to return the body to homeostasis after the fight or flight response.",
+          "context_length": 4561,
+          "latency_ms": 6562.642812728882,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test545",
+      "query": "where does the phrase dressed to the nines",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The phrase 'dressed to the nines' means wearing one's best clothes, but it does not specify a location. It is commonly used in various contexts, such as sports or formal events. I cannot answer without additional context.",
+          "context_length": 0,
+          "latency_ms": 3364.696741104126,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The phrase \"dressed to the nines\" is used to describe someone who is dressed very nicely or perfectly.",
+          "context_length": 271,
+          "latency_ms": 1920.3341007232666,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The phrase \"dressed to the nines\" is said to be Scots in origin.",
+          "context_length": 463,
+          "latency_ms": 1798.626184463501,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The phrase \"dressed to the nines\" most commonly refers to dressing \"buoyantly and high class,\" but it may also be associated with the Nine Worthies or the nine Muses, as suggested by its possible origins. However, the most direct context provided is in relation to dressing to perfection or high class.",
+          "context_length": 674,
+          "latency_ms": 4624.035120010376,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The phrase \"dressed to the nines\" is commonly associated with MacLaren's, as mentioned in Document 4.",
+          "context_length": 834,
+          "latency_ms": 2467.7019119262695,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The phrase \"dressed to the nines\" is commonly associated with Tuxedo Night, where Marshall shows up dressed to the nines at MacLaren's.",
+          "context_length": 973,
+          "latency_ms": 2998.7528324127197,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The phrase \"dressed to the nines\" is commonly associated with dressing \"buoyantly and high class.\" A specific instance of this usage is in Document 4, where it is mentioned that Marshall shows up dressed to the nines at MacLaren's after being left out of Tuxedo Night.",
+          "context_length": 1668,
+          "latency_ms": 5292.943954467773,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The phrase \"dressed to the nines\" is commonly associated with dressing \"buoyantly and high class.\" An example of its usage is in Document 10, where it is mentioned in the context of an actress performing the song in a movie.",
+          "context_length": 2183,
+          "latency_ms": 4863.785982131958,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test546",
+      "query": "what color is the golden gate bridge in san francisco",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The Golden Gate Bridge is typically painted in International Orange.",
+          "context_length": 0,
+          "latency_ms": 1060.246229171753,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Golden Gate Bridge is painted international orange.",
+          "context_length": 248,
+          "latency_ms": 992.3741817474365,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Golden Gate Bridge is painted international orange.",
+          "context_length": 568,
+          "latency_ms": 1125.9009838104248,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Golden Gate Bridge is painted international orange.",
+          "context_length": 1197,
+          "latency_ms": 1463.5870456695557,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Golden Gate Bridge is painted international orange.",
+          "context_length": 1743,
+          "latency_ms": 1759.4470977783203,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Golden Gate Bridge is painted international orange.",
+          "context_length": 2034,
+          "latency_ms": 1852.5519371032715,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Golden Gate Bridge is painted international orange.",
+          "context_length": 2149,
+          "latency_ms": 1969.2351818084717,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Golden Gate Bridge is painted international orange.",
+          "context_length": 3924,
+          "latency_ms": 2809.3690872192383,
+          "relevant_in_top_k": 1,
+          "total_relevant": 3,
+          "recall_at_k": 0.3333333333333333,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test547",
+      "query": "what type of car is a g wagon",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "A G wagon is a type of pickup truck.",
+          "context_length": 0,
+          "latency_ms": 859.8718643188477,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "A G wagon is a three body variant of the Mercedes-Benz G-Class, available in two station wagon versions with a short or long wheelbase.",
+          "context_length": 296,
+          "latency_ms": 2423.52294921875,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "A G-Wagon is a type of Mercedes-Benz G-Class car, available in three body variants: short-wheelbase station wagon, long-wheelbase station wagon, and convertible.",
+          "context_length": 464,
+          "latency_ms": 3075.2859115600586,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "A G-wagon is a type of full-size station wagon, which has been replaced by medium or full-size SUVs.",
+          "context_length": 706,
+          "latency_ms": 2400.662899017334,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "A G-wagon is a full-size station wagon, similar to models like the Chevrolet Suburban, Ford Expedition, and Mercedes-Benz GL-Class.",
+          "context_length": 1027,
+          "latency_ms": 2898.3778953552246,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "A G wagon is a full-size station wagon, which has been replaced by medium or full-size SUVs with three-row seating. However, the G 500 long-wheelbase station wagon can be considered a type of G wagon.",
+          "context_length": 1211,
+          "latency_ms": 4119.404077529907,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "A G wagon is a full-size station wagon, which has been replaced by medium or full-size SUVs with three-row seating. However, the specific type of G wagon mentioned in the context is a long-wheelbase station wagon based on the G 500 from the G 463 model series.",
+          "context_length": 1826,
+          "latency_ms": 5218.667030334473,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "A G wagon is a full-size station wagon, which has been replaced by medium or full-size SUVs with three-row seating.",
+          "context_length": 2958,
+          "latency_ms": 3775.55513381958,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test548",
+      "query": "who sings angel of the morning in deadpool",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The song \"Angel of the Morning\" in Deadpool is performed by the band The Black Angels, not a singer.",
+          "context_length": 0,
+          "latency_ms": 2394.557237625122,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Peter Griffin sings \"Angel of the Morning\" in Deadpool.",
+          "context_length": 138,
+          "latency_ms": 1253.619909286499,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Peter Griffin sings Angel of the Morning in Deadpool.",
+          "context_length": 467,
+          "latency_ms": 1252.9520988464355,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Peter Griffin sings Angel of the Morning in Deadpool.",
+          "context_length": 920,
+          "latency_ms": 1688.0619525909424,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Peter Griffin sings Angel of the Morning in Deadpool.",
+          "context_length": 1188,
+          "latency_ms": 1804.293155670166,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Peter Griffin sings Angel of the Morning in Deadpool.",
+          "context_length": 1421,
+          "latency_ms": 1899.953842163086,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Peter Griffin sings Angel of the Morning in Deadpool.",
+          "context_length": 2193,
+          "latency_ms": 2428.5879135131836,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "In Deadpool, Juice Newton sings the song \"Angel of the Morning.\"",
+          "context_length": 3710,
+          "latency_ms": 3730.013847351074,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test549",
+      "query": "who did kenny rogers sing mary did you know with",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Kenny Rogers sang \"Mary Did You Know\" with Mary Wells.",
+          "context_length": 0,
+          "latency_ms": 1178.9960861206055,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Kenny Rogers sang Mary, Did You Know with Mary.",
+          "context_length": 204,
+          "latency_ms": 1276.6811847686768,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Kenny Rogers sang Mary, Did You Know with Mary Arnold.",
+          "context_length": 478,
+          "latency_ms": 1390.0060653686523,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Wynonna Judd and Kenny Rogers",
+          "context_length": 1408,
+          "latency_ms": 1531.2309265136719,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Kenny Rogers sang Mary, Did You Know? with Mary Arnold.",
+          "context_length": 1862,
+          "latency_ms": 2308.769941329956,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Kenny Rogers recorded a duet version with Mary Arnold on the song \"Did You Know?\"",
+          "context_length": 2235,
+          "latency_ms": 2906.942844390869,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Kenny Rogers sang Mary, Did You Know? with Wynonna Judd.",
+          "context_length": 3028,
+          "latency_ms": 3136.651039123535,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Kenny Rogers sang Mary, Did You Know? with Mary Arnold.",
+          "context_length": 5846,
+          "latency_ms": 4479.591131210327,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test550",
+      "query": "when is the new series of keeping faith starting",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify the start date of the new series of Keeping Faith.",
+          "context_length": 0,
+          "latency_ms": 1628.1931400299072,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The new series of Keeping Faith is starting on 5 November 2017.",
+          "context_length": 627,
+          "latency_ms": 1633.1708431243896,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The new series of Keeping Faith is starting after the final episode of Series 1, which aired in April 2018. A second series is in preparation following the cliff-hangers from the final episode. However, the exact start date of the new series is not specified in the provided context.",
+          "context_length": 840,
+          "latency_ms": 4409.482002258301,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The new series of Keeping Faith is set to premiere in autumn.",
+          "context_length": 1448,
+          "latency_ms": 2017.3091888427734,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The new series of Keeping Faith is set to premiere back to back on S4C this autumn.",
+          "context_length": 1738,
+          "latency_ms": 2550.400972366333,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The new series of Keeping Faith is premiering on S4C this autumn.",
+          "context_length": 2301,
+          "latency_ms": 2459.2862129211426,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The new series of Keeping Faith is set to premiere in autumn 2018.",
+          "context_length": 3222,
+          "latency_ms": 3000.300168991089,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The new series of Keeping Faith is starting in the summer of 2018.",
+          "context_length": 5769,
+          "latency_ms": 4263.972043991089,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test551",
+      "query": "who pays for work done on holmes makes it right",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 657.3009490966797,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The victims and the state victim compensation fund pay for work done on Holmes makes it right.",
+          "context_length": 297,
+          "latency_ms": 1778.8879871368408,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The remainder of the work is funded by the TV production company, but in some cases, Mike Holmes personally contributes funds towards the repairs.",
+          "context_length": 806,
+          "latency_ms": 2375.4758834838867,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Some contractors hired on the show have donated time, materials, and labor to help homeowners in need, while the remainder of the work is funded by the TV production company or Mike Holmes personally contributes funds towards the repairs.",
+          "context_length": 2122,
+          "latency_ms": 4015.444040298462,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "In some cases, Mike Holmes personally contributes funds towards the repairs. Additionally, the remainder of the work is funded by the TV production company, but in some cases, he may also pay for it himself.",
+          "context_length": 2616,
+          "latency_ms": 4051.079034805298,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "In the TV show Holmes on Homes, the remainder of the work is funded by the TV production company. However, in some cases, Mike Holmes personally contributes funds towards the repairs.",
+          "context_length": 3609,
+          "latency_ms": 4175.468921661377,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "In the television series, Holmes often pays for work done on his own projects through his professional charges. However, in some cases, Mike Holmes personally contributes funds towards the repairs, especially when he has his wealthy banker client pay the costs of recovering stolen gems or claims rewards for solving cases. The remainder of the work is funded by the TV production company, but Holmes' professional charges are typically based on a fixed scale.",
+          "context_length": 4455,
+          "latency_ms": 7742.830038070679,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The remainder of the work is funded by the TV production company, but in some cases, Mike Holmes personally contributes funds towards the repairs.",
+          "context_length": 7267,
+          "latency_ms": 5636.804103851318,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test552",
+      "query": "how many seasons of ray donovan has there been",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify the number of seasons of Ray Donovan's work.",
+          "context_length": 0,
+          "latency_ms": 1686.4261627197266,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "There have been six seasons of Ray Donovan.",
+          "context_length": 608,
+          "latency_ms": 1369.0969944000244,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "There have been five seasons of Ray Donovan.",
+          "context_length": 885,
+          "latency_ms": 1369.926929473877,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "There have been five seasons of Ray Donovan. The first season premiered in 2013, and the series was renewed for a sixth season on October 23, 2017.",
+          "context_length": 1339,
+          "latency_ms": 3345.4248905181885,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "There have been five seasons of Ray Donovan. The first season premiered in 2013, and the series was renewed for a sixth season on October 23, 2017.",
+          "context_length": 1838,
+          "latency_ms": 3692.1329498291016,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "There have been five seasons of Ray Donovan. The first season premiered in 2013, and the series was renewed for a fifth season on October 23, 2017.",
+          "context_length": 2294,
+          "latency_ms": 3913.922071456909,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "There have been five seasons of Ray Donovan. The first season premiered in 2013, and the series was renewed for a fifth season on October 23, 2017.",
+          "context_length": 2656,
+          "latency_ms": 4033.6098670959473,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "There have been five seasons of Ray Donovan. The first season premiered in 2013, and the series was renewed for a fifth season in October 2017.",
+          "context_length": 4146,
+          "latency_ms": 4855.165004730225,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test553",
+      "query": "what was the united states foreign policy after ww1 started",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not contain specific information about the United States' foreign policy after WW1 began. However, generally, the U.S. shifted towards a more isolationist stance during this period, as indicated by the rejection of the Treaty of Versailles and the Senate's refusal to join the League of Nations.",
+          "context_length": 0,
+          "latency_ms": 4235.888957977295,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "After World War I, the United States foreign policy shifted from non-interventionism to becoming more involved in international affairs, marking its growth as a world power and global hegemony.",
+          "context_length": 515,
+          "latency_ms": 2726.173162460327,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "After World War I, the United States foreign policy shifted from non-interventionism to a more interventionist approach, characterized by a focus on global hegemony and involvement in international affairs.",
+          "context_length": 1641,
+          "latency_ms": 3250.074863433838,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The United States foreign policy after WWI started favored Britain and its allies, and the U.S. got caught up in the war, making large-scale grants of military and economic aid to the Allies through Lend-Lease. Industries greatly expanded to produce war materials.",
+          "context_length": 2758,
+          "latency_ms": 4678.974151611328,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The United States proclaimed a policy of neutrality after World War I began in 1914, despite President Woodrow Wilson's antipathies against Germany. Early on, the U.S. started to favor the British and their allies, but President Wilson aimed to broker a peace and sent his top aide, Colonel House, on repeated missions to the two sides, although these proposals were largely ignored due to their confidence in victory.",
+          "context_length": 3227,
+          "latency_ms": 6807.664155960083,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The United States proclaimed a policy of neutrality after World War I began in 1914, despite President Woodrow Wilson's antipathies against Germany. Early on, the U.S. started to favor the British and their allies, but this did not prevent the U.S. from getting caught up in the war due to President Roosevelt's actions.",
+          "context_length": 4188,
+          "latency_ms": 6876.838207244873,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "After World War I began, the United States proclaimed a policy of neutrality despite President Woodrow Wilson's antipathies against Germany. Early in the war, the U.S. started to favor the British and their allies, but President Wilson aimed to broker a peace and sent his top aide, Colonel House, on repeated missions to the two sides, though each remained confident of victory and ignored peace proposals.",
+          "context_length": 4512,
+          "latency_ms": 7108.963966369629,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "After World War I began, the United States proclaimed a policy of neutrality despite President Woodrow Wilson's antipathies against Germany. Early in the war, the U.S. started to favor the British and their allies, but it also expanded its industries to produce war materials through Lend-Lease. The U.S. officially entered World War II against Germany, Japan, and Italy in December 1941 following the Japanese surprise attack on Pearl Harbor. Unlike World War I, the U.S. became a full-fledged member of the Allies and conducted military operations on both the Atlantic and Pacific fronts.",
+          "context_length": 12413,
+          "latency_ms": 13969.848155975342,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test554",
+      "query": "when did world war 2 end in the pacific",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "World War II ended in the Pacific on September 2, 1945.",
+          "context_length": 0,
+          "latency_ms": 1324.0408897399902,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "World War II ended in the Pacific on September 2, 1945.",
+          "context_length": 534,
+          "latency_ms": 1644.6099281311035,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "World War II ended in the Pacific on September 2, 1945, when Japan signed the Instrument of Surrender following the atomic bombings of Hiroshima and Nagasaki by the US.",
+          "context_length": 1091,
+          "latency_ms": 3126.159906387329,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "World War II ended in the Pacific on September 2, 1945, when Japan signed the Instrument of Surrender following the atomic bombings of Hiroshima and Nagasaki.",
+          "context_length": 1677,
+          "latency_ms": 3343.130111694336,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "World War II ended in the Pacific on 2 September 1945 when Japan signed the Instrument of Surrender.",
+          "context_length": 2141,
+          "latency_ms": 2918.0421829223633,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "World War II ended in the Pacific on 2 September 1945 when Japan signed the Instrument of Surrender following the atomic bombings of Hiroshima and Nagasaki by the US.",
+          "context_length": 2584,
+          "latency_ms": 3846.014976501465,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "World War II ended in the Pacific on 14 August 1945, when Japan announced its surrender and signed the Instrument of Surrender on 2 September 1945.",
+          "context_length": 3185,
+          "latency_ms": 4025.188207626343,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "World War II ended in the Pacific on 14 and 15 August 1945 when armed forces of the Empire of Japan surrendered to the Allied Forces.",
+          "context_length": 5315,
+          "latency_ms": 5039.245128631592,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test555",
+      "query": "what is the story of the very hungry caterpillar",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The story of the very hungry caterpillar is from John Steinbeck's novel \"The Tortoise and the Hare.\" However, the specific story about the very hungry caterpillar is not detailed in the provided context. The answer focuses on the general theme of transformation and overcoming adversity, but the exact narrative isn't included here.",
+          "context_length": 0,
+          "latency_ms": 5187.164783477783,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Very Hungry Caterpillar is a story about a caterpillar that eats a variety of foods, growing larger and hungry until it transforms into a butterfly.",
+          "context_length": 484,
+          "latency_ms": 3149.006128311157,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Very Hungry Caterpillar is a story about a caterpillar that eats a variety of foods, growing larger and hungry until it transforms into a butterfly.",
+          "context_length": 975,
+          "latency_ms": 3485.707998275757,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Very Hungry Caterpillar is a children's picture book about a caterpillar who eats various food items before transforming into a butterfly.",
+          "context_length": 1761,
+          "latency_ms": 3431.248188018799,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Very Hungry Caterpillar is a children's picture book about a caterpillar who eats various foods before transforming into a butterfly. It features 'eaten' holes in the pages and simple text with educational themes such as counting, days of the week, foods, and metamorphosis stages. The story introduces concepts of Lepidoptera life stages and has been endorsed by the Royal Entomological Society.",
+          "context_length": 2510,
+          "latency_ms": 7219.942808151245,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Very Hungry Caterpillar is a children's picture book about a caterpillar who eats its way through various foodstuffs before transforming into a butterfly. The story includes educational themes such as counting, the days of the week, foods, and the butterfly's life stages. The caterpillar's diet is fictional, but it introduces concepts of Lepidoptera life stages.",
+          "context_length": 2711,
+          "latency_ms": 6953.450918197632,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Very Hungry Caterpillar is a children's picture book about a caterpillar who eats its way through various foodstuffs before transforming into a butterfly. The story includes educational themes such as counting, the days of the week, and different foods.",
+          "context_length": 3245,
+          "latency_ms": 5434.592008590698,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Very Hungry Caterpillar is a children's picture book about a caterpillar who eats various foods before transforming into a butterfly. The story includes educational themes such as counting, the days of the week, and foods, with a fictional diet. It has sold 30 million copies worldwide and won numerous awards.",
+          "context_length": 4565,
+          "latency_ms": 6531.8238735198975,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test556",
+      "query": "meaning of song do your ears hang low",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer this question without additional context. It appears to be a phrase possibly used in a song or lyric, but its meaning isn't explicitly stated.",
+          "context_length": 0,
+          "latency_ms": 2447.4971294403076,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The lyrics suggest a feeling of sadness or deep concern, as if one's worries are heavy and difficult to hear or bear.",
+          "context_length": 101,
+          "latency_ms": 1830.4591178894043,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The song \"Do Your Ears Hang Low\" is believed to refer to the ears of a hound dog, possibly originating as a crude wartime soldiers' song that has been sanitized over time.",
+          "context_length": 693,
+          "latency_ms": 3090.8641815185547,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The song \"Do Your Ears Hang Low?\" is believed to refer to the ears of a hound dog, possibly originating as a crude wartime soldiers' song that was later sanitized. However, the exact meaning is obscure and varies in interpretation, with some versions being considered parodies of campfire songs.",
+          "context_length": 1096,
+          "latency_ms": 4654.738187789917,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The song \"Do Your Ears Hang Low?\" is a children's song with lyrics that are generally interpreted as referring to the ears of a hound dog, possibly originating from a crude wartime soldiers' song that was later sanitized. The exact meaning is not definitively clear, but it seems to be a playful or metaphorical reference rather than a literal one.",
+          "context_length": 1220,
+          "latency_ms": 5553.903102874756,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The song \"Do Your Ears Hang Low?\" is a children's song with lyrics that are often interpreted as referring to the ears of a hound dog, possibly originating from a crude wartime soldiers' song that was later sanitized. However, the exact meaning is not definitively known and varies by context.",
+          "context_length": 1382,
+          "latency_ms": 5345.864057540894,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The song \"Do Your Ears Hang Low?\" is a children's song with lyrics that are often interpreted as referring to the ears of a hound dog, possibly originating from a crude wartime soldiers' song that was sanitized over time. The exact meaning is unclear, but it seems to be a humorous or nonsensical reference rather than a serious commentary.",
+          "context_length": 1511,
+          "latency_ms": 5672.292947769165,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The song \"Do Your Ears Hang Low\" is a children's song with lyrics that have been interpreted as referring to the ears of a hound dog, possibly originating from a crude wartime soldiers' song. However, the exact meaning is unclear and varies among interpretations.",
+          "context_length": 3601,
+          "latency_ms": 6069.386005401611,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test557",
+      "query": "is australia the largest island in the world",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. Australia is not the largest island in the world; it is an island continent, not a single island. The largest island is Greenland.",
+          "context_length": 0,
+          "latency_ms": 2293.0710315704346,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "No, Australia is not the largest island in the world. The largest island is Greenland, which is part of Denmark but geographically considered an island.",
+          "context_length": 582,
+          "latency_ms": 2699.676752090454,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "No, Australia is not the largest island in the world. It is often referred to as the \"island continent\" due to its size and isolation, but it is not considered the largest island.",
+          "context_length": 1542,
+          "latency_ms": 3980.4916381835938,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "No, Australia is not the largest island in the world. It is often referred to as the \"island continent\" due to its size and isolation, but it is not considered the largest island. The document mentions that Australia has 34,218 kilometers of coastline and claims an extensive Exclusive Economic Zone, but it does not state that it is the largest island. The world's largest island is often considered to be Greenland, although Australia's landmass is larger in terms of total area.",
+          "context_length": 2135,
+          "latency_ms": 8030.190229415894,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "No, Australia is not the largest island in the world. It is often considered the \"island continent\" due to its size and isolation, but it does not claim to be the largest island. The document mentions that Australia is sometimes considered the world's largest island, but it does not explicitly state this as a fact.",
+          "context_length": 2590,
+          "latency_ms": 6023.033857345581,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "No, Australia is not the largest island in the world. Greenland is considered the world's largest island with an area of over 2.1 million km\u00b2, while Australia is the world's smallest continent with an area of 7.6 million km\u00b2. However, there is no standard definition distinguishing islands from continents in terms of size.",
+          "context_length": 3452,
+          "latency_ms": 7133.150100708008,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "No, Australia is not the largest island in the world. It is often considered the \"island continent\" due to its size and isolation, but it is not the largest island. Greenland is the world's largest island with an area of over 2.1 million km\u00b2.",
+          "context_length": 3696,
+          "latency_ms": 5737.8199100494385,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "No, Australia is not the largest island in the world. It is often referred to as the \"island continent\" due to its size and isolation, but it is not an island in the traditional sense. The world's largest island is Greenland, which is an autonomous territory within the Kingdom of Denmark.",
+          "context_length": 6416,
+          "latency_ms": 7743.680000305176,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test558",
+      "query": "how many seasons of vampire diaries r there",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify the number of seasons for \"Vampire Diaries.\"",
+          "context_length": 0,
+          "latency_ms": 1809.9336624145508,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "171 seasons",
+          "context_length": 145,
+          "latency_ms": 580.4641246795654,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "171 seasons, but only eight seasons were aired during the provided context.",
+          "context_length": 576,
+          "latency_ms": 1582.211971282959,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "There are eight seasons of The Vampire Diaries.",
+          "context_length": 939,
+          "latency_ms": 1565.5620098114014,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "171 seasons",
+          "context_length": 1292,
+          "latency_ms": 1092.1740531921387,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "171 episodes over eight seasons.",
+          "context_length": 1685,
+          "latency_ms": 1851.5310287475586,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "171 episodes over eight seasons.",
+          "context_length": 1942,
+          "latency_ms": 1767.9340839385986,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "171 episodes over eight seasons.",
+          "context_length": 3191,
+          "latency_ms": 2500.0791549682617,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test559",
+      "query": "what is the legal age for marriage in australia",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The legal age for marriage in Australia is 18 years for both partners.",
+          "context_length": 0,
+          "latency_ms": 1446.7477798461914,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The legal age for marriage in Australia, as per the Marriage Act 1961 (Australia), was originally set at 16 for females and 18 for males. It was equalised to 18 in 1991 by the Sex Discrimination Amendment Act 1991.",
+          "context_length": 350,
+          "latency_ms": 4228.275775909424,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The legal age for marriage in Australia is 16 for females and 18 for males, as per the Marriage Act 1961 (Australia).",
+          "context_length": 980,
+          "latency_ms": 3063.533067703247,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The legal age for marriage in Australia, as per the Marriage Act 1961, is 16 for females and 18 for males. The age was equalised to 18 in 1991 by the Sex Discrimination Amendment Act 1991.",
+          "context_length": 1331,
+          "latency_ms": 4238.722801208496,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The legal age for marriage in Australia, as per the Marriage Act 1961 (Australia), is 16 for females and 18 for males. The marriageable age was equalised in 1991 by the Sex Discrimination Amendment Act 1991.",
+          "context_length": 1722,
+          "latency_ms": 4683.12406539917,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The legal age for marriage in Australia is 18 for males and 16 for females, as per the Marriage Act 1961 (Australia). However, under certain 'unusual and exceptional circumstances', marriage of a person aged 16 or 17 to another over 18 is permitted with parental consent and court authorization.",
+          "context_length": 2453,
+          "latency_ms": 5856.431245803833,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The legal age for marriage in Australia is 18, as per the Marriage Act 1961 (Australia) and further raised to 18 by the Sex Discrimination Amendment Act 1991. However, there are exceptions for 'unusual and exceptional circumstances' which require parental consent and court authorization.",
+          "context_length": 3013,
+          "latency_ms": 5962.619066238403,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The legal age for marriage in Australia is 18, as per the Marriage Act 1961 (Australia) and further raised to 18 by the Sex Discrimination Amendment Act 1991. However, 'unusual and exceptional circumstances' may permit marriage at 16 for a girl aged 14 or 15 and at 17 for a male aged 18 or above.",
+          "context_length": 5555,
+          "latency_ms": 8370.29504776001,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test560",
+      "query": "who played doctor smith in lost in space",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The actor who played Doctor Smith in \"Lost in Space\" is not specified in the provided context.",
+          "context_length": 0,
+          "latency_ms": 1897.6519107818604,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Parker Posey played Dr. Zachary Smith in the 2018 reboot of Lost in Space.",
+          "context_length": 425,
+          "latency_ms": 1898.6461162567139,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Parker Posey played Dr. Zachary Smith in the 2018 reboot of Lost in Space.",
+          "context_length": 660,
+          "latency_ms": 1889.5289897918701,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Parker Posey played Dr. Zachary Smith in the 2018 reboot of Lost in Space.",
+          "context_length": 1608,
+          "latency_ms": 2457.401990890503,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Jonathan Harris played Dr. Zachary Smith in Lost in Space.",
+          "context_length": 2051,
+          "latency_ms": 2141.108989715576,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Jonathan Harris played Dr. Zachary Smith in Lost in Space.",
+          "context_length": 2806,
+          "latency_ms": 2736.04679107666,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Jonathan Harris played Doctor Smith in Lost in Space.",
+          "context_length": 3772,
+          "latency_ms": 2930.6747913360596,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Jonathan Harris played Dr. Zachary Smith in the 2018 reboot of Lost in Space.",
+          "context_length": 6000,
+          "latency_ms": 4674.646854400635,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test561",
+      "query": "when does jo come in grey's anatomy",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify when Jo comes in Grey's Anatomy.",
+          "context_length": 0,
+          "latency_ms": 1454.7100067138672,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Jo comes in Grey's Anatomy during the season premiere, following the conclusion of the finale.",
+          "context_length": 693,
+          "latency_ms": 1806.2589168548584,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Jo Wilson's storyline plays a bigger part of the premiere, but it is not specified when exactly she comes in.",
+          "context_length": 1283,
+          "latency_ms": 2505.681037902832,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Jo Wilson comes in Grey's Anatomy after the season premiere, following Amelia's storyline and before Alex and Owen's storylines.",
+          "context_length": 2246,
+          "latency_ms": 3289.8948192596436,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Jo Wilson appears in Grey's Anatomy during season 13, specifically in the season premiere.",
+          "context_length": 3009,
+          "latency_ms": 3184.7119331359863,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Jo Wilson comes into Grey's Anatomy in season 9, specifically in August 2012.",
+          "context_length": 3262,
+          "latency_ms": 3242.5239086151123,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Jo Wilson appears in Grey's Anatomy during season 14, specifically in August 2012.",
+          "context_length": 3908,
+          "latency_ms": 3674.7729778289795,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Jo Wilson appears in Grey's Anatomy during the season premiere, which is season 13.",
+          "context_length": 8028,
+          "latency_ms": 5673.684358596802,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test562",
+      "query": "what is the most common cause of right ventricular heart failure",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 619.3447113037109,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 127,
+          "latency_ms": 711.1282348632812,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The most common cause of right-sided heart failure is left-sided heart failure.",
+          "context_length": 430,
+          "latency_ms": 1502.3810863494873,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The most common cause of right-sided heart failure is left-sided heart failure.",
+          "context_length": 667,
+          "latency_ms": 1584.9871635437012,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The most common cause of right-sided heart failure is left-sided heart failure.",
+          "context_length": 1704,
+          "latency_ms": 2038.2440090179443,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The most common cause of right-sided heart failure is left-sided heart failure.",
+          "context_length": 2090,
+          "latency_ms": 2271.5768814086914,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The most common cause of right-sided heart failure is left-sided heart failure.",
+          "context_length": 3048,
+          "latency_ms": 2710.977077484131,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The most common cause of right-sided heart failure is left-sided heart failure.",
+          "context_length": 5843,
+          "latency_ms": 3858.8199615478516,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test563",
+      "query": "why dry ether is used in woods reaction",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Dry ether is used in woods reaction to dissolve lignin and hemicellulose, making cellulose more accessible for enzymatic hydrolysis or chemical conversion.",
+          "context_length": 0,
+          "latency_ms": 2635.634183883667,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Dry ether (silica gel) is used in the Williamson ether synthesis to remove water from the reaction mixture. This is important because water can react with alkyl halides to form alkoxyalkanes, which would interfere with the formation of the desired ether product.",
+          "context_length": 272,
+          "latency_ms": 4646.317005157471,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Dry ether is used in the woods reaction to prevent hydrolysis of the alkyl halide, ensuring that the nucleophilic substitution proceeds efficiently without being interrupted by water.",
+          "context_length": 622,
+          "latency_ms": 2750.4639625549316,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Dry ether is used in the Woods reaction to prevent the formation of explosive peroxides. Ether peroxides, which are more reactive and dangerous than ether, can form when dry ether is exposed to air. Commercial diethyl ether contains trace amounts of BHT as an antioxidant to reduce peroxide formation, but when handling it in air, the risk of peroxide formation increases.",
+          "context_length": 1210,
+          "latency_ms": 5971.714973449707,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Dry distillation is used in the wood reaction to prevent the formation of explosive peroxides. Commercial diethyl ether is supplied with trace amounts of butylated hydroxytoluene (BHT) to reduce peroxide formation. When wood is heated away from air, it begins to decompose spontaneously at about 270\u00b0C, producing heat and by-products. By removing moisture first, the temperature remains low enough to prevent ignition, thus avoiding the formation of explosive peroxides.",
+          "context_length": 2311,
+          "latency_ms": 7907.706260681152,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Dry ether is used in the dry distillation process of the wood reaction to prevent the formation of explosive peroxides. Since diethyl ether is sensitive to light and air, it can form peroxides when exposed to these elements. By using dry ether, the risk of peroxide formation is minimized, ensuring safer handling and more controlled reaction conditions.",
+          "context_length": 2973,
+          "latency_ms": 6491.229057312012,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Dry ether is used in the wood reaction to prevent oxidation and decomposition of the wood. Since oxygen is present in air, it can react with the wood to form peroxides and other by-products. By heating wood away from air, moisture is driven off, and the temperature rises to about 270\u00b0C, causing spontaneous decomposition of wood at this stage. This process eliminates the risk of peroxides formation and ensures the production of charcoal, which is the desired product.",
+          "context_length": 3516,
+          "latency_ms": 8079.946041107178,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Dry ether is used in the wood reaction to prevent the formation of explosive peroxides. Ether peroxides, which can form when wood is heated in the presence of oxygen, are contact explosives. By using diethyl ether, which is sensitive to light and air, the risk of peroxide formation is reduced.",
+          "context_length": 5874,
+          "latency_ms": 7650.020122528076,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test564",
+      "query": "describe how thermal regulation is different in ectotherms and endotherms",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. Thermal regulation differs between ectotherms and endotherms as follows: Ectotherms rely on external sources to regulate their body temperature, while endotherms generate heat internally to maintain a stable body temperature.",
+          "context_length": 0,
+          "latency_ms": 3189.1210079193115,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Thermal regulation differs between ectotherms and endotherms in that endotherms generate most of their heat internally through metabolic processes, maintaining a stable internal body temperature regardless of the external environment. In contrast, ectotherms rely on external sources of heat and their body temperatures often fluctuate with the surrounding temperature. Ectotherms use behavioral mechanisms to regulate their internal temperatures, such as basking in the sun or seeking shade.",
+          "context_length": 1630,
+          "latency_ms": 6398.32878112793,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Thermal regulation in ectotherms primarily relies on external heat sources such as sunlight, making them dependent on environmental conditions to maintain their body temperature. In contrast, endotherms generate most of their heat internally through metabolic processes and have higher metabolic rates, allowing them to maintain a stable internal body temperature regardless of external conditions. Ectotherms use behavioral mechanisms like sun-bathing or seeking shade to regulate their body temperature, while endotherms depend on internal heat production.",
+          "context_length": 2302,
+          "latency_ms": 7283.744096755981,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Thermal regulation in ectotherms primarily relies on external heat sources like sunlight, making their body temperature dependent on environmental conditions. In contrast, endotherms generate most of their heat internally through metabolic processes and maintain a relatively constant body temperature regardless of the external environment. Ectotherms use behavioral mechanisms to regulate their body temperatures, while endotherms depend on internal heat production.",
+          "context_length": 2534,
+          "latency_ms": 6255.376815795898,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Thermal regulation in ectotherms primarily relies on external heat sources, such as sunlight, and they depend on environmental conditions to maintain their body temperature. In contrast, endotherms generate most of their heat internally through metabolic processes and maintain a relatively constant body temperature regardless of the external environment. Ectotherms have lower metabolic rates and require higher food intake to sustain their body temperature, while endotherms have higher metabolic rates and need a more consistent supply of food.",
+          "context_length": 2941,
+          "latency_ms": 7381.069898605347,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Thermal regulation in ectotherms is dependent on external heat sources, such as sunlight, and they maintain their body temperatures within the same ranges as their environment. In contrast, endotherms generate most of their heat internally through metabolic processes and maintain a stable internal body temperature regardless of the external environment. Ectotherms rely on behavioral adaptations to regulate their body temperatures, while endotherms depend on physiological mechanisms.",
+          "context_length": 3736,
+          "latency_ms": 7226.009845733643,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Thermal regulation in ectotherms primarily relies on external heat sources, making them dependent on environmental conditions to maintain their body temperature. They exhibit behaviors like sun-bathing or seeking shade to regulate their internal temperatures. In contrast, endotherms generate most of their heat internally through metabolic processes and maintain a stable internal body temperature regardless of the external environment. This results in endotherms having higher metabolic rates and requiring more food intake compared to ectotherms.",
+          "context_length": 4372,
+          "latency_ms": 7835.195064544678,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Thermal regulation in ectotherms primarily relies on external heat sources, such as sunlight, and their body temperature fluctuates with the environment. They depend on behavioral mechanisms like sun-bathing or seeking shade to regulate their body temperature. In contrast, endotherms generate heat internally through metabolic processes and maintain a stable internal body temperature regardless of the external environment. They have higher metabolic rates, require more food intake, and exhibit less variability in their diurnal activity patterns compared to ectotherms.",
+          "context_length": 7060,
+          "latency_ms": 10126.638889312744,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test565",
+      "query": "where was the new pete's dragon filmed",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The new Pete's Dragon was filmed in Vancouver, Canada.",
+          "context_length": 0,
+          "latency_ms": 1086.6379737854004,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The new Pete's Dragon was filmed in and around Wellington and Rotorua, with additional locations including Tapanui, where the old Blue Mountain Lumber mill was used as the mill in the film.",
+          "context_length": 760,
+          "latency_ms": 3366.374969482422,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The new Pete's Dragon was filmed in and around Wellington and Rotorua, with the old Blue Mountain Lumber mill on Tapanui used as the mill in the film.",
+          "context_length": 1309,
+          "latency_ms": 3253.5769939422607,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The new Pete's Dragon was filmed in New Zealand, specifically in and around Wellington and Rotorua, with additional locations including Tapanui where the old Blue Mountain Lumber mill was used as the mill in the film.",
+          "context_length": 1535,
+          "latency_ms": 4007.64799118042,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Lowery directed the 2016 film Pete's Dragon, which was filmed in New Zealand, with locations including Bay of Plenty, Taupo, Wellington, and Tapanui.",
+          "context_length": 1923,
+          "latency_ms": 3721.4062213897705,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The new Pete's Dragon was filmed in and around Wellington and Rotorua, with additional locations including Tapanui where the old Blue Mountain Lumber mill was used as the mill in the film.",
+          "context_length": 2374,
+          "latency_ms": 4301.80287361145,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The new Pete's Dragon was filmed in and around Wellington and Rotorua, with additional locations including Tapanui where the old Blue Mountain Lumber mill was used as the mill in the film.",
+          "context_length": 2971,
+          "latency_ms": 4485.0921630859375,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The new Pete's Dragon was filmed in and around Wellington and Rotorua, with additional locations including Tapanui where the old Blue Mountain Lumber mill was used as the mill in the film.",
+          "context_length": 5210,
+          "latency_ms": 5659.029960632324,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test566",
+      "query": "is it marley and me or marley and i",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Marley and I.",
+          "context_length": 0,
+          "latency_ms": 696.6061592102051,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Marley & Me refers to the original three books written by Marley Marl and Marlon Marl. The question is ambiguous as it could refer to either the original trio or a reimagined version. However, based on the context provided, it is more likely referring to Marley & Me, the original three books.",
+          "context_length": 83,
+          "latency_ms": 4505.125999450684,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Marley & Me refers to the 2008 film, not Marley and I.",
+          "context_length": 669,
+          "latency_ms": 1853.761911392212,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Marley & Me refers to the 2008 film and the 2008 novel adaptation, not Marley & I.",
+          "context_length": 965,
+          "latency_ms": 2543.7710285186768,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Marley & Me refers to the 2008 film and the 2008 novel adaptation, not Marley & I.",
+          "context_length": 1658,
+          "latency_ms": 2999.875068664551,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Marley & Me refers to the 2008 film and the 2008 novel adaptation, not Marley and I.",
+          "context_length": 1776,
+          "latency_ms": 2945.096254348755,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Marley & Me refers to the 2008 film and its related books, not Marley & I.",
+          "context_length": 2369,
+          "latency_ms": 3010.282039642334,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Marley & Me refers to the original 2008 film about Marley, not Marley and I.",
+          "context_length": 3953,
+          "latency_ms": 3822.824001312256,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test567",
+      "query": "where was a hologram for the king filmed",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 606.3387393951416,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "A hologram for the King was filmed in Morocco, Hurghada in Egypt, Berlin, and D\u00fcsseldorf in Germany.",
+          "context_length": 299,
+          "latency_ms": 1988.4817600250244,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Principal photography for \"A Hologram for the King\" was filmed in Morocco, Hurghada in Egypt, Berlin, and D\u00fcsseldorf in Germany.",
+          "context_length": 870,
+          "latency_ms": 2747.333765029907,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Principal photography for A Hologram for the King commenced in Morocco, with additional filming taking place in Hurghada, Egypt, Berlin, and D\u00fcsseldorf, Germany. Shooting wrapped in June 2014.",
+          "context_length": 1196,
+          "latency_ms": 3566.3459300994873,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Filming took place in Morocco, Hurghada in Egypt, Berlin, and D\u00fcsseldorf in Germany.",
+          "context_length": 1685,
+          "latency_ms": 2626.3959407806396,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Filming took place in Morocco, Hurghada in Egypt, Berlin, and D\u00fcsseldorf in Germany.",
+          "context_length": 2280,
+          "latency_ms": 2924.9279499053955,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Principal photography for A Hologram for the King commenced in Morocco, as well as in Hurghada in Egypt, Berlin, and D\u00fcsseldorf in Germany. Shooting wrapped in June 2014.",
+          "context_length": 2975,
+          "latency_ms": 4836.888074874878,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Principal photography for A Hologram for the King commenced in Morocco, as well as in Hurghada in Egypt, Berlin, and D\u00fcsseldorf in Germany.",
+          "context_length": 3827,
+          "latency_ms": 4803.680896759033,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test568",
+      "query": "who inaugurated 'world teachers' day'",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "World Teachers' Day was inaugurated by the United Nations General Assembly in 1994.",
+          "context_length": 0,
+          "latency_ms": 1399.648904800415,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "World Teachers' Day was inaugurated by the United Nations General Assembly in 1994.",
+          "context_length": 212,
+          "latency_ms": 1491.5688037872314,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The document does not specify who inaugurated 'World Teachers' Day.' It only states that it was established in 1994 by UNESCO and commemorates the signing of the \"Teaching in Freedom\" document.",
+          "context_length": 366,
+          "latency_ms": 3113.853931427002,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "World Teachers' Day was inaugurated by UNESCO in 1994.",
+          "context_length": 707,
+          "latency_ms": 1511.518955230713,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The document does not specify who inaugurated 'World Teachers' Day.' It only mentions that it was established by UNESCO in 1994 and commemorates the signing of the 1966 \"Teaching in Freedom.\"",
+          "context_length": 1178,
+          "latency_ms": 3669.048070907593,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The document does not specify who inaugurated 'World Teachers' Day'. It only mentions that it is established by UNESCO in 1994 and commemorates the signing of the 1966 \"Teaching in Freedom\".",
+          "context_length": 1388,
+          "latency_ms": 3633.5771083831787,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The document does not specify who inaugurated 'World Teachers' Day.' It only mentions that it was established by UNESCO in 1994 and celebrated annually on October 5.",
+          "context_length": 1554,
+          "latency_ms": 3329.7793865203857,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The government first proclaimed Teachers' Day in 1985, but it was not explicitly stated who inaugurated 'World Teachers' Day'. However, some believe it was initiated by the government's efforts to raise the social status and living standards of teachers, as seen in the case of the NEA's lobbying efforts. The specific individual who inaugurated it is not mentioned in the provided context.",
+          "context_length": 4185,
+          "latency_ms": 7880.30481338501,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test569",
+      "query": "what kind of animals live in the great victoria desert",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 733.954906463623,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Great Victoria Desert sustains various animals including lizards like the great desert skink and crest-tailed mulgara, small marsupials such as the sandhill dunnart and the water-holding frog, birds like the chestnut-breasted whiteface and malleefowl, and predators including dingoes, perenties, and sand goannas.",
+          "context_length": 922,
+          "latency_ms": 5815.409183502197,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Great Victoria Desert sustains various animals including lizards like the great desert skink and crest-tailed mulgara, small marsupials such as the sandhill dunnart and the endangered crest-tailed mulgara, birds like the chestnut-breasted whiteface and malleefowl, and predators including dingoes, perenties, and sand goannas.",
+          "context_length": 1096,
+          "latency_ms": 5740.24510383606,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Great Victoria Desert sustains various animals including the great desert skink, sandhill dunnart, crest-tailed mulgara, southern marsupial mole, water-holding frog, chestnut-breasted whiteface, and malleefowl. Predators include dingoes, perentie, and sand goannas.",
+          "context_length": 1291,
+          "latency_ms": 5139.225006103516,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Great Victoria Desert sustains various animals including the vulnerable great desert skink, endangered sandhill dunnart, crest-tailed mulgara, southern marsupial mole, and the water-holding frog. Predators include dingoes, perentie, and sand goannas.",
+          "context_length": 1629,
+          "latency_ms": 5657.252073287964,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Great Victoria Desert is home to a variety of animals including lizards such as the great desert skink and crest-tailed mulgara, small marsupials like the sandhill dunnart and the crest-tailed mulgara, birds such as the chestnut-breasted whiteface and malleefowl, and predators including dingoes, perenties, and sand goannas.",
+          "context_length": 1947,
+          "latency_ms": 6067.41189956665,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Great Victoria Desert sustains various animals including large lizards like the great desert skink and the southern marsupial mole, small marsupials such as the sandhill dunnart and crest-tailed mulgara, birds like the chestnut-breasted whiteface and malleefowl, and predators including dingoes, perenties, and sand goannas.",
+          "context_length": 3063,
+          "latency_ms": 6454.261064529419,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Great Victoria Desert sustains various types of animals including lizards such as the great desert skink, sandhill dunnart, crest-tailed mulgara, and water-holding frog. Birds include the chestnut-breasted whiteface, malleefowl, and others. Predators in the desert include dingoes, perentie, and sand goanna.",
+          "context_length": 4516,
+          "latency_ms": 7337.634801864624,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test570",
+      "query": "where was walking tall with the rock filmed",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Walking Tall with the Rock was filmed in Los Angeles, California.",
+          "context_length": 0,
+          "latency_ms": 1179.966926574707,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Walking Tall with The Rock was filmed in Squamish, B.C., Canada, although it was also filmed in Kitsap County, Washington.",
+          "context_length": 842,
+          "latency_ms": 2571.8610286712646,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Walking Tall with The Rock was filmed in Squamish, B.C., Canada, although it was also filmed in Kitsap County, Washington, United States.",
+          "context_length": 1386,
+          "latency_ms": 3166.325807571411,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Walking Tall with The Rock was filmed in semi-rural Kitsap County, Washington, United States.",
+          "context_length": 1862,
+          "latency_ms": 2648.7319469451904,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Walking Tall with The Rock was filmed in Squamish, B.C., Canada, although the setting was semi-rural Kitsap County, Washington.",
+          "context_length": 2246,
+          "latency_ms": 3770.047187805176,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Walking Tall with The Rock was filmed in semi-rural Kitsap County, Washington, although it was also filmed in Squamish, B.C., Canada.",
+          "context_length": 2675,
+          "latency_ms": 4017.632007598877,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Walking Tall with The Rock was filmed in Squamish, B.C., Canada.",
+          "context_length": 3029,
+          "latency_ms": 3245.023012161255,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Walking Tall with The Rock was filmed in Squamish, B.C., Canada, although the setting of the film was semi-rural Kitsap County, Washington.",
+          "context_length": 4814,
+          "latency_ms": 5309.8790645599365,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test571",
+      "query": "active absorption of water from the soil by the root is mainly affected by",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 612.3659610748291,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Active absorption of water from the soil by the root is mainly affected by ATP generated by root respiration and the energy required for active osmotic and non-osmotic water absorption processes.",
+          "context_length": 558,
+          "latency_ms": 2816.1280155181885,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Active absorption of water from the soil by the root is mainly affected by ATP generated by root respiration and the energy required for active osmotic water absorption and active non-osmotic water absorption.",
+          "context_length": 1952,
+          "latency_ms": 3554.292917251587,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Active absorption of water from the soil by the root is mainly affected by ATP generated by root respiration, osmotic pressure, and the concentration gradient of solutes between the soil water and the root xylem.",
+          "context_length": 2078,
+          "latency_ms": 4100.568771362305,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Active absorption of water from the soil by the root is mainly affected by ATP generated by root respiration and energy required for active osmotic water absorption and active non-osmotic water absorption.",
+          "context_length": 2244,
+          "latency_ms": 3841.449022293091,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Active absorption of water from the soil by the root is mainly affected by ATP generated by root respiration and energy required for active osmotic water absorption and active non-osmotic water absorption.",
+          "context_length": 3750,
+          "latency_ms": 4679.187059402466,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Active absorption of water from the soil by the root is mainly affected by ATP generated by root respiration and energy required for active osmotic water absorption and Active non-osmotic water absorption.",
+          "context_length": 4864,
+          "latency_ms": 5321.800947189331,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Active absorption of water from the soil by the root is mainly affected by ATP generated by root respiration and the energy required for active osmotic water absorption and active non-osmotic water absorption.",
+          "context_length": 7681,
+          "latency_ms": 6686.97190284729,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test572",
+      "query": "who played tom hagon in the godfather series",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Tom Hagon was not a character in the Godfather series. The actor who played Tom Hagon is not mentioned in the context provided.",
+          "context_length": 0,
+          "latency_ms": 1951.5948295593262,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Al Pacino played Tom Hagen in the Godfather series.",
+          "context_length": 576,
+          "latency_ms": 1430.3028583526611,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Robert Duvall played Tom Hagen in the Godfather series.",
+          "context_length": 800,
+          "latency_ms": 1682.0051670074463,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Robert Duvall played Tom Hagen in the Godfather series.",
+          "context_length": 2039,
+          "latency_ms": 2621.703863143921,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Robert Duvall played Tom Hagen in the Godfather series.",
+          "context_length": 2622,
+          "latency_ms": 2742.02299118042,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Robert Duvall played Tom Hagen in the Godfather series.",
+          "context_length": 3028,
+          "latency_ms": 2862.2779846191406,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Robert Duvall played Tom Hagen in the Godfather series.",
+          "context_length": 3112,
+          "latency_ms": 2899.660110473633,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Robert Duvall played Tom Hagen in the Godfather series.",
+          "context_length": 5099,
+          "latency_ms": 3992.2008514404297,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test573",
+      "query": "the walls of the stomach and the small intestine have three layers of muscle tissue",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The walls of the stomach and small intestine have three layers of smooth muscle tissue.",
+          "context_length": 0,
+          "latency_ms": 1535.8669757843018,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer. The document specifies that the muscularis externa of the stomach consists of three layers of muscle tissue, but it does not mention the small intestine.",
+          "context_length": 549,
+          "latency_ms": 2839.8489952087402,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "No, the walls of the stomach and the small intestine do not have three layers of muscle tissue. The muscularis externa in the stomach consists of three layers: mucosa, submucosa, and muscularis externa itself. The muscularis externa is unique to the stomach and consists of three layers of smooth muscle, but not three layers of muscle tissue in general.",
+          "context_length": 1604,
+          "latency_ms": 6161.189079284668,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "No, the walls of the stomach and the small intestine have different muscle tissue arrangements. The stomach has a muscularis externa with three layers: inner circular, middle longitudinal, and outer longitudinal muscles. The small intestine does not have a distinct muscularis externa layer but has smooth muscle layers that facilitate peristalsis.",
+          "context_length": 2352,
+          "latency_ms": 5418.582201004028,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "True. The walls of the stomach and the small intestine do have three layers of muscle tissue: the inner circular layer, the middle longitudinal layer, and the outer longitudinal layer.",
+          "context_length": 2726,
+          "latency_ms": 3957.7279090881348,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Yes, the walls of the stomach and the small intestine have three layers of muscle tissue: the inner circular layer, the middle longitudinal layer, and the outer longitudinal layer.",
+          "context_length": 3277,
+          "latency_ms": 3954.731225967407,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Yes, the walls of the stomach and the small intestine have three layers of muscle tissue: the inner circular layer, the middle longitudinal layer, and the outer longitudinal layer.",
+          "context_length": 3915,
+          "latency_ms": 4069.4618225097656,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Document 9 states that the stomach has a serosa consisting of layers of connective tissue continuous with the peritoneum, and the small intestine has villi that increase the surface area for absorption. However, it does not explicitly mention three layers of muscle tissue in both organs. The muscularis externa in the stomach consists of three layers: the inner and outer layer of smooth muscle, and the middle layer of circular muscle. The small intestine does not have a serosa but has a muscularis externa with three layers of smooth muscle. Therefore, the answer is not fully supported by the provided context.",
+          "context_length": 5720,
+          "latency_ms": 10590.227842330933,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test574",
+      "query": "where are alkali metals located on the periodic table",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Alkali metals are located in group 1 of the periodic table.",
+          "context_length": 0,
+          "latency_ms": 1261.1417770385742,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Alkali metals are located in the s-block of the periodic table.",
+          "context_length": 630,
+          "latency_ms": 1451.5349864959717,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Alkali metals are located in the s-block of the periodic table, specifically in group 1.",
+          "context_length": 1498,
+          "latency_ms": 2212.4640941619873,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Alkali metals are located in the s-block of the periodic table, specifically in group 1.",
+          "context_length": 2109,
+          "latency_ms": 2841.8009281158447,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Alkali metals are located in the s-block of the periodic table, specifically in group 1.",
+          "context_length": 3425,
+          "latency_ms": 3602.6370525360107,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Alkali metals are located in the s-block of the periodic table, specifically in group 1.",
+          "context_length": 5351,
+          "latency_ms": 4413.85817527771,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Alkali metals are located in the s-block of the periodic table, specifically in group 1.",
+          "context_length": 6319,
+          "latency_ms": 5141.548633575439,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Alkali metals are located in the s-block of the periodic table, specifically in group 1 consisting of lithium (Li), sodium (Na), potassium (K), rubidium (Rb), caesium (Cs), and francium (Fr).",
+          "context_length": 9544,
+          "latency_ms": 8927.20913887024,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test575",
+      "query": "where is im a celebrity get me out of here 2017 filmed",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The movie 'IM A CELEBRITY GET ME OUT OF HERE' (2017) was primarily filmed in Los Angeles, California.",
+          "context_length": 0,
+          "latency_ms": 2212.5978469848633,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The first series of 'I'm a Celebrity...Get Me Out of Here!' (UK TV series) was filmed near Cairns, in Queensland, Australia in 2017.",
+          "context_length": 279,
+          "latency_ms": 3061.6488456726074,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The first series of I'm a Celebrity...Get Me Out of Here! 2017 was filmed in Springbrook National Park, near Murwillumbah, New South Wales, Australia.",
+          "context_length": 1045,
+          "latency_ms": 3347.7838039398193,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The 2017 series of I'm a Celebrity...Get Me Out of Here! was filmed in Springbrook National Park, near Murwillumbah, New South Wales, Australia.",
+          "context_length": 1209,
+          "latency_ms": 3382.789134979248,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Series 5\u00e2\u20ac\u201c8 of I'm a Celebrity...Get Me Out of Here! were filmed mainly live in Australia with a live co-presenter in the UK.",
+          "context_length": 1563,
+          "latency_ms": 3579.4668197631836,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Series 5\u00e2\u20ac\u201c8 of I'm a Celebrity...Get Me Out of Here! were filmed mainly live in Australia.",
+          "context_length": 2083,
+          "latency_ms": 3233.9518070220947,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Series 5\u00e2\u20ac\u201c8 of I'm a Celebrity...Get Me Out of Here! were filmed mainly live in Australia with a live co-presenter in the UK.",
+          "context_length": 2622,
+          "latency_ms": 4089.9620056152344,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Series 17 was filmed in Murwillumbah, New South Wales, Australia.",
+          "context_length": 4311,
+          "latency_ms": 3728.496789932251,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test576",
+      "query": "who was the temple of vesta built for",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The Temple of Vesta was built for the goddess Vesta, who was the protector of the Roman hearth and home.",
+          "context_length": 0,
+          "latency_ms": 1926.3498783111572,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Temple of Vesta was built for the cult of Vesta, symbolizing the connection between Vesta's fire and the sun as sources of life. It was constructed by Numa Pompilius along with the original Regia and House of the Vestal Virgins.",
+          "context_length": 514,
+          "latency_ms": 4058.638095855713,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Temple of Vesta was built for the cult of Vesta, representing the site of ancient cult activity dating back to the 7th century BCE. Numa Pompilius is believed to have constructed it along with the original Regia and House of the Vestal Virgins.",
+          "context_length": 1184,
+          "latency_ms": 4836.8239402771,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Temple of Vesta was built for the cult activity of Vesta, symbolizing the connection between Vesta's fire and the sun as sources of life. It was originally built by Numa Pompilius along with the original Regia and House of the Vestal Virgins in its original form.",
+          "context_length": 1874,
+          "latency_ms": 5029.623031616211,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Temple of Vesta was built for the ancient cult activity centered around Vesta, symbolizing the connection between Vesta's fire and the sun as sources of life. It was originally built in its original form by Numa Pompilius along with the Regia and House of the Vestal Virgins in the 7th century BCE.",
+          "context_length": 2196,
+          "latency_ms": 5799.858808517456,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Temple of Vesta was rebuilt many times, but its original purpose was to house the sacred flame and legal documents of Roman Senators, as well as objects like the Palladium, which was believed to be tied to the city's fortunes. However, the specific historical figure credited with its initial construction is Numa Pompilius, along with the original Regia and House of the Vestal Virgins. The context provided does not specify a single individual as the original builder, but Numa Pompilius is associated with its early establishment.",
+          "context_length": 2978,
+          "latency_ms": 8682.562112808228,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Temple of Vesta was rebuilt and later rebuilt for the last time during the reign of Septimius Severus.",
+          "context_length": 3095,
+          "latency_ms": 3619.4217205047607,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Temple of Vesta was rebuilt for the last time during the reign of Septimius Severus.",
+          "context_length": 5090,
+          "latency_ms": 4161.638975143433,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test577",
+      "query": "who was the captain of the mayflower which brought the pilgrims to plymouth",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The captain of the Mayflower was William Bradford.",
+          "context_length": 0,
+          "latency_ms": 876.0888576507568,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 407,
+          "latency_ms": 777.2281169891357,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Captain Myles Standish was the captain of the Mayflower which brought the Pilgrims to Plymouth.",
+          "context_length": 2015,
+          "latency_ms": 2692.426919937134,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Captain Myles Standish was the captain of the Mayflower which brought the Pilgrims to Plymouth.",
+          "context_length": 2928,
+          "latency_ms": 2882.239818572998,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Captain Christopher Jones was the captain of the Mayflower which brought the Pilgrims to Plymouth.",
+          "context_length": 3711,
+          "latency_ms": 3158.6642265319824,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Captain Christopher Jones was the captain of the Mayflower which brought the Pilgrims to Plymouth.",
+          "context_length": 3944,
+          "latency_ms": 3127.6581287384033,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Captain Christopher Jones was the captain of the Mayflower which brought the Pilgrims to Plymouth.",
+          "context_length": 4707,
+          "latency_ms": 3561.6848468780518,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Captain Christopher Jones was the captain of the Mayflower that brought the Pilgrims to Plymouth.",
+          "context_length": 7405,
+          "latency_ms": 5081.82692527771,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test578",
+      "query": "what is the use of ibm lotus notes",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "IBM Lotus Notes is a cloud-based enterprise messaging, collaboration, and productivity software suite. It allows users to manage emails, calendars, contacts, tasks, and files in a centralized system.",
+          "context_length": 0,
+          "latency_ms": 2737.0970249176025,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "IBM Lotus Notes is a suite of business collaboration tools that includes email, calendars, to-do lists, contacts management, teamrooms, discussion forums, file sharing, microblogging, instant messaging, blogs, and user directories. It can be used with other IBM Domino applications and databases.",
+          "context_length": 494,
+          "latency_ms": 4220.579147338867,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "IBM Notes provides business collaboration functions such as email, calendars, to-do lists, contacts management, teamrooms, discussion forums, file sharing, microblogging, instant messaging, blogs, and user directories. It can also be used with other IBM Domino applications and databases.",
+          "context_length": 1129,
+          "latency_ms": 4287.770986557007,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "IBM Notes provides business collaboration functions such as email, calendars, to-do lists, contacts management, teamrooms, discussion forums, file sharing, microblogging, instant messaging, blogs, and user directories. It can also be used with other IBM Domino applications and databases.",
+          "context_length": 1354,
+          "latency_ms": 4488.070964813232,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "IBM Notes provides business collaboration functions such as email, calendars, to-do lists, contacts management, teamrooms, discussion forums, file sharing, microblogging, instant messaging, blogs, and user directories. It can also be used with other IBM Domino applications and databases.",
+          "context_length": 1767,
+          "latency_ms": 4698.660850524902,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "IBM Lotus Notes provides business collaboration functions such as email, calendars, to-do lists, contacts management, teamrooms, discussion forums, file sharing, microblogging, instant messaging, blogs, and user directories. It can also be used with other IBM Domino applications and databases.",
+          "context_length": 2432,
+          "latency_ms": 5102.88405418396,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "IBM Notes provides business collaboration functions such as email, calendars, to-do lists, contacts management, teamrooms, discussion forums, file sharing, microblogging, instant messaging, blogs, and user directories. It can also be used with other IBM Domino applications and databases.",
+          "context_length": 3519,
+          "latency_ms": 5382.762908935547,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "IBM Notes provides business collaboration functions such as email, calendars, to-do lists, contacts management, teamrooms, discussion forums, file sharing, microblogging, instant messaging, blogs, and user directories. It can also be used with other IBM Domino applications and databases.",
+          "context_length": 6460,
+          "latency_ms": 7384.405136108398,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test579",
+      "query": "must each house of congress publish all of its proceedings",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "No, not every house of Congress is required to publish all proceedings. The House of Representatives publishes most proceedings, while the Senate's proceedings are not automatically published but can be requested by members.",
+          "context_length": 0,
+          "latency_ms": 2912.993907928467,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "No, the Congressional Record does not require each house of Congress to publish all of its proceedings. The House and Senate Journals contain only a record of actions and votes, not verbatim texts of debates.",
+          "context_length": 319,
+          "latency_ms": 3147.0649242401123,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "No, each House shall keep a Journal of its Proceedings, but not all proceedings are published; parts requiring secrecy may not be included.",
+          "context_length": 682,
+          "latency_ms": 2303.8411140441895,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "No, each House shall keep a Journal of its Proceedings, but not all proceedings are published. The Congressional Record includes only actions and votes, except for parts required by judgment for secrecy, and the Yeas and Nays of Members on questions.",
+          "context_length": 1213,
+          "latency_ms": 4067.7690505981445,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "No, each House shall keep a Journal of its Proceedings, but not necessarily publish all of them. The Congressional Record includes only a record of actions and votes, excepting parts required by judgment for secrecy.",
+          "context_length": 1658,
+          "latency_ms": 3627.1591186523438,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "No, not all proceedings must be published. The Congressional Record requires Congress to keep a journal of its proceedings, but it includes only actions and votes, not verbatim texts of debates unless secrecy is required.",
+          "context_length": 2088,
+          "latency_ms": 3898.214817047119,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "No, each House must keep a Journal of its Proceedings but not necessarily publish all of them. The Congressional Record includes only a record of actions and votes, excepting parts required by judgment for secrecy.",
+          "context_length": 2531,
+          "latency_ms": 4123.809814453125,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "No, each House shall keep a Journal of its Proceedings, but not necessarily publish all of them. The Congressional Record includes only a record of actions and votes, except for parts required secrecy, and the Yeas and Nays of members on questions.",
+          "context_length": 6139,
+          "latency_ms": 6239.114999771118,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
     }
   ],
   "config": {
@@ -46998,5 +50478,5 @@
     ],
     "run_path": "data/nq/fused/learned_per_retriever.res"
   },
-  "last_updated": "2025-12-04 10:11:38"
+  "last_updated": "2025-12-04 10:30:55"
 }

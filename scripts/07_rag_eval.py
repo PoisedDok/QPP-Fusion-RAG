@@ -133,10 +133,18 @@ def check_relevance(doc_ids: List[str], qrels: Dict[str, int], k: int) -> Dict[s
     relevant_in_top_k = sum(1 for d in top_k if qrels.get(d, 0) > 0)
     total_relevant = sum(1 for d, r in qrels.items() if r > 0)
     
+    # Reciprocal rank of first relevant doc
+    rr = 0.0
+    for i, d in enumerate(top_k):
+        if qrels.get(d, 0) > 0:
+            rr = 1.0 / (i + 1)
+            break
+    
     return {
         "relevant_in_top_k": relevant_in_top_k,
         "total_relevant": total_relevant,
         "recall_at_k": relevant_in_top_k / total_relevant if total_relevant > 0 else 0.0,
+        "reciprocal_rank": rr,
         "has_relevant": relevant_in_top_k > 0
     }
 
@@ -392,11 +400,12 @@ def main():
         save_checkpoint(checkpoint_file, completed_qids, all_results, config)
     
     # Aggregate metrics
-    aggregated = {k: {"recall_at_k": [], "has_relevant": []} for k in k_values}
+    aggregated = {k: {"recall_at_k": [], "reciprocal_rank": [], "has_relevant": []} for k in k_values}
     
     for result in all_results:
         for k, shot_result in result["shots"].items():
             aggregated[k]["recall_at_k"].append(shot_result["recall_at_k"])
+            aggregated[k]["reciprocal_rank"].append(shot_result.get("reciprocal_rank", 0.0))
             aggregated[k]["has_relevant"].append(shot_result["has_relevant"])
     
     # Compute averages
@@ -405,6 +414,7 @@ def main():
         if aggregated[k]["recall_at_k"]:
             summary[f"{k}-shot"] = {
                 "mean_recall@k": sum(aggregated[k]["recall_at_k"]) / len(aggregated[k]["recall_at_k"]),
+                "mrr@k": sum(aggregated[k]["reciprocal_rank"]) / len(aggregated[k]["reciprocal_rank"]),
                 "has_relevant_pct": sum(aggregated[k]["has_relevant"]) / len(aggregated[k]["has_relevant"]) * 100,
                 "n_queries": len(aggregated[k]["recall_at_k"])
             }
@@ -436,11 +446,12 @@ def main():
         os.remove(checkpoint_file)
         print("[05_rag] Removed checkpoint (complete)")
     
-    print(f"\n=== Step 5 Complete ===")
+    print(f"\n=== Step 7 Complete ===")
     print(f"Results: {results_file}")
     print("\nSummary:")
     for k_name, metrics in summary.items():
-        print(f"  {k_name}: Recall@k={metrics['mean_recall@k']:.3f}, HasRelevant={metrics['has_relevant_pct']:.1f}%")
+        mrr = metrics.get('mrr@k', 0)
+        print(f"  {k_name}: Recall@k={metrics['mean_recall@k']:.3f}, MRR@k={mrr:.3f}, HasRelevant={metrics['has_relevant_pct']:.1f}%")
 
 
 if __name__ == "__main__":

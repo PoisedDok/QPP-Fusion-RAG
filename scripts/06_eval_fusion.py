@@ -59,6 +59,7 @@ def evaluate_fusion(
 ) -> Dict[str, float]:
     """Evaluate fusion results."""
     ndcg_scores = []
+    mrr_scores = []
     recall_scores = []
     
     for qid, docs in fused.items():
@@ -66,19 +67,28 @@ def evaluate_fusion(
             continue
         
         ranked = [d for d, _ in sorted(docs, key=lambda x: -x[1])][:k]
+        relevant = set(d for d, r in qrels[qid].items() if r > 0)
         
         # NDCG
         ndcg = compute_ndcg(ranked, qrels[qid], k=k)
         ndcg_scores.append(ndcg)
         
+        # MRR - reciprocal rank of first relevant doc
+        rr = 0.0
+        for i, doc in enumerate(ranked):
+            if doc in relevant:
+                rr = 1.0 / (i + 1)
+                break
+        mrr_scores.append(rr)
+        
         # Recall
-        relevant = set(d for d, r in qrels[qid].items() if r > 0)
         found = len(set(ranked) & relevant)
         recall = found / len(relevant) if relevant else 0
         recall_scores.append(recall)
     
     return {
         'ndcg@10': np.mean(ndcg_scores),
+        'mrr@10': np.mean(mrr_scores),
         'recall@10': np.mean(recall_scores),
         'n_queries': len(ndcg_scores)
     }
@@ -185,15 +195,15 @@ def run_comparison(
     # Get baseline for improvement calculation
     baseline_ndcg = next((r['ndcg@10'] for r in results if r['method'] == 'CombSUM'), results[-1]['ndcg@10'])
     
-    print(f"\n{'Method':<25} {'Type':<15} {'NDCG@10':<12} {'Recall@10':<12} {'Improvement':<12}")
-    print("-"*70)
+    print(f"\n{'Method':<25} {'Type':<15} {'NDCG@10':<10} {'MRR@10':<10} {'Recall@10':<10} {'Δ NDCG':<10}")
+    print("-"*80)
     
     for r in results:
         improvement = (r['ndcg@10'] - baseline_ndcg) / baseline_ndcg * 100
         sign = "+" if improvement >= 0 else ""
-        print(f"{r['method']:<25} {r['type']:<15} {r['ndcg@10']:.4f}       {r['recall@10']:.4f}       {sign}{improvement:.1f}%")
+        print(f"{r['method']:<25} {r['type']:<15} {r['ndcg@10']:.4f}     {r.get('mrr@10', 0):.4f}     {r['recall@10']:.4f}     {sign}{improvement:.1f}%")
     
-    print("-"*70)
+    print("-"*80)
     
     # Save results
     results_file = output_dir / "comparison_results.json"
