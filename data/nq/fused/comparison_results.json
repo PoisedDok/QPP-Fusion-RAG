@@ -1,0 +1,65 @@
+[
+  {
+    "method": "Learned (multioutput)",
+    "type": "learned",
+    "ndcg@10": 0.575872919431633,
+    "recall@10": 0.78539011201236,
+    "n_queries": 3452
+  },
+  {
+    "method": "Learned (per_retriever)",
+    "type": "learned",
+    "ndcg@10": 0.5732841609131178,
+    "recall@10": 0.783603707995365,
+    "n_queries": 3452
+  },
+  {
+    "method": "Learned (mlp)",
+    "type": "learned",
+    "ndcg@10": 0.549040012102777,
+    "recall@10": 0.7531865585168018,
+    "n_queries": 3452
+  },
+  {
+    "method": "W-CombSUM (RSD)",
+    "type": "qpp-weighted",
+    "ndcg@10": 0.49583110875228464,
+    "recall@10": 0.6981942835071455,
+    "n_queries": 3452
+  },
+  {
+    "method": "CombSUM",
+    "type": "unweighted",
+    "ndcg@10": 0.4941147536171326,
+    "recall@10": 0.6920142912321359,
+    "n_queries": 3452
+  },
+  {
+    "method": "CombMNZ",
+    "type": "unweighted",
+    "ndcg@10": 0.48320228704164986,
+    "recall@10": 0.6625144843568945,
+    "n_queries": 3452
+  },
+  {
+    "method": "W-CombMNZ (RSD)",
+    "type": "qpp-weighted",
+    "ndcg@10": 0.4793090526785456,
+    "recall@10": 0.6650733874082656,
+    "n_queries": 3452
+  },
+  {
+    "method": "RRF",
+    "type": "unweighted",
+    "ndcg@10": 0.460477900245161,
+    "recall@10": 0.658217458478177,
+    "n_queries": 3452
+  },
+  {
+    "method": "W-RRF (RSD)",
+    "type": "qpp-weighted",
+    "ndcg@10": 0.4578515743020014,
+    "recall@10": 0.6611626110467362,
+    "n_queries": 3452
+  }
+]

@@ -1,0 +1,103 @@
+{
+  "_description": "Schema documentation for RAG evaluation result files",
+  "_naming_convention": "{fusion_method}__{llm_model}.json",
+  "_examples": [
+    "wcombsum_rsd__liquid_lfm2-1.2b.json",
+    "learned_multioutput__qwen_qwen3-4b.json",
+    "combsum__mistral_7b.json"
+  ],
+
+  "structure": {
+    "_metadata": {
+      "_description": "File metadata and experiment info",
+      "fields": {
+        "description": "string - Always 'RAG Evaluation Results'",
+        "fusion_method": "string - Fusion method used (combsum, wcombsum_rsd, learned_multioutput, etc.)",
+        "fusion_description": "string - Human-readable fusion description",
+        "llm_model": "string - LLM model identifier from LM Studio",
+        "dataset": "string - Dataset name (BEIR-NQ, etc.)",
+        "created": "string - ISO timestamp when evaluation completed",
+        "status": "string - 'complete' or 'in_progress'"
+      }
+    },
+
+    "config": {
+      "_description": "Evaluation configuration",
+      "fields": {
+        "model": "string - LLM model path",
+        "k_values": "int[] - K values tested [0,1,2,3,4,5,6,10]",
+        "run_path": "string - Path to fusion run file (.res)"
+      }
+    },
+
+    "summary": {
+      "_description": "Aggregated metrics across all queries",
+      "fields": {
+        "total_queries": "int - Number of queries evaluated",
+        "k_values": "int[] - K values tested",
+        "metrics_by_k": {
+          "_description": "Per-k retrieval metrics",
+          "<k>": {
+            "has_relevant_pct": "float - % queries with relevant doc in top-k",
+            "mean_recall_at_k": "float - Mean recall@k across queries (%)",
+            "avg_latency_ms": "float - Average LLM generation latency (ms)"
+          }
+        },
+        "qa_metrics_by_k": {
+          "_description": "Per-k QA metrics (computed by 08_compute_qa_metrics.py)",
+          "<k>": {
+            "em": "float - Exact Match score (%)",
+            "f1": "float - Token F1 score (%)",
+            "n_matched": "int - Number of queries matched to gold answers"
+          }
+        }
+      }
+    },
+
+    "completed_qids": {
+      "_description": "string[] - List of completed query IDs",
+      "_example": ["test0", "test1", "test2", "..."]
+    },
+
+    "results": {
+      "_description": "Per-query evaluation results",
+      "_type": "array of query_result objects",
+      "query_result": {
+        "qid": "string - Query ID",
+        "query": "string - Query text",
+        "shots": {
+          "_description": "Results per k value",
+          "<k>": {
+            "k": "int - Number of context documents",
+            "answer": "string - LLM generated answer",
+            "context_length": "int - Total context length (chars)",
+            "has_relevant": "bool - Whether top-k contains relevant doc",
+            "relevant_in_top_k": "int - Count of relevant docs in top-k",
+            "total_relevant": "int - Total relevant docs for query",
+            "recall_at_k": "float - Recall@k (0.0-1.0)",
+            "latency_ms": "float - LLM generation time (ms)"
+          }
+        }
+      }
+    }
+  },
+
+  "checkpoint_format": {
+    "_description": "In-progress checkpoint files use prefix 'checkpoint_'",
+    "_naming": "checkpoint_{model_safe}.json",
+    "_note": "Same structure but status='in_progress', renamed on completion"
+  },
+
+  "fusion_methods": {
+    "combsum": "Unweighted CombSUM",
+    "combmnz": "Unweighted CombMNZ", 
+    "rrf": "Reciprocal Rank Fusion",
+    "wcombsum_rsd": "W-CombSUM with RSD QPP weighting",
+    "wcombmnz_rsd": "W-CombMNZ with RSD QPP weighting",
+    "wrrf_rsd": "W-RRF with RSD QPP weighting",
+    "learned_per_retriever": "LightGBM per-retriever model",
+    "learned_multioutput": "LightGBM multi-output model",
+    "learned_mlp": "Neural network MLP model"
+  }
+}
+

@@ -1,0 +1,53 @@
+# Cache directories - contains model weights and indexes (multi-GB)
+cache/
+
+# PyTerrier/Pyserini indexes (large binary files)
+data/*/index/
+
+# Large result files - KEPT for reproducibility
+# data/*/runs/  # ~138MB - individual retriever runs
+# data/*/fused/*.res  # ~339MB - fused results
+
+# Large JSON result files (keep schema and checkpoints)
+data/*/results/*.json
+!data/*/results/_SCHEMA.json
+!data/*/results/checkpoint_*.json
+
+# Keep models and QPP scores (small, essential)
+# data/*/models/ - KEEP
+# data/*/qpp/ - KEEP
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Large text logs
+combsum.txt
+
+# Java compiled
+*.class
