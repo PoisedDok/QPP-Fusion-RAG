@@ -18,6 +18,7 @@
     "test410",
     "test222",
     "test470",
+    "test571",
     "test403",
     "test96",
     "test209",
@@ -116,12 +117,14 @@
     "test540",
     "test4",
     "test485",
+    "test565",
     "test72",
     "test11",
     "test185",
     "test277",
     "test244",
     "test310",
+    "test566",
     "test303",
     "test416",
     "test233",
@@ -160,6 +163,7 @@
     "test67",
     "test32",
     "test108",
+    "test575",
     "test158",
     "test214",
     "test469",
@@ -182,6 +186,7 @@
     "test24",
     "test253",
     "test421",
+    "test563",
     "test480",
     "test295",
     "test182",
@@ -212,6 +217,7 @@
     "test143",
     "test101",
     "test120",
+    "test578",
     "test338",
     "test382",
     "test215",
@@ -232,6 +238,7 @@
     "test379",
     "test559",
     "test83",
+    "test572",
     "test347",
     "test125",
     "test446",
@@ -322,9 +329,11 @@
     "test448",
     "test450",
     "test110",
+    "test579",
     "test30",
     "test242",
     "test226",
+    "test574",
     "test50",
     "test36",
     "test121",
@@ -334,6 +343,7 @@
     "test103",
     "test533",
     "test230",
+    "test568",
     "test88",
     "test189",
     "test131",
@@ -368,6 +378,7 @@
     "test378",
     "test394",
     "test390",
+    "test567",
     "test47",
     "test392",
     "test85",
@@ -385,6 +396,7 @@
     "test261",
     "test41",
     "test366",
+    "test564",
     "test165",
     "test497",
     "test260",
@@ -405,6 +417,7 @@
     "test144",
     "test266",
     "test228",
+    "test569",
     "test168",
     "test271",
     "test498",
@@ -431,6 +444,7 @@
     "test250",
     "test445",
     "test531",
+    "test573",
     "test160",
     "test309",
     "test346",
@@ -467,6 +481,7 @@
     "test520",
     "test493",
     "test305",
+    "test576",
     "test468",
     "test133",
     "test385",
@@ -474,6 +489,7 @@
     "test386",
     "test254",
     "test399",
+    "test577",
     "test280",
     "test181",
     "test174",
@@ -495,6 +511,7 @@
     "test299",
     "test183",
     "test316",
+    "test561",
     "test100",
     "test289",
     "test19",
@@ -513,6 +530,7 @@
     "test415",
     "test302",
     "test3",
+    "test560",
     "test439",
     "test551",
     "test31",
@@ -559,6 +577,8 @@
     "test211",
     "test69",
     "test256",
+    "test570",
+    "test562",
     "test98"
   ],
   "results": [
@@ -48721,6 +48741,1726 @@
           "has_relevant": true
         }
       }
+    },
+    {
+      "qid": "test560",
+      "query": "who played doctor smith in lost in space",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The actor who played Doctor Smith in Lost in Space is Michael Rispoli, but the context provided does not specify this detail.",
+          "context_length": 0,
+          "latency_ms": 2017.5659656524658,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Parker Posey played Dr. Zachary Smith in the 2018 reboot of Lost in Space.",
+          "context_length": 425,
+          "latency_ms": 1790.450096130371,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Parker Posey played Dr. Zachary Smith in the 2018 reboot of Lost in Space.",
+          "context_length": 660,
+          "latency_ms": 1874.2411136627197,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Jonathan Harris played Dr. Zachary Smith in Lost in Space, but Parker Posey played Dr. Zachary Smith's female counterpart in the Netflix original series reboot.",
+          "context_length": 1103,
+          "latency_ms": 3210.8378410339355,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Jonathan Harris played Dr. Zachary Smith in Lost in Space.",
+          "context_length": 2051,
+          "latency_ms": 2054.658889770508,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Jonathan Harris played Dr. Zachary Smith in the 2018 reboot of Lost in Space.",
+          "context_length": 2552,
+          "latency_ms": 3020.901918411255,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Jonathan Harris played Dr. Zachary Smith in the 2018 reboot of Lost in Space.",
+          "context_length": 3518,
+          "latency_ms": 3349.644184112549,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Jonathan Harris played Dr. Zachary Smith in the 2018 reboot of Lost in Space.",
+          "context_length": 5298,
+          "latency_ms": 4196.471929550171,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test561",
+      "query": "when does jo come in grey's anatomy",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify when Jo comes in Grey's Anatomy.",
+          "context_length": 0,
+          "latency_ms": 1480.705976486206,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Jo Wilson, portrayed by Camilla Luddington, comes in Grey's Anatomy after Stephanie Edwards. The exact date is not specified in the context, but she is introduced as a fellow intern and friend to Stephanie Edwards.",
+          "context_length": 588,
+          "latency_ms": 3309.9939823150635,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Jo Wilson appears in Grey's Anatomy season 13, specifically in the premiere after the finale, but not prominently.",
+          "context_length": 1283,
+          "latency_ms": 2633.3770751953125,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Jo Wilson appears in Grey's Anatomy during season 13, specifically in the premiere episode.",
+          "context_length": 1618,
+          "latency_ms": 2116.9657707214355,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Jo Wilson comes into Grey's Anatomy after the season finale, as confirmed by Stephanie Edwards in Document [1].",
+          "context_length": 1871,
+          "latency_ms": 2851.475954055786,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Jo Wilson appears in Grey's Anatomy during season 13, specifically in the episode titled \"Amelia,\" which is the season premiere.",
+          "context_length": 2634,
+          "latency_ms": 3479.3529510498047,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Jo Wilson appears in Grey's Anatomy during season 14, specifically in season 15.",
+          "context_length": 3280,
+          "latency_ms": 3486.692190170288,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Jo Wilson appears in Grey's Anatomy from 2012 to 2017, specifically in season 13.",
+          "context_length": 4590,
+          "latency_ms": 4516.607046127319,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test562",
+      "query": "what is the most common cause of right ventricular heart failure",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 582.2279453277588,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 127,
+          "latency_ms": 789.6120548248291,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The most common cause of right-sided heart failure is left-sided heart failure.",
+          "context_length": 430,
+          "latency_ms": 1642.3509120941162,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The most common cause of right-sided heart failure is left-sided heart failure.",
+          "context_length": 667,
+          "latency_ms": 1513.8928890228271,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The most common cause of right-sided heart failure is left-sided heart failure.",
+          "context_length": 1053,
+          "latency_ms": 1719.9780941009521,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The most common cause of right-sided heart failure is left-sided heart failure.",
+          "context_length": 2090,
+          "latency_ms": 2413.9881134033203,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The most common cause of right-sided heart failure is left-sided heart failure.",
+          "context_length": 2829,
+          "latency_ms": 2553.2138347625732,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The most common cause of right ventricular heart failure is left-sided heart failure, specifically due to conditions like pulmonary hypertension or pulmonic stenosis.",
+          "context_length": 5301,
+          "latency_ms": 4298.279285430908,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test563",
+      "query": "why dry ether is used in woods reaction",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Dry ether is used in woods reaction to dissolve lignin and hemicellulose, making cellulose more accessible for enzymatic hydrolysis or chemical conversion.",
+          "context_length": 0,
+          "latency_ms": 2410.1881980895996,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Dry ether (silica gel) is used in the Williamson ether synthesis to remove water from the reaction mixture. This is important because water can react with alkyl halides to form alkoxyalkanes, which would interfere with the formation of the desired ether product.",
+          "context_length": 272,
+          "latency_ms": 3945.207118988037,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Dry ether is used in the woods reaction to prevent hydrolysis of the alkyl halide, which would otherwise lead to the formation of alcohols instead of ethers.",
+          "context_length": 622,
+          "latency_ms": 2976.3870239257812,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Dry ether is used in the woods reaction to prevent hydrolysis of the alkyl halide, which would otherwise lead to the formation of alcohols instead of ethers.",
+          "context_length": 1047,
+          "latency_ms": 3241.1341667175293,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Dry ether is used in the Woods reaction to prevent dehydration of ethanol, which would otherwise lead to ethylene formation instead of diethyl ether. By maintaining temperatures lower than 150\u00b0C, the reaction favors the formation of diethyl ether over ethylene.",
+          "context_length": 1590,
+          "latency_ms": 4295.585632324219,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Dry ether is used in the Williamson ether synthesis to prevent dehydration of alcohols, which would otherwise lead to ethylene formation instead of the desired ether. By using dry ether, the reaction conditions favor the formation of the ether rather than its dehydration.",
+          "context_length": 2178,
+          "latency_ms": 5339.936971664429,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Dry ether is used in the Williamson ether synthesis to prevent dehydration of alcohols to ethylene, which would be a competing reaction at higher temperatures. By keeping the reaction conditions dry, the formation of ethylene is avoided, ensuring that the desired ether product is formed.",
+          "context_length": 2840,
+          "latency_ms": 5414.432048797607,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Dry ether is used in the dry distillation process to remove moisture from wood before it is heated above 270\u00b0C. This is necessary because the exothermic reaction that occurs during wood carbonization releases heat, and if air is present, it could react with the wood, preventing the formation of charcoal. By removing moisture first, the temperature can be maintained at a safe level for the spontaneous decomposition of wood at around 270\u00b0C, resulting in the production of charcoal.",
+          "context_length": 4760,
+          "latency_ms": 9324.936151504517,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test564",
+      "query": "describe how thermal regulation is different in ectotherms and endotherms",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. Thermal regulation differs between ectotherms and endotherms as follows: Ectotherms (like reptiles and amphibians) rely on external sources to regulate their body temperature, while endotherms (like mammals and birds) generate heat internally to maintain a stable body temperature.",
+          "context_length": 0,
+          "latency_ms": 4231.297969818115,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Thermal regulation differs between ectotherms and endotherms in that endotherms generate most of their heat internally through metabolic processes, maintaining a stable internal body temperature regardless of the external environment. In contrast, ectotherms rely on external sources of heat and their body temperatures often fluctuate with the surrounding temperature. Ectotherms use behavioral mechanisms to regulate their internal temperatures, such as basking in the sun or seeking shade.",
+          "context_length": 1630,
+          "latency_ms": 7023.839950561523,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Thermal regulation in ectotherms differs from endotherms in that ectotherms rely on external sources of temperature to regulate their body temperatures, while endotherms generate most of their heat internally through metabolic processes. Ectotherms' body temperatures often fluctuate with the environment, whereas endotherms maintain a more constant internal body temperature. Ectotherms use behavioral mechanisms like sun-bathing or seeking shade to regulate their temperatures, while endotherms depend on physiological processes.",
+          "context_length": 1862,
+          "latency_ms": 7849.647760391235,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Thermal regulation in ectotherms differs from endotherms in that ectotherms rely on external sources of temperature to regulate their body temperatures, while endotherms generate most of their heat internally through metabolic processes. Ectotherms have a larger number of mitochondria per cell, enabling them to generate more heat by metabolizing fats and sugars, but they depend on environmental temperatures. Endotherms, on the other hand, maintain a constant internal body temperature through increased metabolic heat production, regardless of external temperatures.",
+          "context_length": 2269,
+          "latency_ms": 9319.578170776367,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Thermal regulation in ectotherms primarily relies on external heat sources, such as sunlight, and they depend on environmental conditions to maintain their body temperature. In contrast, endotherms generate most of their heat internally through metabolic processes and maintain a relatively constant body temperature regardless of the surrounding environment. Ectotherms have fewer mitochondria per cell and depend on behavioral mechanisms to regulate their body temperature, while endotherms have more mitochondria and rely on internal heat production from metabolic activities in various organs and specialized tissues.",
+          "context_length": 2941,
+          "latency_ms": 8797.781944274902,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Thermal regulation in ectotherms primarily relies on external heat sources, such as sunlight, to maintain their body temperature. They depend on environmental conditions and exhibit behaviors like sun-bathing or seeking shade to regulate their internal temperatures. In contrast, endotherms generate most of their heat internally through metabolic processes and maintain a stable internal body temperature regardless of the external environment. They require more food to sustain their higher metabolic rates and have higher energy demands compared to ectotherms.",
+          "context_length": 3577,
+          "latency_ms": 8438.919067382812,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Thermal regulation in ectotherms primarily relies on external heat sources, such as sunlight, to maintain their body temperature. They depend on environmental conditions and exhibit behaviors like sun-bathing or seeking shade to regulate their internal temperatures. In contrast, endotherms generate most of their heat internally through metabolic processes and maintain a relatively constant body temperature regardless of the external environment. Endotherms require a higher metabolic rate and typically consume more food to sustain their internal heat production.",
+          "context_length": 3821,
+          "latency_ms": 8386.460065841675,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Thermal regulation in ectotherms primarily relies on external heat sources, making them dependent on environmental conditions to maintain their body temperature. They exhibit behaviors like sun-bathing or seeking shade to adjust their internal temperatures. In contrast, endotherms generate heat internally through metabolic processes and maintain a stable body temperature regardless of the external environment. They have higher metabolic rates, require more food, and can sustain activity at various temperatures, but this also means they are less dependent on environmental conditions for thermoregulation.",
+          "context_length": 7198,
+          "latency_ms": 10878.248929977417,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test565",
+      "query": "where was the new pete's dragon filmed",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The new Pete's Dragon was filmed in Vancouver, Canada.",
+          "context_length": 0,
+          "latency_ms": 1080.613136291504,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The new Pete's Dragon was filmed in live-action using Panavision Panaflex cameras.",
+          "context_length": 224,
+          "latency_ms": 1694.4870948791504,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The new Pete's Dragon was filmed in the Pacific Northwest of the early 1980s.",
+          "context_length": 675,
+          "latency_ms": 2064.8460388183594,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The new Pete's Dragon was filmed in the Pacific Northwest of the early 1980s.",
+          "context_length": 1063,
+          "latency_ms": 2118.0789470672607,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The new Pete's Dragon was filmed in live-action at the El Capitan Theatre.",
+          "context_length": 1415,
+          "latency_ms": 2231.5502166748047,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The new Pete's Dragon was filmed in live-action using Panavision Panaflex cameras.",
+          "context_length": 2012,
+          "latency_ms": 2589.7278785705566,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The new Pete's Dragon was filmed in New Zealand, specifically in and around Wellington and Rotorua, as well as at Tapanui where the old Blue Mountain Lumber mill was used.",
+          "context_length": 2774,
+          "latency_ms": 4399.041175842285,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The new Pete's Dragon was filmed in New Zealand, with principal photography commencing in January 2015.",
+          "context_length": 4842,
+          "latency_ms": 4823.908805847168,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test566",
+      "query": "is it marley and me or marley and i",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Marley and I",
+          "context_length": 0,
+          "latency_ms": 599.1370677947998,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Marley & Me refers to the original three books written by Marley Marl and Marlon Marl. The question is not addressed in the provided context.",
+          "context_length": 83,
+          "latency_ms": 2293.086290359497,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Marley & Me refers to the three books, not Marley and I.",
+          "context_length": 201,
+          "latency_ms": 1463.8748168945312,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Marley & Me refers to the three books, not Marley and I.",
+          "context_length": 497,
+          "latency_ms": 1650.0449180603027,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Marley & Me refers to the 2008 American comedy-drama film about the titular dog, not Marley and I.",
+          "context_length": 1083,
+          "latency_ms": 2764.7957801818848,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Marley & Me refers to the 2008 film about the titular dog Marley, not Marley and I.",
+          "context_length": 1215,
+          "latency_ms": 2466.6659832000732,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Marley & Me refers to the 2008 film about the titular dog Marley, not Marley and I.",
+          "context_length": 1425,
+          "latency_ms": 2564.3279552459717,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Marley & Me refers to the 2008 film about the dog Marley, not Marley and I.",
+          "context_length": 3062,
+          "latency_ms": 3388.331174850464,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test567",
+      "query": "where was a hologram for the king filmed",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 537.3036861419678,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "A hologram for the King was filmed in Morocco, Hurghada in Egypt, Berlin, and D\u00fcsseldorf in Germany.",
+          "context_length": 299,
+          "latency_ms": 2016.874074935913,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Filming for A Hologram for the King took place in Morocco, Hurghada in Egypt, Berlin, and D\u00fcsseldorf in Germany.",
+          "context_length": 625,
+          "latency_ms": 2250.887870788574,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Principal photography for A Hologram for the King was filmed in Morocco, Hurghada in Egypt, Berlin, and D\u00fcsseldorf in Germany.",
+          "context_length": 1196,
+          "latency_ms": 2798.915147781372,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Principal photography for A Hologram for the King commenced in Morocco, with additional filming taking place in Hurghada, Egypt, Berlin, and D\u00fcsseldorf, Germany. Shooting wrapped in June 2014.",
+          "context_length": 1791,
+          "latency_ms": 4097.814083099365,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Filming took place in Morocco, Hurghada in Egypt, Berlin, and D\u00fcsseldorf in Germany.",
+          "context_length": 2280,
+          "latency_ms": 2860.6059551239014,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Principal photography for A Hologram for the King commenced in Morocco, with additional filming taking place in Hurghada, Egypt, Berlin, and D\u00fcsseldorf.",
+          "context_length": 2604,
+          "latency_ms": 3914.8342609405518,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Principal photography for A Hologram for the King commenced in Morocco, Hurghada in Egypt, Berlin, and D\u00fcsseldorf in Germany.",
+          "context_length": 3694,
+          "latency_ms": 4472.54204750061,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test568",
+      "query": "who inaugurated 'world teachers' day'",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "World Teachers' Day was inaugurated by the United Nations General Assembly in 1994.",
+          "context_length": 0,
+          "latency_ms": 1542.2711372375488,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "World Teachers' Day was inaugurated by the United Nations General Assembly in 1994.",
+          "context_length": 212,
+          "latency_ms": 1867.875099182129,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The document states that World Teachers' Day was established by UNESCO in 1994, but it does not mention who specifically inaugurated it.",
+          "context_length": 366,
+          "latency_ms": 2581.8169116973877,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The document does not specify who inaugurated 'World Teachers' Day.' It only mentions that it is established by UNESCO in 1994 and commemorates the signing of the 1966 \"Teaching in Freedom.\"",
+          "context_length": 707,
+          "latency_ms": 2803.617000579834,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "World Teachers' Day was inaugurated by UNESCO in 1994.",
+          "context_length": 917,
+          "latency_ms": 3257.924795150757,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The document does not specify who inaugurated 'World Teachers' Day.' It only mentions that it is established by UNESCO in 1994 and commemorates the signing of the 1966 \"Teaching in Freedom.\"",
+          "context_length": 1083,
+          "latency_ms": 4071.4659690856934,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Manuel A. Odr\u00eda inaugurated 'World Teachers' Day' in 1953, deciding that it would be commemorated every 6 July.",
+          "context_length": 1317,
+          "latency_ms": 3082.0579528808594,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Eleanor Roosevelt inaugurated World Teachers' Day in 1953.",
+          "context_length": 3814,
+          "latency_ms": 3410.656213760376,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test569",
+      "query": "what kind of animals live in the great victoria desert",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 1119.7359561920166,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 172,
+          "latency_ms": 832.2339057922363,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "I cannot answer.",
+          "context_length": 367,
+          "latency_ms": 884.5126628875732,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Wildlife adapted to harsh conditions includes few large birds or mammals, but the desert sustains many types of lizard such as the great desert skink and small marsupials like the sandhill dunnart and crest-tailed mulgara. Predators include the dingo, perentie, and sand goanna.",
+          "context_length": 1291,
+          "latency_ms": 4672.1510887146,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Wildlife adapted to the Great Victoria Desert includes few large birds and mammals, but also lizards such as the great desert skink and small marsupials like the sandhill dunnart and crest-tailed mulgara. Predators include dingoes, perenties, and sand goannas.",
+          "context_length": 1629,
+          "latency_ms": 5077.571868896484,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Wildlife adapted to harsh conditions includes few large birds or mammals. The desert sustains many types of lizard, including the vulnerable great desert skink and small marsupials like the sandhill dunnart and crest-tailed mulgara. Predators include the dingo, perentie, and sand goanna. Birds found in the area include the chestnut-breasted whiteface and malleefowl.",
+          "context_length": 2261,
+          "latency_ms": 7044.582843780518,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Wildlife adapted to harsh conditions includes few large birds or mammals, but the desert sustains many types of lizard including the vulnerable great desert skink and small marsupials like the endangered sandhill dunnart and the crest-tailed mulgara. Predators include the dingo, perentie, and sand goanna. Birds found in the area include the chestnut-breasted whiteface and malleefowl.",
+          "context_length": 2474,
+          "latency_ms": 7303.565979003906,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Great Victoria Desert sustains many types of lizard including the vulnerable great desert skink and small marsupials such as the endangered sandhill dunnart and the crest-tailed mulgara. It also has predators like the dingo, perentie, and sand goanna. Birds include the chestnut-breasted whiteface and malleefowl. Other animals like the southern marsupial mole, water-holding frog, bilbies, mulgara, marsupial mole, rufous hare-wallaby, thorny devils, bearded dragons, and red kangaroo inhabit the area.",
+          "context_length": 4516,
+          "latency_ms": 11509.331941604614,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test570",
+      "query": "where was walking tall with the rock filmed",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Walking Tall with the Rock was filmed in Los Angeles, California.",
+          "context_length": 0,
+          "latency_ms": 1454.1089534759521,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Walking Tall with The Rock was filmed in Squamish, B.C., Canada, although it was also filmed in Kitsap County, Washington.",
+          "context_length": 842,
+          "latency_ms": 3341.007709503174,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Walking Tall with The Rock was filmed in Squamish, B.C., Canada, although it was also partially filmed in Kitsap County, Washington, United States.",
+          "context_length": 1386,
+          "latency_ms": 4448.87900352478,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Walking Tall with The Rock was filmed in semi-rural Kitsap County, Washington, United States.",
+          "context_length": 1862,
+          "latency_ms": 5578.922986984253,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Walking Tall with The Rock was filmed in Squamish, B.C., Canada.",
+          "context_length": 2291,
+          "latency_ms": 2973.752737045288,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The film was primarily filmed in Squamish, B.C., Canada, although some scenes were also shot in Kitsap County, Washington.",
+          "context_length": 2675,
+          "latency_ms": 2950.3560066223145,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Walking Tall with The Rock was filmed in semi-rural Kitsap County, Washington, although it was also filmed in Squamish, B.C., Canada.",
+          "context_length": 2889,
+          "latency_ms": 4305.5360317230225,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Walking Tall with The Rock was filmed in Squamish, B.C., Canada.",
+          "context_length": 4338,
+          "latency_ms": 3820.6701278686523,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test571",
+      "query": "active absorption of water from the soil by the root is mainly affected by",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 639.3659114837646,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Active absorption of water from the soil by the root is mainly affected by ATP generated by root respiration and energy required for active osmotic water absorption and active non-osmotic water absorption.",
+          "context_length": 558,
+          "latency_ms": 3077.63934135437,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Active absorption of water from the soil by the root is mainly affected by ATP generated by root respiration and the energy required for active osmotic water absorption and active non-osmotic water absorption.",
+          "context_length": 684,
+          "latency_ms": 3152.2510051727295,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Active absorption of water from the soil by the root is mainly affected by ATP generated by root respiration and the energy required for active osmotic and non-osmotic water absorption processes.",
+          "context_length": 850,
+          "latency_ms": 2922.4748611450195,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Active absorption of water from the soil by the root is mainly affected by ATP generated by root respiration and energy required for active osmotic water absorption and active non-osmotic water absorption.",
+          "context_length": 1079,
+          "latency_ms": 3545.8829402923584,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Active absorption of water from the soil by the root is mainly affected by ATP generated by root respiration and the energy required for active osmotic water absorption and active non-osmotic water absorption.",
+          "context_length": 2473,
+          "latency_ms": 3928.600072860718,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Active absorption of water from the soil by the root is mainly affected by ATP generated by root respiration and the energy required for active osmotic water absorption and active non-osmotic water absorption.",
+          "context_length": 2945,
+          "latency_ms": 4050.3008365631104,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Active absorption of water from the soil by the root is mainly affected by ATP generated by root respiration and energy required for active osmotic water absorption and active non-osmotic water absorption processes.",
+          "context_length": 6623,
+          "latency_ms": 5512.995958328247,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test572",
+      "query": "who played tom hagon in the godfather series",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Tom Hagon was not a character in the Godfather series. The actor who played Tom Hagon is not mentioned in the context provided.",
+          "context_length": 0,
+          "latency_ms": 2052.8979301452637,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Robert Duvall played Tom Hagen in the Godfather series.",
+          "context_length": 222,
+          "latency_ms": 1355.3071022033691,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Robert Duvall played Tom Hagen in the films.",
+          "context_length": 628,
+          "latency_ms": 1515.5117511749268,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Robert Duvall played Tom Hagen in the Godfather series.",
+          "context_length": 1211,
+          "latency_ms": 1855.6201457977295,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Robert Duvall played Tom Hagen in the Godfather series.",
+          "context_length": 2450,
+          "latency_ms": 2635.305881500244,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Robert Duvall played Tom Hagen in the Godfather series.",
+          "context_length": 3028,
+          "latency_ms": 3049.341917037964,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Robert Duvall played Tom Hagen in the Godfather series.",
+          "context_length": 3176,
+          "latency_ms": 2801.470994949341,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Robert Duvall played Tom Hagen in the Godfather series.",
+          "context_length": 5363,
+          "latency_ms": 4366.545915603638,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test573",
+      "query": "the walls of the stomach and the small intestine have three layers of muscle tissue",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The walls of the stomach and small intestine have three layers of smooth muscle tissue.",
+          "context_length": 0,
+          "latency_ms": 1371.337890625,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "False. The muscularis externa of the stomach consists of three layers: an inner circular layer, a middle longitudinal layer, and an outer longitudinal layer. The small intestine does not have three layers of muscle tissue like the stomach; it has a simpler structure with an inner circular layer and an outer longitudinal layer.",
+          "context_length": 549,
+          "latency_ms": 4613.948822021484,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "No, the walls of the stomach and the small intestine do not have three layers of muscle tissue. The muscularis externa in the stomach consists of three layers: mucosa, submucosa, and muscularis externa itself. The muscularis externa is unique to the stomach and consists of three layers of smooth muscle, but not in the small intestine.",
+          "context_length": 1604,
+          "latency_ms": 5840.486764907837,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "No, the walls of the stomach and the small intestine have different muscle tissue arrangements. The stomach has a muscularis externa with three layers: inner circular, middle longitudinal, and outer longitudinal muscles. The small intestine does not have a distinct muscularis externa layer but has smooth muscle layers that facilitate peristalsis.",
+          "context_length": 2352,
+          "latency_ms": 5676.26428604126,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "No, the walls of the stomach consist of three layers of muscle tissue (the muscularis propria), while the small intestine does not have three distinct layers of muscle tissue. The stomach has a muscularis externa with three layers: inner circular, middle longitudinal, and outer longitudinal muscle layers. The small intestine lacks this specific arrangement of muscle layers.",
+          "context_length": 2877,
+          "latency_ms": 6196.9850063323975,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "No, the walls of the stomach and the small intestine consist of two layers of muscle tissue: the inner circular layer and the outer longitudinal layer. The stomach has an extra oblique muscular layer, but the small intestine does not.",
+          "context_length": 3251,
+          "latency_ms": 4678.234100341797,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "No, the walls of the stomach have three layers of muscle tissue (muscularis propria), but the small intestine does not. The stomach has an extra layer of oblique muscle between its circular and longitudinal layers, while the small intestine consists only of circular muscle layers.",
+          "context_length": 3384,
+          "latency_ms": 5463.671922683716,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The walls of both the stomach and the small intestine have three layers of muscle tissue: the inner circular layer, the middle longitudinal layer, and the outer longitudinal layer.",
+          "context_length": 6437,
+          "latency_ms": 5574.319839477539,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test574",
+      "query": "where are alkali metals located on the periodic table",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Alkali metals are located in group 1 of the periodic table.",
+          "context_length": 0,
+          "latency_ms": 1342.8852558135986,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Alkali metals are located in the s-block of the periodic table.",
+          "context_length": 630,
+          "latency_ms": 1753.8790702819824,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Alkali metals are located in the s-block of the periodic table, specifically in group 1.",
+          "context_length": 1241,
+          "latency_ms": 2376.1589527130127,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Alkali metals are located in the s-block of the periodic table, specifically in group 1.",
+          "context_length": 2109,
+          "latency_ms": 3074.892044067383,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Alkali metals are located in the s-block of the periodic table, specifically in group 1.",
+          "context_length": 3425,
+          "latency_ms": 3603.762149810791,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Alkali metals are located in the s-block of the periodic table, specifically in group 1 consisting of lithium (Li), sodium (Na), potassium (K), rubidium (Rb), caesium (Cs), and francium (Fr).",
+          "context_length": 3944,
+          "latency_ms": 5852.26583480835,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Alkali metals are located in the s-block of the periodic table, specifically in group 1 consisting of lithium (Li), sodium (Na), potassium (K), rubidium (Rb), caesium (Cs), and francium (Fr).",
+          "context_length": 4553,
+          "latency_ms": 6075.953245162964,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Alkali metals are located in the s-block of the periodic table, specifically in group 1.",
+          "context_length": 8889,
+          "latency_ms": 6690.093994140625,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test575",
+      "query": "where is im a celebrity get me out of here 2017 filmed",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The film \"IM A CELEBRITY GET ME OUT OF HERE\" (2017) was primarily filmed in Los Angeles, California.",
+          "context_length": 0,
+          "latency_ms": 2067.476987838745,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Im a Celebrity...Get Me Out of Here! 2017 was filmed in various locations including Argentina, Brazil, Costa Rica, Suriname, Indonesia and Malaysia. However, the specific filming location for 2017 is not explicitly mentioned in the provided context.",
+          "context_length": 162,
+          "latency_ms": 3839.4219875335693,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The 2017 series of I'm a Celebrity...Get Me Out of Here! was filmed in Queensland, Australia.",
+          "context_length": 928,
+          "latency_ms": 2446.1450576782227,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Series 5\u00e2\u20ac\u201c8 of I'm a Celebrity...Get Me Out of Here! was filmed mainly live in Australia with a live co-presenter in the UK.",
+          "context_length": 1282,
+          "latency_ms": 3547.1270084381104,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Series 17 was filmed completely live in Australia with occasional celebrity interviews based in London, shown through webcam.",
+          "context_length": 1398,
+          "latency_ms": 2371.717929840088,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Series 17 was filmed from 19 November 2017 to 10 December 2017 in Springbrook National Park, near Murwillumbah, New South Wales, Australia.",
+          "context_length": 1679,
+          "latency_ms": 3493.93630027771,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Series 17 was filmed from 19 November 2017 to 10 December 2017 in Springbrook National Park, near Murwillumbah, New South Wales, Australia.",
+          "context_length": 2218,
+          "latency_ms": 3803.705930709839,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The show returned in 2017 and is the third in a three-year contract, filmed in Springbrook National Park, near Murwillumbah, New South Wales, Australia.",
+          "context_length": 3865,
+          "latency_ms": 4698.96674156189,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test576",
+      "query": "who was the temple of vesta built for",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The Temple of Vesta was built for the goddess Vesta, not for a specific person or group.",
+          "context_length": 0,
+          "latency_ms": 1757.8368186950684,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Temple of Vesta was built for the cult of Vesta, symbolizing the connection between Vesta's fire and the sun as sources of life. It was constructed by Numa Pompilius along with the original Regia and House of the Vestal Virgins.",
+          "context_length": 514,
+          "latency_ms": 4035.754919052124,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Temple of Vesta was built for the cult of Vesta, as indicated by its name and historical context. It was constructed to symbolize the connection between Vesta's fire and the sun, representing ancient cult activity dating back to the 7th century BCE.",
+          "context_length": 1184,
+          "latency_ms": 4110.840082168579,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Temple of Vesta was built for the cult activity of Vesta, symbolizing the connection between Vesta's fire and the sun as sources of life. It was also associated with the Vestal Virgins, who were priestesses of Vesta.",
+          "context_length": 1506,
+          "latency_ms": 4443.408012390137,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Temple of Vesta was built for the cult activity of Vesta, symbolizing the connection between Vesta's fire and the sun as sources of life.",
+          "context_length": 2196,
+          "latency_ms": 3510.4610919952393,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Temple of Vesta was built for the Vestal Virgins, who were priestesses of Vesta in ancient Rome.",
+          "context_length": 2313,
+          "latency_ms": 3326.2929916381836,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Temple of Vesta was built for the Romans, specifically as a site to house the sacred flame and legal wills of Roman Senators, as well as cult objects such as the Palladium.",
+          "context_length": 3095,
+          "latency_ms": 4784.3170166015625,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Temple of Vesta was built for the Vestal Virgins, who were priestesses of Vesta.",
+          "context_length": 4646,
+          "latency_ms": 4051.9423484802246,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test577",
+      "query": "who was the captain of the mayflower which brought the pilgrims to plymouth",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The captain of the Mayflower was William Bradford.",
+          "context_length": 0,
+          "latency_ms": 945.343017578125,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 407,
+          "latency_ms": 857.6829433441162,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Captain Jones was the captain of the Mayflower that brought the Pilgrims to Plymouth.",
+          "context_length": 1320,
+          "latency_ms": 1984.057903289795,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Captain Jones was the master of the Mayflower that brought the Pilgrims to Plymouth.",
+          "context_length": 1553,
+          "latency_ms": 2201.680898666382,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Captain Jones was the captain of the Mayflower which brought the Pilgrims to Plymouth.",
+          "context_length": 2336,
+          "latency_ms": 2644.1609859466553,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Captain Jones became master of the Mayflower 11 years prior to the Pilgrims' voyage, but the specific captain of the Mayflower is not mentioned in the provided context. However, Captain Jones had previously sailed with Christopher Jones to Norway and may have been involved in the voyage.",
+          "context_length": 2762,
+          "latency_ms": 5137.143850326538,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Captain Jones became master of the Mayflower 11 years prior to the Pilgrims' voyage, but the specific captain of the Mayflower is not mentioned in the provided context. However, Captain Jones had previously sailed with the ship and was involved in its voyage prior to 1620.",
+          "context_length": 3068,
+          "latency_ms": 5496.193885803223,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Captain Jones became master of the Mayflower 11 years prior to the Pilgrims' voyage, but the specific captain of the Mayflower is not mentioned in the provided context. However, Captain Jones is noted for having previously transported goods to Norway and may have been involved in the Mayflower voyage. The exact captain of the Mayflower is not specified in the documents provided.",
+          "context_length": 5259,
+          "latency_ms": 7562.713146209717,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test578",
+      "query": "what is the use of ibm lotus notes",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "IBM Lotus Notes is an enterprise-level email, collaboration, and document management software. It allows users to manage emails, share documents, and collaborate within an organization.",
+          "context_length": 0,
+          "latency_ms": 2371.2289333343506,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "IBM Lotus Notes is used for business collaboration functions including email, calendars, to-do lists, contacts management, teamrooms, discussion forums, file sharing, microblogging, instant messaging, blogs, and user directories. It can also integrate with other IBM Domino applications and databases.",
+          "context_length": 494,
+          "latency_ms": 4074.7969150543213,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "IBM Notes (formerly Lotus Notes) provides business collaboration functions such as email, calendars, to-do lists, contacts management, teamrooms, discussion forums, file sharing, microblogging, instant messaging, blogs, and user directories. It can also be used with other IBM Domino applications and databases.",
+          "context_length": 719,
+          "latency_ms": 4641.894817352295,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "IBM Notes provides business collaboration functions such as email, calendars, to-do lists, contacts management, teamrooms, discussion forums, file sharing, microblogging, instant messaging, blogs, and user directories. It can also be used with other IBM Domino applications and databases.",
+          "context_length": 1354,
+          "latency_ms": 4423.7542152404785,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "IBM Notes provides business collaboration functions such as email, calendars, to-do lists, contacts management, teamrooms, discussion forums, file sharing, microblogging, instant messaging, blogs, and user directories. It can also be used with other IBM Domino applications and databases.",
+          "context_length": 1672,
+          "latency_ms": 4809.41104888916,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "IBM Notes provides business collaboration functions such as email, calendars, to-do lists, contacts management, teamrooms, discussion forums, file sharing, microblogging, instant messaging, blogs, and user directories. It can also be used with other IBM Domino applications and databases.",
+          "context_length": 2085,
+          "latency_ms": 4828.8209438323975,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "IBM Notes provides business collaboration functions such as email, calendars, to-do lists, contacts management, teamrooms, discussion forums, file sharing, microblogging, instant messaging, blogs, and user directories. It can also be used with other IBM Domino applications and databases.",
+          "context_length": 2307,
+          "latency_ms": 4801.642179489136,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "IBM Notes provides business collaboration functions such as email, calendars, to-do lists, contacts management, teamrooms, discussion forums, file sharing, microblogging, instant messaging, blogs, and user directories. It can also be used with other IBM Domino applications and databases.",
+          "context_length": 3792,
+          "latency_ms": 5778.801202774048,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test579",
+      "query": "must each house of congress publish all of its proceedings",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "No, not every house of Congress is required to publish all proceedings. The House of Representatives publishes most proceedings, but the Senate's proceedings are not automatically published.",
+          "context_length": 0,
+          "latency_ms": 2352.719306945801,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "No, the Congressional Record does not require each house of Congress to publish all of its proceedings. The House and Senate Journals are separate publications that include only actions and votes, not verbatim texts of debates.",
+          "context_length": 319,
+          "latency_ms": 3024.003028869629,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "No, not all. The House and Senate Journals only include a record of actions and votes, except for parts required by judgment for secrecy.",
+          "context_length": 682,
+          "latency_ms": 2480.4558753967285,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "No, each House shall keep a Journal of its Proceedings but not necessarily publish all of them. The Congressional Record includes only a record of actions and votes, excepting parts required by judgment for secrecy.",
+          "context_length": 1213,
+          "latency_ms": 3334.399938583374,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "No, each House must keep a Journal of its proceedings but is not required to publish all of them. The Congressional Record is the official record, published when Congress is in session, but does not include verbatim texts of debates.",
+          "context_length": 1643,
+          "latency_ms": 3737.170934677124,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "No, each House shall keep a Journal of its Proceedings, but not all proceedings must be published. The Congressional Record provides a record of actions and votes, except for parts required by judgment for secrecy.",
+          "context_length": 2088,
+          "latency_ms": 3898.324966430664,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "No, each House shall keep a Journal of its Proceedings, but not necessarily publish all of them. The Congressional Record includes only a record of actions and votes, excepting parts required by judgment for secrecy.",
+          "context_length": 2531,
+          "latency_ms": 3965.870141983032,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "No, each House shall keep a Journal of its Proceedings but not necessarily publish all of them. The Congressional Record is the official record, which includes proceedings and debates but is published separately when Congress is in session.",
+          "context_length": 6139,
+          "latency_ms": 5555.835723876953,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "has_relevant": true
+        }
+      }
     }
   ],
   "config": {
@@ -48738,5 +50478,5 @@
     ],
     "run_path": "data/nq/fused/wrrf_rsd.res"
   },
-  "last_updated": "2025-12-04 10:08:12"
+  "last_updated": "2025-12-04 10:17:50"
 }
