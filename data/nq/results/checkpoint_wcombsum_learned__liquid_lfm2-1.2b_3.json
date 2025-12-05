@@ -1,12 +1,16 @@
 {
   "completed_qids": [
     "test26",
+    "test35",
     "test3",
     "test21",
     "test27",
+    "test31",
+    "test38",
     "test15",
     "test28",
     "test16",
+    "test36",
     "test11",
     "test23",
     "test22",
@@ -17,16 +21,22 @@
     "test1",
     "test25",
     "test24",
+    "test39",
+    "test32",
     "test9",
+    "test30",
     "test17",
     "test13",
     "test2",
     "test19",
     "test7",
+    "test34",
+    "test37",
     "test20",
     "test8",
     "test12",
     "test10",
+    "test33",
     "test0",
     "test6",
     "test29"
@@ -2851,6 +2861,946 @@
           "has_relevant": true
         }
       }
+    },
+    {
+      "qid": "test30",
+      "query": "what is the meaning of the name comanche",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The name Comanche likely derives from the Comanche language, meaning 'people of the red hills' or 'ed people,' referring to their distinctive red clothing and the landscape they inhabited.",
+          "context_length": 0,
+          "latency_ms": 2003.7798881530762,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The name \"Comanche\" means \"enemy\" in the Ute language.",
+          "context_length": 94,
+          "latency_ms": 1055.2148818969727,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The name \"Comanche\" is derived from the Ute name for them, meaning \"enemy.\"",
+          "context_length": 528,
+          "latency_ms": 1718.6260223388672,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The name \"Comanche\" is derived from the Ute name for them, meaning \"enemy.\"",
+          "context_length": 905,
+          "latency_ms": 1814.2740726470947,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The name \"Comanche\" is from the Ute name for them, meaning \"enemy.\"",
+          "context_length": 1105,
+          "latency_ms": 1878.6420822143555,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The name \"Comanche\" is from the Ute name for them, k\u00c9\u00a8mantsi (enemy).",
+          "context_length": 1846,
+          "latency_ms": 2497.499942779541,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The name \"Comanche\" is from the Ute name for them, meaning \"enemy.\"",
+          "context_length": 2003,
+          "latency_ms": 2264.1749382019043,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The name \"Comanche\" is from the Ute name for them, k\u00c9\u00a8mantsi (enemy).",
+          "context_length": 3805,
+          "latency_ms": 3450.5810737609863,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test31",
+      "query": "who do you meet at the gates of heaven",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 500.26893615722656,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "You meet the five people whose lives were saved when they died.",
+          "context_length": 140,
+          "latency_ms": 1014.805793762207,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "You meet Joseph Corvelzchik, known as The Blue Man.",
+          "context_length": 223,
+          "latency_ms": 1048.473834991455,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Ignorance",
+          "context_length": 1057,
+          "latency_ms": 854.6953201293945,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "In Document 3, Ignorance meets the gates of Heaven.",
+          "context_length": 1454,
+          "latency_ms": 1672.7850437164307,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "In Document 3, Ignorance meets the gates of Heaven. In Document 4, Ella Watson meets the gates of Heaven in the context of a roller skating rink called \"Heaven's Gate\".",
+          "context_length": 2452,
+          "latency_ms": 3457.4530124664307,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "In Document 3, Ignorance meets the gates of Heaven. In Document 4, Ella Watson encounters various characters at a place called \"Heaven's Gate,\" but specifically, she is mentioned to meet five people who had a significant impact upon her while she was alive.",
+          "context_length": 2856,
+          "latency_ms": 4486.044883728027,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "In \"The Five People You Meet in Heaven,\" Eddie encounters five individuals who had a significant impact on his life while he was alive. These are:\n\n1. The Blue Man (Joseph Corvelzchik) - who suffered from argyria and met Eddie in Heaven.\n2. Ignorance - a man who believes in his own merit to enter Heaven, but is ultimately thrown there.\n3. A man whose real name is Joseph Corvelzchik, who Eddie meets after finding out about his death and journey through Heaven.\n4. A man named Hopeful, who meets Christian on the way to Heaven.\n5. A man named Vain Hope, whose ferry crossing with Ignorance leads to his demise.\n\nHowever, the specific mention of meeting five people at the gates of Heaven is not directly stated in the provided context. The novel describes Eddie's encounters with these individuals, but does not explicitly list them as meeting at the gates of Heaven.",
+          "context_length": 5528,
+          "latency_ms": 12831.194877624512,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test32",
+      "query": "what are bulls used for on a farm",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 586.9119167327881,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Bulls are used on farms for herd maintenance, artificial insemination (AI) of cows, increasing the quality of a herd or introducing an outcross of bloodlines, and breeding to multiple bulls in a season or to higher quality bulls.",
+          "context_length": 1052,
+          "latency_ms": 3192.9030418395996,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Bulls are used on farms for purposes of herd maintenance, artificial insemination (AI) to increase herd quality or introduce bloodlines, and sometimes in conjunction with embryo transfer for adding new breeding stock. They are also used in some wild places for conservation grazing, though this is less common.",
+          "context_length": 2315,
+          "latency_ms": 4410.437107086182,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Bulls are used on a farm for purposes of herd maintenance, artificial insemination (AI) of cows, increasing the quality of a herd or introducing an outcross of bloodlines, breeding to several different bulls in a season, breeding their best stock to higher quality bulls, and in conjunction with embryo transfer to add new breeding to herds.",
+          "context_length": 2890,
+          "latency_ms": 4967.224836349487,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Bulls are used for herd maintenance, artificial insemination to increase herd quality or introduce bloodlines, and sometimes for breeding multiple times in a season or to breed high-quality stock. They can also be used for bullfighting and bull riding in certain contexts, though this is less common.",
+          "context_length": 3389,
+          "latency_ms": 4272.471904754639,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Bulls are used for breeding purposes on a farm, particularly as herd bulls to provide natural breeding for cows. They can service up to 50 or 60 cows during a breeding season, and are kept by dairy farms for this purpose. They are also used in artificial insemination programs to increase the quality of a herd or introduce outcrosses of bloodlines.",
+          "context_length": 3599,
+          "latency_ms": 5245.553016662598,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Bulls are used on a farm for breeding purposes, particularly in dairy and beef ranching. They can serve up to 50 or 60 cows during a breeding season, and are also used as draught oxen in some areas. Bull calves bred for high genetic potential may be kept by dairy farms for natural breeding, but their sperm count declines after a certain number of cows, leading to them \"returning to service.\" Bulls are also used in sports like bullfighting and bull riding, and in some cultural festivals.",
+          "context_length": 3955,
+          "latency_ms": 6787.621021270752,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Bulls are used on farms for breeding purposes, specifically for artificial insemination (AI) of cows. They are also used as draught oxen in some areas, and in certain cultural activities like bullfighting and bull riding. Additionally, bulls are sometimes kept for their genetic potential in breeding programs on specialized dairy breeding farms.",
+          "context_length": 7289,
+          "latency_ms": 6394.857168197632,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test33",
+      "query": "is spain the second largest country in europe",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. (Note: Spain is not the second largest country in Europe; that would be Russia.)",
+          "context_length": 0,
+          "latency_ms": 1323.1470584869385,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "No, Spain is not the second largest country in Europe. It is the sixth largest in Europe by area and the fifth in the European Union.",
+          "context_length": 452,
+          "latency_ms": 1635.3950500488281,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "No, Spain is not the second largest country in Europe. It is the sixth largest in Europe by population and the fifth in the European Union.",
+          "context_length": 877,
+          "latency_ms": 1919.8262691497803,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "No, according to Document 1, Spain is the sixth largest country in Europe.",
+          "context_length": 1436,
+          "latency_ms": 1575.620174407959,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Yes, Spain is the second largest country in Europe.",
+          "context_length": 2225,
+          "latency_ms": 1641.6099071502686,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Yes, according to Document 4, Spain is the second largest country in the European Union.",
+          "context_length": 2689,
+          "latency_ms": 2237.9636764526367,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Yes, Spain is the second largest country in Europe.",
+          "context_length": 2992,
+          "latency_ms": 1929.7547340393066,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Yes, Spain is the second largest country in Europe.",
+          "context_length": 3876,
+          "latency_ms": 2327.9740810394287,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test34",
+      "query": "difference between single layer perceptron and multilayer perceptron",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Single Layer Perceptron: A basic neural network with one layer of neurons, used for binary classification. Multilayer Perceptron: An extension with multiple layers (at least one hidden layer), capable of learning complex patterns and non-linear relationships.",
+          "context_length": 0,
+          "latency_ms": 2641.417980194092,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "A single layer perceptron consists of one layer of perceptrons, while a multilayer perceptron (MLP) contains multiple layers of perceptrons. MLPs can have hidden layers, allowing them to learn complex patterns and perform tasks like classification and regression, whereas single layer perceptrons are limited to binary classification. MLPs can employ arbitrary activation functions, while true perceptrons use a threshold activation function like the Heaviside step function.",
+          "context_length": 718,
+          "latency_ms": 5052.663087844849,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "A single layer perceptron has only one layer of neurons, while a multilayer perceptron contains multiple layers of neurons. The multilayer perceptron can perform more complex tasks due to its layered structure, whereas the single layer perceptron is limited to binary classification or simple linear classification.",
+          "context_length": 898,
+          "latency_ms": 3545.1431274414062,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "A single layer perceptron has only one layer of nodes and is used for binary classification, while a multilayer perceptron (MLP) has multiple layers of nodes and can perform both classification and regression tasks depending on its activation function. MLPs use nonlinear activation functions, unlike true perceptrons which use a threshold activation function like the Heaviside step function.",
+          "context_length": 1396,
+          "latency_ms": 4373.998165130615,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "A single layer perceptron has only one layer of nodes, whereas a multilayer perceptron contains multiple layers of nodes. The multilayer perceptron can perform both classification and regression tasks depending on its activation function, while a single layer perceptron is limited to binary classification. Additionally, multilayer perceptrons use arbitrary activation functions, unlike true perceptrons which use a threshold activation function like the Heaviside step function.",
+          "context_length": 1745,
+          "latency_ms": 5065.629720687866,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "A single layer perceptron has only one hidden layer, while a multilayer perceptron contains multiple layers of neurons. The multilayer perceptron can perform both classification and regression tasks, whereas a single layer perceptron is limited to binary classification. Additionally, multilayer perceptrons use arbitrary activation functions, while true perceptrons use a threshold activation function like the Heaviside step function.",
+          "context_length": 2201,
+          "latency_ms": 4994.300842285156,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "A single layer perceptron has only one hidden layer, while a multilayer perceptron contains multiple layers of perceptrons. The key difference is that MLP can perform more complex tasks due to its multiple layers and non-linear activation functions, whereas a single layer perceptron is limited to binary classification tasks.",
+          "context_length": 2508,
+          "latency_ms": 4199.119806289673,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "A single layer perceptron has one hidden layer and uses a threshold activation function, performing binary classification. In contrast, a multilayer perceptron (MLP) has multiple hidden layers and employs arbitrary activation functions, allowing it to perform both classification and regression tasks. MLPs can handle non-linearly separable data due to their multiple layers and non-linear activation functions, while single layer perceptrons are limited to binary classification.",
+          "context_length": 4020,
+          "latency_ms": 6115.8928871154785,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test35",
+      "query": "what is the meaning of the dragon boat festival",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The dragon boat festival, also known as Duanwu Festival, is a traditional Chinese festival held annually on the fifth day of the fifth lunar month. It involves racing teams of people in dragon boats, symbolizing strength and unity. I cannot answer without additional context, but its primary meaning is a cultural celebration with historical roots in Chinese mythology and martial arts.",
+          "context_length": 0,
+          "latency_ms": 3602.3271083831787,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Dragon Boat Festival, also known as Duanwu Festival, is a traditional Chinese festival held on the 5th day of the 5th lunar month. It commemorates the death of Qu Yuan, a patriotic poet and minister from ancient China, and involves dragon boat racing and other cultural activities.",
+          "context_length": 34,
+          "latency_ms": 3024.0187644958496,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Dragon Boat Festival has multiple meanings, including dragon worship, dragon boat racing, and zongzi consumption. It represents an offering to the dragon king, reverence for the dragon and yang energy, and a tradition of visiting friends and family on boats.",
+          "context_length": 544,
+          "latency_ms": 2669.1179275512695,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Dragon Boat Festival commemorates fealty and filial piety, with its origins possibly linked to dragon worship. It involves dragon boat racing and the offering of zongzi, symbolizing an offering to the dragon king and reverence for the dragon and yang energy. It also includes visiting friends and family on boats.",
+          "context_length": 1220,
+          "latency_ms": 3741.6157722473145,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Dragon Boat Festival has multiple meanings. It commemorates fealty and filial piety, as seen in the tradition of visiting friends and family on boats. It also has roots in dragon worship, with the food possibly representing an offering to the dragon king and dragon boat racing reflecting reverence for the dragon and yang energy.",
+          "context_length": 1433,
+          "latency_ms": 3766.1192417144775,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Dragon Boat Festival celebrates a tradition of offering to deities and spirits during the harvest of winter wheat, with dragon boat racing symbolizing reverence for the dragon and active yang energy. It also commemorates fealty and filial piety, often involving visiting friends and family on boats.",
+          "context_length": 1936,
+          "latency_ms": 3598.8500118255615,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Dragon Boat Festival celebrates a tradition of offering to deities and spirits during the harvest of winter wheat, with dragon boat racing symbolizing reverence for the dragon and active yang energy. It also commemorates fealty and filial piety, often involving visiting friends and family on boats.",
+          "context_length": 2067,
+          "latency_ms": 3798.6698150634766,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Dragon Boat Festival celebrates a tradition of dragon boat racing, which is believed to have originated from the reverence for the dragon king and Qu Yuan, symbolizing masculine energy. It also commemorates fealty and filial piety, with offerings made to deities and spirits during times of harvest. The festival is associated with harvest of winter wheat and involves rituals like dropping balls of sticky rice into the river to replace Qu Yuan's body.",
+          "context_length": 4548,
+          "latency_ms": 6468.18208694458,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test36",
+      "query": "who is edmund on days of our lives",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Edmund is a character from the TV show \"Days of Our Lives,\" portrayed by actor John DiMaggio. However, the context provided does not specify his role or storyline on the show.",
+          "context_length": 0,
+          "latency_ms": 1957.1819305419922,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Edmund Phineas Crumb is played by Adam Caine from January 8, 1998, to May 8, 1998.",
+          "context_length": 200,
+          "latency_ms": 1632.453203201294,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Edmund Phineas Crumb, played by Adam Caine, is a soft-hearted and somewhat dimwitted pilot who was the husband of Susan Banks and the stepfather of EJ DiMera in Days of Our Lives.",
+          "context_length": 1057,
+          "latency_ms": 2668.422222137451,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Edmund Phineas Crumb, played by Adam Caine, appeared on Days of Our Lives from January 8, 1998, to May 8, 1998. He was the husband of Susan Banks and the stepfather of EJ DiMera.",
+          "context_length": 1764,
+          "latency_ms": 3455.9450149536133,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Edmund Phineas Crumb, played by Adam Caine from January 8, 1998, to May 8, 1998, is a soft-hearted and somewhat dimwitted pilot who was the husband of Susan Banks and the stepfather of EJ DiMera in Days of Our Lives.",
+          "context_length": 2516,
+          "latency_ms": 4448.157787322998,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Edmund Phineas Crumb, played by Adam Caine, appeared on Days of Our Lives from January 8, 1998, to May 8, 1998. He was the husband of Susan Banks and the stepfather of EJ DiMera.",
+          "context_length": 3220,
+          "latency_ms": 4244.52805519104,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Edmund Phineas Crumb, played by Adam Caine, is a character on Days of Our Lives from January 8, 1998, to May 8, 1998. He is the husband of Susan Banks and the stepfather of EJ DiMera.",
+          "context_length": 3290,
+          "latency_ms": 4063.2619857788086,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Edmund Phineas Crumb, played by Adam Caine from January 8, 1998, to May 8, 1998. He is the husband of Susan Banks and the stepfather of EJ DiMera.",
+          "context_length": 6320,
+          "latency_ms": 4580.091953277588,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test37",
+      "query": "i want to be with you everywhere song",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The phrase \"i want to be with you everywhere song\" is a lyric from the song \"You're All I Need\" by The Ting Tings, not a direct answer to your question.",
+          "context_length": 0,
+          "latency_ms": 2213.408946990967,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The song \"Everywhere\" by Fleetwood Mac does not specifically mention being with you, but it conveys a sense of longing and connection. However, the exact phrasing \"i want to be with you everywhere\" is not present in the provided context. The closest interpretation would be that the song expresses a desire for constant companionship, but it does not directly state \"everywhere.\"",
+          "context_length": 651,
+          "latency_ms": 4401.297092437744,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The song \"To Be with You\" is not mentioned in the provided context. The context only discusses \"Everywhere\" by Fleetwood Mac and its release details.",
+          "context_length": 690,
+          "latency_ms": 2024.9919891357422,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "I cannot answer. The provided context does not mention a song titled \"i want to be with you everywhere.\"",
+          "context_length": 772,
+          "latency_ms": 1646.9831466674805,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The song \"I'd Go with You Anywhere\" by Ian Kenny from Fleetwood Mac is about being with someone everywhere.",
+          "context_length": 1019,
+          "latency_ms": 2068.5360431671143,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The song \"I'd Go with You Anywhere\" is by Australian band Birds of Tokyo. It was released as a single and debuted at No. 40 on the ARIA singles chart, peaking at No. 18 five weeks later.",
+          "context_length": 1455,
+          "latency_ms": 3415.7958030700684,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "I'd Go with You Anywhere is a song by Australian band Birds of Tokyo. It was released as the lead single from their compilation album Playlist on 25 September 2015. The song debuted at No. 40 on the ARIA singles chart and peaked at No. 18 five weeks later, becoming their third Top 20 hit.",
+          "context_length": 1511,
+          "latency_ms": 4760.162830352783,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The song \"I Just Wanna Be with You\" by US band Birds of Tokyo is the one that matches the query. It was released as a CD maxi single in Europe and included an extended dance version and dub version of the song.",
+          "context_length": 2280,
+          "latency_ms": 3477.9489040374756,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test38",
+      "query": "what degree is a crock pot on low",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "A crock pot is typically set to low, but the exact degree isn't specified in the context. However, it's generally considered low when it's set to 190\u00b0F (88\u00b0C) or below.",
+          "context_length": 0,
+          "latency_ms": 2369.3089485168457,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "A crock pot is typically set to low when the temperature is set around 170\u00b0F (77\u00b0C).",
+          "context_length": 384,
+          "latency_ms": 1485.9099388122559,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The document does not specify the exact temperature or degree at which a crock pot operates on low, but it mentions that slow cookers simmer at a lower temperature than other cooking methods.",
+          "context_length": 1068,
+          "latency_ms": 2428.9960861206055,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The document does not specify the exact temperature or degree at which a crock pot operates on low. It only mentions that slow cookers simmer at a lower temperature than other cooking methods.",
+          "context_length": 1677,
+          "latency_ms": 3067.653179168701,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The \"crock,\" or ceramic pot, in a slow cooker is heated to a steady temperature in the 79\u201393\u00a0\u00b0C (174\u2013199\u00a0\u00b0F) range.",
+          "context_length": 2058,
+          "latency_ms": 2714.9600982666016,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The document does not specify the exact temperature range for a crock pot on low, but it states that heating elements heat the contents to a steady temperature in the 79\u201393\u00a0\u00b0C (174\u2013199\u00a0\u00b0F) range.",
+          "context_length": 2331,
+          "latency_ms": 3413.1641387939453,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The document states that a slow cooker heats the contents to a steady temperature in the 79\u201393\u00a0\u00b0C (174\u2013199\u00a0\u00b0F) range.",
+          "context_length": 2553,
+          "latency_ms": 2772.615909576416,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The degree at which the contents of a crock pot are effectively at atmospheric pressure is essentially constant, but the document does not specify an exact degree. However, it mentions that the temperature rises until it reaches boiling point, and then may just simmer at a temperature below boiling point.",
+          "context_length": 5257,
+          "latency_ms": 4660.671949386597,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.14285714285714285,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test39",
+      "query": "royal society for the protection of birds number of members",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The Royal Society for the Protection of Birds (RSPB) does not have a specific number of members listed in the provided context.",
+          "context_length": 0,
+          "latency_ms": 1673.6903190612793,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Royal Society for the Protection of Birds has more than a million members.",
+          "context_length": 309,
+          "latency_ms": 1075.5150318145752,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The RSPB has more than a million members.",
+          "context_length": 388,
+          "latency_ms": 966.3891792297363,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The RSPB has more than a million members.",
+          "context_length": 855,
+          "latency_ms": 1003.8509368896484,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The RSPB has more than a million members.",
+          "context_length": 978,
+          "latency_ms": 988.7900352478027,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The RSPB has over 1,300 employees, 18,000 volunteers, and more than a million members, making it the largest wildlife conservation charity in Europe.",
+          "context_length": 1120,
+          "latency_ms": 2420.5360412597656,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The RSPB has over 1,300 employees, 18,000 volunteers, and more than a million members, making it the largest wildlife conservation charity in Europe.",
+          "context_length": 1368,
+          "latency_ms": 2369.5638179779053,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Royal Society for the Protection of Birds has over 1,300 employees, 18,000 volunteers, and more than a million members, making it the largest wildlife conservation charity in Europe.",
+          "context_length": 3623,
+          "latency_ms": 3438.2848739624023,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
     }
   ],
   "config": {
@@ -2868,5 +3818,5 @@
     ],
     "run_path": "data/nq/fused/wcombsum_learned.res"
   },
-  "last_updated": "2025-12-05 07:29:27"
+  "last_updated": "2025-12-05 07:33:35"
 }

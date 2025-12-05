@@ -1,12 +1,15 @@
 {
   "completed_qids": [
     "test47",
+    "test105",
     "test73",
     "test1",
     "test4",
     "test60",
     "test25",
     "test58",
+    "test108",
+    "test91",
     "test18",
     "test72",
     "test86",
@@ -15,6 +18,7 @@
     "test84",
     "test43",
     "test49",
+    "test90",
     "test5",
     "test28",
     "test57",
@@ -29,15 +33,21 @@
     "test23",
     "test65",
     "test59",
+    "test93",
     "test40",
     "test0",
+    "test106",
     "test54",
     "test67",
+    "test92",
+    "test101",
     "test44",
+    "test95",
     "test3",
     "test68",
     "test88",
     "test26",
+    "test100",
     "test8",
     "test7",
     "test78",
@@ -46,10 +56,12 @@
     "test52",
     "test19",
     "test82",
+    "test98",
     "test79",
     "test71",
     "test29",
     "test53",
+    "test96",
     "test15",
     "test36",
     "test83",
@@ -57,16 +69,22 @@
     "test63",
     "test34",
     "test30",
+    "test109",
+    "test104",
     "test31",
     "test81",
+    "test94",
     "test37",
     "test80",
+    "test99",
     "test16",
+    "test107",
     "test39",
     "test10",
     "test22",
     "test35",
     "test85",
+    "test97",
     "test48",
     "test45",
     "test20",
@@ -83,11 +101,13 @@
     "test41",
     "test77",
     "test64",
+    "test102",
     "test66",
     "test27",
     "test14",
     "test62",
     "test24",
+    "test103",
     "test38",
     "test6"
   ],
@@ -8551,6 +8571,1886 @@
           "has_relevant": false
         }
       }
+    },
+    {
+      "qid": "test90",
+      "query": "where does the donkey talk in the bible",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The Bible does not mention a donkey speaking or having a \"talk\" in the traditional sense.",
+          "context_length": 0,
+          "latency_ms": 1425.1222610473633,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The document does not specify where the donkey talks in the Bible. It only mentions that donkeys are portrayed as work animals and used for various purposes, but does not provide details about their interactions or dialogue within the biblical texts.",
+          "context_length": 1004,
+          "latency_ms": 2866.72306060791,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The document mentions that narrative turning points in the Bible, such as leading, saddling, or mounting/dismounting a donkey, are used to show a change in focus or a decision having been made.",
+          "context_length": 1953,
+          "latency_ms": 3236.633062362671,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The document mentions that narrative turning points in the Bible are often marked through the use of donkeys, such as leading, saddling, or mounting/dismounting a donkey to show a change in focus or a decision having been made.",
+          "context_length": 3593,
+          "latency_ms": 4184.35263633728,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The donkey talks in the Bible during narrative turning points, such as leading, saddling, or mounting/dismounting. For example, in Genesis 30:43, the donkey is mentioned as part of a measure of wealth, and in Genesis chapter 34, the prince of Shechem is named Hamor, who means \"donkey\" in Hebrew.",
+          "context_length": 4061,
+          "latency_ms": 5922.891855239868,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The donkey talks in the Bible during narrative turning points, such as leading, saddling, or mounting/dismounting a donkey to show a change in focus or a decision having been made.",
+          "context_length": 5534,
+          "latency_ms": 4720.377206802368,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The donkey talks in the Bible during narrative turning points, often used to show a change in focus or a decision having been made. For example, leading, saddling, or mounting/dismounting a donkey are actions that signify a shift in the story's direction.",
+          "context_length": 6156,
+          "latency_ms": 6134.724855422974,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The donkey talks in the Bible during narrative turning points, specifically when leading, saddling, or mounting/dismounting a donkey to show a change in focus or a decision having been made.",
+          "context_length": 8075,
+          "latency_ms": 6284.780025482178,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test91",
+      "query": "who sang the most number of songs in the world",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 474.5922088623047,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Lata Mangeshkar sang the most number of songs in the world, with at least 30,000 songs between 1948 and 1987 according to later editions of the Guinness Book of World Records.",
+          "context_length": 669,
+          "latency_ms": 2916.224956512451,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Kishore Kumar sang the most number of songs in the world, with 245 songs for Rajesh Khanna across 92 films.",
+          "context_length": 988,
+          "latency_ms": 2251.0128021240234,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Kishore Kumar sang the most number of songs in the world for Rajesh Khanna, with 245 songs.",
+          "context_length": 1481,
+          "latency_ms": 2276.6127586364746,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Kishore Kumar sang the most number of songs in the world for Rajesh Khanna, with 245 songs across 92 films.",
+          "context_length": 1802,
+          "latency_ms": 2628.0500888824463,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Kishore Kumar sang the most number of songs in the world for Rajesh Khanna, with 245 songs across 92 films.",
+          "context_length": 2663,
+          "latency_ms": 2841.4127826690674,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Kishore Kumar sang the most number of songs in the world for Rajesh Khanna, with 245 songs. However, it's important to note that Mohammad Rafi also claimed to have sung around 28,000 songs, which includes his own recordings and collaborations. The Guinness Book of World Records later stated that Lata Mangeshkar had sung no fewer than 30,000 songs between 1948 and 1987.",
+          "context_length": 2954,
+          "latency_ms": 6279.709100723267,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Kishore Kumar sang the most songs in his career for Rajesh Khanna with 245 songs, according to Document 2. However, considering the Guinness Book of World Records, Lata Mangeshkar had sung no fewer than 30,000 songs between 1948 and 1987, according to Document 5. Therefore, Kishore Kumar sang the most number of songs in the world for a specific artist's career, but not globally.",
+          "context_length": 4472,
+          "latency_ms": 7282.616138458252,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test92",
+      "query": "when is the haunted mansion nightmare before christmas",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The haunted mansion nightmare before Christmas is not a specific event or location mentioned in the provided context.",
+          "context_length": 0,
+          "latency_ms": 1358.07204246521,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Haunted Mansion Holiday is transformed during the Halloween and Christmas seasons, but it is closed in September for a few weeks while they revamp the attraction. However, the specific dates for the Haunted Mansion Holiday itself are not provided in the context.",
+          "context_length": 438,
+          "latency_ms": 3029.924154281616,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Haunted Mansion is transformed into Haunted Mansion Holiday during the Halloween and Christmas seasons, but it is not specifically mentioned when the movie The Nightmare Before Christmas was released. However, the revamp occurs in September for a few weeks.",
+          "context_length": 874,
+          "latency_ms": 3005.4121017456055,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Haunted Mansion Holiday Nightmare, also known as Haunted Mansion Holiday, is a seasonal overlay that takes place during the Halloween and Christmas seasons, inspired by Tim Burton's 1993 film The Nightmare Before Christmas.",
+          "context_length": 1429,
+          "latency_ms": 3343.0190086364746,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Haunted Mansion Holiday is inspired by Tim Burton's 1993 film The Nightmare Before Christmas and takes place shortly after the events of the film, specifically on Christmas Eve.",
+          "context_length": 2147,
+          "latency_ms": 3034.055233001709,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Haunted Mansion Holiday is transformed into Haunted Mansion Holiday during the Halloween and Christmas seasons, inspired by Tim Burton's 1993 film The Nightmare Before Christmas.",
+          "context_length": 2602,
+          "latency_ms": 3039.750099182129,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Haunted Mansion Holiday is transformed into Haunted Mansion Holiday during the Halloween and Christmas seasons, inspired by Tim Burton's 1993 film The Nightmare Before Christmas.",
+          "context_length": 3063,
+          "latency_ms": 3558.9938163757324,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Haunted Mansion Holiday, inspired by Tim Burton's 1993 film The Nightmare Before Christmas, takes place shortly after the events of the film. However, specific dates for the Haunted Mansion Holiday are not provided in the context. The context mentions that it is a seasonal overlay of the Haunted Mansion attraction at Disneyland and Tokyo Disneyland during Halloween and Christmas seasons, but does not specify the exact dates.",
+          "context_length": 5966,
+          "latency_ms": 7192.314863204956,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test93",
+      "query": "where did the ashes from ash wednesday originate",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 542.8049564361572,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The ashes from Ash Wednesday originated from burning palm leaves from the previous year's Palm Sunday celebrations.",
+          "context_length": 360,
+          "latency_ms": 1320.8951950073242,
+          "relevant_in_top_k": 1,
+          "total_relevant": 3,
+          "recall_at_k": 0.3333333333333333,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The ashes from Ash Wednesday may be prepared by burning palm leaves from the previous year's Palm Sunday celebrations.",
+          "context_length": 836,
+          "latency_ms": 1598.3338356018066,
+          "relevant_in_top_k": 1,
+          "total_relevant": 3,
+          "recall_at_k": 0.3333333333333333,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The ashes from Ash Wednesday may be prepared by burning palm leaves from the previous year's Palm Sunday celebrations.",
+          "context_length": 2509,
+          "latency_ms": 2497.9562759399414,
+          "relevant_in_top_k": 1,
+          "total_relevant": 3,
+          "recall_at_k": 0.3333333333333333,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The ashes from Ash Wednesday may be prepared by burning palm leaves from the previous year's Palm Sunday celebrations.",
+          "context_length": 4646,
+          "latency_ms": 3543.430805206299,
+          "relevant_in_top_k": 1,
+          "total_relevant": 3,
+          "recall_at_k": 0.3333333333333333,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The ashes from Ash Wednesday may be prepared by burning palm leaves from the previous year's Palm Sunday celebrations.",
+          "context_length": 5515,
+          "latency_ms": 3680.6938648223877,
+          "relevant_in_top_k": 1,
+          "total_relevant": 3,
+          "recall_at_k": 0.3333333333333333,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The ashes from Ash Wednesday may be prepared by burning palm leaves from the previous year's Palm Sunday celebrations.",
+          "context_length": 6079,
+          "latency_ms": 3893.6500549316406,
+          "relevant_in_top_k": 1,
+          "total_relevant": 3,
+          "recall_at_k": 0.3333333333333333,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The ashes from Ash Wednesday may be prepared by burning palm leaves from the previous year's Palm Sunday celebrations.",
+          "context_length": 10279,
+          "latency_ms": 6291.461944580078,
+          "relevant_in_top_k": 1,
+          "total_relevant": 3,
+          "recall_at_k": 0.3333333333333333,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test94",
+      "query": "who sings it's my party and i cry if i want to",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "It's performed by the band The Kooks.",
+          "context_length": 0,
+          "latency_ms": 788.8519763946533,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Lesley Gore sings \"It's My Party\" and I'll Cry If I Want To.",
+          "context_length": 856,
+          "latency_ms": 1692.3792362213135,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Lesley Gore sings \"It's My Party and I'll Cry If I Want To.\"",
+          "context_length": 1182,
+          "latency_ms": 1843.2466983795166,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Lesley Gore sings \"It's My Party and I'll Cry If I Want To.\"",
+          "context_length": 1912,
+          "latency_ms": 2160.7329845428467,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Lesley Gore sings \"It's My Party and I'll Cry If I Want To.\"",
+          "context_length": 2522,
+          "latency_ms": 2602.0278930664062,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Lesley Gore sings \"It's My Party and I'll Cry If I Want To.\"",
+          "context_length": 2944,
+          "latency_ms": 2732.3861122131348,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Lesley Gore sings \"It's My Party and I'll Cry If I Want To.\"",
+          "context_length": 3240,
+          "latency_ms": 2829.123020172119,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.16666666666666666,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Lesley Gore sings \"It's My Party and I'll Cry If I Want To.\"",
+          "context_length": 6128,
+          "latency_ms": 4290.807008743286,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.16666666666666666,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test95",
+      "query": "what are some elements that are similar to silver",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 518.5291767120361,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Some elements similar to silver include copper, gold, lead, and zinc.",
+          "context_length": 571,
+          "latency_ms": 1230.6528091430664,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Some elements similar to silver include copper, gold, lead, and zinc.",
+          "context_length": 1159,
+          "latency_ms": 1642.7631378173828,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Elements similar to silver include copper, gold, lead, and zinc. Silver forms alloys with most other elements on the periodic table, but particularly with copper, forming silver-copper alloys which are widely used in coinage and jewelry.",
+          "context_length": 2291,
+          "latency_ms": 3666.5618419647217,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Elements similar to silver include copper, gold, lead, and zinc. Silver forms alloys with these elements, such as silver-copper alloys used in coinage and jewelry.",
+          "context_length": 2603,
+          "latency_ms": 3177.057981491089,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Elements similar to silver include copper, gold, and lead. Silver forms alloys with most other elements on the periodic table, particularly those from groups 1\u20133 and 10\u201314, but its properties are especially suited for applications requiring high electrical and thermal conductivity.",
+          "context_length": 3127,
+          "latency_ms": 4221.40097618103,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Elements similar to silver include copper, gold, and palladium. They are all transition metals with high electrical and thermal conductivity, and some of them form alloys with silver.",
+          "context_length": 3743,
+          "latency_ms": 3585.2420330047607,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Silver is similar in its physical and chemical properties to copper and gold.",
+          "context_length": 5722,
+          "latency_ms": 3668.8201427459717,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test96",
+      "query": "when was the chain first used for f1",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The context provided does not specify when the chain was first used for F1 racing. I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 1265.1970386505127,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The F1 grenade was first produced in May 1915, but the specific use of the chain for it is not mentioned in the provided context.",
+          "context_length": 642,
+          "latency_ms": 2014.564037322998,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The F1 grenade was first produced in May 1915, while the McLaren F1 was not used for F1 racing until later in the timeline, specifically after 1915. The chain was not used for F1 racing until the McLaren F1 production began, which is not specified in the context.",
+          "context_length": 926,
+          "latency_ms": 3696.6488361358643,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The chain rule was first used in the context of f1 in the McLaren F1, as mentioned in Document 2.",
+          "context_length": 1193,
+          "latency_ms": 2105.4859161376953,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The chain rule was first used for f1 in the context of the McLaren F1 racing versions developed from 1995 to 1997.",
+          "context_length": 1448,
+          "latency_ms": 2334.880828857422,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The chain rule was first used in the context of F1 when f and g were expressed in terms of their components as y = f(u) = (f1(u), \u2026, fk(u)) and u = g(x) = (g1(x), \u2026, gm(x)). However, the specific mention of 'chain' in relation to F1 is not found in the provided documents. The closest relevant information is from Document 3, which discusses the chain rule in a general mathematical context, not specifically for F1.",
+          "context_length": 1703,
+          "latency_ms": 6225.680112838745,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The chain rule was not specifically used for F1 in the context provided. However, the document mentions the development of electronic driver aids in the 1980s, which influenced F1 technology. The chain rule itself is a mathematical concept not directly related to F1 history. The question seems to be based on a misunderstanding of the context provided.",
+          "context_length": 2537,
+          "latency_ms": 4891.026973724365,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The chain rule was first used in the context of F1 when f and g are expressed in terms of their components as y = f(u) = (f1(u), \u2026, fk(u)) and u = g(x) = (g1(x), \u2026, gm(x)). However, the specific mention of 'chain' in relation to F1 is not found directly in the provided context. The closest relevant information is from Document 3, which discusses the chain rule in mathematics but does not specify its use in F1. Therefore, based on the provided context, I cannot answer when the chain was first used for F1.",
+          "context_length": 5019,
+          "latency_ms": 8526.45993232727,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test97",
+      "query": "when was you'll never walk alone first released",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The answer is not provided in the context. It seems the relevant information about the release date of 'when you'll never walk alone' is missing. Please provide the document or confirm if it was omitted.",
+          "context_length": 0,
+          "latency_ms": 2260.66517829895,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "You'll Never Walk Alone was first released in 1963.",
+          "context_length": 488,
+          "latency_ms": 1070.6679821014404,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "You'll Never Walk Alone was first released in 1963.",
+          "context_length": 859,
+          "latency_ms": 1261.5840435028076,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "You'll Never Walk Alone was first released in 1963.",
+          "context_length": 1232,
+          "latency_ms": 1553.900957107544,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "You'll Never Walk Alone was first released in 1963.",
+          "context_length": 1960,
+          "latency_ms": 1855.4749488830566,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "You'll Never Walk Alone was first released in 1963.",
+          "context_length": 2453,
+          "latency_ms": 2105.1278114318848,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "You'll Never Walk Alone was first released in 1963.",
+          "context_length": 2681,
+          "latency_ms": 2143.4152126312256,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "You'll Never Walk Alone was first released in 1963.",
+          "context_length": 5003,
+          "latency_ms": 3255.06591796875,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test98",
+      "query": "what year is the deer hunter set in",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The Deer Hunter is set in 1968.",
+          "context_length": 0,
+          "latency_ms": 698.1410980224609,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Deer Hunter is set in the late 1950s and early 1960s.",
+          "context_length": 112,
+          "latency_ms": 1316.6451454162598,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Deer Hunter is set in 1977.",
+          "context_length": 804,
+          "latency_ms": 1080.9919834136963,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Deer Hunter is set in 1978.",
+          "context_length": 1368,
+          "latency_ms": 1320.7061290740967,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Deer Hunter is set in 1978.",
+          "context_length": 1594,
+          "latency_ms": 1321.094274520874,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Deer Hunter is set in 1978.",
+          "context_length": 1683,
+          "latency_ms": 1270.164966583252,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Deer Hunter is set in 1977.",
+          "context_length": 1893,
+          "latency_ms": 1532.2508811950684,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Deer Hunter is set in 1978.",
+          "context_length": 3247,
+          "latency_ms": 2141.0961151123047,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test99",
+      "query": "who controlled the house and the senate in 2012",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "In 2012, the U.S. Senate was controlled by Democrats and the House of Representatives by Republicans. However, the specific individuals controlling the houses at that time are not provided in the context.",
+          "context_length": 0,
+          "latency_ms": 2201.7300128936768,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "In 2012, the House of Representatives was controlled by Republicans and the Senate by Democrats.",
+          "context_length": 842,
+          "latency_ms": 1467.5118923187256,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "In 2012, both houses of the Washington State Legislature were controlled by a Democratic majority. The state senate was controlled by Democrats, while the House of Representatives was controlled by Republicans.",
+          "context_length": 1020,
+          "latency_ms": 2354.9509048461914,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "In 2012, both houses of the Washington State Legislature were controlled by Democrats. The state senate was controlled by Democrats, while the House of Representatives was controlled by Republicans.",
+          "context_length": 1804,
+          "latency_ms": 2724.561929702759,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "In 2012, both houses of the Washington State Legislature were controlled by Democrats. The state senate was under Republican control due to a coalition, but the House of Representatives was controlled by Democrats.",
+          "context_length": 2089,
+          "latency_ms": 2895.8899974823,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "In 2012, both houses of the Washington State Legislature were controlled by Democrats. The state senate was controlled by Democrats, while the House of Representatives had a Democratic majority as well.",
+          "context_length": 3412,
+          "latency_ms": 3818.861961364746,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "In 2012, both houses of the Washington State Legislature were controlled by Democrats. The state senate was controlled by Democrats, while the House of Representatives had a Democratic majority.",
+          "context_length": 3744,
+          "latency_ms": 3477.1838188171387,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "In November 2017, a special election gave Democrats a one seat majority in the Senate and complete control over state government. However, in 2012, both houses of Congress were controlled by Democrats. In the House, Democrats held control after winning seats in the mid-term elections, while in the Senate, they retained control due to a Democratic majority in both houses. The specific control of the House and Senate in 2012 was not explicitly mentioned in the provided context, but it is known that Democrats controlled both houses in 2012 following the special election mentioned.",
+          "context_length": 6707,
+          "latency_ms": 8458.6021900177,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test100",
+      "query": "why do red blood cells live for only 120 days",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 547.7261543273926,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Red blood cells live for about 120 days in a healthy individual because, at the end of their lifespan, they are removed from circulation due to reduced lifespan in chronic diseases.",
+          "context_length": 470,
+          "latency_ms": 2136.216163635254,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Red blood cells live for about 120 days in a healthy individual because their lifespan is reduced in many chronic diseases.",
+          "context_length": 817,
+          "latency_ms": 1924.8251914978027,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Red blood cells live for about 120 days because in a healthy individual, they are removed from circulation at the end of their lifespan, which is approximately 100 to 120 days. This process helps maintain optimal red blood cell levels and prevents the accumulation of damaged cells.",
+          "context_length": 1272,
+          "latency_ms": 3305.323839187622,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Red blood cells live for about 120 days in a healthy individual because, in normal circumstances, they are produced through erythropoiesis and have a functional lifetime of about 100-120 days. Their lifespan is reduced in chronic diseases, but under normal conditions, this average lifespan is sufficient for their production and removal.",
+          "context_length": 1611,
+          "latency_ms": 3952.233076095581,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Red blood cells live for about 120 days in a healthy individual due to the balance between their production rate and lifespan. In adults, about 2.4 million RBCs are produced each second, but their lifespan is approximately 100-120 days. This lifespan is reduced in chronic diseases where the lifespan is shortened.",
+          "context_length": 1988,
+          "latency_ms": 3962.6927375793457,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Red blood cells live for about 120 days in a healthy individual due to the balance between their production and destruction. They are produced through erythropoiesis in the bone marrow and have a functional lifetime of approximately 100-120 days. In chronic diseases, their lifespan is reduced.",
+          "context_length": 2365,
+          "latency_ms": 3712.2862339019775,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Red blood cells live for approximately 120 days in the healthy individual's circulation due to a balance between their production and destruction. They are produced at a rate of about 2.4 million per second in the bone marrow and function optimally for this lifespan. However, their lifespan is reduced in chronic diseases where the lifespan is shortened. Additionally, about 1% of red blood cells break down daily in healthy individuals, and the spleen removes old and damaged cells from circulation.",
+          "context_length": 4417,
+          "latency_ms": 6031.32176399231,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test101",
+      "query": "nba record for most double doubles in a season",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The NBA record for most double doubles in a season is 32, set by Chris Mullin in the 1996-97 season.",
+          "context_length": 0,
+          "latency_ms": 1476.2630462646484,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 490,
+          "latency_ms": 559.114933013916,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Tim Duncan holds the NBA record for most double-doubles in a season with 1005.",
+          "context_length": 1322,
+          "latency_ms": 1649.4979858398438,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Tim Duncan holds the NBA record for most double-doubles in a season with 1005.",
+          "context_length": 2414,
+          "latency_ms": 2029.369831085205,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Tim Duncan holds the NBA record for most double-doubles in a season with 1005.",
+          "context_length": 3191,
+          "latency_ms": 2367.8629398345947,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The NBA record for most double-doubles in a season is 44, achieved by Oscar Robertson.",
+          "context_length": 3272,
+          "latency_ms": 2710.386037826538,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The NBA record for most double-doubles in a season is 57.33, achieved from the 2011\u201312 to the 2016\u201317 season.",
+          "context_length": 3619,
+          "latency_ms": 3322.288990020752,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The NBA record for most double-doubles in a season is 57.33 triple-doubles, achieved by Russell Westbrook during the 2011\u201312 season.",
+          "context_length": 6195,
+          "latency_ms": 4267.417907714844,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.125,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test102",
+      "query": "where does the big sur begin and end",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The Big Sur begins at the confluence of the Pebble Beach and Cambria Creeks and ends at the Pacific Ocean.",
+          "context_length": 0,
+          "latency_ms": 1665.6372547149658,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Big Sur Marathon begins south of Pfeiffer Big Sur State Park and ends at the Crossroads Shopping Center in Carmel-by-the-Sea, California.",
+          "context_length": 278,
+          "latency_ms": 1678.2948970794678,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Big Sur Marathon begins south of Pfeiffer Big Sur State Park and ends at the Crossroads Shopping Center in Carmel-by-the-Sea, California.",
+          "context_length": 648,
+          "latency_ms": 1883.424997329712,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Big Sur Marathon begins south of Pfeiffer Big Sur State Park and ends at the Crossroads Shopping Center in Carmel-by-the-Sea, California.",
+          "context_length": 1449,
+          "latency_ms": 2236.629009246826,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Big Sur Marathon begins south of Pfeiffer Big Sur State Park and ends at the Crossroads Shopping Center in Carmel-by-the-Sea, California.",
+          "context_length": 1844,
+          "latency_ms": 2239.279270172119,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Big Sur Marathon begins south of Pfeiffer Big Sur State Park and ends at the Crossroads Shopping Center in Carmel-by-the-Sea, California.",
+          "context_length": 2287,
+          "latency_ms": 2560.1699352264404,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Big Sur Marathon begins south of Pfeiffer Big Sur State Park and ends at the Crossroads Shopping Center in Carmel-by-the-Sea, California.",
+          "context_length": 2338,
+          "latency_ms": 2658.6499214172363,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Big Sur Marathon begins south of Pfeiffer Big Sur State Park and ends at the Crossroads Shopping Center in Carmel-by-the-Sea, California.",
+          "context_length": 4527,
+          "latency_ms": 3494.1680431365967,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test103",
+      "query": "who did puerto rico belong to before the u.s",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Puerto Rico was under Spanish rule before it became part of the United States.",
+          "context_length": 0,
+          "latency_ms": 1022.4990844726562,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Puerto Rico belonged to Spain before the U.S. administration.",
+          "context_length": 672,
+          "latency_ms": 1118.9532279968262,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Before the U.S., Puerto Rico belonged to Spain.",
+          "context_length": 1513,
+          "latency_ms": 1163.7203693389893,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Before the U.S., Puerto Rico belonged to Spain.",
+          "context_length": 2647,
+          "latency_ms": 1589.9620056152344,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Before the U.S., Puerto Rico belonged to Spain, as per the Treaty of Paris of 1898.",
+          "context_length": 3274,
+          "latency_ms": 2774.8711109161377,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Before the U.S., Puerto Rico belonged to Spain. The Treaty of Paris in 1898 ceded Puerto Rico to the United States following the end of the Spanish\u2013American War.",
+          "context_length": 4468,
+          "latency_ms": 3259.2499256134033,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Before the U.S., Puerto Rico belonged to Spain. According to Document 1, the administration of Puerto Rico was under the United States Department of War's Division of Insular Affairs following the Bureau of Indian Affairs, but prior to U.S. administration, it was under Spanish rule.",
+          "context_length": 5009,
+          "latency_ms": 4642.822265625,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Before the U.S., Puerto Rico belonged to Spain. The Treaty of Paris in 1898 ceded Puerto Rico to the United States following the Spanish\u2013American War.",
+          "context_length": 7355,
+          "latency_ms": 4631.714105606079,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test104",
+      "query": "when does panic at the disco album come out",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Panic at Disco was released on October 18, 1979.",
+          "context_length": 0,
+          "latency_ms": 946.2239742279053,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Panic! at the Disco's album \"Pray for the Wicked\" is set to be released on June 22, 2018.",
+          "context_length": 280,
+          "latency_ms": 2144.838809967041,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Panic! at the Disco's album \"Pray for the Wicked\" comes out on June 22, 2018.",
+          "context_length": 484,
+          "latency_ms": 1753.3249855041504,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Panic! at the Disco's album \"Death of a Bachelor\" comes out on June 22, 2018.",
+          "context_length": 973,
+          "latency_ms": 2242.4168586730957,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Panic! at the Disco's album \"Pray for the Wicked\" comes out on June 22, 2018.",
+          "context_length": 1214,
+          "latency_ms": 2045.3729629516602,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Panic! at the Disco's album \"Pray for the Wicked\" comes out on June 22, 2018.",
+          "context_length": 1661,
+          "latency_ms": 2137.5160217285156,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Panic! at the Disco's album \"Pray for the Wicked\" comes out on June 22, 2018.",
+          "context_length": 2029,
+          "latency_ms": 2295.185089111328,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Panic! at the Disco's sixth studio album, Pray for the Wicked, is set to be released on June 22, 2018.",
+          "context_length": 4141,
+          "latency_ms": 3430.5171966552734,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test105",
+      "query": "who plays dorian tyrell when he puts on the mask",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Dorian Tyrell is played by Michael Caine in the film adaptation of \"The Masquerade.\"",
+          "context_length": 0,
+          "latency_ms": 1177.4132251739502,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Peter Greene plays Dorian Tyrell when he puts on the mask.",
+          "context_length": 570,
+          "latency_ms": 1098.7660884857178,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Peter Greene plays Dorian Tyrell when he puts on the mask.",
+          "context_length": 1221,
+          "latency_ms": 1389.3170356750488,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Peter Greene plays Dorian Tyrell when he puts on the mask.",
+          "context_length": 1862,
+          "latency_ms": 1575.7598876953125,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Peter Greene plays Dorian Tyrell when he puts on the mask.",
+          "context_length": 2547,
+          "latency_ms": 2375.1919269561768,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Peter Greene plays Dorian Tyrell when he puts on the mask.",
+          "context_length": 3331,
+          "latency_ms": 2018.10622215271,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Peter Greene plays Dorian Tyrell when he puts on the mask.",
+          "context_length": 4184,
+          "latency_ms": 2673.0189323425293,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Peter Greene plays Dorian Tyrell when he puts on the mask.",
+          "context_length": 6062,
+          "latency_ms": 3235.7988357543945,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test106",
+      "query": "who holds the world record for the most world records",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 657.6807498931885,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Ashrita Furman holds the world record for the most Guinness world records, with over 191 records as of 2017.",
+          "context_length": 335,
+          "latency_ms": 2006.9339275360107,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Ashrita Furman holds the world record for the most Guinness world records, with more than 191 records as of 2017.",
+          "context_length": 798,
+          "latency_ms": 1897.594928741455,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Ashrita Furman holds the world record for the most Guinness World Records, with over 191 records as of 2017.",
+          "context_length": 998,
+          "latency_ms": 1840.9547805786133,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Ashrita Furman holds the world record for the most Guinness World Records, with over 191 records as of 2017.",
+          "context_length": 1290,
+          "latency_ms": 1980.6101322174072,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Ashrita Furman holds the world record for the most Guinness World Records, with over 191 records as of 2017.",
+          "context_length": 1400,
+          "latency_ms": 2086.764097213745,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Ashrita Furman holds the world record for the most Guinness World Records, with over 191 records as of 2017.",
+          "context_length": 1556,
+          "latency_ms": 2097.201108932495,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Ashrita Furman holds the world record for the most Guinness World Records, with over 191 records as of 2017.",
+          "context_length": 3339,
+          "latency_ms": 2949.2039680480957,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test107",
+      "query": "who sang on great gig in the sky",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The song \"Great Gig in the Sky\" was sung by Neil Young.",
+          "context_length": 0,
+          "latency_ms": 945.7600116729736,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Clare Torry sang non-lexical vocals on \"The Great Gig in the Sky.\"",
+          "context_length": 264,
+          "latency_ms": 1183.2330226898193,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Clare Torry sang on Great Gig in the Sky.",
+          "context_length": 733,
+          "latency_ms": 1094.5990085601807,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Clare Torry sang on Great Gig in the Sky.",
+          "context_length": 1650,
+          "latency_ms": 1479.313850402832,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Clare Torry sang on Great Gig in the Sky. However, she also contributed vocals to an early version titled \"The Mortality Sequence\" performed by Pink Floyd in 1972.",
+          "context_length": 2119,
+          "latency_ms": 2994.7571754455566,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Clare Torry sang on Great Gig in the Sky. Later, Venetta Fields and Carlena Williams also performed vocals during different tours.",
+          "context_length": 2311,
+          "latency_ms": 2501.599073410034,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Clare Torry sang on Great Gig in the Sky. Later, Venetta Fields and Carlena Williams also performed vocals during different tours.",
+          "context_length": 2688,
+          "latency_ms": 2820.4281330108643,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Clare Torry sang on \"The Great Gig in the Sky.\"",
+          "context_length": 4736,
+          "latency_ms": 2872.148036956787,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test108",
+      "query": "what college does everyone in gossip girl go to",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify a single college attended by everyone in Gossip Girl.",
+          "context_length": 0,
+          "latency_ms": 1176.3267517089844,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Everyone in Gossip Girl goes to Yale University, except for Dan who initially plans to attend Brown University but ends up at Yale instead.",
+          "context_length": 599,
+          "latency_ms": 1703.8462162017822,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Yale University.",
+          "context_length": 1384,
+          "latency_ms": 885.6918811798096,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Yale University and Brown University. However, Dan's plans to visit Yale were thwarted, and Blair initially planned to attend Yale but ended up going to Brown University instead.",
+          "context_length": 1807,
+          "latency_ms": 2540.985107421875,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "New York University",
+          "context_length": 2521,
+          "latency_ms": 1426.6371726989746,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "New York University and Brown University.",
+          "context_length": 2942,
+          "latency_ms": 1664.1936302185059,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Everyone in Gossip Girl goes to Yale University, except Blair initially plans to attend Brown University. However, she ends up attending Yale after getting a personal invitation from the Dean of Yale.",
+          "context_length": 3718,
+          "latency_ms": 3249.760150909424,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Everyone in Gossip Girl primarily attends elite private schools, with Blair Waldorf attending New York University, Dan Humphrey attending New York University, and Serena van der Woodsen attending Brown University.",
+          "context_length": 5685,
+          "latency_ms": 4259.387969970703,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.1111111111111111,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test109",
+      "query": "what is the origin of the name marilyn",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The name Marilyn is derived from the Marilyn Mountains in California, named after Marilyn Monroe.",
+          "context_length": 0,
+          "latency_ms": 1739.3980026245117,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 67,
+          "latency_ms": 473.006010055542,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The name Marilyn is a blend of the English given names Mary and Lynn, originating in the 1920s and reaching peak popularity in the 1930s, 1940s, and 1950s.",
+          "context_length": 381,
+          "latency_ms": 2615.3039932250977,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Marilyn originated as a blend of the English names Mary and Lynn, beginning to be used in the 1920s and reaching its peak popularity in the 1930s, 1940s, and 1950s.",
+          "context_length": 454,
+          "latency_ms": 2758.523941040039,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The origin of the name Marilyn is a blend of the English given names Mary and Lynn. It began to be used in the 1920s and reached its peak of popularity in the 1930s, 1940s, and 1950s.",
+          "context_length": 594,
+          "latency_ms": 2999.084949493408,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Marilyn originated as a blend of the English names Mary and Lynn, beginning to be used in the 1920s and reaching peak popularity in the 1930s, 1940s, and 1950s.",
+          "context_length": 931,
+          "latency_ms": 2831.2559127807617,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Marilyn originated as a blend of the English names Mary and Lynn, beginning to be used in the 1920s and reaching peak popularity in the 1930s, 1940s, and 1950s.",
+          "context_length": 1465,
+          "latency_ms": 3054.0730953216553,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Marilyn is a blend of the English given names Mary and Lynn, originating in the 1920s and reaching peak popularity in the 1930s, 1940s, and 1950s.",
+          "context_length": 3247,
+          "latency_ms": 3369.277238845825,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        }
+      }
     }
   ],
   "config": {
@@ -8568,5 +10468,5 @@
     ],
     "run_path": "data/nq/fused/learned_mlp.res"
   },
-  "last_updated": "2025-12-05 07:27:48"
+  "last_updated": "2025-12-05 07:34:49"
 }
