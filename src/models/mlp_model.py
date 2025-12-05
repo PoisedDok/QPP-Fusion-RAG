@@ -26,26 +26,56 @@ class FusionMLP(BaseFusionModel):
     Multi-layer Perceptron for predicting fusion weights.
     
     Architecture:
-        Input (65) -> Hidden (128) -> ReLU -> Dropout
-        -> Hidden (64) -> ReLU -> Output (5) -> Softmax
+        Input (n_retrievers * n_qpp_used) -> Hidden -> ReLU -> Dropout -> Output (n_retrievers)
     
-    The softmax ensures weights sum to 1.
+    Uses CrossEntropyLoss with target distribution (proper for probability outputs).
+    Post-prediction normalization like LightGBM for consistency.
+    
+    Args:
+        qpp_indices: Which QPP methods to use. Default [5] = RSD only.
+                    Options: 0=SMV, 1=Sigma_max, 2=Sigma(%), 3=NQC, 4=UEF, 
+                            5=RSD, 6=QPP-PRP, 7=WIG, 8=SCNQC, 9=QV-NQC,
+                            10=DM, 11=NQA-QPP, 12=BERTQPP
     """
+    
+    # QPP method index mapping
+    QPP_NAMES = {
+        0: "SMV", 1: "Sigma_max", 2: "Sigma(%)", 3: "NQC", 4: "UEF", 5: "RSD",
+        6: "QPP-PRP", 7: "WIG", 8: "SCNQC", 9: "QV-NQC", 10: "DM", 
+        11: "NQA-QPP", 12: "BERTQPP"
+    }
     
     def __init__(
         self,
         retrievers: List[str],
         n_qpp: int = 13,
+        qpp_indices: List[int] = None,
         hidden_sizes: List[int] = None,
         dropout: float = 0.2,
         device: str = None
     ):
+        # Default to RSD only (index 5) - best single predictor
+        self.qpp_indices = qpp_indices if qpp_indices is not None else [5]
+        self.n_qpp_used = len(self.qpp_indices)
+        
         super().__init__(retrievers, n_qpp)
+        
+        # Override n_features to use only selected QPP methods
+        self.n_features = self.n_qpp_used * len(retrievers)
+        self.feature_names = [f"{r}_{self.QPP_NAMES.get(i, i)}" 
+                              for r in retrievers for i in self.qpp_indices]
         
         if not HAS_TORCH:
             raise ImportError("PyTorch not installed. Run: pip install torch")
         
-        self.hidden_sizes = hidden_sizes or [128, 64]
+        # Scale hidden sizes based on input size
+        if hidden_sizes is None:
+            if self.n_qpp_used == 1:
+                hidden_sizes = [32, 16]  # Smaller network for single QPP
+            else:
+                hidden_sizes = [128, 64]
+        
+        self.hidden_sizes = hidden_sizes
         self.dropout = dropout
         self.device = device or ('mps' if torch.backends.mps.is_available() 
                                   else 'cuda' if torch.cuda.is_available() 
@@ -53,6 +83,9 @@ class FusionMLP(BaseFusionModel):
         
         self.model = self._build_model()
         self.model.to(self.device)
+        
+        qpp_names = [self.QPP_NAMES.get(i, str(i)) for i in self.qpp_indices]
+        print(f"[FusionMLP] Using QPP methods: {qpp_names} ({self.n_features} features)")
     
     def _build_model(self) -> nn.Module:
         """Build the MLP architecture."""
@@ -72,10 +105,29 @@ class FusionMLP(BaseFusionModel):
         
         return nn.Sequential(*layers)
     
+    def _filter_features(self, X: np.ndarray) -> np.ndarray:
+        """
+        Filter input features to only use selected QPP indices.
+        
+        Input X has shape (n_samples, n_retrievers * 13)
+        Output has shape (n_samples, n_retrievers * n_qpp_used)
+        """
+        n_samples = X.shape[0]
+        X_filtered = np.zeros((n_samples, self.n_features))
+        
+        for j in range(self.n_retrievers):
+            for k, qpp_idx in enumerate(self.qpp_indices):
+                # Source: retriever j, QPP index qpp_idx (out of 13)
+                src_idx = j * self.n_qpp + qpp_idx
+                # Dest: retriever j, QPP position k (out of n_qpp_used)
+                dst_idx = j * self.n_qpp_used + k
+                X_filtered[:, dst_idx] = X[:, src_idx]
+        
+        return X_filtered
+    
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        """Forward pass with softmax normalization."""
-        logits = self.model(x)
-        return torch.softmax(logits, dim=1)
+        """Forward pass - raw logits (no softmax, normalized at predict time)."""
+        return self.model(x)
     
     def train(
         self,
@@ -88,32 +140,45 @@ class FusionMLP(BaseFusionModel):
         learning_rate: float = 0.001,
         patience: int = 10
     ) -> Dict:
-        """Train the MLP model."""
-        print(f"\n=== Training FusionMLP on {self.device} ===")
+        """Train the MLP model using CrossEntropyLoss."""
+        qpp_names = [self.QPP_NAMES.get(i, str(i)) for i in self.qpp_indices]
+        print(f"\n=== Training FusionMLP on {self.device} (CrossEntropyLoss) ===")
+        print(f"    QPP methods: {qpp_names}")
+        print(f"    Input features: {self.n_features} ({self.n_retrievers} retrievers × {self.n_qpp_used} QPP)")
         
-        # Normalize Y to sum to 1
+        # Filter features to only use selected QPP indices
+        X_train_filtered = self._filter_features(X_train)
+        
+        # Normalize Y to sum to 1 (target distribution)
         Y_train_sum = Y_train.sum(axis=1, keepdims=True)
         Y_train_sum[Y_train_sum == 0] = 1
-        Y_train = Y_train / Y_train_sum
+        Y_train_norm = Y_train / Y_train_sum
         
         # Convert to tensors
-        X_train_t = torch.FloatTensor(X_train).to(self.device)
-        Y_train_t = torch.FloatTensor(Y_train).to(self.device)
+        X_train_t = torch.FloatTensor(X_train_filtered).to(self.device)
+        Y_train_t = torch.FloatTensor(Y_train_norm).to(self.device)
         
         train_dataset = TensorDataset(X_train_t, Y_train_t)
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
         
         # Validation data
         if X_val is not None and Y_val is not None:
+            X_val_filtered = self._filter_features(X_val)
+            
             Y_val_sum = Y_val.sum(axis=1, keepdims=True)
             Y_val_sum[Y_val_sum == 0] = 1
-            Y_val = Y_val / Y_val_sum
+            Y_val_norm = Y_val / Y_val_sum
             
-            X_val_t = torch.FloatTensor(X_val).to(self.device)
-            Y_val_t = torch.FloatTensor(Y_val).to(self.device)
+            X_val_t = torch.FloatTensor(X_val_filtered).to(self.device)
+            Y_val_t = torch.FloatTensor(Y_val_norm).to(self.device)
         
-        # Loss and optimizer
-        criterion = nn.MSELoss()
+        # CrossEntropyLoss: expects raw logits, applies log_softmax internally
+        # We use soft labels (probability distribution), so we use KLDivLoss equivalent
+        # CrossEntropy with soft labels: -sum(y * log_softmax(pred))
+        def soft_cross_entropy(pred_logits, target_probs):
+            log_probs = torch.log_softmax(pred_logits, dim=1)
+            return -(target_probs * log_probs).sum(dim=1).mean()
+        
         optimizer = optim.Adam(self.model.parameters(), lr=learning_rate)
         scheduler = optim.lr_scheduler.ReduceLROnPlateau(
             optimizer, mode='min', factor=0.5, patience=5
@@ -132,8 +197,8 @@ class FusionMLP(BaseFusionModel):
             train_loss = 0.0
             for X_batch, Y_batch in train_loader:
                 optimizer.zero_grad()
-                Y_pred = self.forward(X_batch)
-                loss = criterion(Y_pred, Y_batch)
+                logits = self.forward(X_batch)
+                loss = soft_cross_entropy(logits, Y_batch)
                 loss.backward()
                 optimizer.step()
                 train_loss += loss.item()
@@ -145,8 +210,8 @@ class FusionMLP(BaseFusionModel):
             if X_val is not None:
                 self.model.eval()
                 with torch.no_grad():
-                    Y_val_pred = self.forward(X_val_t)
-                    val_loss = criterion(Y_val_pred, Y_val_t).item()
+                    val_logits = self.forward(X_val_t)
+                    val_loss = soft_cross_entropy(val_logits, Y_val_t).item()
                 self.model.train()
                 
                 history['val_loss'].append(val_loss)
@@ -187,19 +252,25 @@ class FusionMLP(BaseFusionModel):
         }
     
     def predict(self, X: np.ndarray) -> np.ndarray:
-        """Predict weights."""
+        """Predict weights (softmax at inference, then normalize like LightGBM)."""
         if not self.is_trained:
             raise RuntimeError("Model not trained")
+        
+        # Filter features to only use selected QPP indices
+        X_filtered = self._filter_features(X)
         
         # Ensure model is on correct device
         self.model.to(self.device)
         self.model.eval()
         
         with torch.no_grad():
-            X_t = torch.FloatTensor(X).to(self.device)
-            weights = self.forward(X_t).cpu().numpy()
+            X_t = torch.FloatTensor(X_filtered).to(self.device)
+            logits = self.forward(X_t)
+            # Apply softmax at inference to get probabilities
+            weights = torch.softmax(logits, dim=1).cpu().numpy()
         
-        return weights
+        # Additional normalization for consistency (softmax already sums to 1, but clip negatives)
+        return self._normalize_weights(weights)
     
     def save(self, path: str):
         """Save model including PyTorch state."""
@@ -212,12 +283,15 @@ class FusionMLP(BaseFusionModel):
         # Move model to CPU for saving
         self.model.cpu()
         
+        qpp_names = [self.QPP_NAMES.get(i, str(i)) for i in self.qpp_indices]
+        
         with open(path, 'wb') as f:
             pickle.dump({
                 'model': self,  # Save full object for easy loading
                 'model_state': self.model.state_dict(),
                 'retrievers': self.retrievers,
                 'n_qpp': self.n_qpp,
+                'qpp_indices': self.qpp_indices,
                 'hidden_sizes': self.hidden_sizes,
                 'dropout': self.dropout,
                 'model_type': 'FusionMLP',
@@ -226,7 +300,7 @@ class FusionMLP(BaseFusionModel):
         
         # Move back to device
         self.model.to(self.device)
-        print(f"Saved FusionMLP to {path}")
+        print(f"Saved FusionMLP to {path} (QPP: {qpp_names})")
     
     @classmethod
     def load(cls, path: str) -> 'FusionMLP':
@@ -236,9 +310,13 @@ class FusionMLP(BaseFusionModel):
         with open(path, 'rb') as f:
             data = pickle.load(f)
         
+        # Handle legacy models without qpp_indices
+        qpp_indices = data.get('qpp_indices', list(range(13)))
+        
         model = cls(
             retrievers=data['retrievers'],
             n_qpp=data['n_qpp'],
+            qpp_indices=qpp_indices,
             hidden_sizes=data['hidden_sizes'],
             dropout=data['dropout']
         )

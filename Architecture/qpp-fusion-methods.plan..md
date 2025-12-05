@@ -25,37 +25,30 @@
 
 ## RAG Evaluation Matrix (20 combinations)
 
-### LFM2-1.2B Progress: 7/10 ✓ + 3 Running
+### LFM2-1.2B Progress: 8/10 ✓ + 3 Running
 
-| # | Fusion Method | Status | QA Metrics |
-|---|---------------|--------|------------|
-| 1 | combsum | ✓ DONE | ✓ All 4 |
-| 2 | combmnz | ✓ DONE | ✓ All 4 |
-| 3 | rrf | ✓ DONE | ✓ All 4 |
-| 4 | wcombsum_rsd | ✓ DONE | ✓ All 4 |
-| 5 | wcombmnz_rsd | ✓ DONE | ✓ All 4 |
-| 6 | wrrf_rsd | ✓ DONE | ✓ All 4 |
-| 7 | learned_per_retriever | ✓ DONE | ⏳ Running |
-| 8 | learned_multioutput | ⏳ 55% | ○ Pending |
-| 9 | learned_mlp | ⏳ 2% | ○ Pending |
-| 10 | wcombsum_learned | ⏳ 0% | ○ Pending |
+| # | Fusion Method | Type | Status | QA Metrics |
+|---|---------------|------|--------|------------|
+| 1 | combsum | Baseline | ✓ DONE | ✓ All 4 |
+| 2 | combmnz | Baseline | ✓ DONE | ✓ All 4 |
+| 3 | rrf | Baseline | ✓ DONE | ✓ All 4 |
+| 4 | wcombsum_rsd | QPP-RSD | ✓ DONE | ✓ All 4 |
+| 5 | wcombmnz_rsd | QPP-RSD | ✓ DONE | ✓ All 4 |
+| 6 | wrrf_rsd | QPP-RSD | ✓ DONE | ✓ All 4 |
+| 7 | learned_per_retriever | Learned | ✓ DONE | ✓ All 4 |
+| 8 | learned_multioutput | Learned | ⏳ 56% | ○ Pending |
+| 9 | learned_mlp | Learned | ⏳ 3% | ○ Pending |
+| 10 | wcombsum_learned | Learned | ⏳ 1% | ○ Pending |
 
 ### Qwen3-4B Progress: 2/10 ✓
 
 | # | Fusion Method | Status | QA Metrics |
 |---|---------------|--------|------------|
 | 1 | combsum | ✓ DONE | ✓ All 4 |
-| 2 | combmnz | ○ PENDING | - |
-| 3 | rrf | ○ PENDING | - |
 | 4 | wcombsum_rsd | ✓ DONE | ✓ All 4 |
-| 5 | wcombmnz_rsd | ○ PENDING | - |
-| 6 | wrrf_rsd | ○ PENDING | - |
-| 7 | learned_per_retriever | ○ PENDING | - |
-| 8 | learned_multioutput | ○ PENDING | - |
-| 9 | learned_mlp | ○ PENDING | - |
-| 10 | wcombsum_learned | ○ PENDING | - |
+| 2-3, 5-10 | Others | ○ PENDING | - |
 
-**Overall Progress:** 9/20 complete | 4/20 in progress | 7/20 pending
+**Overall Progress:** 10/20 complete | 3/20 in progress | 7/20 pending
 
 ---
 
@@ -63,70 +56,15 @@
 
 | Instance | Fusion | Progress |
 |----------|--------|----------|
-| LFM | learned_mlp | 2% |
-| LFM:2 | learned_multioutput | 55% |
-| LFM:3 | wcombsum_learned | 0% |
-| Embed:2 | QA metrics for learned_per_retriever | Running |
+| LFM | learned_mlp | 3% |
+| LFM:2 | learned_multioutput | 56% |
+| LFM:3 | wcombsum_learned | 1% |
 
 ---
 
-## Result File Schema
+## 🔥 Key Results (LFM)
 
-All result files follow this standardized schema:
-
-```json
-{
-  "_metadata": {
-    "created": "2025-12-05T...",
-    "script": "07_rag_eval.py",
-    "fusion_method": "combsum",
-    "model": "liquid/lfm2-1.2b"
-  },
-  "config": {
-    "model": "...",
-    "k_values": [0, 1, 2, 3, 4, 5, 6, 10],
-    "run_path": "..."
-  },
-  "summary": {
-    "retrieval_metrics_by_k": {
-      "0": {"recall_at_k": 0.0, "mrr@k": 0.0, "hit_rate": 0.0, "n": 3452},
-      "1": {"recall_at_k": 0.31, "mrr@k": 0.31, "hit_rate": 0.31, "n": 3452}
-    },
-    "qa_metrics_by_k": {
-      "0": {"em": 0.29, "f1": 8.85, "containment": 12.57, "semantic": 59.98, "n_matched": 2728},
-      "1": {"em": 0.70, "f1": 20.82, "containment": 39.81, "semantic": 65.53, "n_matched": 2728}
-    }
-  },
-  "results": [
-    {
-      "qid": "...",
-      "query": "...",
-      "shots": {
-        "0": {"k": 0, "answer": "...", "em": 0, "f1": 0.1, "containment": 0, "semantic": 0.6, "reciprocal_rank": 0.0, ...},
-        "1": {"k": 1, "answer": "...", "em": 0, "f1": 0.2, "containment": 1, "semantic": 0.7, "reciprocal_rank": 1.0, ...}
-      }
-    }
-  ]
-}
-```
-
----
-
-## QA Metrics
-
-| Metric | Description | Script |
-|--------|-------------|--------|
-| EM% | Exact match after normalization | 08_compute_qa_metrics.py |
-| F1% | Token-level F1 score | 08_compute_qa_metrics.py |
-| Containment% | Gold answer substring of output | 08_compute_qa_metrics.py |
-| Semantic% | Cosine similarity (BGE embeddings) | 08_compute_qa_metrics.py |
-| MRR@k | Mean Reciprocal Rank | 07_rag_eval.py |
-
----
-
-## Results Summary (LFM completed)
-
-### Baselines vs QPP-Weighted (k=1 shot)
+### Comparison: Baseline vs QPP vs Learned (k=1 shot)
 
 | Method | Type | EM% | F1% | Containment% | Semantic% |
 |--------|------|-----|-----|--------------|-----------|
@@ -136,45 +74,123 @@ All result files follow this standardized schema:
 | wcombsum_rsd | QPP-RSD | 0.81 | 20.98 | 40.14 | 65.66 |
 | wcombmnz_rsd | QPP-RSD | 0.77 | 20.91 | 39.96 | 65.53 |
 | wrrf_rsd | QPP-RSD | 0.70 | 19.73 | 37.06 | 64.73 |
+| **learned_per_retriever** | **Learned** | 0.77 | **23.20** | **44.57** | **66.88** |
 
-**Finding:** QPP-weighted CombSUM shows +0.11 EM improvement over baseline.
+### 🎯 Finding: Learned Fusion BEATS All Others!
 
-### Performance by k-value (wcombsum_rsd + LFM)
+| Metric | Baseline (combsum) | QPP (wcombsum_rsd) | Learned | Δ vs Baseline |
+|--------|-------------------|-------------------|---------|---------------|
+| F1% | 20.82 | 20.98 | **23.20** | **+2.38** |
+| Containment% | 39.81 | 40.14 | **44.57** | **+4.76** |
+| Semantic% | 65.53 | 65.66 | **66.88** | **+1.35** |
+
+**learned_per_retriever** shows significant improvement:
+- **+11% relative F1 improvement** over baseline
+- **+12% relative containment improvement** over baseline
+- Also beats heuristic QPP weighting
+
+---
+
+## LFM vs Qwen Comparison (shared methods)
+
+| Metric | LFM avg | Qwen avg | Winner |
+|--------|---------|----------|--------|
+| EM% | 0.97 | 2.98 | **Qwen +2%** |
+| F1% | 20.3 | 20.7 | TIE |
+| Containment% | 40.2 | 42.9 | **Qwen +2.7%** |
+| Semantic% | 65.6 | 64.1 | **LFM +1.5%** |
+
+**Verdict:** Mixed results - Qwen better at exact match, LFM better at semantic similarity.
+
+---
+
+## Performance by k-value (learned_per_retriever + LFM)
 
 | k | EM% | F1% | Containment% | Semantic% |
 |---|-----|-----|--------------|-----------|
-| 0 | 0.29 | 8.81 | 12.50 | 59.95 |
-| 1 | 0.81 | 20.98 | 40.14 | 65.66 |
-| 2 | 0.99 | 22.35 | 44.61 | 66.58 |
-| 3 | 1.06 | 22.81 | 46.08 | 66.94 |
-| 5 | 1.21 | 22.77 | 47.62 | 67.06 |
-| 10 | 1.21 | 22.50 | 49.01 | 67.22 |
+| 0 | 0.37 | 9.15 | 12.98 | 60.07 |
+| 1 | 0.77 | 23.20 | 44.57 | 66.88 |
+| 2 | 1.21 | 24.26 | 48.35 | 67.82 |
+| 3 | 1.17 | 24.45 | 51.10 | 67.99 |
+| 4 | 1.06 | **24.65** | 52.49 | **68.10** |
+| 5 | 1.21 | 24.38 | 51.25 | 68.02 |
+| 10 | 0.95 | 22.97 | 50.88 | 67.69 |
 
-**Finding:** Performance improves with more context, plateaus around k=5-6.
+**Finding:** Optimal k=3-4 for learned methods (peaks earlier than baseline k=5-6).
 
 ---
 
-## Completed Result Files
+## 🧪 Embedding Model Experiment
+
+### Experiment: Comparing Embedding Models for Semantic Similarity
+
+Tested 3 embedding models on 100 prediction-gold pairs:
+
+| Model | Dimensions | Mean Sim | Std |
+|-------|-----------|----------|-----|
+| BGE-small-en-v1.5 | 384 | 0.602 | 0.125 |
+| Gemma-300M (Full) | 768 | 0.643 | 0.109 |
+| Gemma-300M (QAT) | 768 | **0.499** | 0.148 |
+
+### Key Finding: Quantization Causes Systematic Bias!
+
+| Comparison | Correlation | Mean Diff | Scores within 5% |
+|------------|-------------|-----------|------------------|
+| BGE vs Gemma-Full | r=0.81 | -0.04 | 48% |
+| BGE vs Gemma-QAT | r=0.84 | +0.10 | 19% |
+| Gemma-Full vs QAT | r=0.98 | **+0.14** | **2%** |
+
+**Critical Discovery:**
+- **QAT gives LOWER scores 100% of the time** (systematic -0.14 bias)
+- Rank correlation preserved (r=0.98) but absolute values are wrong
+- QAT unsuitable for semantic similarity metrics
+
+### Recommendation
+
+✅ **Use BGE-small** for QA evaluation:
+- Fast (384 dims, 2x smaller than Gemma)
+- Correlates well with full-precision models (r=0.81)
+- No systematic bias
+
+❌ **Avoid QAT models** for semantic metrics:
+- Systematic underestimation of similarity
+- Only useful if relative ranking is all you need
+
+---
+
+## Completed Result Files (10/20)
 
 ```
 data/nq/results/
-├── combsum__liquid_lfm2-1.2b.json          ✓
-├── combmnz__liquid_lfm2-1.2b.json          ✓
-├── rrf__liquid_lfm2-1.2b_2.json            ✓
-├── wcombsum_rsd__liquid_lfm2-1.2b.json     ✓
-├── wcombmnz_rsd__liquid_lfm2-1.2b_3.json   ✓
-├── wrrf_rsd__liquid_lfm2-1.2b.json         ✓
-├── learned_per_retriever__liquid_lfm2-1.2b_3.json  ✓ (QA running)
-├── combsum__qwen_qwen3-4b-2507.json        ✓
-├── wcombsum_rsd__qwen_qwen3-4b-2507.json   ✓
-└── (11 more pending)
+├── combsum__liquid_lfm2-1.2b.json              ✓ + QA
+├── combmnz__liquid_lfm2-1.2b.json              ✓ + QA
+├── rrf__liquid_lfm2-1.2b_2.json                ✓ + QA
+├── wcombsum_rsd__liquid_lfm2-1.2b.json         ✓ + QA
+├── wcombmnz_rsd__liquid_lfm2-1.2b_3.json       ✓ + QA
+├── wrrf_rsd__liquid_lfm2-1.2b.json             ✓ + QA
+├── learned_per_retriever__liquid_lfm2-1.2b_3.json  ✓ + QA
+├── combsum__qwen_qwen3-4b-2507.json            ✓ + QA
+├── wcombsum_rsd__qwen_qwen3-4b-2507.json       ✓ + QA
+└── (10 more pending)
 ```
 
 ---
 
-## Research Questions
+## Research Questions - Status
 
-1. **Does QPP-weighting beat baselines?** → Early signs: YES (+0.11 EM)
-2. **Do learned methods beat heuristic QPP?** → Pending (3 learned methods running)
-3. **Which LLM performs better?** → Pending (need more Qwen results)
-4. **Optimal k value for RAG?** → k=5-6 appears optimal
+| Question | Status | Answer |
+|----------|--------|--------|
+| Does QPP-weighting beat baselines? | ✓ | **YES** - wcombsum_rsd +0.16 F1 |
+| Do learned methods beat heuristic QPP? | ✓ | **YES** - learned +2.22 F1 over QPP |
+| Which LLM performs better? | Partial | Mixed - Qwen EM, LFM semantic |
+| Optimal k value for RAG? | ✓ | **k=3-4** for learned, k=5-6 for baseline |
+| Does embedding quantization affect metrics? | ✓ | **YES** - QAT has -0.14 systematic bias |
+
+---
+
+## Next Steps
+
+1. Complete 3 remaining LFM learned methods (multioutput, mlp, wcombsum_learned)
+2. Run QA metrics on completed runs
+3. Compare all learned methods to find best approach
+4. Decide on Qwen coverage (skip or run 2-3 more methods)

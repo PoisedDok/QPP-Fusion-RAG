@@ -1,3 +1,4 @@
 *.res filter=lfs diff=lfs merge=lfs -text
 data/nq/runs/* filter=lfs diff=lfs merge=lfs -text
 data/nq/fused/*.res filter=lfs diff=lfs merge=lfs -text
+data/nq/BEIR-nq/corpus.jsonl filter=lfs diff=lfs merge=lfs -text
