@@ -196,11 +196,12 @@ def compute_semantic_sim(prediction: str, gold_answers: List[str], pred_emb: Lis
 
 def compute_semantic_sim_batch(
     predictions: List[str],
-    gold_list: List[List[str]]
+    gold_list: List[List[str]],
+    model: str = EMBED_MODEL
 ) -> List[float]:
     """Batch semantic similarity computation."""
     print(f"  [Embeddings] Getting embeddings for {len(predictions)} predictions...")
-    pred_embeddings = get_embeddings_batch(predictions)
+    pred_embeddings = get_embeddings_batch(predictions, model=model)
     
     # Get unique gold answers
     all_golds = set()
@@ -209,7 +210,7 @@ def compute_semantic_sim_batch(
     all_golds = list(all_golds)
     
     print(f"  [Embeddings] Getting embeddings for {len(all_golds)} unique gold answers...")
-    gold_embeddings = get_embeddings_batch(all_golds)
+    gold_embeddings = get_embeddings_batch(all_golds, model=model)
     gold_emb_map = {g: e for g, e in zip(all_golds, gold_embeddings) if e is not None}
     
     # Compute similarities
@@ -368,7 +369,8 @@ def compute_qa_metrics_for_file(
     results_file: Path,
     gold_answers: Dict[str, List[str]],
     metrics: List[str],
-    judge_model: str = None
+    judge_model: str = None,
+    embed_model: str = EMBED_MODEL
 ) -> Dict:
     """Compute selected QA metrics for all results in a file."""
     
@@ -415,10 +417,10 @@ def compute_qa_metrics_for_file(
     
     # Process semantic similarity in batch if requested
     if 'semantic' in metrics:
-        print("  Computing semantic similarity (LM Studio embeddings)...")
+        print(f"  Computing semantic similarity (LM Studio embeddings: {embed_model})...")
         predictions = [e['generated'] for e in all_entries]
         gold_list = [e['gold'] for e in all_entries]
-        sem_scores = compute_semantic_sim_batch(predictions, gold_list)
+        sem_scores = compute_semantic_sim_batch(predictions, gold_list, model=embed_model)
         for i, e in enumerate(all_entries):
             e['semantic'] = sem_scores[i]
     
@@ -513,6 +515,8 @@ def main():
                         help="Comma-separated metrics: em,f1,containment,semantic,llm_judge,all")
     parser.add_argument("--judge_model", default="liquid/lfm2-1.2b",
                         help="LM Studio model for LLM-as-Judge")
+    parser.add_argument("--embed_model", default="text-embedding-bge-small-en-v1.5",
+                        help="LM Studio embedding model (use :2, :3 for clones)")
     args = parser.parse_args()
     
     # Parse metrics
@@ -542,7 +546,7 @@ def main():
     for f in files:
         if f.name.startswith('_') or f.name.startswith('checkpoint'):
             continue
-        qa_metrics = compute_qa_metrics_for_file(f, gold_answers, metrics, args.judge_model)
+        qa_metrics = compute_qa_metrics_for_file(f, gold_answers, metrics, args.judge_model, args.embed_model)
         all_results[f.stem] = qa_metrics
     
     # Print summary

@@ -1,0 +1,2872 @@
+{
+  "completed_qids": [
+    "test26",
+    "test3",
+    "test21",
+    "test27",
+    "test15",
+    "test28",
+    "test16",
+    "test11",
+    "test23",
+    "test22",
+    "test14",
+    "test5",
+    "test4",
+    "test18",
+    "test1",
+    "test25",
+    "test24",
+    "test9",
+    "test17",
+    "test13",
+    "test2",
+    "test19",
+    "test7",
+    "test20",
+    "test8",
+    "test12",
+    "test10",
+    "test0",
+    "test6",
+    "test29"
+  ],
+  "results": [
+    {
+      "qid": "test0",
+      "query": "what is non controlling interest on balance sheet",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Non-controlling interest is the equity interest in a company that is not owned by the parent company, typically expressed as a percentage on the balance sheet.",
+          "context_length": 0,
+          "latency_ms": 1691.9097900390625,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Non-controlling interest (NCI) is reported at the bottom of the Equity section on the consolidated balance sheet and subsequently on the statement of changes in equity under IFRS. Under US GAAP, it can be reported in various sections including liabilities, equity, or mezzanine section, but the Mezzanine section is no longer used.",
+          "context_length": 745,
+          "latency_ms": 3858.17813873291,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Non-controlling interest, also known as minority interest, is reported on the consolidated balance sheet of the owning company. It represents the claim on assets belonging to other, non-controlling shareholders and is shown in either the liabilities section, equity section, or mezzanine section of the balance sheet. The Mezzanine section is located between liabilities and equity.",
+          "context_length": 1323,
+          "latency_ms": 4140.235900878906,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Non-controlling interest, also known as minority interest, is reported on the consolidated balance sheet of the owning company and reflects the claim on assets belonging to other, non-controlling shareholders. It is not placed in the mezzanine section of the balance sheet as per US GAAP, but rather in the equity section below the non-controlling interest line.",
+          "context_length": 1385,
+          "latency_ms": 4174.531698226929,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Non-controlling interest, or minority interest, is the portion of a subsidiary corporation's stock that is not owned by the parent corporation. It is reported on the consolidated balance sheet of the owning company and reflects the claim on assets belonging to other, non-controlling shareholders. The magnitude of minority interest is generally less than 50% of outstanding shares.",
+          "context_length": 1769,
+          "latency_ms": 4300.900936126709,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Non-controlling interest, also known as minority interest, is the portion of a subsidiary corporation's stock that is not owned by the parent corporation. It is reported at the bottom of the Equity section on the consolidated balance sheet and subsequently on the statement of changes in equity. It reflects the claim on assets belonging to other, non-controlling shareholders.",
+          "context_length": 2604,
+          "latency_ms": 3813.5039806365967,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Non-controlling interest, also known as minority interest, is the portion of a subsidiary corporation's stock that is not owned by the parent corporation. It is reported on the consolidated balance sheet of the owning company and reflects the claim on assets belonging to other, non-controlling shareholders. It is generally less than 50% of outstanding shares.",
+          "context_length": 3127,
+          "latency_ms": 4470.738172531128,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Non-controlling interest (NCI) is the portion of a subsidiary corporation's stock that is not owned by the parent corporation. It is reported on the consolidated balance sheet to reflect the claim on assets belonging to other, non-controlling shareholders.",
+          "context_length": 5160,
+          "latency_ms": 4179.449796676636,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test1",
+      "query": "how many episodes are in chicago fire season 4",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Chicago Fire Season 4 has 4 episodes.",
+          "context_length": 0,
+          "latency_ms": 649.8470306396484,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "There are 23 episodes in Chicago Fire season 4.",
+          "context_length": 352,
+          "latency_ms": 1377.3508071899414,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "There are 23 episodes in Chicago Fire season 4.",
+          "context_length": 468,
+          "latency_ms": 1021.5001106262207,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "There are 23 episodes in Chicago Fire season 4.",
+          "context_length": 1009,
+          "latency_ms": 1112.5330924987793,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The fourth season of Chicago Fire contains 23 episodes.",
+          "context_length": 1454,
+          "latency_ms": 1476.505994796753,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Season 4 of Chicago Fire contains 23 episodes.",
+          "context_length": 1846,
+          "latency_ms": 1433.647871017456,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The fourth season of Chicago Fire contains 23 episodes.",
+          "context_length": 2206,
+          "latency_ms": 1834.2468738555908,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The fourth season of Chicago Fire contains 23 episodes.",
+          "context_length": 3484,
+          "latency_ms": 2350.416898727417,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test2",
+      "query": "who sings love will keep us alive by the eagles",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The Eagles sing \"Love Will Keep Us Alive.\" The artist is not specified in the context provided, but it's commonly associated with the Eagles. However, without additional context, I cannot confirm the exact artist who sings this specific song.",
+          "context_length": 0,
+          "latency_ms": 2605.9420108795166,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Lead vocals are sung by bassist Timothy B. Schmit.",
+          "context_length": 327,
+          "latency_ms": 932.1751594543457,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Lead vocals are performed by bassist Timothy B. Schmit.",
+          "context_length": 530,
+          "latency_ms": 1019.5550918579102,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Lead vocals are sung by bassist Timothy B. Schmit by the Eagles.",
+          "context_length": 1154,
+          "latency_ms": 1465.6140804290771,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Lead vocals are performed by bassist Timothy B. Schmit, with contributions from Jim Capaldi and Paul Carrack.",
+          "context_length": 1550,
+          "latency_ms": 1913.285732269287,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Eagles feature lead vocals by bassist Timothy B. Schmit, although the song was originally performed by Jim Capaldi, Paul Carrack, and Peter Vale.",
+          "context_length": 1733,
+          "latency_ms": 2499.211072921753,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Lead vocals are sung by bassist Timothy B. Schmit.",
+          "context_length": 2443,
+          "latency_ms": 1668.3552265167236,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Timothy B. Schmit sings \"Love Will Keep Us Alive\" by the Eagles.",
+          "context_length": 4607,
+          "latency_ms": 3005.378246307373,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test3",
+      "query": "who is the leader of the ontario pc party",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The leader of the Ontario PC Party is Mark Bannerman.",
+          "context_length": 0,
+          "latency_ms": 766.4539813995361,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The leader of the Ontario PC Party is the current official opposition leader. However, the specific name isn't provided in the context.",
+          "context_length": 304,
+          "latency_ms": 1811.6190433502197,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Leader of the Official Opposition in Ontario is currently the Progressive Conservative Party of Ontario (PC), led by Vic Fedeli.",
+          "context_length": 729,
+          "latency_ms": 1490.687370300293,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Vic Fedeli is the interim leader of the PC Party of Ontario, but he was chosen as the official interim leader by the caucus following Patrick Brown's resignation. However, after Doug Ford became the party leader on March 10, 2018, he continued to serve as Leader of the Opposition. The context does not specify a permanent successor for Fedeli's interim role after Ford's election, but Vic Fedeli was the interim leader during that period.",
+          "context_length": 1107,
+          "latency_ms": 4955.086231231689,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "9 John Tory is the leader of the Ontario Progressive Conservative Party.",
+          "context_length": 1579,
+          "latency_ms": 1302.0410537719727,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Vic Fedeli is the interim leader of the Ontario Progressive Conservative Party, but he was chosen as the interim leader by the caucus on January 26, 2018. However, John Tory was elected as the official leader of the Ontario Progressive Conservative Party on September 18, 2004. The context does not specify who currently holds the leadership position after Tory's election, but Vic Fedeli was the interim leader at that time.",
+          "context_length": 1968,
+          "latency_ms": 5221.432209014893,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The current leader of the Ontario PC Party is 9 John Tory. However, prior to his election, Vic Fedeli was chosen interim leader by the PC parliamentary caucus on January 26, 2018.",
+          "context_length": 2591,
+          "latency_ms": 3566.4119720458984,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The current leader of the Ontario Progressive Conservative Party is John Tory. However, prior to his leadership election in 2018, Patrick Brown was the interim leader of the Ontario PC Party until John Tory took over.",
+          "context_length": 4329,
+          "latency_ms": 3794.595241546631,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.125,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test4",
+      "query": "nitty gritty dirt band fishin in the dark album",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The answer is not provided in the context. It seems the relevant information about the album \"Nitty Gritty Dirt Band Fishin' in the Dark\" is missing.",
+          "context_length": 0,
+          "latency_ms": 1784.9478721618652,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Nitty Gritty Dirt Band's album \"Fishin' in the Dark\" features the song \"Fishin' in the Dark.\"",
+          "context_length": 580,
+          "latency_ms": 1834.275722503662,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Nitty Gritty Dirt Band's album featuring the song \"Fishin' in the Dark\" is titled \"Hold On.\"",
+          "context_length": 977,
+          "latency_ms": 1955.915927886963,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Nitty Gritty Dirt Band's album featuring the song \"Fishin' in the Dark\" is titled \"Hold On.\"",
+          "context_length": 1646,
+          "latency_ms": 2300.9750843048096,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Nitty Gritty Dirt Band's album featuring the song \"Fishin' in the Dark\" is titled \"Hold On.\"",
+          "context_length": 2769,
+          "latency_ms": 3002.9640197753906,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "\"Fishin' in the Dark\" was the second single from the album Hold On, released by The Nitty Gritty Dirt Band in June 1987.",
+          "context_length": 2891,
+          "latency_ms": 3154.325008392334,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Nitty Gritty Dirt Band's album \"Fishin' in the Dark\" was released in June 1987.",
+          "context_length": 3034,
+          "latency_ms": 2758.8658332824707,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "\"Fishin' in the Dark\" is a song from the Nitty Gritty Dirt Band's album Hold On, released in June 1987.",
+          "context_length": 4505,
+          "latency_ms": 3726.675033569336,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test5",
+      "query": "who were the three elves who got rings",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The three elves who got rings are Fiona, Wendy, and Rosie.",
+          "context_length": 0,
+          "latency_ms": 1033.350944519043,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The three elves who received the rings were Narya, Nenya, and Vilya.",
+          "context_length": 304,
+          "latency_ms": 1356.7538261413574,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The three Elves who received the rings were Narya, Nenya, and Vilya.",
+          "context_length": 811,
+          "latency_ms": 1652.5611877441406,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The three Elves who received the rings were Narya, Nenya, and Vilya.",
+          "context_length": 1011,
+          "latency_ms": 1603.6460399627686,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Three Rings were given to the Elves of Eregion, specifically to the Elven-king Gil-galad and later to Elrond. The Elven-king Gil-galad received Vilya, the Ring of Air; Elrond received Narya, the Ring of Fire; and the document does not specify a third elf receiving a ring.",
+          "context_length": 1429,
+          "latency_ms": 4420.561075210571,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Three Rings were given to the Elves of Eregion by Celebrimbor. Specifically, Narya was given to Gil-galad, Vilya to Elrond, and the Ring of Air (Vilya) was given to Gil-galad's lieutenant C\u00edrdan.",
+          "context_length": 1919,
+          "latency_ms": 4498.147010803223,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The three Elves who received the rings were Annatar (who gave Narya to Gil-galad), Gil-galad (who received Vilya from Annatar), and C\u00edrdan (who received Narya from Gil-galad).",
+          "context_length": 2471,
+          "latency_ms": 4251.069784164429,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Three Rings were made by Celebrimbor after Sauron left Eregion, but the specific Elves who received them are not mentioned in the provided context. However, according to Document 8, King Tar-Minastir of N\u00famenor sent a great fleet to Middle-earth where Gil-galad, High King of the Noldor, received Vilya, one of the Three Rings. The context does not specify which Elves received Narya, the other Ring of Fire, or the Ring of Air, Vilya.",
+          "context_length": 4505,
+          "latency_ms": 8068.2618618011475,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test6",
+      "query": "converting stereo signal to mono signal is called",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Converting a stereo signal to mono signal is called \"stereo-to-monostereo\" conversion.",
+          "context_length": 0,
+          "latency_ms": 1480.6718826293945,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Converting a stereo signal to a mono signal is called mono conversion.",
+          "context_length": 112,
+          "latency_ms": 1039.907693862915,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Converting a stereo signal to a mono signal is called stereophonic sound conversion, but specifically in the context of potential issues, it can also be referred to as 'tereo to mono conversion' or 'tereo signal reduction.' However, the direct term from the context is 'conversion to mono.'",
+          "context_length": 853,
+          "latency_ms": 3678.115129470825,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Converting a stereo signal to a mono signal is referred to as stereophonic sound mixing or stereo to mono conversion.",
+          "context_length": 1394,
+          "latency_ms": 2086.0350131988525,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Stereophonic sound converting to mono signal is called stereo/mono switch.",
+          "context_length": 1853,
+          "latency_ms": 2029.4818878173828,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "converting stereo signal to mono signal is called stereophonic sound conversion or panning.",
+          "context_length": 2198,
+          "latency_ms": 2188.9872550964355,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Converting a stereo signal to a mono signal is known as panning or reducing the stereo width.",
+          "context_length": 3189,
+          "latency_ms": 2738.878011703491,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Converting a stereo signal to a mono signal is commonly referred to as 'panning' or 'educing the stereo width'.",
+          "context_length": 5452,
+          "latency_ms": 3910.18009185791,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test7",
+      "query": "in order to prove disparate impact you first must establish",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "To prove disparate impact, you must first establish a statistically significant difference in outcomes between the protected group and the non-protected group.",
+          "context_length": 0,
+          "latency_ms": 1623.7618923187256,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "First, an employee must show that an individual practice or group of practices resulted in a disparate impact on the basis of race, color, religion, sex, or national origin, and the respondent fails to demonstrate that such practice is required by business necessity.",
+          "context_length": 731,
+          "latency_ms": 3022.9079723358154,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "First, an employer must show that an individual practice or group of practices resulted in a disparate impact on the basis of race, color, religion, sex, or national origin, and that the respondent fails to demonstrate that such practice is required by business necessity.",
+          "context_length": 1016,
+          "latency_ms": 3116.219997406006,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "To prove disparate impact, one must show either that an individual practice or group of practices resulted in a disparate impact on the basis of race, color, religion, sex, or national origin, and the respondent fails to demonstrate that such practice is required by business necessity.",
+          "context_length": 1243,
+          "latency_ms": 3313.5812282562256,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "you first must establish that an individual practice or group of practices resulted in \"a disparate impact on the basis of race, color, religion, sex, or national origin, and the respondent fails to demonstrate that such practice is required by business necessity.\"",
+          "context_length": 2096,
+          "latency_ms": 3237.790107727051,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "you first must establish that an employment practice or policy has a disproportionately adverse effect on members of the protected class as compared with non-members of the protected class.",
+          "context_length": 3075,
+          "latency_ms": 2869.1189289093018,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "To prove disparate impact, you first must show that an employment practice or policy has a disproportionately adverse effect on members of the protected class as compared with non-members of the protected class.",
+          "context_length": 3819,
+          "latency_ms": 3244.13800239563,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "To prove disparate impact, you first must establish that an employment practice or policy has a disproportionately adverse effect on members of the protected class as compared with non-members of the protected class.",
+          "context_length": 7037,
+          "latency_ms": 4669.07000541687,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test8",
+      "query": "where do characters live in this is us",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify the location of characters in \"This Is Us.\"",
+          "context_length": 0,
+          "latency_ms": 1221.3339805603027,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Characters live in Pittsburgh as adults, Kate lives in Los Angeles, Randall and his family are in New Jersey, and Kevin relocates to New York City.",
+          "context_length": 751,
+          "latency_ms": 2080.4169178009033,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Kate lives in Los Angeles, while her brother Kevin and his family are in New Jersey.",
+          "context_length": 1176,
+          "latency_ms": 1735.0099086761475,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Kate lives in Los Angeles, Kevin lives in New Jersey, and as adults, Randall and his family are in New Jersey.",
+          "context_length": 1786,
+          "latency_ms": 2234.567165374756,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "In this is Us, Kate lives in Los Angeles, while as adults, Kevin lives in New Jersey and Randall's family is in New Jersey.",
+          "context_length": 2237,
+          "latency_ms": 2484.04598236084,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "In this Is Us, Kate lives in Los Angeles, Randall and his family are in New Jersey, and Kevin relocates to New York City as an adult.",
+          "context_length": 2561,
+          "latency_ms": 2766.392946243286,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Characters live in Los Angeles as adults, Randall and his family are in New Jersey, and Kevin relocates to New York City.",
+          "context_length": 2817,
+          "latency_ms": 2779.561996459961,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Characters in This Is Us live in various locations throughout the series. Kate lives in Los Angeles, Randall and his family are in New Jersey, and Kevin moves from Los Angeles to New York City. Kate's brother Kevin's personal assistant, Kate, is based in Los Angeles. Additionally, characters like Jack and Rebecca are often seen in Pittsburgh, where the series' events take place.",
+          "context_length": 5145,
+          "latency_ms": 5976.169109344482,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test9",
+      "query": "who makes the decisions about what to produce in a market economy",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Decisions about production in a market economy are primarily made by firms based on market signals such as consumer demand, profitability, and competition.",
+          "context_length": 0,
+          "latency_ms": 1481.6300868988037,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "In a market economy, investment decisions and allocation of producer goods are primarily made through capital and financial markets.",
+          "context_length": 647,
+          "latency_ms": 1379.9412250518799,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "In a market economy, investment decisions and allocation of producer goods are primarily made through capital and financial markets.",
+          "context_length": 1037,
+          "latency_ms": 1521.7399597167969,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "In a market economy, investment decisions and allocation of producer goods are primarily made through capital and financial markets.",
+          "context_length": 1652,
+          "latency_ms": 1710.5460166931152,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "In a market economy, investment decisions and allocation of producer goods are primarily made through capital and financial markets. However, decision-making structures also involve industrial councils, government agencies, or private owners who carry out decisions.",
+          "context_length": 1976,
+          "latency_ms": 2750.987768173218,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "In a market economy, investment decisions and allocation of producer goods are primarily made through capital and financial markets.",
+          "context_length": 2504,
+          "latency_ms": 2109.060049057007,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "In a market economy, investment decisions and allocation of producer goods are primarily made through capital and financial markets. This contrasts with planned economies where decisions are made by state or organizational bodies. However, the specific entities making these decisions in a market economy could be industrial councils, government agencies, or private owners.",
+          "context_length": 3169,
+          "latency_ms": 4126.780986785889,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "In a market economy, decisions regarding what to produce are primarily made through capital and financial markets.",
+          "context_length": 4827,
+          "latency_ms": 2959.3400955200195,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test10",
+      "query": "when is the new tappan zee bridge going to be finished",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The completion date for the new Tappan Zee Bridge is not specified in the provided context.",
+          "context_length": 0,
+          "latency_ms": 1381.2322616577148,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The project is expected to be completed by June 15, 2018.",
+          "context_length": 400,
+          "latency_ms": 1192.6181316375732,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The new Tappan Zee Bridge is expected to be completed by June 15, 2018.",
+          "context_length": 1019,
+          "latency_ms": 1878.5829544067383,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The new Tappan Zee Bridge is expected to be completed by June 15, 2018.",
+          "context_length": 1625,
+          "latency_ms": 2112.457275390625,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The new Tappan Zee Bridge is expected to be completed by June 15, 2018.",
+          "context_length": 2755,
+          "latency_ms": 2574.0668773651123,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The project is expected to be completed by June 15, 2018.",
+          "context_length": 3303,
+          "latency_ms": 2580.3940296173096,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The new Tappan Zee Bridge is expected to be completed by June 15, 2018.",
+          "context_length": 3729,
+          "latency_ms": 3055.49693107605,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.16666666666666666,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The new Tappan Zee Bridge is expected to be completed by June 15, 2018.",
+          "context_length": 5533,
+          "latency_ms": 4061.192274093628,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.16666666666666666,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test11",
+      "query": "who recorded i can't help falling in love with you",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The song \"I Can't Help Falling in Love\" was recorded by The Four Seasons, not by any other artist.",
+          "context_length": 0,
+          "latency_ms": 1751.526117324829,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Tom Smothers, Swedish pop group A-Teens, and the British reggae group UB40 recorded \"Can't Help Falling in Love.\"",
+          "context_length": 644,
+          "latency_ms": 2001.7321109771729,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Linda Ronstadt recorded \"Can't Help Falling in Love\" with Nelson Riddle for the album Lush Life (1984).",
+          "context_length": 780,
+          "latency_ms": 1961.2407684326172,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "UB40 recorded \"Can't Help Falling in Love\" as the first single from their 1993 album Promises and Lies.",
+          "context_length": 1230,
+          "latency_ms": 2183.2382678985596,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Elvis Presley recorded the song \"Can't Help Falling in Love\" with Hugo Peretti, Luigi Creatore, and George David Weiss. However, the most recent recording mentioned in context is by Linda Ronstadt with Nelson Riddle for the album Lush Life (1984).",
+          "context_length": 1766,
+          "latency_ms": 3834.3122005462646,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Hank Williams recorded \"I Can't Help It (If I'm Still in Love with You)\" originally.",
+          "context_length": 2022,
+          "latency_ms": 2165.469169616699,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Katharine McPhee recorded a duet with Andrea Bocelli on \"I Can't Help Falling In Love\" for his Under the Desert Sky album.",
+          "context_length": 2224,
+          "latency_ms": 3024.790048599243,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Linda Ronstadt recorded the song \"I Can't Help Falling in Love\" with Nelson Riddle for the album Lush Life (1984).",
+          "context_length": 3764,
+          "latency_ms": 3687.053918838501,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test12",
+      "query": "who plays the doc in back to the future",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Leonard Nimoy plays Doc Brown in Back to the Future.",
+          "context_length": 0,
+          "latency_ms": 865.3221130371094,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Christopher Lloyd plays Doc Emmett Lathrop \"Doc\" Brown in Back to the Future.",
+          "context_length": 397,
+          "latency_ms": 1478.8751602172852,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Christopher Lloyd plays Doc Brown in Back to the Future.",
+          "context_length": 786,
+          "latency_ms": 1255.6419372558594,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Christopher Lloyd plays the doc in Back to the Future.",
+          "context_length": 1398,
+          "latency_ms": 1509.0618133544922,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Christopher Lloyd plays the doc in Back to the Future.",
+          "context_length": 2033,
+          "latency_ms": 1867.262840270996,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Christopher Lloyd plays the doc in Back to the Future.",
+          "context_length": 2840,
+          "latency_ms": 2075.514793395996,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Christopher Lloyd plays the doc in Back to the Future.",
+          "context_length": 3411,
+          "latency_ms": 2192.3182010650635,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Christopher Lloyd plays the doc in Back to the Future.",
+          "context_length": 5241,
+          "latency_ms": 3079.4029235839844,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test13",
+      "query": "when did they stop cigarette advertising on television",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The specific date or context regarding when cigarette advertising on television stopped varies by country and regulatory changes over time.",
+          "context_length": 0,
+          "latency_ms": 1373.0559349060059,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "They stopped cigarette advertising on television in 1973.",
+          "context_length": 289,
+          "latency_ms": 927.3133277893066,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "They stopped cigarette advertising on television in 1973.",
+          "context_length": 735,
+          "latency_ms": 1030.4749011993408,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "They stopped cigarette advertising on television in 1971 when Congress passed the Public Health Cigarette Smoking Act.",
+          "context_length": 2320,
+          "latency_ms": 2150.9461402893066,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "They stopped cigarette advertising on television in 2005.",
+          "context_length": 2536,
+          "latency_ms": 1730.2110195159912,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Cigarette advertising on television stopped in England in 2005.",
+          "context_length": 3593,
+          "latency_ms": 2394.7532176971436,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "They stopped cigarette advertising on television in 1971.",
+          "context_length": 4118,
+          "latency_ms": 2284.029006958008,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "They stopped cigarette advertising on television in 1971, when all television commercials for cigarettes were banned.",
+          "context_length": 7204,
+          "latency_ms": 4275.992631912231,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test14",
+      "query": "who has been chosen as the brand ambassador of the campaign 'beti bachao-beti padhao",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify who has been chosen as the brand ambassador for the campaign 'beti bachao-beti padhao.'",
+          "context_length": 0,
+          "latency_ms": 1767.104148864746,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Rakul Preet Singh has been chosen as the brand ambassador for the campaign 'Beti Bachao-Beti Padhao' by Telangana State Government.",
+          "context_length": 155,
+          "latency_ms": 1831.4239978790283,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Rakul Preet Singh has been chosen as the brand ambassador for the campaign 'Beti Bachao-Beti Padhao' by Telangana State Government.",
+          "context_length": 303,
+          "latency_ms": 2034.886121749878,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Rakul Preet Singh has been chosen as the brand ambassador for the campaign 'Beti Bachao-Beti Padhao'.",
+          "context_length": 426,
+          "latency_ms": 1698.430061340332,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Rakul Preet Singh has been appointed as the brand ambassador for the campaign 'Beti Bachao-Beti Padhao'.",
+          "context_length": 887,
+          "latency_ms": 2044.45219039917,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Rakul Preet Singh has been appointed as the brand ambassador for the campaign 'Beti Bachao-Beti Padhao'.",
+          "context_length": 1060,
+          "latency_ms": 2061.93208694458,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "In 2017, veteran actor Amitabh Bachchan and actress Priyanka Chopra were chosen as the brand ambassadors for the Incredible India campaign, which is related to the Beti Bachao-Beti Padhao Yojana. However, the campaign itself was launched by Modi on 22 January 2015.",
+          "context_length": 1558,
+          "latency_ms": 4315.7103061676025,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Katrina Kaif has been chosen as the brand ambassador for the campaign 'Beti Bachao-Beti Padhao'.",
+          "context_length": 2644,
+          "latency_ms": 2646.947145462036,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test15",
+      "query": "how many seasons of prison break are on netflix",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The question about how many seasons of \"Prison Break\" are on Netflix requires specific information not provided in the context.",
+          "context_length": 0,
+          "latency_ms": 1551.955223083496,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Netflix has not made the first five seasons of Prison Break available online. However, it is implied that Netflix has made episodes of the show available online, but the specific number of seasons not mentioned in the context is not provided.",
+          "context_length": 662,
+          "latency_ms": 2595.5889225006104,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Netflix has not released any episodes of Prison Break as per the provided context.",
+          "context_length": 1267,
+          "latency_ms": 1633.5089206695557,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Netflix has not confirmed the number of seasons of Prison Break available on their platform. The document only mentions that Prison Break is available online, including Netflix, but does not specify the number of seasons on Netflix.",
+          "context_length": 2050,
+          "latency_ms": 3274.9969959259033,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Netflix has not listed specific seasons of Prison Break available on their platform. However, it is implied that Netflix has streaming rights for the series as it is available online, including on platforms like Amazon Video and Netflix itself. Since the question specifically asks about Netflix, we can't provide an exact number from Netflix's list.",
+          "context_length": 2533,
+          "latency_ms": 4612.121820449829,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Netflix has not released any episodes of Prison Break as per the provided context. The context only mentions DVD and Blu-ray releases, online streaming availability, and information about specific seasons like Season 4 and Season 5.",
+          "context_length": 2998,
+          "latency_ms": 3412.2750759124756,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Netflix has not released any episodes of Prison Break yet. The document mentions that Prison Break is available online, including iTunes, Amazon Video, and Netflix, but does not specify if Netflix has released any episodes.",
+          "context_length": 3600,
+          "latency_ms": 3707.0209980010986,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Netflix has released 3 seasons of Prison Break.",
+          "context_length": 5930,
+          "latency_ms": 3366.11270904541,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test16",
+      "query": "what was the name of atom bomb dropped by usa on hiroshima",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The name of the atom bomb dropped by USA on Hiroshima was \"Little Boy.\"",
+          "context_length": 0,
+          "latency_ms": 1104.4881343841553,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The codename for the atomic bomb dropped on Hiroshima was \"Little Boy.\"",
+          "context_length": 665,
+          "latency_ms": 1350.1009941101074,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The codename for the atomic bomb dropped on Hiroshima was \"Little Boy.\"",
+          "context_length": 1172,
+          "latency_ms": 1634.160041809082,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The name of the atom bomb dropped by the USA on Hiroshima was Little Boy.",
+          "context_length": 2363,
+          "latency_ms": 2011.2950801849365,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The name of the atom bomb dropped by the USA on Hiroshima was Little Boy.",
+          "context_length": 2911,
+          "latency_ms": 2308.1440925598145,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The name of the atom bomb dropped by the USA on Hiroshima was Little Boy.",
+          "context_length": 3265,
+          "latency_ms": 2447.7479457855225,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The name of the atom bomb dropped by the USA on Hiroshima was Little Boy.",
+          "context_length": 3531,
+          "latency_ms": 2535.238027572632,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The name of the atom bomb dropped by the USA on Hiroshima was Little Boy.",
+          "context_length": 7400,
+          "latency_ms": 4517.0159339904785,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test17",
+      "query": "when did the us take over wake island",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not contain information about the US taking over Wake Island.",
+          "context_length": 0,
+          "latency_ms": 1220.418930053711,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The US took over Wake Island on January 17, 1899.",
+          "context_length": 341,
+          "latency_ms": 1195.94407081604,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The United States took over Wake Island on January 17, 1899.",
+          "context_length": 581,
+          "latency_ms": 1316.3959980010986,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The United States took over Wake Island on January 17, 1899.",
+          "context_length": 1327,
+          "latency_ms": 1591.8939113616943,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The United States took over Wake Island on January 17, 1899.",
+          "context_length": 2016,
+          "latency_ms": 1840.8489227294922,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The United States took over Wake Island on January 17, 1899.",
+          "context_length": 2200,
+          "latency_ms": 1983.8027954101562,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The United States took over Wake Island on January 17, 1899.",
+          "context_length": 2677,
+          "latency_ms": 2188.7826919555664,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The United States took over Wake Island on December 11, 1941.",
+          "context_length": 5266,
+          "latency_ms": 3298.367977142334,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test18",
+      "query": "when did american two party system began to emerge",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The American Two-Party System began to emerge in the early 19th century, particularly around the time of the Democratic-Republican Party and the Federalist Party's decline. However, it became more pronounced during the 1820s with the rise of Andrew Jackson and the Whig Party, solidifying its form by the mid-19th century. I cannot answer without specific historical context beyond this summary.",
+          "context_length": 0,
+          "latency_ms": 4308.23016166687,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The American two-party system began to emerge in 1783 with the accession to power of William Pitt the Younger leading the new Tories against the reconstituted \"Whig\" party led by Charles James Fox.",
+          "context_length": 263,
+          "latency_ms": 2518.301010131836,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The American two-party system began to emerge in 1783 with the accession to power of William Pitt the Younger and the new Tories, against a reconstituted \"Whig\" party led by Charles James Fox.",
+          "context_length": 845,
+          "latency_ms": 2932.0380687713623,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The American two-party system began to emerge in 1783 with the accession to power of William Pitt the Younger and the new Tories, against a reconstituted \"Whig\" party led by Charles James Fox. However, the split camps of Federalists under Hamilton and Democratic-Republicans led by Madison and Jefferson created the environment for partisanship, marking the beginning of the two-party system in the United States.",
+          "context_length": 1436,
+          "latency_ms": 4879.693984985352,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "American two-party system began to emerge in 1783 with the accession to power of William Pitt the Younger leading the new Tories, against a reconstituted \"Whig\" party. However, the split camps of Federalists led by Hamilton and Democratic-Republicans, centered on differing views on federal government powers, emerged in the 1790s. The period of partisanship became more pronounced during the Era of Good Feelings in 1816, but the beginnings can be traced back to the 1780s.",
+          "context_length": 1907,
+          "latency_ms": 6011.392116546631,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The American two-party system began to emerge in 1783 with the accession to power of William Pitt the Younger leading the new Tories against a reconstituted \"Whig\" party. However, the split camps of Federalists led by Hamilton and Democratic-Republicans under Madison and Jefferson initiated the emergence of partisanship in American politics.",
+          "context_length": 2352,
+          "latency_ms": 4529.455900192261,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The American two-party system began to emerge in 1783 with the accession to power of William Pitt the Younger leading the new Tories against a reconstituted \"Whig\" party. However, the specific emergence of the modern two-party system is marked by the split between Federalists and Democratic-Republicans in the 1790s, with the Federalists led by Hamilton and the Democratic-Republicans led by Madison. The context provided does not specify an exact year for the emergence but indicates that it started around 1783.",
+          "context_length": 2782,
+          "latency_ms": 6516.795873641968,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The American two-party system began to emerge in 1783 with the accession to power of William Pitt the Younger leading the new Tories against the reconstituted \"Whig\" party. However, the specific emergence of a distinct two-party system is noted to have started with the accession of William Pitt the Younger in 1783.",
+          "context_length": 5127,
+          "latency_ms": 5366.913795471191,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.1111111111111111,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test19",
+      "query": "where are the mitochondria located in the sperm",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 462.1901512145996,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The mitochondria are usually located at the base of the sperm's tail.",
+          "context_length": 652,
+          "latency_ms": 1163.789987564087,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Mitochondria are located at the base of the sperm's tail in the midpiece, which is used for propelling the sperm cells.",
+          "context_length": 1237,
+          "latency_ms": 2022.2210884094238,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The mitochondria are located at the base of the sperm's tail in the midpiece, which is responsible for providing motility to the sperm.",
+          "context_length": 1493,
+          "latency_ms": 2307.7211380004883,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The mitochondria are located at the base of the sperm's tail in the midpiece, which is responsible for propulsion.",
+          "context_length": 1847,
+          "latency_ms": 2159.489154815674,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The mitochondria are located at the base of the sperm's tail in the midpiece, which is responsible for ATP production for the journey through the female reproductive tract.",
+          "context_length": 2415,
+          "latency_ms": 2798.3081340789795,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The mitochondria in sperm are located at the base of the sperm's tail, which is used for propelling the sperm cells.",
+          "context_length": 4144,
+          "latency_ms": 3142.8089141845703,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The mitochondria in the sperm are usually located at the base of the sperm's tail, which is used for propelling the sperm cells.",
+          "context_length": 7103,
+          "latency_ms": 4621.788024902344,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test20",
+      "query": "how many lines of symmetry are there in a equilateral triangle",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I can answer this question. An equilateral triangle has 3 lines of symmetry.",
+          "context_length": 0,
+          "latency_ms": 1120.1908588409424,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "There are 3 lines of symmetry in an equilateral triangle.",
+          "context_length": 229,
+          "latency_ms": 1054.7099113464355,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "There are 3 lines of symmetry in an equilateral triangle.",
+          "context_length": 591,
+          "latency_ms": 1194.6587562561035,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "There are 3 lines of symmetry in an equilateral triangle.",
+          "context_length": 1074,
+          "latency_ms": 1419.75998878479,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "There are 3 lines of reflection symmetry in an equilateral triangle.",
+          "context_length": 1450,
+          "latency_ms": 1790.4419898986816,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "There are 3 lines of reflection symmetry in an equilateral triangle.",
+          "context_length": 2065,
+          "latency_ms": 1813.309907913208,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "There are 3 lines of symmetry in an equilateral triangle.",
+          "context_length": 2842,
+          "latency_ms": 2088.7532234191895,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "There are 3 lines of reflection symmetry in an equilateral triangle.",
+          "context_length": 3630,
+          "latency_ms": 2445.643663406372,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test21",
+      "query": "how many seasons of the oc are there",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify the number of seasons for \"Orange Is the New Black.\"",
+          "context_length": 0,
+          "latency_ms": 1342.0491218566895,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "There is 1 season of The O.C.",
+          "context_length": 454,
+          "latency_ms": 937.6630783081055,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "There are two seasons of The O.C.",
+          "context_length": 1029,
+          "latency_ms": 1204.3609619140625,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "There are two seasons of The O.C.",
+          "context_length": 1725,
+          "latency_ms": 1579.129934310913,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "There are two seasons of The O.C., as mentioned in Document 1 and Document 2.",
+          "context_length": 2248,
+          "latency_ms": 2312.932014465332,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "There are two seasons of The O.C.",
+          "context_length": 2533,
+          "latency_ms": 1884.9589824676514,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "There are two seasons of The O.C., as mentioned in the provided context. Season 1 ran from August 5, 2003 to May 5, 2004, and Season 2 ran from November 5, 2004 to May 19, 2005.",
+          "context_length": 3810,
+          "latency_ms": 5056.64587020874,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "There are four seasons of The O.C. The first season aired from August 5, 2003 to May 5, 2004, the second season aired from November 5, 2004 to May 19, 2005, the third season aired from July 1, 2006 to May 19, 2007, and the fourth season aired from November 2, 2006 to February 22, 2007.",
+          "context_length": 6556,
+          "latency_ms": 8139.011859893799,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.14285714285714285,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test22",
+      "query": "latest season on keeping up with the kardashians",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not contain information about the latest season of \"Keeping Up with the Kardashians.\"",
+          "context_length": 0,
+          "latency_ms": 1474.168062210083,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The latest season on Keeping Up with the Kardashians is season 14, which premiered on October 1, 2017.",
+          "context_length": 164,
+          "latency_ms": 1711.0779285430908,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The latest season on Keeping Up with the Kardashians is Season 14, which premiered on October 1, 2017.",
+          "context_length": 298,
+          "latency_ms": 1757.9090595245361,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The latest season of Keeping Up with the Kardashians is Season 14, which premiered on October 1, 2017.",
+          "context_length": 500,
+          "latency_ms": 1810.4047775268555,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The latest season of Keeping Up with the Kardashians is Season 14, which premiered on October 1, 2017.",
+          "context_length": 616,
+          "latency_ms": 1861.9990348815918,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The latest season on Keeping Up with the Kardashians is the twelfth season, which debuted on May 1, 2016.",
+          "context_length": 1810,
+          "latency_ms": 2475.827217102051,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The latest season on Keeping Up with the Kardashians is season 14, which premiered on October 1, 2017.",
+          "context_length": 2012,
+          "latency_ms": 2683.1979751586914,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The latest season of Keeping Up with the Kardashians is season 14, which premiered on October 1, 2017.",
+          "context_length": 4388,
+          "latency_ms": 3915.003776550293,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test23",
+      "query": "how dose the poet present death as a voyage in crossing the bar",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 450.8547782897949,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The poet presents death as a voyage by comparing it to crossing the \"sandbar\" between the river of life and the ocean beyond, symbolizing a final transition from life to death.",
+          "context_length": 392,
+          "latency_ms": 2302.0570278167725,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The poet presents death as a voyage in crossing the bar by comparing it to traveling serenely and securely from life through death. The metaphor of crossing a sandbar between the river of life and the ocean beyond signifies returning to the divine guide, God, who is always present and guiding us.",
+          "context_length": 775,
+          "latency_ms": 3661.1268520355225,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The poet presents death as a voyage in crossing the bar by comparing it to traveling serenely and securely from life through death. The narrator uses an extended metaphor where death is likened to crossing a \"sandbar\" between the river of life and the ocean beyond, symbolizing a final, guided journey.",
+          "context_length": 1236,
+          "latency_ms": 4104.453086853027,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The poet presents death as a voyage in crossing the bar by comparing it to traveling serenely and securely from life through death. The extended metaphor of crossing a sandbar between the river of life and the ocean represents the journey through death, with death symbolized as the 'boundless deep' beyond which one returns.",
+          "context_length": 1564,
+          "latency_ms": 4085.029125213623,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The poet presents death as a voyage in crossing the bar by comparing it to crossing a sandbar between the river of life and the ocean beyond. Death is likened to the Pilot, guiding us serenely and securely from life through death, paralleling the journey across the bar. The poem suggests that just as one crosses a barrier to reach the other side, death leads us to an unknown but serene journey in the \"boundless deep,\" akin to returning from the sea.",
+          "context_length": 2314,
+          "latency_ms": 6381.457805633545,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The poet presents death as a voyage in crossing the bar by comparing it to traveling serenely and securely from life through death, using an extended metaphor where death is likened to crossing a \"sandbar\" between the river of life and the ocean beyond, symbolizing a return to the sea.",
+          "context_length": 2606,
+          "latency_ms": 4669.363021850586,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The poet presents death as a voyage in crossing the bar by comparing it to Ulysses' journey in Homer's Odyssey. Death is likened to crossing a sandbar between the river of life and the ocean, symbolizing a transition from one state to another. The poem describes death as returning to the sea, akin to Ulysses' peaceful death, and the narrator hopes to meet the divine guide, the Pilot, who is always guiding us through life and death.",
+          "context_length": 4205,
+          "latency_ms": 7098.8500118255615,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test24",
+      "query": "who were farmers who kept a small portion of their crops & gave the rest to the landowners",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The answer is not explicitly stated in the context, but historically, this practice was associated with tenant farmers or sharecroppers who kept a small portion of their crops for themselves and gave the rest to landowners. However, without specific context, I cannot provide a definitive name or group of farmers.",
+          "context_length": 0,
+          "latency_ms": 3132.904052734375,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Tenant farmers were the farmers who owned their own mule and plow but paid the landowner less, usually only a third of each crop. They kept the produce of gardens, while giving the rest to the landowners.",
+          "context_length": 432,
+          "latency_ms": 2654.644012451172,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Tenant farmers were the farmers who owned their own mule and plow but paid the landowner less, usually only a third of each crop. They kept the produce of gardens.",
+          "context_length": 1737,
+          "latency_ms": 2838.927984237671,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "In both sharecropping and tenant farming systems, farmers who kept a small portion of their crops and gave the rest to the landowners were known as sharecroppers. They received a share of the crop at the end of the season, usually one half, while the landowners provided tools, animals, and sometimes a portion of the land.",
+          "context_length": 2679,
+          "latency_ms": 4695.486068725586,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Sharecroppers were farmers who kept a small portion of their crops and gave the rest to the landowners.",
+          "context_length": 3282,
+          "latency_ms": 2858.5522174835205,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Sharecroppers were farmers who kept a small portion of their crops and gave the rest to the landowners.",
+          "context_length": 3997,
+          "latency_ms": 3017.9409980773926,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Sharecroppers were farmers who kept a small portion of their crops and gave the rest to the landowners.",
+          "context_length": 5195,
+          "latency_ms": 3402.8499126434326,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Sharecroppers were farmers who were assigned a plot of land to work and owed the owner a share of the crop at the end of the season, usually one half. In exchange for this, they kept the produce of gardens and paid the landowner a share of the crop.",
+          "context_length": 9415,
+          "latency_ms": 6970.7019329071045,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test25",
+      "query": "what is pumped up kicks the song about",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Pumped up kicks is about confidence, energy, and empowerment.",
+          "context_length": 0,
+          "latency_ms": 940.0069713592529,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Pumped Up Kicks describes the homicidal thoughts of a troubled youth.",
+          "context_length": 587,
+          "latency_ms": 1358.8347434997559,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The song describes the homicidal thoughts of a troubled youth.",
+          "context_length": 659,
+          "latency_ms": 1209.4440460205078,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The lyrics of \"Pumped Up Kicks\" describe the homicidal thoughts of a troubled youth.",
+          "context_length": 1518,
+          "latency_ms": 1888.2741928100586,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The song \"Pumped Up Kicks\" by Foster the People contrasts its upbeat musical composition with lyrics that describe the homicidal thoughts of a troubled youth.",
+          "context_length": 1966,
+          "latency_ms": 2703.8071155548096,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The song \"Pumped Up Kicks\" by Foster the People contrasts its upbeat musical composition with lyrics that describe the homicidal thoughts of a troubled youth.",
+          "context_length": 2838,
+          "latency_ms": 2916.206121444702,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The song \"Pumped Up Kicks\" by Foster the People is about the homicidal thoughts of a troubled youth, contrasting with its upbeat musical composition.",
+          "context_length": 3905,
+          "latency_ms": 3543.696165084839,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Pumped Up Kicks is a song about the homicidal thoughts of a troubled youth. Despite its upbeat musical composition, the lyrics delve into dark themes and describe the troubled mind of a young individual.",
+          "context_length": 6207,
+          "latency_ms": 5243.441104888916,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test26",
+      "query": "2. what are the reasons states impose protectionists policies on other countries",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "States may impose protectionist policies on other countries for reasons such as safeguarding domestic industries, reducing trade deficits, protecting jobs, and maintaining economic sovereignty. However, the specific reasons can vary based on individual national circumstances.",
+          "context_length": 0,
+          "latency_ms": 2348.803758621216,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "States impose protectionist policies on other countries to shield producers, businesses, and workers in the import-competing sector from foreign competitors. However, these policies also reduce trade and adversely affect consumers by raising the cost of imported goods, and harm producers and workers in export sectors.",
+          "context_length": 649,
+          "latency_ms": 2938.1730556488037,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "States impose protectionist policies on other countries to shield their producers, businesses, and workers in the import-competing sector from foreign competitors. However, these policies also reduce trade and adversely affect consumers by raising the cost of imported goods, and harm producers and workers in export sectors.",
+          "context_length": 1206,
+          "latency_ms": 3029.432773590088,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "States impose protectionist policies on other countries to shield producers, businesses, and workers in the import-competing sector from foreign competitors. However, these policies also reduce trade and adversely affect consumers by raising the cost of imported goods, and harm producers and workers in export sectors.",
+          "context_length": 1544,
+          "latency_ms": 3201.5438079833984,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "States impose protectionist policies on other countries primarily to shield their producers, businesses, and workers in the import-competing sector from foreign competitors. Proponents argue this benefits domestic industries but critics point out that it reduces trade, raises costs for consumers, and harms producers and workers in export sectors.",
+          "context_length": 2226,
+          "latency_ms": 3802.265167236328,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "States impose protectionist policies on other countries to shield their producers, businesses, and workers in the import-competing sector from foreign competitors. However, these policies also reduce trade and adversely affect consumers by raising the cost of imported goods, harming producers and workers in export sectors, both within the country implementing protectionist policies and in the countries protected against.",
+          "context_length": 2854,
+          "latency_ms": 4859.914064407349,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "States impose protectionist policies on other countries to shield their producers, businesses, and workers in the import-competing sector from foreign competitors. However, these policies also reduce trade and adversely affect consumers by raising the cost of imported goods, harming producers and workers in export sectors, both within the country implementing protectionist policies, and in the countries being protected.",
+          "context_length": 3238,
+          "latency_ms": 4985.471963882446,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "States impose protectionist policies on other countries to shield producers, businesses, and workers in the import-competing sector from foreign competitors. However, these policies also reduce trade, raise costs for consumers, and harm producers and workers in export sectors.",
+          "context_length": 4567,
+          "latency_ms": 4506.286859512329,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test27",
+      "query": "where are they building the new raiders stadium",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify the location of the new Raiders Stadium.",
+          "context_length": 0,
+          "latency_ms": 1126.2691020965576,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "They are building the new Raiders stadium in Carson, California.",
+          "context_length": 355,
+          "latency_ms": 988.0776405334473,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Raiders are building a new stadium in Inglewood, California.",
+          "context_length": 1625,
+          "latency_ms": 1742.4330711364746,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Oakland Raiders are building a new stadium in Inglewood, California.",
+          "context_length": 2330,
+          "latency_ms": 2204.838752746582,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Raiders are building a privately financed $1.78 billion stadium in Carson, California.",
+          "context_length": 3834,
+          "latency_ms": 2783.508062362671,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Raiders are building a new stadium in Carson, California.",
+          "context_length": 4819,
+          "latency_ms": 3030.289888381958,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Raiders are building a privately financed $1.78 billion stadium in Carson, California.",
+          "context_length": 5426,
+          "latency_ms": 3780.196189880371,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Oakland Raiders are building a privately financed $1.7 billion stadium in Carson, California upon being approved to move to the Los Angeles market.",
+          "context_length": 7572,
+          "latency_ms": 5147.3188400268555,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test28",
+      "query": "what event provoked congress to propose the eleventh amendment and the states to ratify it",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The event that provoked Congress to propose the Eleventh Amendment and the states to ratify it was the Supreme Court's decision in 1795 case, *Cooley v. Bowen*, which ruled that states could not sue foreign nations without their consent, leading to concerns about state sovereignty and the balance of power between states and federal authority.",
+          "context_length": 0,
+          "latency_ms": 3585.494041442871,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Eleventh Amendment was proposed by Congress in response to a dispute between the United States and Great Britain over maritime claims, specifically the case of \"Filson v. United States.\" The states ratified it to limit the jurisdiction of federal courts in such disputes.",
+          "context_length": 368,
+          "latency_ms": 2809.8719120025635,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The proposal of the Eleventh Amendment by Congress and its ratification by the states was provoked by President John Adams' statement on January 8, 1798, that the amendment had been ratified by the necessary number of States.",
+          "context_length": 859,
+          "latency_ms": 2849.952220916748,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The proposal of the Eleventh Amendment was prompted by President John Adams' statement on January 8, 1798, that the amendment had been ratified by the necessary number of states and was now part of the Constitution. Congress then approved an amendment to clarify judicial power over foreign nationals and submitted it to the state legislatures for ratification, which were required to ratify it by February 7, 1795.",
+          "context_length": 1372,
+          "latency_ms": 4675.5194664001465,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Eleventh Amendment was proposed by the 3rd Congress on March 4, 1794, after President John Adams stated in a message to Congress that the amendment had been ratified by the necessary number of States, prompting Congress to propose it. The states ratified it on February 7, 1795.",
+          "context_length": 1758,
+          "latency_ms": 3810.2691173553467,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The ratification by twelve states of the Eleventh Amendment to the Constitution was prompted by the U.S. Supreme Court's decision in Chisholm v. Georgia, 2 U.S. 419 (1793), which limited the ability of citizens to sue states in federal courts.",
+          "context_length": 1979,
+          "latency_ms": 3694.053888320923,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The ratification of the Eleventh Amendment was provoked by the U.S. Supreme Court's decision in Chisholm v. Georgia, 2 U.S. 419 (1793), which limited the ability of citizens to sue states in federal courts and overruled the Eleventh Amendment. Congress proposed the amendment, and the states ratified it on February 7, 1795.",
+          "context_length": 2472,
+          "latency_ms": 5078.495025634766,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Eleventh Amendment was proposed by Congress on June 4, 1794, in response to the U.S. Supreme Court's decision in Chisholm v. Georgia, 2 U.S. 419 (1793), which ruled that states could not be sued in federal court without their consent.",
+          "context_length": 4800,
+          "latency_ms": 5266.0181522369385,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test29",
+      "query": "does joe die in the purge election year",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify whether Joe dies in the Purge election year.",
+          "context_length": 0,
+          "latency_ms": 1322.7500915527344,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Yes, Joe dies after being fatally wounded by Marcos.",
+          "context_length": 935,
+          "latency_ms": 1234.368085861206,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Yes, Joe dies in the purge election year.",
+          "context_length": 1673,
+          "latency_ms": 1495.5177307128906,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "No, Joe does not die in the purge election year. He is fatally wounded by Joe's partner Marcos before dying.",
+          "context_length": 2030,
+          "latency_ms": 2345.2799320220947,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Yes, Joe dies during the purge election year. He is fatally wounded by Joe after being shot by Marcos, but before dying.",
+          "context_length": 2904,
+          "latency_ms": 2723.3669757843018,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "No, Joe does not die in The Purge: Election Year. He is fatally wounded by Joe after being shot by Marcos and Laney, but he survives.",
+          "context_length": 3445,
+          "latency_ms": 3242.177963256836,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Yes, Joe dies during the purge election year. He is fatally wounded by Joe after Joe shoots him, but Joe asks Marcos to take care of his store before dying.",
+          "context_length": 3871,
+          "latency_ms": 3578.735828399658,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "No, Joe does not die in the Purge Election Year. He is fatally wounded by Marcos after being shot by Joe, but he survives and later asks Marcos to take care of his store.",
+          "context_length": 5196,
+          "latency_ms": 4546.293020248413,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    }
+  ],
+  "config": {
+    "fusion_method": "wcombsum_learned",
+    "model": "liquid/lfm2-1.2b:3",
+    "k_values": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      10
+    ],
+    "run_path": "data/nq/fused/wcombsum_learned.res"
+  },
+  "last_updated": "2025-12-05 07:29:27"
+}

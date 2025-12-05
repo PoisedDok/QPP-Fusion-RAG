@@ -408,15 +408,15 @@ def main():
             aggregated[k]["reciprocal_rank"].append(shot_result.get("reciprocal_rank", 0.0))
             aggregated[k]["has_relevant"].append(shot_result["has_relevant"])
     
-    # Compute averages
+    # Compute averages - use string k as key for consistency with QA metrics
     summary = {}
     for k in k_values:
         if aggregated[k]["recall_at_k"]:
-            summary[f"{k}-shot"] = {
-                "mean_recall@k": sum(aggregated[k]["recall_at_k"]) / len(aggregated[k]["recall_at_k"]),
+            summary[str(k)] = {
+                "recall_at_k": sum(aggregated[k]["recall_at_k"]) / len(aggregated[k]["recall_at_k"]),
                 "mrr@k": sum(aggregated[k]["reciprocal_rank"]) / len(aggregated[k]["reciprocal_rank"]),
-                "has_relevant_pct": sum(aggregated[k]["has_relevant"]) / len(aggregated[k]["has_relevant"]) * 100,
-                "n_queries": len(aggregated[k]["recall_at_k"])
+                "hit_rate": sum(aggregated[k]["has_relevant"]) / len(aggregated[k]["has_relevant"]),
+                "n": len(aggregated[k]["recall_at_k"])
             }
     
     # Save final results with standard schema
@@ -449,9 +449,8 @@ def main():
     print(f"\n=== Step 7 Complete ===")
     print(f"Results: {results_file}")
     print("\nSummary:")
-    for k_name, metrics in summary.items():
-        mrr = metrics.get('mrr@k', 0)
-        print(f"  {k_name}: Recall@k={metrics['mean_recall@k']:.3f}, MRR@k={mrr:.3f}, HasRelevant={metrics['has_relevant_pct']:.1f}%")
+    for k_str, metrics in sorted(summary.items(), key=lambda x: int(x[0])):
+        print(f"  k={k_str}: Recall@k={metrics['recall_at_k']:.3f}, MRR@k={metrics['mrr@k']:.3f}, HitRate={metrics['hit_rate']:.1%}")
 
 
 if __name__ == "__main__":
