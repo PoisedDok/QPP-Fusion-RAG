@@ -1,0 +1,1922 @@
+{
+  "completed_qids": [
+    "test11",
+    "test9",
+    "test0",
+    "test6",
+    "test12",
+    "test19",
+    "test14",
+    "test2",
+    "test4",
+    "test17",
+    "test5",
+    "test8",
+    "test15",
+    "test7",
+    "test10",
+    "test3",
+    "test1",
+    "test18",
+    "test13",
+    "test16"
+  ],
+  "results": [
+    {
+      "qid": "test0",
+      "query": "what is non controlling interest on balance sheet",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Non-controlling interest is the equity interest in a company that is not owned by the parent company, represented as a separate line item on the balance sheet.",
+          "context_length": 0,
+          "latency_ms": 9304.920196533203,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Non-controlling interest (NCI) is reported in accordance with IFRS 5 on the consolidated balance sheet, shown at the bottom of the Equity section. Under US GAAP, it can be reported in the liabilities section, equity section, or mezzanine section, but the mezzanine section is no longer used.",
+          "context_length": 745,
+          "latency_ms": 5274.841785430908,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Non-controlling interest (NCI) is reported on the consolidated balance sheet of the owning company, showing the claim on assets belonging to other, non-controlling shareholders. It is not located in the mezzanine section but rather at the bottom of the Equity section on the consolidated balance sheet and subsequently on the statement of changes in equity.",
+          "context_length": 1323,
+          "latency_ms": 5233.006715774536,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Non-controlling interest, also known as minority interest, is reported on the consolidated balance sheet of the owning company. It represents the claim on assets belonging to other, non-controlling shareholders and is shown at the bottom of the Equity section. It can also be reported in the liabilities section, equity section, or mezzanine section of the balance sheet, but the Mezzanine section is no longer used.",
+          "context_length": 1385,
+          "latency_ms": 6484.2209815979,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Non-controlling interest, also known as minority interest, is the portion of a subsidiary corporation's stock that is not owned by the parent corporation. It is reported on the consolidated balance sheet of the owning company and reflects the claim on assets belonging to other, non-controlling shareholders. The magnitude of minority interest is generally less than 50% of outstanding shares.",
+          "context_length": 1769,
+          "latency_ms": 5617.984056472778,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Non-controlling interest, also known as minority interest, is the portion of a subsidiary corporation's stock that is not owned by the parent corporation. It is reported on the consolidated balance sheet of the owning company and reflects the claim on assets belonging to other, non-controlling shareholders. It is generally less than 50% of outstanding shares.",
+          "context_length": 2604,
+          "latency_ms": 6013.240098953247,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Non-controlling interest, also known as minority interest, is the portion of a subsidiary corporation's stock that is not owned by the parent corporation. It is reported on the consolidated balance sheet of the owning company and reflects the claim on assets belonging to other, non-controlling shareholders. It is generally less than 50% of outstanding shares.",
+          "context_length": 3025,
+          "latency_ms": 6095.441102981567,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Non-controlling interest is the portion of a subsidiary corporation's stock that is not owned by the parent corporation. It is reported at the very bottom of the Equity section on the consolidated balance sheet and subsequently on the statement of changes in equity.",
+          "context_length": 4369,
+          "latency_ms": 5622.773885726929,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test1",
+      "query": "how many episodes are in chicago fire season 4",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Chicago Fire Season 4 has 4 episodes.",
+          "context_length": 0,
+          "latency_ms": 1073.8422870635986,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "There are 23 episodes in Chicago Fire season 4.",
+          "context_length": 352,
+          "latency_ms": 1433.3739280700684,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "There are 23 episodes in Chicago Fire season 4.",
+          "context_length": 468,
+          "latency_ms": 1401.5271663665771,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "There are 23 episodes in Chicago Fire season 4.",
+          "context_length": 1009,
+          "latency_ms": 1962.5930786132812,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The fourth season of Chicago Fire contains 23 episodes.",
+          "context_length": 1454,
+          "latency_ms": 2171.919822692871,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Season 4 of Chicago Fire contains 23 episodes.",
+          "context_length": 1846,
+          "latency_ms": 2561.7029666900635,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The fourth season of Chicago Fire contains 23 episodes.",
+          "context_length": 2206,
+          "latency_ms": 2511.7039680480957,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The fourth season of Chicago Fire contains 23 episodes.",
+          "context_length": 3484,
+          "latency_ms": 3333.6730003356934,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test2",
+      "query": "who sings love will keep us alive by the eagles",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The Eagles sing \"Love Will Keep Us Alive.\"",
+          "context_length": 0,
+          "latency_ms": 1094.0310955047607,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Lead vocals are sung by bassist Timothy B. Schmit.",
+          "context_length": 327,
+          "latency_ms": 1409.3759059906006,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Lead vocals are performed by bassist Timothy B. Schmit.",
+          "context_length": 530,
+          "latency_ms": 1512.143850326538,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Lead vocals are sung by bassist Timothy B. Schmit.",
+          "context_length": 1154,
+          "latency_ms": 1905.6899547576904,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Lead vocals are performed by bassist Timothy B. Schmit, along with contributions from Jim Capaldi and Paul Carrack.",
+          "context_length": 1550,
+          "latency_ms": 2854.307174682617,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Eagles feature lead vocals by bassist Timothy B. Schmit, as mentioned in Document 1.",
+          "context_length": 1733,
+          "latency_ms": 2719.151735305786,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Lead vocals are performed by bassist Timothy B. Schmit.",
+          "context_length": 2443,
+          "latency_ms": 2498.0342388153076,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Timothy B. Schmit sings \"Love Will Keep Us Alive\" by the Eagles.",
+          "context_length": 4607,
+          "latency_ms": 4521.932125091553,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test3",
+      "query": "who is the leader of the ontario pc party",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The leader of the Ontario PC Party is Mark Bannerman.",
+          "context_length": 0,
+          "latency_ms": 1185.128927230835,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The leader of the Ontario PC Party is the current official opposition leader, but the specific name isn't provided in the context.",
+          "context_length": 304,
+          "latency_ms": 2261.744737625122,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The leader of the Ontario PC Party is currently former interim PC leader Vic Fedeli.",
+          "context_length": 729,
+          "latency_ms": 1654.2189121246338,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The current official opposition in Ontario is formed by the Progressive Conservative Party of Ontario (PC), and the leader of the PC party is John Tory.",
+          "context_length": 1201,
+          "latency_ms": 2929.4509887695312,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Vic Fedeli was chosen interim leader of the PC Party on January 26, 2018.",
+          "context_length": 1579,
+          "latency_ms": 2720.900774002075,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Vic Fedeli is the interim leader of the Ontario Progressive Conservative Party, but he was chosen as the interim leader by the caucus on January 26, 2018. However, the current leader of the Ontario PC Party is John Tory, who was elected on September 18, 2004.",
+          "context_length": 1968,
+          "latency_ms": 5470.921039581299,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Vic Fedeli is the interim leader of the Ontario Progressive Conservative Party, but he was chosen as interim leader by the caucus on January 26, 2018. However, John Tory was elected as the leader of the Ontario Progressive Conservative Party on September 18, 2004. Given that the question asks about the current leader of the Ontario PC Party, and considering the interim leadership context, the answer would be that John Tory is the leader of the Ontario Progressive Conservative Party as of the time of the query, but he was not the interim leader at that specific moment.",
+          "context_length": 2591,
+          "latency_ms": 9142.50111579895,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Vic Fedeli is the leader of the Ontario Progressive Conservative Party, but he was chosen as interim leader by the caucus after Patrick Brown resigned. However, based on the context provided, Vic Fedeli was elected as interim leader by the PC parliamentary caucus on January 26, 2018.",
+          "context_length": 4329,
+          "latency_ms": 7185.487270355225,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.1,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test4",
+      "query": "nitty gritty dirt band fishin in the dark album",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The answer is not provided in the context. It seems the relevant information about the album \"Nitty Gritty Dirt Band Fishin' in the Dark\" is missing.",
+          "context_length": 0,
+          "latency_ms": 2817.077159881592,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Nitty Gritty Dirt Band's album \"Fishin' in the Dark\" features the song \"Fishin' in the Dark.\"",
+          "context_length": 580,
+          "latency_ms": 2664.8879051208496,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Nitty Gritty Dirt Band's album featuring the song \"Fishin' in the Dark\" is titled \"Hold On.\"",
+          "context_length": 977,
+          "latency_ms": 2669.0869331359863,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Nitty Gritty Dirt Band's album featuring the song \"Fishin' in the Dark\" is titled \"Hold On.\"",
+          "context_length": 1646,
+          "latency_ms": 3060.046911239624,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Nitty Gritty Dirt Band's album featuring the song \"Fishin' in the Dark\" is titled \"Hold On.\"",
+          "context_length": 2769,
+          "latency_ms": 3903.2161235809326,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Nitty Gritty Dirt Band's \"Fishin' in the Dark\" album was their third number-one single on the U.S. country music charts, released in June 1987.",
+          "context_length": 2969,
+          "latency_ms": 4921.225070953369,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Nitty Gritty Dirt Band's album featuring the song \"Fishin' in the Dark\" is titled \"Hold On.\"",
+          "context_length": 3178,
+          "latency_ms": 3875.006914138794,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Nitty Gritty Dirt Band's album \"Fishin' in the Dark\" features the song \"Fishin' in the Dark.\"",
+          "context_length": 4698,
+          "latency_ms": 4848.14190864563,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test5",
+      "query": "who were the three elves who got rings",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The three elves who got rings are Fafnir, Eitri, and Sven.",
+          "context_length": 0,
+          "latency_ms": 1543.5612201690674,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The three elves who received the rings were Narya, Nenya, and Vilya.",
+          "context_length": 304,
+          "latency_ms": 1885.5738639831543,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The three Elves who received the rings were Narya, Nenya, and Vilya.",
+          "context_length": 811,
+          "latency_ms": 2106.732130050659,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The three Elves who received the rings were Narya, Nenya, and Vilya.",
+          "context_length": 1011,
+          "latency_ms": 2504.8131942749023,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Three Rings were given to the Elves of Eregion, specifically to the Elven-king Gil-galad and later to Elrond.",
+          "context_length": 1429,
+          "latency_ms": 3758.3491802215576,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Three Rings were given to the Elves of Eregion by Celebrimbor. Specifically, Narya was given to Gil-galad, Vilya to Elrond, and the Ring of Air (Vilya) was given to Gil-galad's lieutenant C\u00edrdan.",
+          "context_length": 1919,
+          "latency_ms": 5804.502964019775,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The three Elves who received the rings were Annatar (who gave Narya to Gil-galad), Gil-galad (who received Vilya from Annatar), and C\u00edrdan (who received Narya from Annatar along with Galadriel receiving Nenya).",
+          "context_length": 2471,
+          "latency_ms": 6099.277019500732,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Three Rings were made by Celebrimbor after Sauron's defeat, but the specific Elves who received them are not mentioned in the provided context. However, it is implied that they were Elves of Eregion who were taught by Celebrimbor to forge the rings.",
+          "context_length": 4505,
+          "latency_ms": 7579.151153564453,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test6",
+      "query": "converting stereo signal to mono signal is called",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Converting a stereo signal to mono signal is called \"stereo to mono conversion\" or \"stereo downmixing.\"",
+          "context_length": 0,
+          "latency_ms": 2285.372257232666,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Converting a stereo signal to a mono signal is called mono conversion.",
+          "context_length": 112,
+          "latency_ms": 1339.9560451507568,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Converting a stereo signal to a mono signal is called stereophonic sound conversion. However, the context also mentions that this process can produce phase issues when mixed to mono.",
+          "context_length": 853,
+          "latency_ms": 3131.483316421509,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Converting a stereo signal to a mono signal is referred to as stereophonic sound conversion, specifically when it results in phase issues. However, the context also mentions pre-emphasis and de-emphasis techniques to maintain stereo separation and signal-to-noise parameters during such conversions.",
+          "context_length": 1394,
+          "latency_ms": 5286.100149154663,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Converting a stereo signal to a mono signal is called stereophonic sound. However, the context provided does not directly mention this specific term in relation to the process described. The closest related concept is 'pre-emphasis and de-emphasis' techniques used to maintain stereo separation and signal-to-noise parameters during the conversion process.",
+          "context_length": 1853,
+          "latency_ms": 5923.2518672943115,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Converting a stereo signal to a mono signal is referred to as stereophonic sound conversion or panning.",
+          "context_length": 2198,
+          "latency_ms": 2964.250326156616,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Converting a stereo signal to a mono signal is referred to as stereo/mono switching or simply applying pre-emphasis and de-emphasis techniques.",
+          "context_length": 3189,
+          "latency_ms": 4124.413013458252,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Converting a stereo signal to a mono signal is known as backward compatibility or forward compatibility. Forward compatibility involves sending the sum of both left and right audio channels in one signal for mono receivers, while backward compatibility involves sending the difference signal to separate mono receivers.",
+          "context_length": 5452,
+          "latency_ms": 7220.349073410034,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.2,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test7",
+      "query": "in order to prove disparate impact you first must establish",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "To prove disparate impact, you must first establish a statistically significant difference in outcomes between the protected group and the non-protected group.",
+          "context_length": 0,
+          "latency_ms": 2216.1591053009033,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "To prove disparate impact, an employer must show that its practice is reasonable.",
+          "context_length": 283,
+          "latency_ms": 1595.796823501587,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "To prove disparate impact, an employer must show that its practice is not discriminatory and is actually affecting a protected group, even if there was no intent to discriminate.",
+          "context_length": 510,
+          "latency_ms": 2874.377965927124,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "To prove disparate impact, an employer must show that its practice is reasonable and not related to job performance, according to the Griggs Court's interpretation in Griggs v. Duke Power Co.",
+          "context_length": 1363,
+          "latency_ms": 3580.801010131836,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "To prove disparate impact, an employer must show that its practice is reasonable and not related to job performance, unless it can demonstrate business necessity.",
+          "context_length": 2096,
+          "latency_ms": 3456.8428993225098,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "To prove disparate impact, an employer must show that its practice is reasonable and not necessarily justified by business necessity.",
+          "context_length": 2840,
+          "latency_ms": 3358.0849170684814,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "To prove disparate impact, an employer must show that its practice is reasonable and not necessarily demonstrating necessity. However, to establish disparate impact under Title VII, an employer must first show that its practice is facially neutral and has a disproportionately adverse effect on members of a protected class. If the employer demonstrates that the practice is job-related and consistent with business necessity, the plaintiff must then show a legitimate alternative that would have resulted in less discrimination.",
+          "context_length": 3819,
+          "latency_ms": 8237.222909927368,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.16666666666666666,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "To prove disparate impact, an employer must first show that its employment practice or policy has a disproportionately adverse effect on members of a protected class, even without proving intentional discrimination. This is the \"business necessity\" defense, which requires demonstrating that the practice is job-related and consistent with business necessity.",
+          "context_length": 7037,
+          "latency_ms": 7726.128816604614,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.16666666666666666,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test8",
+      "query": "where do characters live in this is us",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify the location of characters in \"This Is Us.\"",
+          "context_length": 0,
+          "latency_ms": 1913.7911796569824,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Characters live in Pittsburgh as adults, Kate lives in Los Angeles, Randall and his family are in New Jersey, and Kevin relocates to New York City.",
+          "context_length": 751,
+          "latency_ms": 3477.3430824279785,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Characters in This Is Us live in various locations: Jack and Rebecca in Pittsburgh, Kate in Los Angeles, Randall and his family in New Jersey, and Kevin in New York City.",
+          "context_length": 1198,
+          "latency_ms": 3371.9232082366943,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Characters live in various locations including Pittsburgh, Los Angeles, New Jersey, and New York City. Kate lives in Los Angeles, Penny Pocket shares a red house with Suzie Sweet in Pittsburgh, Randall and his family are in New Jersey, and Kevin lives in New York City.",
+          "context_length": 1623,
+          "latency_ms": 5003.44181060791,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Characters live in various locations throughout the series. Kate lives in Los Angeles, Randall and his family are in New Jersey, and Kevin relocates to New York City. Additionally, Penny Pocket shares a red house with Suzie Sweet in Pittsburgh, and PC Plum lives in a white house but wears a police uniform.",
+          "context_length": 1749,
+          "latency_ms": 6094.689130783081,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Characters in This Is Us live in various locations including Pittsburgh, Los Angeles, New Jersey, and Sunnyside Daycare Centre.",
+          "context_length": 2359,
+          "latency_ms": 3577.3849487304688,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Characters in This Is Us live in various locations. Kate lives in Los Angeles, Randall and his family are in New Jersey, and Kevin relocates to New York City. Some characters like Archie live in a pink castle, while Penny Pocket shares a red house with Suzie Sweet and wears blue. PC Plum lives in a white house but wears a police uniform.",
+          "context_length": 2580,
+          "latency_ms": 6906.929016113281,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Characters in This Is Us live in various locations including Pittsburgh, Los Angeles, New Jersey, and Sunnyside Daycare Centre.",
+          "context_length": 3664,
+          "latency_ms": 4191.779851913452,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test9",
+      "query": "who makes the decisions about what to produce in a market economy",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Decisions about production in a market economy are primarily made by firms based on consumer demand and profit maximization.",
+          "context_length": 0,
+          "latency_ms": 1750.823974609375,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "In a market economy, investment decisions and allocation of producer goods are primarily made through capital and financial markets.",
+          "context_length": 647,
+          "latency_ms": 1865.2479648590088,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "In a market economy, investment decisions and allocation of producer goods are primarily made through capital and financial markets.",
+          "context_length": 1037,
+          "latency_ms": 2301.389694213867,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "In a market economy, investment decisions and allocation of producer goods are primarily made through capital and financial markets.",
+          "context_length": 1652,
+          "latency_ms": 2315.9492015838623,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "In a market economy, investment decisions and allocation of producer goods are primarily made through capital and financial markets. However, decision-making structures also involve industrial councils, government agencies, or private owners who carry out decisions.",
+          "context_length": 1976,
+          "latency_ms": 4026.2043476104736,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "In a market economy, investment decisions and allocation of producer goods are primarily made through capital and financial markets.",
+          "context_length": 2504,
+          "latency_ms": 2738.9073371887207,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "In a market economy, investment decisions and allocation of producer goods are primarily made through capital and financial markets. This contrasts with planned economies where decisions are made by state or organizational bodies. However, in a market economy that uses indicative planning, decisions might be carried out by industrial councils, government agencies, or private owners.",
+          "context_length": 3169,
+          "latency_ms": 5771.34895324707,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "In a market economy, investment decisions and allocation of producer goods are primarily made through capital and financial markets.",
+          "context_length": 4959,
+          "latency_ms": 3841.0489559173584,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test10",
+      "query": "when is the new tappan zee bridge going to be finished",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify the completion date of the new Tappan Zee Bridge.",
+          "context_length": 0,
+          "latency_ms": 1757.5249671936035,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The project is expected to be completed by June 15, 2018.",
+          "context_length": 400,
+          "latency_ms": 1590.2111530303955,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The new Tappan Zee Bridge is expected to be completed by June 15, 2018.",
+          "context_length": 1019,
+          "latency_ms": 2261.0549926757812,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The new Tappan Zee Bridge is expected to be completed by June 15, 2018.",
+          "context_length": 1625,
+          "latency_ms": 2810.6892108917236,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The new Tappan Zee Bridge is expected to be completed by June 15, 2018.",
+          "context_length": 2755,
+          "latency_ms": 3311.8128776550293,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The project is expected to be completed by June 15, 2018.",
+          "context_length": 3303,
+          "latency_ms": 3314.8441314697266,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The project is expected to be completed by June 15, 2018.",
+          "context_length": 3729,
+          "latency_ms": 3462.078094482422,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.16666666666666666,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The new Tappan Zee Bridge is expected to be completed by June 15, 2018.",
+          "context_length": 5533,
+          "latency_ms": 5012.600898742676,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.16666666666666666,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test11",
+      "query": "who recorded i can't help falling in love with you",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The song \"I Can't Help Falling in Love\" was recorded by The Four Seasons, not by any other artist.",
+          "context_length": 0,
+          "latency_ms": 2272.073984146118,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Tom Smothers, Swedish pop group A-Teens, and the British reggae group UB40 recorded \"Can't Help Falling in Love\" with various versions.",
+          "context_length": 644,
+          "latency_ms": 2877.4728775024414,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Linda Ronstadt recorded \"I Can't Help Falling in Love\" with Nelson Riddle for the album Lush Life (1984).",
+          "context_length": 780,
+          "latency_ms": 2624.105930328369,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "UB40 recorded \"Can't Help Falling in Love\" as the first single from their 1993 album Promises and Lies.",
+          "context_length": 1230,
+          "latency_ms": 2720.550060272217,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Elvis Presley recorded the song \"Can't Help Falling in Love\" with the same title performed by the lead actor Daniel Padilla.",
+          "context_length": 1766,
+          "latency_ms": 3311.582088470459,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Hank Williams recorded \"I Can't Help It (If I'm Still in Love with You)\" originally.",
+          "context_length": 2022,
+          "latency_ms": 2963.759183883667,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Katharine McPhee recorded a duet with Andrea Bocelli on \"I Can't Help Falling In Love\" for his Under the Desert Sky album.",
+          "context_length": 2224,
+          "latency_ms": 3790.799856185913,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Katharine McPhee recorded a duet with Andrea Bocelli on \"Can't Help Falling In Love\" for his album Under the Desert Sky.",
+          "context_length": 2802,
+          "latency_ms": 4146.604061126709,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test12",
+      "query": "who plays the doc in back to the future",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "Leonard Nimoy plays Doc Brown in Back to the Future.",
+          "context_length": 0,
+          "latency_ms": 1213.390827178955,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Christopher Lloyd plays Doc Emmett Lathrop \"Doc\" Brown in the films and Back to the Future: The Game, and Dan Castellaneta in the animated series.",
+          "context_length": 397,
+          "latency_ms": 2704.8628330230713,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Christopher Lloyd plays Doc Brown in Back to the Future.",
+          "context_length": 786,
+          "latency_ms": 1567.7530765533447,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Christopher Lloyd plays the doc in Back to the Future.",
+          "context_length": 1398,
+          "latency_ms": 1811.8879795074463,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Christopher Lloyd plays the doc in Back to the Future.",
+          "context_length": 2033,
+          "latency_ms": 2155.2388668060303,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "Christopher Lloyd plays the doc in Back to the Future.",
+          "context_length": 2840,
+          "latency_ms": 2706.960916519165,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "Christopher Lloyd plays Doc Brown in Back to the Future.",
+          "context_length": 3411,
+          "latency_ms": 2844.1171646118164,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "Christopher Lloyd plays the doc in Back to the Future.",
+          "context_length": 5241,
+          "latency_ms": 3819.8702335357666,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test13",
+      "query": "when did they stop cigarette advertising on television",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The specific date or context regarding when cigarette advertising on television stopped varies by country and regulatory changes over time.",
+          "context_length": 0,
+          "latency_ms": 1841.0909175872803,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "They stopped cigarette advertising on television in 1973.",
+          "context_length": 289,
+          "latency_ms": 1088.6261463165283,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "They stopped cigarette advertising on television in 1973.",
+          "context_length": 735,
+          "latency_ms": 1268.608808517456,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "They stopped cigarette advertising on television in 1971 when Congress passed the Public Health Cigarette Smoking Act, banning the advertising of cigarettes on television and radio.",
+          "context_length": 2320,
+          "latency_ms": 3321.9690322875977,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Cigarette advertising on television stopped in 1971 when the Public Health Cigarette Smoking Act was passed, banning cigarette advertising on television and radio.",
+          "context_length": 3377,
+          "latency_ms": 3939.718008041382,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "They stopped cigarette advertising on television in 1986.",
+          "context_length": 3593,
+          "latency_ms": 2594.1851139068604,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Cigarette advertising on television stopped in 1986.",
+          "context_length": 4118,
+          "latency_ms": 2808.6681365966797,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "They stopped cigarette advertising on television in 1971, when an agreement was reached between the government and the tobacco industry to include health warnings on all cigarette packets.",
+          "context_length": 7204,
+          "latency_ms": 5331.299066543579,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test14",
+      "query": "who has been chosen as the brand ambassador of the campaign 'beti bachao-beti padhao",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not specify who has been chosen as the brand ambassador for the campaign 'beti bachao-beti padhao.'",
+          "context_length": 0,
+          "latency_ms": 2241.5621280670166,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Rakul Preet Singh has been chosen as the brand ambassador for the campaign 'Beti Bachao-Beti Padhao' by Telangana State Government.",
+          "context_length": 155,
+          "latency_ms": 2430.3650856018066,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Rakul Preet Singh has been chosen as the brand ambassador for the campaign 'Beti Bachao-Beti Padhao'.",
+          "context_length": 303,
+          "latency_ms": 2047.6410388946533,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Rakul Preet Singh has been chosen as the brand ambassador for the campaign 'Beti Bachao-Beti Padhao'.",
+          "context_length": 426,
+          "latency_ms": 2255.9421062469482,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Sakshi Malik has been chosen as the brand ambassador for the 'Beti Bachao, Beti Padhao' campaign.",
+          "context_length": 599,
+          "latency_ms": 2242.978096008301,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Sakshi Malik has been chosen as the brand ambassador for the 'Beti Bachao-Beti Padhao' campaign.",
+          "context_length": 1060,
+          "latency_ms": 2553.4090995788574,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Sakshi Malik was chosen as the brand ambassador for the 'Beti Bachao-Beti Padhao' campaign on 26 August 2016.",
+          "context_length": 1558,
+          "latency_ms": 3469.5329666137695,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Katrina Kaif has been chosen as the brand ambassador for the campaign 'Beti Bachao-Beti Padhao'.",
+          "context_length": 2644,
+          "latency_ms": 3395.740747451782,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test15",
+      "query": "how many seasons of prison break are on netflix",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The question about how many seasons of \"Prison Break\" are on Netflix is not provided in the context.",
+          "context_length": 0,
+          "latency_ms": 2239.6652698516846,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 603,
+          "latency_ms": 840.3880596160889,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "I cannot answer.",
+          "context_length": 1267,
+          "latency_ms": 1240.2129173278809,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Netflix has not released any information about specific seasons of Prison Break being available on the platform.",
+          "context_length": 2050,
+          "latency_ms": 2553.256034851074,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The document does not specify the number of Netflix seasons of Prison Break. It only mentions that Prison Break is available online, including Netflix, but does not provide information on specific Netflix seasons.",
+          "context_length": 2533,
+          "latency_ms": 3963.7320041656494,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The provided context does not contain information about the number of Netflix seasons of Prison Break. Did you forget to include the relevant document or data source? Once you provide the necessary information, I will be able to determine how many seasons of Prison Break are available on Netflix.",
+          "context_length": 2998,
+          "latency_ms": 5439.59903717041,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The provided context does not contain information about how many seasons of Prison Break are available on Netflix. Did you forget to include the relevant document? Please provide it, and once I have access to that information, I will be able to answer your question about the number of seasons available on Netflix.",
+          "context_length": 3600,
+          "latency_ms": 5814.058780670166,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The provided context does not contain information about the number of seasons of Prison Break available on Netflix. Did you forget to include the document that lists the Netflix releases for Prison Break? Once I have access to that document, I will be able to determine how many seasons of Prison Break are available on Netflix.",
+          "context_length": 6770,
+          "latency_ms": 7807.821750640869,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test16",
+      "query": "what was the name of atom bomb dropped by usa on hiroshima",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The name of the atom bomb dropped by USA on Hiroshima was \"Little Boy.\"",
+          "context_length": 0,
+          "latency_ms": 1360.9859943389893,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The name of the atom bomb dropped by the USA on Hiroshima was \"Little Boy.\"",
+          "context_length": 665,
+          "latency_ms": 1913.6402606964111,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The codename for the atomic bomb dropped by the USA on Hiroshima was \"Little Boy.\"",
+          "context_length": 1172,
+          "latency_ms": 2160.693883895874,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The name of the atom bomb dropped by the USA on Hiroshima was Little Boy.",
+          "context_length": 2363,
+          "latency_ms": 2690.9420490264893,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The name of the atom bomb dropped by the USA on Hiroshima was Little Boy.",
+          "context_length": 2911,
+          "latency_ms": 2878.6022663116455,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The name of the atom bomb dropped by the USA on Hiroshima was Little Boy.",
+          "context_length": 3265,
+          "latency_ms": 3153.369903564453,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The name of the atom bomb dropped by the USA on Hiroshima was Little Boy.",
+          "context_length": 3531,
+          "latency_ms": 3366.9822216033936,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The name of the atom bomb dropped by the USA on Hiroshima was Little Boy.",
+          "context_length": 6963,
+          "latency_ms": 5180.235147476196,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test17",
+      "query": "when did the us take over wake island",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer. The context provided does not contain information about the US taking over Wake Island.",
+          "context_length": 0,
+          "latency_ms": 1569.5149898529053,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The US took over Wake Island on January 17, 1899.",
+          "context_length": 341,
+          "latency_ms": 1407.801866531372,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The US took over Wake Island on January 17, 1899.",
+          "context_length": 581,
+          "latency_ms": 1398.6659049987793,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The United States took over Wake Island on January 17, 1899.",
+          "context_length": 1270,
+          "latency_ms": 1854.7310829162598,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The United States took over Wake Island on January 17, 1899.",
+          "context_length": 2016,
+          "latency_ms": 2245.234251022339,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The US took over Wake Island on January 17, 1899.",
+          "context_length": 2200,
+          "latency_ms": 2332.629919052124,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The United States took over Wake Island on January 17, 1899.",
+          "context_length": 2677,
+          "latency_ms": 2443.8719749450684,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The United States took over Wake Island on January 17, 1899.",
+          "context_length": 4919,
+          "latency_ms": 3669.126033782959,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test18",
+      "query": "when did american two party system began to emerge",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The American Two-Party System began to emerge in the early 19th century, particularly around the time of the Missouri Compromise in 1820 and the subsequent political realignments. However, a more precise starting point is often considered to be the 1824 presidential election, where John Quincy Adams won despite not receiving a majority of the popular vote, marking the first time a candidate from one party dominated the two-party system. I cannot answer with exact dates without additional context, but the general consensus is around the 1820s.",
+          "context_length": 0,
+          "latency_ms": 7505.842924118042,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The American two-party system began to emerge in 1783 with the accession to power of William Pitt the Younger leading the new Tories, against a reconstituted \"Whig\" party led by Charles James Fox.",
+          "context_length": 263,
+          "latency_ms": 3400.5208015441895,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The American two-party system began to emerge in 1783 with the accession to power of William Pitt the Younger and the new Tories, against a reconstituted \"Whig\" party led by Charles James Fox.",
+          "context_length": 845,
+          "latency_ms": 3595.5119132995605,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The American two-party system began to emerge in 1783 with the accession to power of William Pitt the Younger and the new Tories, against a reconstituted \"Whig\" party led by Charles James Fox. However, the split camps of Federalists, led by Hamilton, and Democratic-Republicans, with Madison and Thomas Jefferson at the helm, marked the emergence of a more defined two-party system in the 1790s.",
+          "context_length": 1436,
+          "latency_ms": 7343.167066574097,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "American two-party system began to emerge in 1783 with the accession to power of William Pitt the Younger leading the new Tories against a reconstituted \"Whig\" party. However, the split camps of Federalists led by Hamilton and Democratic-Republicans, centered on differing views on federal government powers, emerged in the 1790s. The period of partisanship became more pronounced during the Era of Good Feelings in 1816.",
+          "context_length": 1907,
+          "latency_ms": 6828.732967376709,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The American two-party system began to emerge in 1783 with the accession to power of William Pitt the Younger leading the new Tories against the reconstituted \"Whig\" party.",
+          "context_length": 2352,
+          "latency_ms": 3855.445146560669,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The American two-party system began to emerge in 1783 with the accession to power of William Pitt the Younger leading the new Tories against the reconstituted \"Whig\" party. However, the specific emergence of the modern two-party system is marked by the split between Federalists and Democratic-Republicans in the 1790s, with the Federalists led by Hamilton and the Democratic-Republicans led by Madison. The context provided does not specify an exact year for the emergence but indicates that it was around the late 18th century.",
+          "context_length": 2782,
+          "latency_ms": 9312.79993057251,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The American two-party system began to emerge with the accession to power of William Pitt the Younger in 1783.",
+          "context_length": 5206,
+          "latency_ms": 4820.040225982666,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test19",
+      "query": "where are the mitochondria located in the sperm",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 528.9089679718018,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The mitochondria are usually located at the base of the sperm's tail.",
+          "context_length": 652,
+          "latency_ms": 1556.7517280578613,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Mitochondria are located at the base of the sperm's tail in the midpiece, which is used for propelling the sperm cells.",
+          "context_length": 1237,
+          "latency_ms": 2557.938814163208,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The mitochondria are located at the base of the sperm's tail in the midpiece, which is responsible for providing motility to the sperm.",
+          "context_length": 1493,
+          "latency_ms": 2824.107885360718,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The mitochondria are located at the base of the sperm's tail in the sperm's midpiece.",
+          "context_length": 1847,
+          "latency_ms": 2158.2891941070557,
+          "relevant_in_top_k": 1,
+          "total_relevant": 2,
+          "recall_at_k": 0.5,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The mitochondria are located at the base of the sperm's tail in the midpiece, which is responsible for ATP production for the journey through the female reproductive tract.",
+          "context_length": 2415,
+          "latency_ms": 3406.332015991211,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The mitochondria in sperm are located at the base of the sperm's tail, which is used for propelling the sperm cells.",
+          "context_length": 4144,
+          "latency_ms": 3632.988929748535,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The mitochondria in the sperm are usually located at the base of the sperm's tail, which is used for propelling the sperm cells.",
+          "context_length": 7103,
+          "latency_ms": 5120.483160018921,
+          "relevant_in_top_k": 2,
+          "total_relevant": 2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        }
+      }
+    }
+  ],
+  "config": {
+    "fusion_method": "learned_mlp",
+    "model": "liquid/lfm2-1.2b",
+    "k_values": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      10
+    ],
+    "run_path": "data/nq/fused/learned_mlp.res"
+  },
+  "last_updated": "2025-12-05 09:23:54"
+}

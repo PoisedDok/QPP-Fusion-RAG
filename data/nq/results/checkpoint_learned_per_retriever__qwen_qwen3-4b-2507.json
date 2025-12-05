@@ -1,6 +1,7 @@
 {
   "completed_qids": [
     "test8",
+    "test66",
     "test24",
     "test4",
     "test49",
@@ -12,16 +13,21 @@
     "test38",
     "test29",
     "test21",
+    "test68",
     "test43",
     "test51",
     "test37",
     "test55",
+    "test61",
+    "test64",
+    "test62",
     "test12",
     "test33",
     "test53",
     "test45",
     "test10",
     "test56",
+    "test67",
     "test42",
     "test36",
     "test32",
@@ -41,8 +47,11 @@
     "test2",
     "test31",
     "test59",
+    "test65",
     "test17",
+    "test69",
     "test25",
+    "test60",
     "test57",
     "test3",
     "test58",
@@ -54,6 +63,7 @@
     "test35",
     "test54",
     "test48",
+    "test63",
     "test22",
     "test41",
     "test23",
@@ -5701,6 +5711,946 @@
           "has_relevant": true
         }
       }
+    },
+    {
+      "qid": "test60",
+      "query": "when were the winnie the pooh books written",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The Winnie the Pooh books were written in the 1920s.",
+          "context_length": 0,
+          "latency_ms": 3978.9111614227295,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The Winnie-the-Pooh books were written in 1926 with the first collection, Winnie-the-Pooh, followed by The House at Pooh Corner in 1928. Additional stories were included in When We Were Very Young (1924) and Now We Are Six (1927).",
+          "context_length": 369,
+          "latency_ms": 12327.579259872437,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The Winnie-the-Pooh books were written in 1926 with the publication of the first volume, Winnie-the-Pooh, followed by The House at Pooh Corner in 1928.",
+          "context_length": 1014,
+          "latency_ms": 8919.307947158813,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The Winnie-the-Pooh books were written in the 1920s. Specifically, the first book, *Winnie-the-Pooh*, was published in 1926, followed by *The House at Pooh Corner* in 1928. The stories were originally published in magazines such as *Punch*, *St. Nicholas Magazine*, and *Vanity Fair* prior to being compiled into book form.",
+          "context_length": 2244,
+          "latency_ms": 17330.976009368896,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The Winnie-the-Pooh books were written in the 1920s. Specifically, the first book, *Winnie-the-Pooh*, was published in 1926, and it was followed by *The House at Pooh Corner* in 1928. The stories were originally published in magazines such as *Punch*, *St. Nicholas Magazine*, and *Vanity Fair* prior to being compiled into book form.",
+          "context_length": 2842,
+          "latency_ms": 15815.04201889038,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The Winnie-the-Pooh books were written in the 1920s. Specifically, the first book, *Winnie-the-Pooh*, was published in 1926, and it was followed by *The House at Pooh Corner* in 1928. The stories were originally published in magazines such as *Punch*, *St. Nicholas Magazine*, and *Vanity Fair* prior to being compiled into book form.",
+          "context_length": 3141,
+          "latency_ms": 16047.1351146698,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The Winnie-the-Pooh books were written in the 1920s. Specifically, the first book, *Winnie-the-Pooh*, was published in 1926, and it was followed by *The House at Pooh Corner* in 1928. The stories were originally published in magazines such as *Punch*, *St. Nicholas Magazine*, and *Vanity Fair* prior to being compiled into book form.",
+          "context_length": 3586,
+          "latency_ms": 15012.121200561523,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The Winnie-the-Pooh books were written in the 1920s. The first book, *Winnie-the-Pooh*, was published in 1926, followed by *The House at Pooh Corner* in 1928.",
+          "context_length": 4880,
+          "latency_ms": 11527.720212936401,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test61",
+      "query": "where does the electron transport chain pumps protons",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The electron transport chain pumps protons into the intermembrane space of the mitochondria.",
+          "context_length": 0,
+          "latency_ms": 3003.7169456481934,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The electron transport chain pumps protons across the inner mitochondrial membrane.",
+          "context_length": 200,
+          "latency_ms": 2713.5701179504395,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The electron transport chain pumps protons across the mitochondrial inner membrane.",
+          "context_length": 641,
+          "latency_ms": 3219.312906265259,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "The electron transport chain pumps protons across the mitochondrial inner membrane.",
+          "context_length": 987,
+          "latency_ms": 3253.304958343506,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "The electron transport chain pumps protons across the mitochondrial inner membrane, specifically through mitochondrial Complexes I, III, and IV. These complexes act as proton pumps to create a transmembrane proton gradient.",
+          "context_length": 1507,
+          "latency_ms": 7260.588645935059,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "The electron transport chain pumps protons across the mitochondrial inner membrane, specifically in mitochondrial Complexes I, III, and IV. These complexes act as proton pumps, creating a transmembrane proton gradient that drives ATP synthesis via ATP synthase.",
+          "context_length": 1891,
+          "latency_ms": 7616.839170455933,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "The electron transport chain pumps protons from the mitochondrial matrix into the intermembrane space.",
+          "context_length": 3001,
+          "latency_ms": 4793.839931488037,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The electron transport chain pumps protons across the mitochondrial inner membrane, specifically from the mitochondrial matrix into the intermembrane space. This occurs in Complexes I, III, and IV.",
+          "context_length": 5038,
+          "latency_ms": 8775.294065475464,
+          "relevant_in_top_k": 0,
+          "total_relevant": 2,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test62",
+      "query": "who wrote the theme song for mission impossible",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 1406.7411422729492,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Lalo Schifrin",
+          "context_length": 469,
+          "latency_ms": 1944.9620246887207,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Lalo Schifrin wrote the theme song for Mission: Impossible.",
+          "context_length": 1696,
+          "latency_ms": 3931.497097015381,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Lalo Schifrin wrote the theme song for Mission: Impossible.",
+          "context_length": 1852,
+          "latency_ms": 2841.045141220093,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Lalo Schifrin wrote the theme song for Mission: Impossible.",
+          "context_length": 2213,
+          "latency_ms": 3416.50390625,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Lalo Schifrin wrote the theme song for Mission: Impossible.",
+          "context_length": 2373,
+          "latency_ms": 3389.780044555664,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Lalo Schifrin wrote the theme song for Mission: Impossible.",
+          "context_length": 2702,
+          "latency_ms": 3311.5692138671875,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Lalo Schifrin wrote the theme song for Mission: Impossible.",
+          "context_length": 4172,
+          "latency_ms": 5701.054096221924,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test63",
+      "query": "what's the point of having a belly button",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "The belly button, or navel, is the remnant of the umbilical cord that connected a baby to the mother during pregnancy. After the cord is cut and the baby is born, the umbilical cord dries up and falls off, leaving behind the belly button. It serves no functional purpose in adulthood but is a physical reminder of the birth process.",
+          "context_length": 0,
+          "latency_ms": 14233.0961227417,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The point of having a belly button is that it is the hollowed or raised area on the abdomen where the umbilical cord was attached during fetal development. It serves as a remnant of the umbilical cord's connection to the mother's placenta.",
+          "context_length": 263,
+          "latency_ms": 11320.379734039307,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The point of having a belly button is that it is the hollowed or raised area on the abdomen where the umbilical cord was attached during fetal development. It is a remnant of the umbilical cord's connection to the mother during pregnancy.",
+          "context_length": 955,
+          "latency_ms": 11799.53408241272,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The point of having a belly button is that it is the hollowed or raised area on the abdomen where the umbilical cord was attached during fetal development. It is a remnant of the umbilical cord's attachment site and is present in all placental mammals.",
+          "context_length": 1225,
+          "latency_ms": 12426.52702331543,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The point of having a belly button is that it is the hollowed or raised area on the abdomen where the umbilical cord was attached during fetal development. It is a natural feature present in all placental mammals.",
+          "context_length": 2059,
+          "latency_ms": 12831.766128540039,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The point of having a belly button is that it is the hollowed or raised area on the abdomen where the umbilical cord was attached during fetal development. It is a remnant of the umbilical cord's attachment site and is present in all placental mammals.",
+          "context_length": 2459,
+          "latency_ms": 12254.566192626953,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The point of having a belly button is that it is the hollowed or raised area on the abdomen where the umbilical cord was attached during fetal development. It is a remnant of the umbilical cord's attachment site and is present in all placental mammals.",
+          "context_length": 3385,
+          "latency_ms": 13193.497896194458,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The point of having a belly button is that it is the remnant of the umbilical cord attachment site after the cord is cut and the area heals. It forms after the umbilical stump dries out, shrivels, and falls off within about 3 weeks after birth.",
+          "context_length": 4948,
+          "latency_ms": 15750.370740890503,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test64",
+      "query": "where is the slide placed on the microscope",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 1472.7230072021484,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The slide is placed on the microscope's stage and held in place by slide clips, slide clamps, or a cross-table.",
+          "context_length": 537,
+          "latency_ms": 6708.415985107422,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The slide is placed on the microscope's stage and held in place by slide clips, slide clamps, or a cross-table.",
+          "context_length": 1040,
+          "latency_ms": 6878.469228744507,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The slide is placed on the microscope's stage and held in place by slide clips, slide clamps, or a cross-table.",
+          "context_length": 1508,
+          "latency_ms": 6368.827104568481,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The slide is placed on the microscope's stage and held in place by slide clips, slide clamps, or a cross-table.",
+          "context_length": 1579,
+          "latency_ms": 6307.754039764404,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The slide is placed on the microscope's stage and held in place by slide clips, slide clamps, or a cross-table, which allows for precise, remote movement of the slide.",
+          "context_length": 2169,
+          "latency_ms": 8733.665227890015,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The slide is placed on the microscope's stage and held in place by slide clips, slide clamps, or a cross-table, which allows for precise, remote movement of the slide.",
+          "context_length": 2454,
+          "latency_ms": 8417.593002319336,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The slide is placed on the microscope's stage and held in place by slide clips, slide clamps, or a cross-table, which allows for precise, remote movement of the slide.",
+          "context_length": 3947,
+          "latency_ms": 11629.545211791992,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test65",
+      "query": "when was the seat moved to the capitol",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 1652.8480052947998,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "I cannot answer.",
+          "context_length": 768,
+          "latency_ms": 3366.666316986084,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "The seat of government was moved to the capitol in October 1812.",
+          "context_length": 2795,
+          "latency_ms": 8764.51301574707,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "I cannot answer.",
+          "context_length": 3373,
+          "latency_ms": 2940.8178329467773,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "I cannot answer.",
+          "context_length": 3826,
+          "latency_ms": 2549.3340492248535,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "5": {
+          "k": 5,
+          "answer": "I cannot answer.",
+          "context_length": 4231,
+          "latency_ms": 2681.78391456604,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "6": {
+          "k": 6,
+          "answer": "I cannot answer.",
+          "context_length": 4685,
+          "latency_ms": 2990.2780055999756,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "10": {
+          "k": 10,
+          "answer": "The seat of government was moved to the capitol in 1812.",
+          "context_length": 5817,
+          "latency_ms": 7299.488067626953,
+          "relevant_in_top_k": 0,
+          "total_relevant": 3,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        }
+      }
+    },
+    {
+      "qid": "test66",
+      "query": "when is chinese new year and what year is it",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 1722.2838401794434,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Chinese New Year is on the new moon between January 21 and February 20. In 2018, it was on Friday, February 16, initiating the year of the Dog.",
+          "context_length": 593,
+          "latency_ms": 11090.337038040161,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "Chinese New Year falls on the new moon between January 21 and February 20. In 2018, the first day of the Lunar New Year was on Friday, 16 February, initiating the year of the Dog.",
+          "context_length": 1380,
+          "latency_ms": 11890.72585105896,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "Chinese New Year falls on the new moon between January 21 and February 20. In 2018, the first day of the Lunar New Year was on Friday, 16 February, initiating the year of the Dog.",
+          "context_length": 1997,
+          "latency_ms": 12234.382152557373,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "Chinese New Year falls on the new moon between January 21 and February 20 in the Gregorian calendar. In 2018, it was on Friday, February 16, initiating the year of the Dog.",
+          "context_length": 2681,
+          "latency_ms": 11784.81912612915,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Chinese New Year falls on the new moon between January 21 and February 20 in the Gregorian calendar. In 2018, it was on Friday, February 16, marking the year of the Dog.",
+          "context_length": 3552,
+          "latency_ms": 12463.044881820679,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Chinese New Year falls on the new moon between January 21 and February 20 in the Gregorian calendar. In 2018, it was on Friday, February 16, initiating the year of the Dog.",
+          "context_length": 3918,
+          "latency_ms": 11475.502729415894,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Chinese New Year falls on the new moon between January 21 and February 20 in the Gregorian calendar. In 2018, it was on Friday, February 16, initiating the year of the Dog.",
+          "context_length": 5902,
+          "latency_ms": 14575.06513595581,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test67",
+      "query": "what's on each level of the eiffel tower",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 1528.4740924835205,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "The first and second levels have restaurants, and the top level has the highest observation deck accessible to the public in the European Union.",
+          "context_length": 561,
+          "latency_ms": 6873.074054718018,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "2": {
+          "k": 2,
+          "answer": "The first and second levels of the Eiffel Tower have restaurants, and the top level has the highest observation deck accessible to the public in the European Union.",
+          "context_length": 925,
+          "latency_ms": 7450.127124786377,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The first level has restaurants (one French, one Russian, and one Flemish) and an \"Anglo-American Bar,\" with a promenade around its outside. The second level has restaurants and is accessible via stairs or lift. The top level has an observation deck 276 meters above ground, laboratories (now open to the public), and a small apartment reserved for Gustave Eiffel with period decorations and mannequins.",
+          "context_length": 1527,
+          "latency_ms": 18902.565002441406,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "- First level: Two restaurants (Le 58 Tour Eiffel) and a promenade.  \n- Second level: Le Jules Verne, a gourmet restaurant with a Michelin star, served by chef Alain Ducasse, and a lift to the top.  \n- Top level: A champagne bar and an observation deck at 276 meters (906 feet) above ground. There is also a small apartment for Gustave Eiffel, now open to the public with period decorations and mannequins.",
+          "context_length": 1958,
+          "latency_ms": 22487.14780807495,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "- First level: Two restaurants (Le 58 Tour Eiffel and a former Anglo-American Bar, now possibly repurposed), a promenade, and a theatre (formerly the Flemish restaurant).  \n- Second level: Le Jules Verne, a gourmet restaurant with a Michelin star, run by Alain Ducasse, and its own lift.  \n- Top level: A champagne bar and an observation deck at 276 meters (906 feet), the highest accessible public observation deck in the European Union. There is also a small apartment for Gustave Eiffel, now open to the public with period decorations and mannequins.",
+          "context_length": 2225,
+          "latency_ms": 26997.082233428955,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "- First level: Two restaurants (Le 58 Tour Eiffel and a former Anglo-American Bar, now converted to a theatre), a promenade, and historical features like Gustave Eiffel's apartment (now open to the public).  \n- Second level: Le Jules Verne, a gourmet restaurant with a Michelin star, run by Alain Ducasse, and a lift to access it.  \n- Top level: A champagne bar and the highest observation deck in the European Union (276 m above ground), with a small platform accessible mainly by lift.",
+          "context_length": 2298,
+          "latency_ms": 24087.669849395752,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "- **First level**: Le 58 Tour Eiffel restaurant, a glass floor, a seasonal ice rink (seasonally), and an apartment for competition winners (during special events). Previously had three restaurants (French, Russian, Flemish), an Anglo-American Bar, and a promenade. Also had a p\u00e2tisserie and a newspaper office (Le Figaro) with a printing press.\n- **Second level**: Le Jules Verne gourmet restaurant (with Michelin star, run by Alain Ducasse), a printing press for Le Figaro, and a p\u00e2tisserie. Has its own lift.\n- **Top level**: The highest observation deck in the European Union (276 m above ground), with a champagne bar. Originally had laboratories and a private apartment for Gustave Eiffel, now open to the public with period decorations and mannequins. Access to the top is usually by lift, though a staircase exists.",
+          "context_length": 3274,
+          "latency_ms": 40939.3310546875,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test68",
+      "query": "who starred in the remake of true grit",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 1820.4259872436523,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Jeff Bridges, Matt Damon, and Hailee Steinfeld starred in the remake of True Grit.",
+          "context_length": 128,
+          "latency_ms": 5048.279047012329,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Jeff Bridges, Matt Damon, and Hailee Steinfeld starred in the remake of True Grit.",
+          "context_length": 682,
+          "latency_ms": 5821.590900421143,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "3": {
+          "k": 3,
+          "answer": "Jeff Bridges, Matt Damon, and Hailee Steinfeld starred in the remake of True Grit.",
+          "context_length": 1470,
+          "latency_ms": 7156.71706199646,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "4": {
+          "k": 4,
+          "answer": "Jeff Bridges, Matt Damon, and Hailee Steinfeld starred in the remake of True Grit.",
+          "context_length": 1990,
+          "latency_ms": 6446.2480545043945,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "Jeff Bridges, Matt Damon, and Hailee Steinfeld starred in the remake of True Grit.",
+          "context_length": 2378,
+          "latency_ms": 5839.519023895264,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "Jeff Bridges, Matt Damon, and Hailee Steinfeld starred in the remake of True Grit.",
+          "context_length": 2611,
+          "latency_ms": 5003.44705581665,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "Hailee Steinfeld, Jeff Bridges, Matt Damon, Josh Brolin, and Barry Pepper starred in the 2010 remake of True Grit.",
+          "context_length": 4455,
+          "latency_ms": 11288.540840148926,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.25,
+          "has_relevant": true
+        }
+      }
+    },
+    {
+      "qid": "test69",
+      "query": "how many students attend university of texas at austin",
+      "shots": {
+        "0": {
+          "k": 0,
+          "answer": "I cannot answer.",
+          "context_length": 0,
+          "latency_ms": 1446.126937866211,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "1": {
+          "k": 1,
+          "answer": "Over 38,000 undergraduate students and 12,000 graduate students attend the University of Texas at Austin.",
+          "context_length": 539,
+          "latency_ms": 7373.9800453186035,
+          "relevant_in_top_k": 0,
+          "total_relevant": 1,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0.0,
+          "has_relevant": false
+        },
+        "2": {
+          "k": 2,
+          "answer": "Over 50,000 undergraduate and graduate students attend the University of Texas at Austin.",
+          "context_length": 1182,
+          "latency_ms": 6132.336854934692,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "3": {
+          "k": 3,
+          "answer": "The University of Texas at Austin has over 50,000 undergraduate and graduate students.",
+          "context_length": 1513,
+          "latency_ms": 5755.779981613159,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "4": {
+          "k": 4,
+          "answer": "The University of Texas at Austin has over 50,000 undergraduate and graduate students.",
+          "context_length": 1994,
+          "latency_ms": 5230.12113571167,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "5": {
+          "k": 5,
+          "answer": "The University of Texas at Austin has over 50,000 undergraduate and graduate students.",
+          "context_length": 3237,
+          "latency_ms": 6423.267126083374,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "6": {
+          "k": 6,
+          "answer": "The University of Texas at Austin has an enrollment of over 50,000 undergraduate and graduate students.",
+          "context_length": 4146,
+          "latency_ms": 6794.524192810059,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        },
+        "10": {
+          "k": 10,
+          "answer": "The University of Texas at Austin has an enrollment of over 50,000 undergraduate and graduate students, with specific figures including 38,437 undergraduates, 11,497 graduate students, and 1,178 law students for Fall 2011. More recent data indicates over 50,000 total students, with the undergraduate student body being 48.9% male and 51.1% female.",
+          "context_length": 6824,
+          "latency_ms": 25898.336172103882,
+          "relevant_in_top_k": 1,
+          "total_relevant": 1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "has_relevant": true
+        }
+      }
     }
   ],
   "config": {
@@ -5718,5 +6668,5 @@
     ],
     "run_path": "data/nq/fused/learned_per_retriever.res"
   },
-  "last_updated": "2025-12-05 09:12:01"
+  "last_updated": "2025-12-05 09:23:51"
 }
