@@ -29,6 +29,7 @@ def main():
     parser = argparse.ArgumentParser(description="Step 3: Compute QPP Scores")
     parser.add_argument("--runs_dir", default=None, help="Directory with .res files")
     parser.add_argument("--qpp_dir", default=None, help="Output directory for QPP files")
+    parser.add_argument("--queries", default=None, help="Path to queries.jsonl (BEIR format)")
     parser.add_argument("--top_k", type=int, default=100, help="Top-k for QPP computation")
     parser.add_argument("--normalize", default="minmax", choices=["none", "minmax", "zscore"])
     args = parser.parse_args()
@@ -37,6 +38,24 @@ def main():
     output_dir = PROJECT_ROOT / "data" / "nq"
     runs_dir = Path(args.runs_dir) if args.runs_dir else output_dir / "runs"
     qpp_dir = Path(args.qpp_dir) if args.qpp_dir else output_dir / "qpp"
+    
+    # Auto-detect queries.jsonl if not specified
+    queries_path = args.queries
+    if not queries_path:
+        # Try common locations
+        for candidate in [
+            output_dir / "BEIR-nq" / "queries.jsonl",
+            output_dir / "queries.jsonl",
+            PROJECT_ROOT / "data" / "nq" / "BEIR-nq" / "queries.jsonl"
+        ]:
+            if candidate.exists():
+                queries_path = str(candidate)
+                break
+    
+    if queries_path:
+        print(f"[03_qpp] Using query texts from: {queries_path}")
+    else:
+        print(f"[03_qpp] WARNING: No queries.jsonl found - IDF-based methods will be inaccurate")
     
     os.makedirs(qpp_dir, exist_ok=True)
     
@@ -50,17 +69,8 @@ def main():
     print(f"[03_qpp] Processing {len(res_files)} run files")
     print(f"[03_qpp] QPP methods: 13 (NQC, RSD, WIG, SMV, UEF, ...)")
     
-    # #region agent log
-    import time as _t, json as _j; _loop_start = _t.time()
-    # #endregion
-    
-    # OPTIMIZED: Parallel processing (5x speedup for 5 files)
-    from concurrent.futures import ProcessPoolExecutor
-    import multiprocessing
-    
-    def process_file(res_file_str):
-        """Process single QPP file."""
-        res_file = Path(res_file_str).name
+    # Process files sequentially (each file uses optimized batch QPP internally)
+    for res_file in res_files:
         res_path = runs_dir / res_file
         qpp_output = qpp_dir / res_file.replace(".res", ".res.mmnorm.qpp")
         
@@ -69,20 +79,9 @@ def main():
             str(res_path),
             str(qpp_output),
             top_k=args.top_k,
-            normalize=args.normalize
+            normalize=args.normalize,
+            queries_path=queries_path
         )
-        return res_file
-    
-    # Use 4 workers (leave cores for other tasks)
-    max_workers = min(4, len(res_files), multiprocessing.cpu_count() - 1)
-    
-    with ProcessPoolExecutor(max_workers=max_workers) as executor:
-        list(executor.map(process_file, [str(f) for f in res_files]))
-    
-    # #region agent log
-    _total_elapsed = _t.time() - _loop_start
-    with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as _f: _f.write(_j.dumps({"location":"scripts/03_qpp.py:53","message":"qpp_parallel_complete","data":{"num_files":len(res_files),"total_elapsed_sec":round(_total_elapsed,2),"max_workers":max_workers,"optimization":"parallel_processing"},"timestamp":int(_t.time()*1000),"sessionId":"debug-session","runId":"post-fix","hypothesisId":"H3"})+'\n')
-    # #endregion
     
     print(f"\n=== Step 3 Complete ===")
     print(f"QPP files: {qpp_dir}")

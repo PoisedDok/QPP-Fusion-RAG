@@ -268,7 +268,8 @@ def compute_qpp_for_res_file(
     res_path: str,
     output_path: Optional[str] = None,
     top_k: int = 100,
-    normalize: str = "minmax"
+    normalize: str = "minmax",
+    queries_path: Optional[str] = None
 ) -> Dict[str, List[float]]:
     """
     Compute QPP scores for all queries in a TREC .res file.
@@ -278,6 +279,8 @@ def compute_qpp_for_res_file(
         output_path: Path for .qpp output (optional)
         top_k: Top-k documents for QPP
         normalize: "minmax", "zscore", or "none"
+        queries_path: Path to queries.jsonl (BEIR format) for actual query text.
+                     Required for IDF-based QPP methods (WIG, MaxIDF, AvgIDF).
         
     Returns:
         Dict of {qid: [13 QPP scores]}
@@ -291,6 +294,16 @@ def compute_qpp_for_res_file(
     
     if not os.path.exists(res_path):
         raise FileNotFoundError(f"Run file not found: {res_path}")
+    
+    # Load actual query texts if provided
+    query_texts = {}
+    if queries_path and os.path.exists(queries_path):
+        print(f"[QPP] Loading query texts from {queries_path}")
+        with open(queries_path, 'r') as f:
+            for line in f:
+                q = json.loads(line)
+                query_texts[q["_id"]] = q["text"]
+        print(f"[QPP] Loaded {len(query_texts)} query texts")
     
     # Load run file
     runs = defaultdict(list)
@@ -316,22 +329,27 @@ def compute_qpp_for_res_file(
     import time as _t; _qpp_start = _t.time()
     # #endregion
     
-    # Prepare batch input
-    batch_queries = [(qid, scores) for qid, scores in runs.items()]
+    # Prepare batch input - use actual query text if available
+    batch_queries = [
+        (query_texts.get(qid, qid), scores, qid)  # (query_text, scores, qid_for_tracking)
+        for qid, scores in runs.items()
+    ]
     
     # Batch compute (single Java call instead of N subprocess spawns)
     try:
-        batch_results = bridge.compute_batch(batch_queries)
+        batch_results = bridge.compute_batch([(q[0], q[1]) for q in batch_queries])
         results = {}
-        for qpp_result in batch_results:
+        for i, qpp_result in enumerate(batch_results):
+            qid = batch_queries[i][2]  # Get original qid
             qpp_list = [qpp_result.qpp_scores.get(m, 0.0) for m in QPP_METHOD_NAMES]
-            results[qpp_result.query] = qpp_list
+            results[qid] = qpp_list
     except Exception as e:
         # Fallback to sequential if batch fails
         print(f"Warning: Batch QPP failed ({e}), falling back to sequential")
         results = {}
         for qid, scores in runs.items():
-            result = bridge.compute(query=qid, scores=scores)
+            query_text = query_texts.get(qid, qid)  # Use actual query text
+            result = bridge.compute(query=query_text, scores=scores)
             qpp_list = [result.qpp_scores.get(m, 0.0) for m in QPP_METHOD_NAMES]
             results[qid] = qpp_list
     

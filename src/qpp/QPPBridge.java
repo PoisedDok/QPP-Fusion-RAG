@@ -224,14 +224,20 @@ public class QPPBridge {
         int k = Math.min(20, scores.size());
         List<Float> topK = getTopK(scores, k);
         
-        double avgIDF = 1.0; // Simplified
-        double wig = 0.0;
-        for (float score : topK) {
-            wig += (score - avgIDF);
-        }
+        // WIG: Weighted Information Gain - measures score deviation from corpus average
+        // Without real IDF, use mean of ALL scores as corpus baseline (not just top-k)
+        double corpusBaseline = mean(scores);  // Use full score list
+        double topKMean = mean(topK);
         
-        int numTerms = query.split("\\s+").length;
-        wig /= (numTerms * k);
+        // WIG is the gain of top-k over corpus baseline, normalized by query complexity
+        String[] terms = query.toLowerCase().split("\\s+");
+        int numTerms = terms.length;
+        java.util.Set<String> uniqueTerms = new java.util.HashSet<>();
+        for (String t : terms) uniqueTerms.add(t);
+        
+        // Incorporate term diversity as query difficulty proxy
+        double termDiversity = (double) uniqueTerms.size() / numTerms;
+        double wig = (topKMean - corpusBaseline) / (numTerms * termDiversity + 0.1);
         
         return 1.0 / (1.0 + Math.exp(-wig * 10));
     }
@@ -308,19 +314,40 @@ public class QPPBridge {
             weightSum += weight;
         }
         
-        return Math.min(1.0, utility / weightSum);
+        // Use sigmoid instead of min to preserve variance across queries
+        double ratio = utility / weightSum;
+        return 1.0 / (1.0 + Math.exp(-(ratio - 0.5) * 5));
     }
     
     private static double computeMaxIDF(String query) {
-        int numTerms = query.split("\\s+").length;
-        double maxIDF = Math.log(1 + numTerms);
-        return Math.min(1.0, maxIDF / 5.0);
+        // Split on whitespace and get unique terms
+        String[] terms = query.toLowerCase().split("\\s+");
+        java.util.Set<String> uniqueTerms = new java.util.HashSet<>();
+        int maxLen = 0;
+        for (String t : terms) {
+            uniqueTerms.add(t);
+            maxLen = Math.max(maxLen, t.length());
+        }
+        // Proxy for IDF: term diversity + max term length
+        double termDiversity = (double) uniqueTerms.size() / terms.length;
+        double maxIDF = Math.log(1 + uniqueTerms.size()) * (1 + termDiversity) + Math.log(1 + maxLen) * 0.5;
+        return 1.0 / (1.0 + Math.exp(-maxIDF + 2));
     }
     
     private static double computeAvgIDF(String query) {
-        int numTerms = query.split("\\s+").length;
-        double avgIDF = Math.log(1 + numTerms) * 0.8;
-        return Math.min(1.0, avgIDF / 5.0);
+        // Split on whitespace and analyze term characteristics
+        String[] terms = query.toLowerCase().split("\\s+");
+        java.util.Set<String> uniqueTerms = new java.util.HashSet<>();
+        double totalLen = 0;
+        for (String t : terms) {
+            uniqueTerms.add(t);
+            totalLen += t.length();
+        }
+        // Proxy for avg IDF: avg term length + uniqueness ratio
+        double avgLen = totalLen / terms.length;
+        double termDiversity = (double) uniqueTerms.size() / terms.length;
+        double avgIDF = Math.log(1 + avgLen) * termDiversity + Math.log(1 + uniqueTerms.size()) * 0.5;
+        return 1.0 / (1.0 + Math.exp(-avgIDF + 1.5));
     }
     
     private static double computeCumNQC(List<Float> scores) {
@@ -378,8 +405,9 @@ public class QPPBridge {
         double variance = variance(topK);
         double diameter = Math.sqrt(variance) + 0.01;
         
+        // Use sigmoid to preserve variance
         double denseQPP = Math.log(1 + 1 / diameter);
-        return Math.min(1.0, denseQPP / 5.0);
+        return 1.0 / (1.0 + Math.exp(-denseQPP + 2));
     }
     
     private static double computeDenseQPPMatryoshka(List<Float> scores) {
@@ -388,17 +416,34 @@ public class QPPBridge {
         int kMax = Math.min(5, scores.size());
         List<Float> topK = getTopK(scores, kMax);
         
-        double weightedSum = 0.0;
+        // Matryoshka: Multi-scale analysis at different k values
+        // Measures consistency of clustering across scales
+        double[] scaleValues = new double[kMax];
         for (int i = 1; i <= kMax; i++) {
             List<Float> window = topK.subList(0, i);
-            double variance = variance(window);
-            double diameter = Math.sqrt(variance) + 0.01;
-            
-            double weight = 1.0 / Math.log(1 + i);
-            weightedSum += weight * Math.log(1 + 1 / diameter);
+            double var = variance(window);
+            double std = Math.sqrt(var);
+            double mean = mean(window);
+            // Coefficient of variation at each scale
+            scaleValues[i-1] = (mean > 0.001) ? std / mean : std;
         }
         
-        return Math.min(1.0, weightedSum / kMax);
+        // Compute variance of scale values (how consistent is clustering?)
+        double scaleVariance = 0.0;
+        double scaleMean = 0.0;
+        for (double v : scaleValues) scaleMean += v;
+        scaleMean /= kMax;
+        for (double v : scaleValues) scaleVariance += Math.pow(v - scaleMean, 2);
+        scaleVariance /= kMax;
+        
+        // Low scale variance = consistent clustering = easy query
+        // High scale variance = inconsistent = harder query
+        double consistency = 1.0 / (1.0 + Math.sqrt(scaleVariance) * 10);
+        
+        // Combine with average scale (tightness)
+        double tightness = 1.0 / (1.0 + scaleMean * 5);
+        
+        return 0.5 * consistency + 0.5 * tightness;
     }
     
     // ========================================================================
