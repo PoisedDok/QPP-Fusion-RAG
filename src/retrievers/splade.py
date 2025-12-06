@@ -42,18 +42,20 @@ class SpladeRetriever(BaseRetriever):
         self.index_name = index_name or self.INDEX_NAME
         self.encoder_name = encoder_name or self.ENCODER_NAME
         
-        print(f"[SPLADE] Loading impact index from cache")
+        print(f"[SPLADE] Loading impact index from data folder (git LFS)")
         print(f"[SPLADE] Index: {self.index_name}")
         print(f"[SPLADE] Query encoder: {self.encoder_name}")
         
-        # Use locally cached index - no downloads
-        cache_dir = os.environ.get("PYSERINI_CACHE", "cache/pyserini")
-        index_dir = f"{cache_dir}/indexes/lucene-inverted.{self.index_name}.20231124.a66f86f.b280ed3f7b12034c0cc4b302f92801b9"
+        # Use index from data folder (tracked in git LFS)
+        from pathlib import Path
+        project_root = Path(__file__).parent.parent.parent
+        dataset = "hotpotqa" if "hotpotqa" in self.index_name else "nq"
+        index_dir = project_root / "data" / dataset / "index" / "splade"
         
-        if not os.path.exists(index_dir):
+        if not index_dir.exists():
             raise FileNotFoundError(f"Index not found: {index_dir}")
         
-        self.searcher = LuceneImpactSearcher(index_dir, self.encoder_name, impact_field="vector")
+        self.searcher = LuceneImpactSearcher(str(index_dir), self.encoder_name, impact_field="vector")
         
         print(f"[SPLADE] Index loaded. Ready for retrieval.")
     
