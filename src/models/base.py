@@ -1,4 +1,8 @@
 """
+Incoming: QPP features, target weights --- {numpy arrays}
+Processing: model training/prediction --- {abstract}
+Outgoing: predicted weights --- {numpy array}
+
 Base class for fusion weight models.
 """
 
@@ -147,15 +151,7 @@ def build_features(
     return X, qids
 
 
-def compute_ndcg(ranked_docs: List[str], qrels: Dict[str, int], k: int = 10) -> float:
-    """Compute NDCG@k."""
-    dcg = 0.0
-    for i, docid in enumerate(ranked_docs[:k]):
-        rel = qrels.get(docid, 0)
-        dcg += (2**rel - 1) / np.log2(i + 2)
-    
-    ideal_rels = sorted([r for r in qrels.values() if r > 0], reverse=True)[:k]
-    idcg = sum((2**rel - 1) / np.log2(i + 2) for i, rel in enumerate(ideal_rels))
-    
-    return dcg / idcg if idcg > 0 else 0.0
+# Re-export compute_ndcg from evaluation module for backward compatibility
+from src.evaluation.ir_evaluator import compute_ndcg
 
+__all__ = ["BaseFusionModel", "build_features", "compute_ndcg"]

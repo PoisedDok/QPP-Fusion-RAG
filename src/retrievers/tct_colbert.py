@@ -1,6 +1,6 @@
 """
 Incoming: query, corpus --- {str, Dict}
-Processing: dense retrieval --- {1 job: embedding + similarity}
+Processing: dense retrieval --- {1 job: embedding + FAISS similarity}
 Outgoing: ranked results --- {RetrieverResult}
 
 TCT-ColBERT Dense Retriever
@@ -9,7 +9,9 @@ Optimized for Mac M4 16GB:
 - Uses MPS acceleration
 - fp16 embeddings (half memory)
 - Chunked encoding with disk caching
-- Memory-efficient FAISS index
+- FAISS index for efficient search
+
+STRICT: Requires FAISS. No numpy fallback.
 """
 
 import os
@@ -19,11 +21,20 @@ import numpy as np
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
+# STRICT: Fail immediately if dependencies not available
+import torch
+from sentence_transformers import SentenceTransformer
+import faiss
+
 from .base import BaseRetriever, RetrieverResult
 
 
 class TCTColBERTRetriever(BaseRetriever):
-    """Dense retrieval using TCT-ColBERT with memory optimizations."""
+    """
+    Dense retrieval using TCT-ColBERT with memory optimizations.
+    
+    STRICT: Requires FAISS for efficient search. No numpy fallback.
+    """
     
     name = "TCT-ColBERT"
     MODEL_NAME = "castorini/tct_colbert-v2-hnp-msmarco"
@@ -34,8 +45,7 @@ class TCTColBERTRetriever(BaseRetriever):
         corpus: Dict[str, Dict[str, str]],
         cache_dir: Optional[str] = None,
         batch_size: int = 64,
-        use_fp16: bool = True,
-        use_faiss: bool = True
+        use_fp16: bool = True
     ):
         """
         Initialize TCT-ColBERT retriever with memory optimizations.
@@ -45,15 +55,10 @@ class TCTColBERTRetriever(BaseRetriever):
             cache_dir: Directory to cache embeddings
             batch_size: Batch size for encoding
             use_fp16: Use float16 to halve memory
-            use_faiss: Use FAISS for efficient search
         """
-        import torch
-        from sentence_transformers import SentenceTransformer
-        
         self.corpus = corpus
         self.batch_size = batch_size
         self.use_fp16 = use_fp16
-        self.use_faiss = use_faiss
         self.doc_ids = list(corpus.keys())
         self.cache_dir = Path(cache_dir) if cache_dir else Path("data/nq/cache")
         self.cache_dir.mkdir(parents=True, exist_ok=True)
@@ -71,7 +76,7 @@ class TCTColBERTRetriever(BaseRetriever):
         
         self.model = SentenceTransformer(self.MODEL_NAME, device=self.device)
         
-        # Load or compute embeddings
+        # Load or compute embeddings and build FAISS index
         self._load_or_compute_index()
     
     def _get_cache_path(self) -> Path:
@@ -93,7 +98,7 @@ class TCTColBERTRetriever(BaseRetriever):
             # Verify IDs match
             if list(cached_ids) == self.doc_ids:
                 print(f"[TCT-ColBERT] Loaded {len(self.doc_embeddings)} embeddings")
-                self._build_index()
+                self._build_faiss_index()
                 return
             else:
                 print("[TCT-ColBERT] Cache IDs mismatch, recomputing...")
@@ -106,12 +111,10 @@ class TCTColBERTRetriever(BaseRetriever):
         np.save(str(ids_path), np.array(self.doc_ids, dtype=object))
         print(f"[TCT-ColBERT] Saved embeddings to {cache_path}")
         
-        self._build_index()
+        self._build_faiss_index()
     
     def _encode_corpus_chunked(self):
         """Encode corpus in memory-efficient chunks."""
-        import torch
-        
         print(f"[TCT-ColBERT] Encoding {len(self.doc_ids)} documents...")
         
         dtype = np.float16 if self.use_fp16 else np.float32
@@ -158,33 +161,22 @@ class TCTColBERTRetriever(BaseRetriever):
         
         print(f"[TCT-ColBERT] Encoding complete. Shape: {self.doc_embeddings.shape}")
     
-    def _build_index(self):
+    def _build_faiss_index(self):
         """Build FAISS index for efficient search."""
-        if not self.use_faiss:
-            self.index = None
-            return
+        print("[TCT-ColBERT] Building FAISS index...")
         
-        try:
-            import faiss
-            
-            print("[TCT-ColBERT] Building FAISS index...")
-            
-            # Convert to float32 for FAISS (required)
-            embeddings_f32 = self.doc_embeddings.astype(np.float32)
-            
-            # Use IndexFlatIP for cosine similarity (embeddings are normalized)
-            self.index = faiss.IndexFlatIP(self.EMBEDDING_DIM)
-            self.index.add(embeddings_f32)
-            
-            print(f"[TCT-ColBERT] FAISS index built: {self.index.ntotal} vectors")
-            
-            # Free the float32 copy
-            del embeddings_f32
-            gc.collect()
-            
-        except ImportError:
-            print("[TCT-ColBERT] FAISS not available, using numpy")
-            self.index = None
+        # Convert to float32 for FAISS (required)
+        embeddings_f32 = self.doc_embeddings.astype(np.float32)
+        
+        # Use IndexFlatIP for cosine similarity (embeddings are normalized)
+        self.index = faiss.IndexFlatIP(self.EMBEDDING_DIM)
+        self.index.add(embeddings_f32)
+        
+        print(f"[TCT-ColBERT] FAISS index built: {self.index.ntotal} vectors")
+        
+        # Free the float32 copy
+        del embeddings_f32
+        gc.collect()
     
     def retrieve(
         self,
@@ -193,8 +185,7 @@ class TCTColBERTRetriever(BaseRetriever):
         top_k: int = 100,
         **kwargs
     ) -> RetrieverResult:
-        """Retrieve documents using dense similarity."""
-        import torch
+        """Retrieve documents using dense similarity via FAISS."""
         start = time.time()
         
         # Encode query
@@ -205,22 +196,15 @@ class TCTColBERTRetriever(BaseRetriever):
                 normalize_embeddings=True
             )[0].astype(np.float32)
         
-        # Search
-        if self.index is not None:
-            # FAISS search
-            scores, indices = self.index.search(query_emb.reshape(1, -1), top_k)
-            scores = scores[0]
-            indices = indices[0]
-        else:
-            # Numpy fallback
-            doc_emb_f32 = self.doc_embeddings.astype(np.float32)
-            scores = np.dot(doc_emb_f32, query_emb)
-            indices = np.argsort(scores)[::-1][:top_k]
-            scores = scores[indices]
+        # FAISS search
+        scores, indices = self.index.search(query_emb.reshape(1, -1), top_k)
+        scores = scores[0]
+        indices = indices[0]
         
         results = [
             (self.doc_ids[idx], float(scores[i]), i + 1)
             for i, idx in enumerate(indices)
+            if idx >= 0  # FAISS returns -1 for empty slots
         ]
         
         latency = (time.time() - start) * 1000
@@ -239,8 +223,7 @@ class TCTColBERTRetriever(BaseRetriever):
         top_k: int = 100,
         **kwargs
     ) -> Dict[str, RetrieverResult]:
-        """Batch retrieval with vectorized similarity."""
-        import torch
+        """Batch retrieval with vectorized FAISS search."""
         start = time.time()
         
         query_ids = list(queries.keys())
@@ -256,45 +239,23 @@ class TCTColBERTRetriever(BaseRetriever):
                 show_progress_bar=len(query_texts) > 100
             ).astype(np.float32)
         
-        results = {}
+        # FAISS batch search
+        all_scores, all_indices = self.index.search(query_embs, top_k)
         
-        if self.index is not None:
-            # FAISS batch search
-            all_scores, all_indices = self.index.search(query_embs, top_k)
-            
-            for i, qid in enumerate(query_ids):
-                doc_results = [
-                    (self.doc_ids[idx], float(all_scores[i, j]), j + 1)
-                    for j, idx in enumerate(all_indices[i])
-                    if idx >= 0  # FAISS returns -1 for empty
-                ]
-                results[qid] = RetrieverResult(
-                    qid=qid,
-                    results=doc_results,
-                    retriever_name=self.name,
-                    latency_ms=0,
-                    metadata={"model": self.MODEL_NAME}
-                )
-        else:
-            # Numpy fallback (memory intensive for large corpus)
-            doc_emb_f32 = self.doc_embeddings.astype(np.float32)
-            all_scores = np.dot(doc_emb_f32, query_embs.T)
-            
-            for i, qid in enumerate(query_ids):
-                scores = all_scores[:, i]
-                top_indices = np.argsort(scores)[::-1][:top_k]
-                
-                doc_results = [
-                    (self.doc_ids[idx], float(scores[idx]), rank + 1)
-                    for rank, idx in enumerate(top_indices)
-                ]
-                results[qid] = RetrieverResult(
-                    qid=qid,
-                    results=doc_results,
-                    retriever_name=self.name,
-                    latency_ms=0,
-                    metadata={"model": self.MODEL_NAME}
-                )
+        results = {}
+        for i, qid in enumerate(query_ids):
+            doc_results = [
+                (self.doc_ids[idx], float(all_scores[i, j]), j + 1)
+                for j, idx in enumerate(all_indices[i])
+                if idx >= 0  # FAISS returns -1 for empty slots
+            ]
+            results[qid] = RetrieverResult(
+                qid=qid,
+                results=doc_results,
+                retriever_name=self.name,
+                latency_ms=0,
+                metadata={"model": self.MODEL_NAME}
+            )
         
         total_time = (time.time() - start) * 1000
         print(f"[TCT-ColBERT] Batch: {len(queries)} queries in {total_time:.1f}ms")

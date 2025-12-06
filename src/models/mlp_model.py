@@ -1,5 +1,11 @@
 """
+Incoming: QPP features, target weights --- {numpy arrays}
+Processing: neural network training/prediction --- {MLP model}
+Outgoing: predicted weights --- {numpy array}
+
 MLP (Neural Network) fusion weight model.
+
+STRICT: Requires PyTorch. No fallbacks.
 """
 
 import os
@@ -9,14 +15,11 @@ from typing import Dict, List, Optional
 # Fix for M4 OpenMP threading issue
 os.environ.setdefault('OMP_NUM_THREADS', '1')
 
-try:
-    import torch
-    import torch.nn as nn
-    import torch.optim as optim
-    from torch.utils.data import DataLoader, TensorDataset
-    HAS_TORCH = True
-except ImportError:
-    HAS_TORCH = False
+# STRICT: Fail immediately if PyTorch not available
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader, TensorDataset
 
 from .base import BaseFusionModel
 
@@ -49,10 +52,10 @@ class FusionMLP(BaseFusionModel):
         self,
         retrievers: List[str],
         n_qpp: int = 13,
-        qpp_indices: List[int] = None,
-        hidden_sizes: List[int] = None,
+        qpp_indices: Optional[List[int]] = None,
+        hidden_sizes: Optional[List[int]] = None,
         dropout: float = 0.2,
-        device: str = None
+        device: Optional[str] = None
     ):
         # Default to RSD only (index 5) - best single predictor
         self.qpp_indices = qpp_indices if qpp_indices is not None else [5]
@@ -64,9 +67,6 @@ class FusionMLP(BaseFusionModel):
         self.n_features = self.n_qpp_used * len(retrievers)
         self.feature_names = [f"{r}_{self.QPP_NAMES.get(i, i)}" 
                               for r in retrievers for i in self.qpp_indices]
-        
-        if not HAS_TORCH:
-            raise ImportError("PyTorch not installed. Run: pip install torch")
         
         # Scale hidden sizes based on input size
         if hidden_sizes is None:
@@ -143,22 +143,11 @@ class FusionMLP(BaseFusionModel):
         """Train the MLP model using CrossEntropyLoss."""
         print(f"\n=== Training FusionMLP on {self.device} (CrossEntropyLoss) ===")
         
-        # #region agent log
-        import json, time
-        with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as f:
-            f.write(json.dumps({'location': 'mlp_model.py:145', 'message': 'train() - before filter', 'data': {'X_train_shape': X_train.shape, 'model_n_features': self.n_features, 'qpp_indices': self.qpp_indices}, 'timestamp': time.time(), 'sessionId': 'mlp-train'}) + '\n')
-        # #endregion
-        
         # Filter features if using subset of QPP methods
         if len(self.qpp_indices) < self.n_qpp:
             X_train = self._filter_features(X_train)
             if X_val is not None:
                 X_val = self._filter_features(X_val)
-            
-            # #region agent log
-            with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as f:
-                f.write(json.dumps({'location': 'mlp_model.py:157', 'message': 'train() - after filter', 'data': {'X_train_filtered_shape': X_train.shape, 'X_val_filtered': X_val.shape if X_val is not None else None}, 'timestamp': time.time(), 'sessionId': 'mlp-train'}) + '\n')
-            # #endregion
         
         # Normalize Y to sum to 1 (target distribution)
         Y_train_sum = Y_train.sum(axis=1, keepdims=True)
@@ -263,22 +252,11 @@ class FusionMLP(BaseFusionModel):
     def predict(self, X: np.ndarray) -> np.ndarray:
         """Predict weights (softmax at inference, then normalize like LightGBM)."""
         if not self.is_trained:
-            raise RuntimeError("Model not trained")
-        
-        # #region agent log
-        import json, time
-        with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as f:
-            f.write(json.dumps({'location': 'mlp_model.py:280', 'message': 'predict() - before filter', 'data': {'X_shape': X.shape, 'model_n_features': self.n_features, 'qpp_indices': self.qpp_indices}, 'timestamp': time.time(), 'sessionId': 'mlp-predict'}) + '\n')
-        # #endregion
+            raise RuntimeError("Model not trained. Call train() first.")
         
         # Filter features if using subset of QPP methods
         if len(self.qpp_indices) < self.n_qpp:
             X = self._filter_features(X)
-            
-            # #region agent log
-            with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as f:
-                f.write(json.dumps({'location': 'mlp_model.py:292', 'message': 'predict() - after filter', 'data': {'X_filtered_shape': X.shape}, 'timestamp': time.time(), 'sessionId': 'mlp-predict'}) + '\n')
-            # #endregion
         
         # Ensure model is on correct device
         self.model.to(self.device)
@@ -341,4 +319,3 @@ class FusionMLP(BaseFusionModel):
         model.is_trained = data['is_trained']
         
         return model
-

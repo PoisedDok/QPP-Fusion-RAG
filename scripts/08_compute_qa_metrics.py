@@ -6,12 +6,14 @@ Outgoing: updated results JSON with QA metrics --- {JSON}
 
 Step 8: Compute QA Metrics
 --------------------------
-Computes multiple QA metrics for RAG-generated answers:
-  - EM (Exact Match): Normalized string match
-  - F1: Token-level F1 score  
+Computes multiple QA metrics for RAG-generated answers using HuggingFace evaluate:
+  - EM (Exact Match): Normalized string match (via evaluate.load("squad"))
+  - F1: Token-level F1 score (via evaluate.load("squad"))
   - Containment: Does output contain gold answer?
   - Semantic: Cosine similarity using LM Studio embeddings (BGE-small)
   - LLM-Judge: LLM rates answer correctness (1-5)
+
+STRICT: No manual fallbacks. Missing dependencies raise ImportError.
 
 Usage:
     python scripts/08_compute_qa_metrics.py --results_file data/nq/results/wcombsum_rsd__liquid_lfm2-1.2b.json
@@ -30,122 +32,69 @@ os.environ["TRANSFORMERS_CACHE"] = f"{CACHE_ROOT}/huggingface/transformers"
 
 import json
 import re
-import string
 import argparse
-import time
 from pathlib import Path
-from collections import Counter, defaultdict
+from collections import defaultdict
 from typing import Dict, List, Optional
+
+import numpy as np
 import requests
 
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-# LM Studio endpoint
+# STRICT: Use research-grade QA evaluation
+from src.evaluation import QAEvaluator
+
+# LM Studio endpoints
 LM_STUDIO_URL = "http://localhost:1234/v1/chat/completions"
-
-
-def normalize_answer(s: str) -> str:
-    """Normalize answer for comparison (lowercase, remove punctuation/articles)."""
-    def remove_articles(text):
-        return re.sub(r'\b(a|an|the)\b', ' ', text)
-    
-    def white_space_fix(text):
-        return ' '.join(text.split())
-    
-    def remove_punc(text):
-        exclude = set(string.punctuation)
-        return ''.join(ch for ch in text if ch not in exclude)
-    
-    def lower(text):
-        return text.lower()
-    
-    return white_space_fix(remove_articles(remove_punc(lower(s))))
+LM_STUDIO_EMBED_URL = "http://localhost:1234/v1/embeddings"
+EMBED_MODEL = "text-embedding-bge-small-en-v1.5"
 
 
 # =============================================================================
-# METRIC 1: Exact Match
+# QA Metrics via HuggingFace evaluate
 # =============================================================================
+
+# Shared evaluator instance (lazy loaded)
+_qa_evaluator: Optional[QAEvaluator] = None
+
+
+def _get_qa_evaluator() -> QAEvaluator:
+    """Get or create shared QA evaluator."""
+    global _qa_evaluator
+    if _qa_evaluator is None:
+        _qa_evaluator = QAEvaluator(metrics=["em", "f1", "containment"])
+    return _qa_evaluator
+
+
 def compute_em(prediction: str, gold_answers: List[str]) -> float:
-    """Exact Match: 1 if normalized prediction matches any gold answer."""
-    norm_pred = normalize_answer(prediction)
-    for gold in gold_answers:
-        if normalize_answer(gold) == norm_pred:
-            return 1.0
-    return 0.0
+    """Exact Match using HuggingFace evaluate (squad metric)."""
+    evaluator = _get_qa_evaluator()
+    result = evaluator.evaluate(prediction, gold_answers)
+    return result.get("em", 0.0)
 
 
-# =============================================================================
-# METRIC 2: Token F1
-# =============================================================================
 def compute_f1(prediction: str, gold_answers: List[str]) -> float:
-    """Token F1: Best F1 across all gold answers."""
-    norm_pred = normalize_answer(prediction)
-    pred_tokens = norm_pred.split()
-    
-    if not pred_tokens:
-        return 0.0
-    
-    best_f1 = 0.0
-    for gold in gold_answers:
-        gold_tokens = normalize_answer(gold).split()
-        
-        if not gold_tokens:
-            continue
-            
-        common = Counter(pred_tokens) & Counter(gold_tokens)
-        num_same = sum(common.values())
-        
-        if num_same == 0:
-            continue
-            
-        precision = num_same / len(pred_tokens)
-        recall = num_same / len(gold_tokens)
-        f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0
-        
-        best_f1 = max(best_f1, f1)
-    
-    return best_f1
+    """Token F1 using HuggingFace evaluate (squad metric)."""
+    evaluator = _get_qa_evaluator()
+    result = evaluator.evaluate(prediction, gold_answers)
+    return result.get("f1", 0.0)
 
 
-# =============================================================================
-# METRIC 3: Answer Containment
-# =============================================================================
 def compute_containment(prediction: str, gold_answers: List[str]) -> float:
     """Containment: 1 if any gold answer is contained in the prediction."""
-    pred_lower = prediction.lower()
-    for gold in gold_answers:
-        if gold.lower() in pred_lower:
-            return 1.0
-    return 0.0
+    evaluator = _get_qa_evaluator()
+    result = evaluator.evaluate(prediction, gold_answers)
+    return result.get("containment", 0.0)
 
 
 # =============================================================================
-# METRIC 4: Semantic Similarity (LM Studio Embeddings)
+# Semantic Similarity (LM Studio Embeddings - not in HuggingFace evaluate)
 # =============================================================================
-import numpy as np
-
-LM_STUDIO_EMBED_URL = "http://localhost:1234/v1/embeddings"
-EMBED_MODEL = "text-embedding-bge-small-en-v1.5"  # Fast and good quality
-
-
-def get_embedding(text: str, model: str = EMBED_MODEL) -> Optional[List[float]]:
-    """Get embedding from LM Studio."""
-    try:
-        response = requests.post(
-            LM_STUDIO_EMBED_URL,
-            json={"model": model, "input": text},
-            timeout=10
-        )
-        if response.status_code == 200:
-            return response.json()['data'][0]['embedding']
-    except:
-        pass
-    return None
-
 
 def get_embeddings_batch(texts: List[str], model: str = EMBED_MODEL, batch_size: int = 32) -> List[Optional[List[float]]]:
-    """Get embeddings for multiple texts in batches."""
+    """Get embeddings for multiple texts in batches from LM Studio."""
     all_embeddings = []
     
     for i in range(0, len(texts), batch_size):
@@ -158,13 +107,12 @@ def get_embeddings_batch(texts: List[str], model: str = EMBED_MODEL, batch_size:
             )
             if response.status_code == 200:
                 data = response.json()['data']
-                # Sort by index to ensure order
                 data.sort(key=lambda x: x['index'])
                 all_embeddings.extend([d['embedding'] for d in data])
             else:
-                all_embeddings.extend([None] * len(batch))
-        except Exception as e:
-            all_embeddings.extend([None] * len(batch))
+                raise RuntimeError(f"LM Studio embedding failed: {response.status_code}")
+        except requests.exceptions.ConnectionError:
+            raise RuntimeError("LM Studio not running at localhost:1234")
     
     return all_embeddings
 
@@ -176,30 +124,12 @@ def cosine_similarity(a: List[float], b: List[float]) -> float:
     return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b)))
 
 
-def compute_semantic_sim(prediction: str, gold_answers: List[str], pred_emb: List[float] = None) -> float:
-    """Semantic similarity using embeddings."""
-    if pred_emb is None:
-        pred_emb = get_embedding(prediction)
-    
-    if pred_emb is None:
-        return -1.0
-    
-    best_sim = 0.0
-    for gold in gold_answers:
-        gold_emb = get_embedding(gold)
-        if gold_emb:
-            sim = cosine_similarity(pred_emb, gold_emb)
-            best_sim = max(best_sim, sim)
-    
-    return best_sim
-
-
 def compute_semantic_sim_batch(
     predictions: List[str],
     gold_list: List[List[str]],
     model: str = EMBED_MODEL
 ) -> List[float]:
-    """Batch semantic similarity computation."""
+    """Batch semantic similarity computation using LM Studio embeddings."""
     print(f"  [Embeddings] Getting embeddings for {len(predictions)} predictions...")
     pred_embeddings = get_embeddings_batch(predictions, model=model)
     
@@ -213,7 +143,6 @@ def compute_semantic_sim_batch(
     gold_embeddings = get_embeddings_batch(all_golds, model=model)
     gold_emb_map = {g: e for g, e in zip(all_golds, gold_embeddings) if e is not None}
     
-    # Compute similarities
     results = []
     for pred_emb, golds in zip(pred_embeddings, gold_list):
         if pred_emb is None:
@@ -232,8 +161,9 @@ def compute_semantic_sim_batch(
 
 
 # =============================================================================
-# METRIC 5: LLM-as-Judge
+# LLM-as-Judge (Custom - not in HuggingFace evaluate)
 # =============================================================================
+
 def compute_llm_judge(
     question: str,
     prediction: str,
@@ -242,7 +172,7 @@ def compute_llm_judge(
 ) -> float:
     """LLM-as-Judge: Rate answer correctness 1-5 using LM Studio."""
     
-    gold_str = ", ".join(gold_answers[:3])  # Limit to 3 gold answers
+    gold_str = ", ".join(gold_answers[:3])
     
     prompt = f"""Rate the following answer on a scale of 1-5 for correctness.
 
@@ -272,24 +202,24 @@ Respond with ONLY a single number (1-5)."""
         )
         
         if response.status_code != 200:
-            return -1.0
+            raise RuntimeError(f"LLM Judge failed: {response.status_code}")
         
         result = response.json()
         answer = result['choices'][0]['message']['content'].strip()
         
-        # Extract number from response
         match = re.search(r'[1-5]', answer)
         if match:
             return float(match.group())
-        return -1.0
+        raise ValueError(f"LLM did not return valid rating: {answer}")
         
-    except Exception as e:
-        return -1.0
+    except requests.exceptions.ConnectionError:
+        raise RuntimeError("LM Studio not running at localhost:1234")
 
 
 # =============================================================================
 # Gold Answer Loading
 # =============================================================================
+
 def load_nq_gold_answers(cache_dir: Path) -> Dict[str, List[str]]:
     """Load gold answers from NQ dataset."""
     answers_file = cache_dir / "nq_gold_answers.json"
@@ -301,11 +231,8 @@ def load_nq_gold_answers(cache_dir: Path) -> Dict[str, List[str]]:
     
     print("Downloading NQ gold answers from HuggingFace...")
     
-    try:
-        from datasets import load_dataset
-    except ImportError:
-        print("ERROR: Install datasets: pip install datasets")
-        sys.exit(1)
+    # STRICT: Fail if datasets not installed
+    from datasets import load_dataset
     
     hf_cache = Path(CACHE_ROOT) / "huggingface" / "datasets"
     hf_cache.mkdir(parents=True, exist_ok=True)
@@ -365,6 +292,7 @@ def match_query_to_gold(query: str, gold_answers: Dict[str, List[str]]) -> Optio
 # =============================================================================
 # Main Processing
 # =============================================================================
+
 def compute_qa_metrics_for_file(
     results_file: Path,
     gold_answers: Dict[str, List[str]],
@@ -380,13 +308,9 @@ def compute_qa_metrics_for_file(
     with open(results_file) as f:
         data = json.load(f)
     
-    # Aggregate metrics per k
     agg = defaultdict(lambda: defaultdict(lambda: {'sum': 0, 'count': 0}))
     
     matched_count = 0
-    unmatched_queries = []
-    
-    # Collect all predictions for batch processing
     all_entries = []
     
     for entry in data['results']:
@@ -394,7 +318,6 @@ def compute_qa_metrics_for_file(
         gold = match_query_to_gold(query, gold_answers)
         
         if gold is None:
-            unmatched_queries.append(query[:50])
             continue
         
         matched_count += 1
@@ -415,7 +338,7 @@ def compute_qa_metrics_for_file(
     print(f"  Matched {matched_count}/{len(data['results'])} queries to gold answers")
     print(f"  Processing {len(all_entries)} (query, k) pairs...")
     
-    # Process semantic similarity in batch if requested
+    # Batch semantic similarity if requested
     if 'semantic' in metrics:
         print(f"  Computing semantic similarity (LM Studio embeddings: {embed_model})...")
         predictions = [e['generated'] for e in all_entries]
@@ -435,7 +358,6 @@ def compute_qa_metrics_for_file(
         gold = e['gold']
         k = e['k']
         
-        # Compute selected metrics
         if 'em' in metrics:
             em = compute_em(generated, gold)
             shot['em'] = em
@@ -463,10 +385,9 @@ def compute_qa_metrics_for_file(
         
         if 'llm_judge' in metrics and judge_model:
             score = compute_llm_judge(e['query'], generated, gold, judge_model)
-            if score > 0:
-                shot['llm_judge'] = score
-                agg[k]['llm_judge']['sum'] += score
-                agg[k]['llm_judge']['count'] += 1
+            shot['llm_judge'] = score
+            agg[k]['llm_judge']['sum'] += score
+            agg[k]['llm_judge']['count'] += 1
         
         shot['gold_answers'] = gold
     
@@ -477,13 +398,12 @@ def compute_qa_metrics_for_file(
         for metric_name, vals in agg[k].items():
             if vals['count'] > 0:
                 avg = vals['sum'] / vals['count']
-                # Convert to percentage for EM, F1, containment, semantic
                 if metric_name in ['em', 'f1', 'containment', 'semantic']:
                     avg *= 100
                 qa_summary[str(k)][metric_name] = round(avg, 2)
         qa_summary[str(k)]['n_matched'] = agg[k]['em']['count'] if 'em' in agg[k] else matched_count
     
-    # Update file with QA metrics - MERGE with existing, don't replace
+    # Update file
     if 'summary' not in data:
         data['summary'] = {}
     
@@ -491,12 +411,11 @@ def compute_qa_metrics_for_file(
     for k in qa_summary:
         if k not in existing_qa:
             existing_qa[k] = {}
-        existing_qa[k].update(qa_summary[k])  # Merge new metrics into existing
+        existing_qa[k].update(qa_summary[k])
     
     data['summary']['qa_metrics_by_k'] = existing_qa
     data['_metadata']['qa_metrics_computed'] = True
     
-    # Track which metrics have been computed
     computed = set(data['_metadata'].get('qa_metrics_list', []))
     computed.update(metrics)
     data['_metadata']['qa_metrics_list'] = list(computed)
@@ -508,7 +427,7 @@ def compute_qa_metrics_for_file(
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Compute QA Metrics")
+    parser = argparse.ArgumentParser(description="Compute QA Metrics (HuggingFace evaluate)")
     parser.add_argument("--results_file", required=True, help="Results JSON file")
     parser.add_argument("--cache_dir", default=None, help="Cache directory for gold answers")
     parser.add_argument("--metrics", default="em,f1,containment",
@@ -516,10 +435,9 @@ def main():
     parser.add_argument("--judge_model", default="liquid/lfm2-1.2b",
                         help="LM Studio model for LLM-as-Judge")
     parser.add_argument("--embed_model", default="text-embedding-bge-small-en-v1.5",
-                        help="LM Studio embedding model (use :2, :3 for clones)")
+                        help="LM Studio embedding model")
     args = parser.parse_args()
     
-    # Parse metrics
     if args.metrics == 'all':
         metrics = ['em', 'f1', 'containment', 'semantic', 'llm_judge']
     else:
@@ -527,14 +445,11 @@ def main():
     
     print(f"Metrics to compute: {metrics}")
     
-    # Cache directory
     cache_dir = Path(args.cache_dir) if args.cache_dir else PROJECT_ROOT / "data" / "nq" / "cache"
     
-    # Load gold answers
     gold_answers = load_nq_gold_answers(cache_dir)
     print(f"Loaded {len(gold_answers)} gold answer mappings")
     
-    # Process results file
     results_path = Path(args.results_file)
     
     if results_path.is_file():
@@ -549,7 +464,6 @@ def main():
         qa_metrics = compute_qa_metrics_for_file(f, gold_answers, metrics, args.judge_model, args.embed_model)
         all_results[f.stem] = qa_metrics
     
-    # Print summary
     print("\n" + "="*80)
     print("QA METRICS SUMMARY")
     print("="*80)
@@ -557,7 +471,6 @@ def main():
     for fname, metrics_data in all_results.items():
         print(f"\n{fname}:")
         
-        # Build header dynamically
         header_parts = ['K']
         for m in metrics:
             if m == 'llm_judge':

@@ -30,7 +30,6 @@ PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.generation import GenerationOperation
-from src.qa_evaluation import QAEvaluationOperation
 
 
 def get_model_safe_name(model: str) -> str:
@@ -247,7 +246,7 @@ def save_checkpoint(checkpoint_file: Path, completed_qids: Set[str], results: Li
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Step 5: K-Shot RAG Evaluation")
+    parser = argparse.ArgumentParser(description="Step 7: K-Shot RAG Evaluation")
     parser.add_argument("--corpus_path", required=True, help="Path to BEIR dataset")
     parser.add_argument("--run_path", default=None, help="Path to fused .res file")
     parser.add_argument("--output_dir", default=None, help="Output directory")
@@ -266,7 +265,7 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
     
     # Extract fusion method from run path
-    fusion_method = Path(run_path).stem  # e.g., "combsum", "learned_multioutput"
+    fusion_method = Path(run_path).stem
     model_safe = get_model_safe_name(args.model)
     
     # Files named: {fusion}__{model}.json
@@ -345,66 +344,57 @@ def main():
             
             is_retry = qid in needs_retry
             
-            try:
-                result = evaluate_query(
-                    qid=qid,
-                    query=query,
-                    doc_ids=doc_ids,
-                    corpus=corpus,
-                    qrels=query_qrels,
-                    k_values=k_values,
-                    generator=generator,
-                    model=args.model,
-                    system_prompt=system_prompt
-                )
-                
-                # Check if we got valid answers
-                has_empty = any(not shot.get("answer") for shot in result["shots"].values())
-                if has_empty:
-                    print(f"  ⚠ {qid}: Got empty answer, will retry next time")
-                    continue
-                
-                # If retry, update existing result; otherwise append
-                if is_retry and qid in results_by_qid:
-                    # Find and update existing result
-                    for idx, r in enumerate(all_results):
-                        if r.get("qid") == qid:
-                            all_results[idx] = result
-                            break
-                    needs_retry.discard(qid)
-                else:
-                    all_results.append(result)
-                
-                completed_qids.add(qid)
-                batch_count += 1
-                
-                # Checkpoint every batch_size queries
-                if batch_count >= args.batch_size:
-                    save_checkpoint(checkpoint_file, completed_qids, all_results, config)
-                    elapsed = time.time() - start_time
-                    total_done = len(completed_qids)
-                    remaining = len(queries) - total_done
-                    eta_sec = (elapsed / total_done) * remaining if total_done > 0 else 0
-                    eta_min = eta_sec / 60
-                    retry_str = f" (retries left: {len(needs_retry)})" if needs_retry else ""
-                    print(f"  ✓ {total_done}/{len(queries)} queries ({elapsed:.1f}s) | ETA: {eta_min:.1f}min{retry_str}")
-                    batch_count = 0
-                    
-            except Exception as e:
-                print(f"  ✗ Error on {qid}: {e}")
-                # Save checkpoint on error
-                save_checkpoint(checkpoint_file, completed_qids, all_results, config)
+            result = evaluate_query(
+                qid=qid,
+                query=query,
+                doc_ids=doc_ids,
+                corpus=corpus,
+                qrels=query_qrels,
+                k_values=k_values,
+                generator=generator,
+                model=args.model,
+                system_prompt=system_prompt
+            )
+            
+            # Check if we got valid answers
+            has_empty = any(not shot.get("answer") for shot in result["shots"].values())
+            if has_empty:
+                print(f"  Warning: {qid}: Got empty answer, will retry next time")
                 continue
+            
+            # If retry, update existing result; otherwise append
+            if is_retry and qid in results_by_qid:
+                for idx, r in enumerate(all_results):
+                    if r.get("qid") == qid:
+                        all_results[idx] = result
+                        break
+                needs_retry.discard(qid)
+            else:
+                all_results.append(result)
+            
+            completed_qids.add(qid)
+            batch_count += 1
+            
+            # Checkpoint every batch_size queries
+            if batch_count >= args.batch_size:
+                save_checkpoint(checkpoint_file, completed_qids, all_results, config)
+                elapsed = time.time() - start_time
+                total_done = len(completed_qids)
+                remaining = len(queries) - total_done
+                eta_sec = (elapsed / total_done) * remaining if total_done > 0 else 0
+                eta_min = eta_sec / 60
+                retry_str = f" (retries left: {len(needs_retry)})" if needs_retry else ""
+                print(f"  Done: {total_done}/{len(queries)} queries ({elapsed:.1f}s) | ETA: {eta_min:.1f}min{retry_str}")
+                batch_count = 0
         
         # Final checkpoint
         save_checkpoint(checkpoint_file, completed_qids, all_results, config)
     
-    # Aggregate metrics - use INTEGER keys internally
+    # Aggregate metrics
     aggregated = {k: {"recall_at_k": [], "reciprocal_rank": [], "has_relevant": [], "latency_ms": []} for k in k_values}
     
     for result in all_results:
         for k_str, shot_result in result["shots"].items():
-            # Convert string key from JSON to int for aggregation
             k_int = int(k_str) if isinstance(k_str, str) else k_str
             if k_int in aggregated:
                 aggregated[k_int]["recall_at_k"].append(shot_result.get("recall_at_k", 0.0))
@@ -412,26 +402,25 @@ def main():
                 aggregated[k_int]["has_relevant"].append(1 if shot_result.get("has_relevant", False) else 0)
                 aggregated[k_int]["latency_ms"].append(shot_result.get("latency_ms", 0.0))
     
-    # Compute averages - CANONICAL SCHEMA: metrics_by_k with string keys, percentages for summary
+    # Compute averages
     metrics_by_k = {}
     for k in k_values:
         n = len(aggregated[k]["recall_at_k"])
         if n > 0:
-            # Summary metrics as PERCENTAGES (0-100) per canonical schema
             mean_recall = sum(aggregated[k]["recall_at_k"]) / n
             mean_rr = sum(aggregated[k]["reciprocal_rank"]) / n
             hit_rate = sum(aggregated[k]["has_relevant"]) / n
             avg_latency = sum(aggregated[k]["latency_ms"]) / n
             
             metrics_by_k[str(k)] = {
-                "recall_at_k": round(mean_recall * 100, 2),      # Percentage
-                "mrr_at_k": round(mean_rr * 100, 2),             # Percentage
-                "hit_rate": round(hit_rate * 100, 2),           # Percentage
+                "recall_at_k": round(mean_recall * 100, 2),
+                "mrr_at_k": round(mean_rr * 100, 2),
+                "hit_rate": round(hit_rate * 100, 2),
                 "avg_latency_ms": round(avg_latency, 2),
                 "n_queries": n
             }
     
-    # Save final results with CANONICAL SCHEMA (see _SCHEMA.json v2.0)
+    # Save final results
     with open(results_file, 'w') as f:
         json.dump({
             "_metadata": {
@@ -472,4 +461,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

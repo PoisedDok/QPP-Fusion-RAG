@@ -36,7 +36,10 @@ class BM25Retriever(BaseRetriever):
             index_path: Path to PyTerrier index directory
         """
         import pyterrier as pt
-        if not pt.started():
+        # PyTerrier 0.11+ auto-starts Java
+        if hasattr(pt, 'java') and hasattr(pt.java, 'init'):
+            pt.java.init()
+        elif not pt.started():
             pt.init()
         
         self.index = pt.IndexFactory.of(index_path)

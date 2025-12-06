@@ -14,6 +14,8 @@ Models:
   - multioutput: Single multi-output LightGBM  
   - mlp: Neural network with shared layers
 
+STRICT: Uses ir_measures for NDCG computation. No manual implementations.
+
 Usage:
     python scripts/04_train_fusion.py --model per_retriever
     python scripts/04_train_fusion.py --model multioutput
@@ -33,7 +35,8 @@ PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.models import PerRetrieverLGBM, MultiOutputLGBM, FusionMLP
-from src.models.base import build_features, compute_ndcg
+from src.models.base import build_features
+from src.evaluation.ir_evaluator import compute_ndcg
 
 
 def load_qpp_scores(qpp_dir: Path) -> Dict[str, Dict[str, List[float]]]:
@@ -106,7 +109,7 @@ def compute_targets(
     retrievers: List[str]
 ) -> np.ndarray:
     """
-    Compute target weights based on per-retriever NDCG.
+    Compute target weights based on per-retriever NDCG (via ir_measures).
     
     Returns:
         Y: (n_queries, n_retrievers) target weights, normalized to sum to 1
@@ -140,7 +143,7 @@ def evaluate_model(
     qrels: Dict,
     retrievers: List[str]
 ) -> Dict[str, float]:
-    """Evaluate model on test set."""
+    """Evaluate model on test set using ir_measures."""
     pred_weights = model.predict(X_test)
     
     # Compare strategies

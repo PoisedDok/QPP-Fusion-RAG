@@ -1,21 +1,27 @@
 #!/usr/bin/env python3
 """
+Incoming: TREC run files, QPP scores --- {.res files, .qpp files}
+Processing: rank fusion --- {ranx library + QPP-weighted variants}
+Outgoing: fused run --- {TREC .res file}
+
 Fusion Methods for Multi-Retriever RAG
 ---------------------------------------
-Implements all fusion baselines and QPP-weighted variants:
+Implements all fusion baselines and QPP-weighted variants using ranx library.
 
-Unweighted:
+Unweighted (via ranx):
 - CombSUM: Σ S_i(d,q)
 - CombMNZ: |{i: d ∈ R_i}| × Σ S_i(d,q)
 - RRF: Σ 1/(k + rank_i(d,q))
 
-QPP-Weighted:
+QPP-Weighted (custom):
 - W-CombSUM: Σ w_i(q) × S_i(d,q)
 - W-CombMNZ: |{i}| × Σ w_i(q) × S_i(d,q)
 - W-RRF: Σ w_i(q) / (k + rank_i(d,q))
 
 Learned:
 - Learned fusion with ML model weights
+
+STRICT: No fallbacks. Missing dependencies raise ImportError immediately.
 """
 
 import os
@@ -25,6 +31,9 @@ import pandas as pd
 from pathlib import Path
 from collections import defaultdict
 from typing import Dict, List, Optional, Tuple, Any
+
+# STRICT: Fail immediately if ranx not available
+from ranx import Run, fuse, Qrels
 
 
 # QPP model index mapping (strict order from research plan)
@@ -36,6 +45,10 @@ QPP_MODELS = {
 
 QPP_MODEL_NAMES = list(QPP_MODELS.values())
 
+
+# =============================================================================
+# Data Loading
+# =============================================================================
 
 def load_runs(res_path: str, use_normalized: bool = True) -> Dict[str, pd.DataFrame]:
     """
@@ -66,6 +79,33 @@ def load_runs(res_path: str, use_normalized: bool = True) -> Dict[str, pd.DataFr
         )
         df["qid"] = df["qid"].astype(str)
         runs[ranker] = df
+    
+    return runs
+
+
+def load_runs_as_ranx(res_path: str, use_normalized: bool = True) -> Dict[str, Run]:
+    """
+    Load run files as ranx Run objects.
+    
+    Args:
+        res_path: Directory with run files
+        use_normalized: If True, load .norm.res files
+    
+    Returns:
+        {retriever_name: ranx.Run}
+    """
+    runs = {}
+    suffix = ".norm.res" if use_normalized else ".res"
+    
+    files = [f for f in os.listdir(res_path) if f.endswith(suffix)]
+    
+    if not files:
+        raise FileNotFoundError(f"No {suffix} files found in {res_path}")
+    
+    for f in files:
+        ranker = f.replace(suffix, "")
+        filepath = os.path.join(res_path, f)
+        runs[ranker] = Run.from_file(filepath, kind="trec")
     
     return runs
 
@@ -115,16 +155,26 @@ def get_qpp_weight(
     
     Returns:
         Weight value (0-1 range after normalization)
+        
+    Raises:
+        KeyError: If QPP data missing for qid or ranker (data integrity issue).
+        IndexError: If qpp_index out of range.
     """
-    if qid not in qpp_data or ranker not in qpp_data[qid]:
-        return 1.0  # Fallback
+    if qid not in qpp_data:
+        raise KeyError(f"QPP data missing for query '{qid}'. Run QPP computation first.")
+    
+    if ranker not in qpp_data[qid]:
+        raise KeyError(f"QPP data missing for ranker '{ranker}' on query '{qid}'. Available: {list(qpp_data[qid].keys())}")
     
     scores = qpp_data[qid][ranker]
     
     if fusion_mode or qpp_index == -1:
         return sum(scores) / len(scores)
-    else:
-        return scores[qpp_index] if qpp_index < len(scores) else 1.0
+    
+    if qpp_index >= len(scores):
+        raise IndexError(f"QPP index {qpp_index} out of range. Available: 0-{len(scores)-1}")
+    
+    return scores[qpp_index]
 
 
 def get_qpp_index(model_name: str) -> int:
@@ -136,84 +186,55 @@ def get_qpp_index(model_name: str) -> int:
         if name.lower() == model_name.lower():
             return idx
     
-    # Try case-insensitive match
-    name_lower = model_name.lower()
-    for idx, name in QPP_MODELS.items():
-        if name.lower() == name_lower:
-            return idx
-    
     valid = list(QPP_MODELS.values()) + ["fusion"]
     raise ValueError(f"Invalid QPP model '{model_name}'. Valid: {valid}")
 
 
 # =============================================================================
-# Unweighted Fusion Methods
+# Unweighted Fusion Methods (via ranx)
 # =============================================================================
 
 def combsum(runs: Dict[str, pd.DataFrame]) -> Dict[str, List[Tuple[str, float]]]:
     """
-    CombSUM: Sum normalized scores across rankers.
+    CombSUM using ranx library.
     
     Formula: CombSUM(d,q) = Σ S_i(d,q)
     
     Returns:
         {qid: [(docid, fused_score), ...]}
     """
-    # Concatenate all runs and group by (qid, docno)
-    print("[fusion] Running CombSUM...")
-    all_dfs = []
-    for ranker, df in runs.items():
-        all_dfs.append(df[["qid", "docno", "score"]])
+    print("[fusion] Running CombSUM (ranx)...")
     
-    combined = pd.concat(all_dfs, ignore_index=True)
-    aggregated = combined.groupby(["qid", "docno"])["score"].sum().reset_index()
+    ranx_runs = _df_runs_to_ranx(runs)
+    fused_run = fuse(runs=list(ranx_runs.values()), method="sum")
     
-    # Convert to dict format
-    fused = defaultdict(list)
-    for _, row in aggregated.iterrows():
-        fused[row["qid"]].append((row["docno"], row["score"]))
-    
-    print(f"[fusion] CombSUM done: {len(fused)} queries")
-    return dict(fused)
+    result = _ranx_to_dict(fused_run)
+    print(f"[fusion] CombSUM done: {len(result)} queries")
+    return result
 
 
 def combmnz(runs: Dict[str, pd.DataFrame]) -> Dict[str, List[Tuple[str, float]]]:
     """
-    CombMNZ: Multiply sum by number of rankers returning the document.
+    CombMNZ using ranx library.
     
     Formula: CombMNZ(d,q) = |{i: d ∈ R_i}| × Σ S_i(d,q)
     
     Returns:
         {qid: [(docid, fused_score), ...]}
     """
-    print("[fusion] Running CombMNZ...")
-    all_dfs = []
-    for ranker, df in runs.items():
-        all_dfs.append(df[["qid", "docno", "score"]])
+    print("[fusion] Running CombMNZ (ranx)...")
     
-    combined = pd.concat(all_dfs, ignore_index=True)
+    ranx_runs = _df_runs_to_ranx(runs)
+    fused_run = fuse(runs=list(ranx_runs.values()), method="mnz")
     
-    # Group and compute sum and count
-    aggregated = combined.groupby(["qid", "docno"]).agg(
-        score_sum=("score", "sum"),
-        count=("score", "count")
-    ).reset_index()
-    
-    # MNZ: multiply sum by count
-    aggregated["mnz_score"] = aggregated["score_sum"] * aggregated["count"]
-    
-    # Convert to dict format
-    fused = defaultdict(list)
-    for _, row in aggregated.iterrows():
-        fused[row["qid"]].append((row["docno"], row["mnz_score"]))
-    
-    print(f"[fusion] CombMNZ done: {len(fused)} queries")
-    return dict(fused)
+    result = _ranx_to_dict(fused_run)
+    print(f"[fusion] CombMNZ done: {len(result)} queries")
+    return result
 
 
 def rrf(runs: Dict[str, pd.DataFrame], k: int = 60) -> Dict[str, List[Tuple[str, float]]]:
     """
-    Reciprocal Rank Fusion (RRF).
+    Reciprocal Rank Fusion using ranx library.
     
     Formula: RRF(d,q) = Σ 1/(k + rank_i(d,q))
     
@@ -224,27 +245,18 @@ def rrf(runs: Dict[str, pd.DataFrame], k: int = 60) -> Dict[str, List[Tuple[str,
     Returns:
         {qid: [(docid, fused_score), ...]}
     """
-    print("[fusion] Running RRF...")
-    all_dfs = []
-    for ranker, df in runs.items():
-        df_copy = df[["qid", "docno", "rank"]].copy()
-        df_copy["rrf_score"] = 1.0 / (k + df_copy["rank"])
-        all_dfs.append(df_copy[["qid", "docno", "rrf_score"]])
+    print("[fusion] Running RRF (ranx)...")
     
-    combined = pd.concat(all_dfs, ignore_index=True)
-    aggregated = combined.groupby(["qid", "docno"])["rrf_score"].sum().reset_index()
+    ranx_runs = _df_runs_to_ranx(runs)
+    fused_run = fuse(runs=list(ranx_runs.values()), method="rrf", params={"k": k})
     
-    # Convert to dict format
-    fused = defaultdict(list)
-    for _, row in aggregated.iterrows():
-        fused[row["qid"]].append((row["docno"], row["rrf_score"]))
-    
-    print(f"[fusion] RRF done: {len(fused)} queries")
-    return dict(fused)
+    result = _ranx_to_dict(fused_run)
+    print(f"[fusion] RRF done: {len(result)} queries")
+    return result
 
 
 # =============================================================================
-# QPP-Weighted Fusion Methods
+# QPP-Weighted Fusion Methods (custom implementation - not in ranx)
 # =============================================================================
 
 def weighted_combsum(
@@ -265,6 +277,8 @@ def weighted_combsum(
     Returns:
         {qid: [(docid, fused_score), ...]}
     """
+    print(f"[fusion] Running W-CombSUM (QPP index={qpp_index})...")
+    
     fused = defaultdict(list)
     all_qids = sorted(set.union(*[set(df["qid"].unique()) for df in runs.values()]))
     fusion_mode = (qpp_index == -1)
@@ -282,6 +296,7 @@ def weighted_combsum(
         for docid, score in doc_scores.items():
             fused[qid].append((docid, score))
     
+    print(f"[fusion] W-CombSUM done: {len(fused)} queries")
     return dict(fused)
 
 
@@ -303,6 +318,8 @@ def weighted_combmnz(
     Returns:
         {qid: [(docid, fused_score), ...]}
     """
+    print(f"[fusion] Running W-CombMNZ (QPP index={qpp_index})...")
+    
     fused = defaultdict(list)
     all_qids = sorted(set.union(*[set(df["qid"].unique()) for df in runs.values()]))
     fusion_mode = (qpp_index == -1)
@@ -322,6 +339,7 @@ def weighted_combmnz(
         for docid, score in doc_scores.items():
             fused[qid].append((docid, score * doc_counts[docid]))
     
+    print(f"[fusion] W-CombMNZ done: {len(fused)} queries")
     return dict(fused)
 
 
@@ -345,6 +363,8 @@ def weighted_rrf(
     Returns:
         {qid: [(docid, fused_score), ...]}
     """
+    print(f"[fusion] Running W-RRF (QPP index={qpp_index})...")
+    
     fused = defaultdict(list)
     all_qids = sorted(set.union(*[set(df["qid"].unique()) for df in runs.values()]))
     fusion_mode = (qpp_index == -1)
@@ -362,6 +382,7 @@ def weighted_rrf(
         for docid, score in doc_scores.items():
             fused[qid].append((docid, score))
     
+    print(f"[fusion] W-RRF done: {len(fused)} queries")
     return dict(fused)
 
 
@@ -389,21 +410,17 @@ def learned_fusion(
     """
     print(f"[fusion] Running learned fusion from {model_path}...")
     
-    # Load model
     with open(model_path, 'rb') as f:
         model_data = pickle.load(f)
     
-    # Handle different model formats
     model = model_data.get('model')
     model_type = model_data.get('model_type', 'PerRetrieverLGBM')
     retrievers = retrievers or model_data.get('retrievers', sorted(runs.keys()))
     n_qpp = model_data.get('n_qpp', 13)
     
-    # Build QPP features for all queries
     all_qids = sorted(set.union(*[set(df["qid"].unique()) for df in runs.values()]))
     n_retrievers = len(retrievers)
     
-    # Build feature matrix with FULL QPP features (model.predict() will filter if needed)
     X = np.zeros((len(all_qids), n_qpp * n_retrievers))
     for i, qid in enumerate(all_qids):
         for j, retriever in enumerate(retrievers):
@@ -411,30 +428,15 @@ def learned_fusion(
                 scores = qpp_data[qid][retriever]
                 X[i, j*n_qpp:(j+1)*n_qpp] = scores[:n_qpp]
     
-    # #region agent log
-    import json, time
-    with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as f:
-        f.write(json.dumps({'location': 'fusion.py:415', 'message': 'learned_fusion before predict', 'data': {'X_shape': X.shape, 'model_type': model_type, 'model_n_features': getattr(model, 'n_features', 'N/A'), 'model_qpp_indices': getattr(model, 'qpp_indices', 'N/A')}, 'timestamp': time.time(), 'sessionId': 'learned-fusion'}) + '\n')
-    # #endregion
-    
-    # Predict weights using model's predict method (MLP will auto-filter if needed)
     pred_weights = model.predict(X)
     
-    # #region agent log
-    with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as f:
-        f.write(json.dumps({'location': 'fusion.py:428', 'message': 'learned_fusion after predict', 'data': {'pred_weights_shape': pred_weights.shape}, 'timestamp': time.time(), 'sessionId': 'learned-fusion'}) + '\n')
-    # #endregion
-    
-    # Create weights dict
     weights_dict = {}
     for i, qid in enumerate(all_qids):
         weights_dict[qid] = {r: w for r, w in zip(retrievers, pred_weights[i])}
     
-    # Fuse with learned weights - use vectorized approach
     all_dfs = []
     for ranker, df in runs.items():
         df_copy = df[["qid", "docno", "score"]].copy()
-        # Apply per-query weights
         df_copy["weighted_score"] = df_copy.apply(
             lambda row: row["score"] * weights_dict.get(row["qid"], {}).get(ranker, 1.0/n_retrievers),
             axis=1
@@ -444,7 +446,6 @@ def learned_fusion(
     combined = pd.concat(all_dfs, ignore_index=True)
     aggregated = combined.groupby(["qid", "docno"])["weighted_score"].sum().reset_index()
     
-    # Convert to dict format
     fused = defaultdict(list)
     for _, row in aggregated.iterrows():
         fused[row["qid"]].append((row["docno"], row["weighted_score"]))
@@ -456,6 +457,29 @@ def learned_fusion(
 # =============================================================================
 # Utility Functions
 # =============================================================================
+
+def _df_runs_to_ranx(runs: Dict[str, pd.DataFrame]) -> Dict[str, Run]:
+    """Convert DataFrame runs to ranx Run objects."""
+    ranx_runs = {}
+    for name, df in runs.items():
+        run_dict = {}
+        for _, row in df.iterrows():
+            qid = str(row["qid"])
+            if qid not in run_dict:
+                run_dict[qid] = {}
+            run_dict[qid][str(row["docno"])] = float(row["score"])
+        ranx_runs[name] = Run(run_dict, name=name)
+    return ranx_runs
+
+
+def _ranx_to_dict(run: Run) -> Dict[str, List[Tuple[str, float]]]:
+    """Convert ranx Run to dict format."""
+    result = {}
+    for qid in run.keys():
+        docs = run.get_doc_ids_and_scores(qid)
+        result[qid] = [(doc, score) for doc, score in zip(docs[0], docs[1])]
+    return result
+
 
 def write_runfile(
     fused: Dict[str, List[Tuple[str, float]]],
@@ -501,7 +525,6 @@ def run_fusion(
     
     method = method.lower()
     
-    # Unweighted methods
     if method == "combsum":
         fused = combsum(runs)
         tag = "combsum"
@@ -514,7 +537,6 @@ def run_fusion(
         fused = rrf(runs, k=rrf_k)
         tag = f"rrf-k{rrf_k}"
     
-    # QPP-weighted methods
     elif method in ["wcombsum", "w-combsum"]:
         if not qpp_dir:
             raise ValueError("--qpp_dir required for weighted methods")
@@ -539,7 +561,6 @@ def run_fusion(
         fused = weighted_rrf(runs, qpp_data, qpp_index, k=rrf_k)
         tag = f"wrrf-{qpp_model.lower()}"
     
-    # Learned fusion
     elif method == "learned":
         if not model_path:
             raise ValueError("--model_path required for learned fusion")
@@ -553,7 +574,6 @@ def run_fusion(
         valid = ["combsum", "combmnz", "rrf", "wcombsum", "wcombmnz", "wrrf", "learned"]
         raise ValueError(f"Unknown method '{method}'. Valid: {valid}")
     
-    # Write output
     if output_path:
         write_runfile(fused, output_path, tag)
     
@@ -572,9 +592,9 @@ if __name__ == "__main__":
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Methods:
-  combsum   - Sum of normalized scores
-  combmnz   - CombSUM × number of rankers returning doc
-  rrf       - Reciprocal Rank Fusion
+  combsum   - Sum of normalized scores (ranx)
+  combmnz   - CombSUM × number of rankers returning doc (ranx)
+  rrf       - Reciprocal Rank Fusion (ranx)
   wcombsum  - QPP-weighted CombSUM
   wcombmnz  - QPP-weighted CombMNZ
   wrrf      - QPP-weighted RRF
@@ -607,4 +627,3 @@ Examples:
         output_path=args.output,
         rrf_k=args.rrf_k
     )
-

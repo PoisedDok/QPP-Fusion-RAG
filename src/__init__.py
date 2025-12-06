@@ -6,27 +6,22 @@ Outgoing: submodules --- {Python modules}
 QPP-Fusion-RAG: Query Performance Prediction Guided Retrieval Fusion
 
 Clean standalone implementation for ECIR paper reproduction.
+Uses research-grade packages: ir_measures, ranx, HuggingFace evaluate.
 """
 
-__version__ = "1.1.0"
+__version__ = "2.0.0"
 
-# QPP Bridge (13 methods via Java + Python fallback)
+# QPP Bridge (13 methods via Java - STRICT: no fallback)
 from .qpp import QPPBridge, QPP_METHOD_NAMES, compute_qpp_for_res_file
 
 # LM Studio Generation
 from .generation import GenerationOperation
 
-# K-Shot RAG Experiment
-from .kshot_rag import KShotRAGExperimentOperation
+# Evaluation (ir_measures + HuggingFace evaluate)
+from .evaluation import IREvaluator, QAEvaluator, evaluate_run, compute_qa_metrics
 
-# Dataset Loading
-from .datasets import DatasetLoadOperation
-
-# QA Evaluation
-from .qa_evaluation import QAEvaluationOperation
-
-# TREC Format
-from .trec_run_writer import TRECRunWriterOperation
+# Fusion (ranx-based)
+from .fusion import combsum, combmnz, rrf, weighted_combsum, weighted_rrf, learned_fusion
 
 __all__ = [
     # QPP
@@ -35,12 +30,16 @@ __all__ = [
     "compute_qpp_for_res_file",
     # Generation
     "GenerationOperation",
-    # RAG
-    "KShotRAGExperimentOperation",
-    # Data
-    "DatasetLoadOperation",
     # Evaluation
-    "QAEvaluationOperation",
-    # TREC
-    "TRECRunWriterOperation",
+    "IREvaluator",
+    "QAEvaluator",
+    "evaluate_run",
+    "compute_qa_metrics",
+    # Fusion
+    "combsum",
+    "combmnz",
+    "rrf",
+    "weighted_combsum",
+    "weighted_rrf",
+    "learned_fusion",
 ]

@@ -1,15 +1,18 @@
 """
+Incoming: QPP features, target weights --- {numpy arrays}
+Processing: gradient boosting training/prediction --- {LightGBM models}
+Outgoing: predicted weights --- {numpy array}
+
 LightGBM-based fusion weight models.
+
+STRICT: Requires LightGBM. No fallbacks.
 """
 
 import numpy as np
 from typing import Dict, List, Optional
 
-try:
-    import lightgbm as lgb
-    HAS_LIGHTGBM = True
-except ImportError:
-    HAS_LIGHTGBM = False
+# STRICT: Fail immediately if LightGBM not available
+import lightgbm as lgb
 
 from .base import BaseFusionModel
 
@@ -24,9 +27,6 @@ class PerRetrieverLGBM(BaseFusionModel):
     
     def __init__(self, retrievers: List[str], n_qpp: int = 13, **lgb_params):
         super().__init__(retrievers, n_qpp)
-        
-        if not HAS_LIGHTGBM:
-            raise ImportError("LightGBM not installed. Run: pip install lightgbm")
         
         self.models = {}
         self.lgb_params = {
@@ -102,7 +102,7 @@ class PerRetrieverLGBM(BaseFusionModel):
     def predict(self, X: np.ndarray) -> np.ndarray:
         """Predict weights using each retriever's model."""
         if not self.is_trained:
-            raise RuntimeError("Model not trained")
+            raise RuntimeError("Model not trained. Call train() first.")
         
         weights = np.zeros((X.shape[0], self.n_retrievers))
         for j, retriever in enumerate(self.retrievers):
@@ -121,9 +121,6 @@ class MultiOutputLGBM(BaseFusionModel):
     
     def __init__(self, retrievers: List[str], n_qpp: int = 13, **lgb_params):
         super().__init__(retrievers, n_qpp)
-        
-        if not HAS_LIGHTGBM:
-            raise ImportError("LightGBM not installed. Run: pip install lightgbm")
         
         self.models = []  # One model per output (LightGBM doesn't support true multi-output)
         self.lgb_params = {
@@ -214,11 +211,10 @@ class MultiOutputLGBM(BaseFusionModel):
     def predict(self, X: np.ndarray) -> np.ndarray:
         """Predict all weights at once."""
         if not self.is_trained:
-            raise RuntimeError("Model not trained")
+            raise RuntimeError("Model not trained. Call train() first.")
         
         weights = np.column_stack([
             model.predict(X) for model in self.models
         ])
         
         return self._normalize_weights(weights)
-

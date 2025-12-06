@@ -22,6 +22,8 @@ Implements 13 real QPP methods via Java bridge (QPPBridge.java):
 12. DenseQPP - Dense Vector QPP
 13. DenseQPP-M - Matryoshka Dense QPP
 
+STRICT: No fallbacks. Java QPP bridge is mandatory.
+
 Usage:
     from src.qpp import QPPBridge
     qpp = QPPBridge()
@@ -32,9 +34,8 @@ import os
 import sys
 import json
 import subprocess
-import numpy as np
 from pathlib import Path
-from typing import Dict, List, Any, Optional, Tuple
+from typing import Dict, List, Any, Optional
 from dataclasses import dataclass
 
 
@@ -67,8 +68,8 @@ class QPPBridge:
     """
     Python-Java bridge for QPP computation.
     
-    Automatically discovers and uses Java QPPBridge.class if available,
-    falls back to pure Python implementation otherwise.
+    STRICT: Requires compiled Java QPPBridge.class.
+    No Python fallback - will raise RuntimeError if Java not available.
     """
     
     def __init__(self, java_dir: Optional[str] = None):
@@ -78,19 +79,23 @@ class QPPBridge:
         Args:
             java_dir: Optional path to Java QPP directory. 
                       Defaults to src/qpp relative to this file.
+        
+        Raises:
+            RuntimeError: If Java QPP bridge is not compiled/available.
         """
         self.src_dir = Path(__file__).parent
         self.java_dir = Path(java_dir) if java_dir else self.src_dir / "qpp"
         self.lib_dir = self.src_dir.parent / "lib"
         
-        # Check for compiled Java
-        self.java_available = self._check_java()
+        # STRICT: Check for compiled Java - raise if not available
+        if not self._check_java():
+            raise RuntimeError(
+                f"Java QPP bridge not compiled. "
+                f"Required: {self.java_dir / 'QPPBridge.class'} or {self.lib_dir / 'qpp-bridge.jar'}. "
+                f"To compile: cd {self.java_dir} && ./build.sh"
+            )
         
-        if self.java_available:
-            print(f"✅ Java QPP bridge available at {self.java_dir}", file=sys.stderr)
-        else:
-            print(f"⚠️  Java QPP not compiled. Using Python fallback.", file=sys.stderr)
-            print(f"   To compile: cd {self.java_dir} && ./build.sh", file=sys.stderr)
+        print(f"[QPP] Java bridge ready at {self.java_dir}", file=sys.stderr)
     
     def _check_java(self) -> bool:
         """Check if Java QPPBridge is compiled and available."""
@@ -133,42 +138,27 @@ class QPPBridge:
         query: str,
         scores: List[float],
         retriever_name: str = "unknown",
-        methods: Optional[List[str]] = None,
-        use_java: bool = True
+        methods: Optional[List[str]] = None
     ) -> QPPResult:
         """
-        Compute QPP scores for a query's retrieval scores.
+        Compute QPP scores for a query's retrieval scores via Java bridge.
         
         Args:
             query: Query text
             scores: List of retrieval scores (top-k documents)
             retriever_name: Name of retriever
             methods: List of QPP methods to compute (default: all 13)
-            use_java: Whether to try Java bridge first
             
         Returns:
             QPPResult with all QPP scores
+            
+        Raises:
+            RuntimeError: If Java QPP computation fails.
         """
-        methods = methods or QPP_METHOD_NAMES
-        
-        if use_java and self.java_available:
-            try:
-                return self._compute_java(query, scores, retriever_name, methods)
-            except Exception as e:
-                print(f"⚠️  Java QPP failed: {e}, using Python", file=sys.stderr)
-        
-        return self._compute_python(query, scores, retriever_name, methods)
-    
-    def _compute_java(
-        self,
-        query: str,
-        scores: List[float],
-        retriever_name: str,
-        methods: List[str]
-    ) -> QPPResult:
-        """Compute QPP via Java subprocess."""
         import time
         start = time.time()
+        
+        methods = methods or QPP_METHOD_NAMES
         
         # Build input JSON
         input_data = {
@@ -180,18 +170,26 @@ class QPPBridge:
         
         classpath = self._get_classpath()
         
-        result = subprocess.run(
-            ["java", "-cp", classpath, "qpp.QPPBridge"],
-            input=json.dumps(input_data),
-            capture_output=True,
-            text=True,
-            timeout=30
-        )
+        try:
+            result = subprocess.run(
+                ["java", "-cp", classpath, "qpp.QPPBridge"],
+                input=json.dumps(input_data),
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+        except subprocess.TimeoutExpired:
+            raise RuntimeError("Java QPP computation timed out (30s limit)")
+        except FileNotFoundError:
+            raise RuntimeError("Java not found. Ensure Java 11+ is installed and in PATH.")
         
         if result.returncode != 0:
-            raise RuntimeError(f"Java QPP failed: {result.stderr}")
+            raise RuntimeError(f"Java QPP failed (exit {result.returncode}): {result.stderr}")
         
-        output = json.loads(result.stdout)
+        try:
+            output = json.loads(result.stdout)
+        except json.JSONDecodeError as e:
+            raise RuntimeError(f"Java QPP returned invalid JSON: {e}\nStdout: {result.stdout}")
         
         return QPPResult(
             query=query,
@@ -201,207 +199,6 @@ class QPPBridge:
             processing_time_ms=(time.time() - start) * 1000,
             predictions=output.get("predictions", {})
         )
-    
-    def _compute_python(
-        self,
-        query: str,
-        scores: List[float],
-        retriever_name: str,
-        methods: List[str]
-    ) -> QPPResult:
-        """Pure Python QPP implementation (fallback)."""
-        import time
-        start = time.time()
-        
-        qpp_scores = {}
-        query_len = len(query.split())
-        
-        for method in methods:
-            try:
-                score = self._compute_single_method(method, scores, query_len)
-                qpp_scores[method] = score
-            except Exception as e:
-                print(f"Warning: {method} failed: {e}", file=sys.stderr)
-                qpp_scores[method] = 0.0
-        
-        # Aggregate predictions
-        predictions = self._aggregate_predictions(qpp_scores)
-        
-        return QPPResult(
-            query=query,
-            retriever_name=retriever_name,
-            qpp_scores=qpp_scores,
-            methods_used=list(qpp_scores.keys()),
-            processing_time_ms=(time.time() - start) * 1000,
-            predictions=predictions
-        )
-    
-    def _compute_single_method(self, method: str, scores: List[float], query_len: int) -> float:
-        """Compute single QPP method in Python."""
-        if len(scores) < 2:
-            return 0.5
-        
-        arr = np.array(scores)
-        
-        if method == "nqc":
-            return self._nqc(arr, k=50)
-        elif method == "smv":
-            return self._smv(arr, k=10)
-        elif method == "wig":
-            return self._wig(arr, query_len, k=20)
-        elif method == "SigmaMax":
-            return self._sigma_max(arr, query_len, k=50)
-        elif method == "SigmaX":
-            return self._sigma_x(arr, k=50)
-        elif method == "RSD":
-            return self._rsd(arr)
-        elif method == "UEF":
-            return self._uef(arr, k=20)
-        elif method == "MaxIDF":
-            return min(1.0, np.log(1 + query_len) / 5.0)
-        elif method == "avgidf":
-            return min(1.0, np.log(1 + query_len) * 0.8 / 5.0)
-        elif method == "cumnqc":
-            return self._cumnqc(arr, k=50)
-        elif method == "snqc":
-            return self._snqc(arr, k=50)
-        elif method == "dense-qpp":
-            return self._dense_qpp(arr, k=5)
-        elif method == "dense-qpp-m":
-            return self._dense_qpp_m(arr, k=5)
-        else:
-            raise ValueError(f"Unknown QPP method: {method}")
-    
-    # ========================================================================
-    # Python QPP Method Implementations (mirrors Java)
-    # ========================================================================
-    
-    def _nqc(self, scores: np.ndarray, k: int = 50) -> float:
-        """NQC: Normalized Query Commitment."""
-        top_k = scores[:min(k, len(scores))]
-        variance = np.var(top_k)
-        return 1.0 / (1.0 + np.exp(-variance))
-    
-    def _smv(self, scores: np.ndarray, k: int = 10) -> float:
-        """SMV: Similarity Mean Variance."""
-        top_k = scores[:min(k, len(scores))]
-        mu = np.mean(top_k)
-        if mu < 1e-10:
-            return 0.0
-        smv = np.mean(top_k * np.abs(np.log(top_k / mu + 1e-10)))
-        return 1.0 / (1.0 + np.exp(-smv))
-    
-    def _wig(self, scores: np.ndarray, query_len: int, k: int = 20) -> float:
-        """WIG: Weighted Information Gain."""
-        top_k = scores[:min(k, len(scores))]
-        avg_idf = 1.0
-        wig = np.sum(top_k - avg_idf) / (query_len * len(top_k))
-        return 1.0 / (1.0 + np.exp(-wig * 10))
-    
-    def _sigma_max(self, scores: np.ndarray, query_len: int, k: int = 50) -> float:
-        """SigmaMax: Maximum standard deviation."""
-        top_k = scores[:min(k, len(scores))]
-        max_std = max(np.std(top_k[:i]) for i in range(2, len(top_k) + 1))
-        norm = np.sqrt(max(1, query_len))
-        return 1.0 / (1.0 + np.exp(-max_std / norm * 2))
-    
-    def _sigma_x(self, scores: np.ndarray, k: int = 50) -> float:
-        """SigmaX: Threshold-based std dev."""
-        top_k = scores[:min(k, len(scores))]
-        threshold = top_k[0] * 0.5
-        filtered = top_k[top_k >= threshold]
-        if len(filtered) == 0:
-            return 0.0
-        std = np.std(filtered)
-        return 1.0 / (1.0 + np.exp(-std * 2))
-    
-    def _rsd(self, scores: np.ndarray) -> float:
-        """RSD: Retrieval Score Distribution (skewness)."""
-        mean = np.mean(scores)
-        std = np.std(scores)
-        if std < 1e-10:
-            return min(1.0, mean)
-        skewness = np.mean(((scores - mean) / std) ** 3)
-        return 1.0 / (1.0 + np.exp(-skewness))
-    
-    def _uef(self, scores: np.ndarray, k: int = 20) -> float:
-        """UEF: Utility Estimation Framework."""
-        top_k = scores[:min(k, len(scores))]
-        weights = 1.0 / np.arange(1, len(top_k) + 1)
-        utility = np.sum(top_k * weights) / np.sum(weights)
-        return min(1.0, utility)
-    
-    def _cumnqc(self, scores: np.ndarray, k: int = 50) -> float:
-        """CumNQC: Cumulative NQC."""
-        top_k = scores[:min(k, len(scores))]
-        cum_sum = sum(np.var(top_k[:i]) for i in range(2, len(top_k) + 1))
-        return 1.0 / (1.0 + np.exp(-cum_sum / k * 10))
-    
-    def _snqc(self, scores: np.ndarray, k: int = 50) -> float:
-        """SNQC: Calibrated NQC."""
-        top_k = scores[:min(k, len(scores))]
-        mean = np.mean(top_k)
-        alpha, beta, gamma = 0.33, 0.33, 0.33
-        snqc = 0.0
-        for rsv in top_k:
-            if rsv > 0:
-                f1 = 1.0 ** alpha  # avgIDF = 1
-                f2 = ((rsv - mean) ** 2 / rsv) ** beta
-                snqc += (f1 * f2) ** gamma
-        snqc = snqc / len(top_k) * 1.0  # * avgIDF
-        return 1.0 / (1.0 + np.exp(-snqc * 10))
-    
-    def _dense_qpp(self, scores: np.ndarray, k: int = 5) -> float:
-        """DenseQPP: Dense vector QPP."""
-        top_k = scores[:min(k, len(scores))]
-        variance = np.var(top_k)
-        diameter = np.sqrt(variance) + 0.01
-        dense_qpp = np.log(1 + 1 / diameter)
-        return min(1.0, dense_qpp / 5.0)
-    
-    def _dense_qpp_m(self, scores: np.ndarray, k: int = 5) -> float:
-        """DenseQPP-M: Matryoshka dense QPP."""
-        top_k = scores[:min(k, len(scores))]
-        weighted_sum = 0.0
-        for i in range(1, len(top_k) + 1):
-            window = top_k[:i]
-            variance = np.var(window)
-            diameter = np.sqrt(variance) + 0.01
-            weight = 1.0 / np.log(1 + i)
-            weighted_sum += weight * np.log(1 + 1 / diameter)
-        return min(1.0, weighted_sum / k)
-    
-    def _aggregate_predictions(self, qpp_scores: Dict[str, float]) -> Dict[str, Any]:
-        """Aggregate QPP scores into predictions."""
-        if not qpp_scores:
-            return {
-                "difficulty_estimate": 1.0,
-                "retrieval_quality": 0.0,
-                "recommended_action": "fallback",
-                "confidence": 0.0
-            }
-        
-        scores = list(qpp_scores.values())
-        mean_qpp = np.mean(scores)
-        variance = np.var(scores)
-        
-        confidence = 1.0 / (1.0 + variance)
-        retrieval_quality = mean_qpp
-        difficulty_estimate = 1.0 - retrieval_quality
-        
-        if retrieval_quality >= 0.7:
-            action = "proceed"
-        elif retrieval_quality >= 0.4:
-            action = "augment"
-        else:
-            action = "fallback"
-        
-        return {
-            "difficulty_estimate": difficulty_estimate,
-            "retrieval_quality": retrieval_quality,
-            "recommended_action": action,
-            "confidence": confidence
-        }
 
 
 # ============================================================================
@@ -425,8 +222,16 @@ def compute_qpp_for_res_file(
         
     Returns:
         Dict of {qid: [13 QPP scores]}
+        
+    Raises:
+        RuntimeError: If Java QPP computation fails.
+        FileNotFoundError: If res_path doesn't exist.
     """
+    import numpy as np
     from collections import defaultdict
+    
+    if not os.path.exists(res_path):
+        raise FileNotFoundError(f"Run file not found: {res_path}")
     
     # Load run file
     runs = defaultdict(list)
@@ -437,11 +242,14 @@ def compute_qpp_for_res_file(
                 qid, _, docno, rank, score = parts[:5]
                 runs[qid].append(float(score))
     
+    if not runs:
+        raise ValueError(f"No valid entries in run file: {res_path}")
+    
     # Sort and truncate
     for qid in runs:
         runs[qid] = sorted(runs[qid], reverse=True)[:top_k]
     
-    # Compute QPP
+    # Compute QPP (raises RuntimeError if Java fails)
     bridge = QPPBridge()
     results = {}
     
@@ -469,6 +277,8 @@ def compute_qpp_for_res_file(
 
 def _normalize_qpp(results: Dict[str, List[float]], method: str) -> Dict[str, List[float]]:
     """Normalize QPP scores across queries."""
+    import numpy as np
+    
     n_methods = len(QPP_METHOD_NAMES)
     
     # Collect per-method values
@@ -509,7 +319,7 @@ def _normalize_qpp(results: Dict[str, List[float]], method: str) -> Dict[str, Li
 if __name__ == "__main__":
     import argparse
     
-    parser = argparse.ArgumentParser(description="QPP Bridge - Compute 13 QPP methods")
+    parser = argparse.ArgumentParser(description="QPP Bridge - Compute 13 QPP methods (Java required)")
     parser.add_argument("--res_file", help="TREC .res file to process")
     parser.add_argument("--output", help="Output .qpp file")
     parser.add_argument("--top_k", type=int, default=100, help="Top-k for QPP")

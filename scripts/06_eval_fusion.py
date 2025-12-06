@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
 """
 Incoming: fused .res files, qrels --- {TREC runs, relevance judgments}
-Processing: IR evaluation --- {NDCG@10, Recall@10 computation}
+Processing: IR evaluation --- {ir_measures: NDCG@10, MRR@10, Recall@10}
 Outgoing: comparison results --- {JSON + table}
 
 Step 6: Evaluate Fusion (IR Metrics)
 ------------------------------------
-Evaluates all fusion methods using IR metrics and generates
-comparison table.
+Evaluates all fusion methods using ir_measures and generates comparison table.
 
 Evaluates:
-  - Unweighted: CombSUM, CombMNZ, RRF
+  - Unweighted: CombSUM, CombMNZ, RRF (via ranx)
   - QPP-Weighted: W-CombSUM, W-CombMNZ, W-RRF
   - Learned: PerRetriever, MultiOutput, MLP
+
+STRICT: Uses ir_measures for evaluation. No manual implementations.
 
 Usage:
     python scripts/06_eval_fusion.py
@@ -23,7 +24,6 @@ import os
 import sys
 import json
 import argparse
-import numpy as np
 from pathlib import Path
 from collections import defaultdict
 from typing import Dict, List, Tuple
@@ -31,13 +31,14 @@ from typing import Dict, List, Tuple
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+# STRICT: Use research-grade packages
 from src.fusion import (
     load_runs, load_qpp_scores, get_qpp_index,
     combsum, combmnz, rrf,
     weighted_combsum, weighted_combmnz, weighted_rrf,
     learned_fusion, write_runfile
 )
-from src.models.base import compute_ndcg
+from src.evaluation import IREvaluator
 
 
 def load_qrels(qrels_path: Path) -> Dict[str, Dict[str, int]]:
@@ -55,43 +56,12 @@ def load_qrels(qrels_path: Path) -> Dict[str, Dict[str, int]]:
 def evaluate_fusion(
     fused: Dict[str, List[Tuple[str, float]]],
     qrels: Dict[str, Dict[str, int]],
-    k: int = 10
+    evaluator: IREvaluator
 ) -> Dict[str, float]:
-    """Evaluate fusion results."""
-    ndcg_scores = []
-    mrr_scores = []
-    recall_scores = []
-    
-    for qid, docs in fused.items():
-        if qid not in qrels:
-            continue
-        
-        ranked = [d for d, _ in sorted(docs, key=lambda x: -x[1])][:k]
-        relevant = set(d for d, r in qrels[qid].items() if r > 0)
-        
-        # NDCG
-        ndcg = compute_ndcg(ranked, qrels[qid], k=k)
-        ndcg_scores.append(ndcg)
-        
-        # MRR - reciprocal rank of first relevant doc
-        rr = 0.0
-        for i, doc in enumerate(ranked):
-            if doc in relevant:
-                rr = 1.0 / (i + 1)
-                break
-        mrr_scores.append(rr)
-        
-        # Recall
-        found = len(set(ranked) & relevant)
-        recall = found / len(relevant) if relevant else 0
-        recall_scores.append(recall)
-    
-    return {
-        'ndcg@10': np.mean(ndcg_scores),
-        'mrr@10': np.mean(mrr_scores),
-        'recall@10': np.mean(recall_scores),
-        'n_queries': len(ndcg_scores)
-    }
+    """Evaluate fusion results using ir_measures."""
+    metrics = evaluator.evaluate(fused, qrels, per_query=False)
+    metrics['n_queries'] = len([q for q in fused.keys() if q in qrels])
+    return metrics
 
 
 def run_comparison(
@@ -104,7 +74,7 @@ def run_comparison(
 ):
     """Run all fusion methods and compare."""
     print("="*70)
-    print("FUSION METHOD COMPARISON")
+    print("FUSION METHOD COMPARISON (ir_measures)")
     print("="*70)
     
     # Load data
@@ -114,29 +84,32 @@ def run_comparison(
     print(f"Retrievers: {list(runs.keys())}")
     print(f"Queries with qrels: {len(qrels)}")
     
+    # Initialize evaluator with desired metrics
+    evaluator = IREvaluator(metrics=["nDCG@10", "RR@10", "R@10"])
+    
     results = []
     
     # === Unweighted Methods ===
-    print("\n--- Unweighted Methods ---")
+    print("\n--- Unweighted Methods (ranx) ---")
     
     # CombSUM
     print("Running CombSUM...")
     fused = combsum(runs)
-    metrics = evaluate_fusion(fused, qrels)
+    metrics = evaluate_fusion(fused, qrels, evaluator)
     results.append({'method': 'CombSUM', 'type': 'unweighted', **metrics})
     write_runfile(fused, str(output_dir / "combsum.res"), "combsum")
     
     # CombMNZ
     print("Running CombMNZ...")
     fused = combmnz(runs)
-    metrics = evaluate_fusion(fused, qrels)
+    metrics = evaluate_fusion(fused, qrels, evaluator)
     results.append({'method': 'CombMNZ', 'type': 'unweighted', **metrics})
     write_runfile(fused, str(output_dir / "combmnz.res"), "combmnz")
     
     # RRF
     print("Running RRF...")
     fused = rrf(runs)
-    metrics = evaluate_fusion(fused, qrels)
+    metrics = evaluate_fusion(fused, qrels, evaluator)
     results.append({'method': 'RRF', 'type': 'unweighted', **metrics})
     write_runfile(fused, str(output_dir / "rrf.res"), "rrf")
     
@@ -149,21 +122,21 @@ def run_comparison(
         # W-CombSUM
         print(f"Running W-CombSUM ({qpp_model})...")
         fused = weighted_combsum(runs, qpp_data, qpp_index)
-        metrics = evaluate_fusion(fused, qrels)
+        metrics = evaluate_fusion(fused, qrels, evaluator)
         results.append({'method': f'W-CombSUM ({qpp_model})', 'type': 'qpp-weighted', **metrics})
         write_runfile(fused, str(output_dir / f"wcombsum_{qpp_model.lower()}.res"), f"wcombsum-{qpp_model.lower()}")
         
         # W-CombMNZ
         print(f"Running W-CombMNZ ({qpp_model})...")
         fused = weighted_combmnz(runs, qpp_data, qpp_index)
-        metrics = evaluate_fusion(fused, qrels)
+        metrics = evaluate_fusion(fused, qrels, evaluator)
         results.append({'method': f'W-CombMNZ ({qpp_model})', 'type': 'qpp-weighted', **metrics})
         write_runfile(fused, str(output_dir / f"wcombmnz_{qpp_model.lower()}.res"), f"wcombmnz-{qpp_model.lower()}")
         
         # W-RRF
         print(f"Running W-RRF ({qpp_model})...")
         fused = weighted_rrf(runs, qpp_data, qpp_index)
-        metrics = evaluate_fusion(fused, qrels)
+        metrics = evaluate_fusion(fused, qrels, evaluator)
         results.append({'method': f'W-RRF ({qpp_model})', 'type': 'qpp-weighted', **metrics})
         write_runfile(fused, str(output_dir / f"wrrf_{qpp_model.lower()}.res"), f"wrrf-{qpp_model.lower()}")
         
@@ -174,13 +147,10 @@ def run_comparison(
             model_path = models_dir / f"fusion_{model_name}.pkl"
             if model_path.exists():
                 print(f"Running Learned ({model_name})...")
-                try:
-                    fused = learned_fusion(runs, qpp_data, str(model_path))
-                    metrics = evaluate_fusion(fused, qrels)
-                    results.append({'method': f'Learned ({model_name})', 'type': 'learned', **metrics})
-                    write_runfile(fused, str(output_dir / f"learned_{model_name}.res"), f"learned-{model_name}")
-                except Exception as e:
-                    print(f"  Error: {e}")
+                fused = learned_fusion(runs, qpp_data, str(model_path))
+                metrics = evaluate_fusion(fused, qrels, evaluator)
+                results.append({'method': f'Learned ({model_name})', 'type': 'learned', **metrics})
+                write_runfile(fused, str(output_dir / f"learned_{model_name}.res"), f"learned-{model_name}")
             else:
                 print(f"  Skipping {model_name} (model not found)")
     
@@ -190,18 +160,21 @@ def run_comparison(
     print("="*70)
     
     # Sort by NDCG
-    results.sort(key=lambda x: -x['ndcg@10'])
+    results.sort(key=lambda x: -x.get('nDCG@10', 0))
     
     # Get baseline for improvement calculation
-    baseline_ndcg = next((r['ndcg@10'] for r in results if r['method'] == 'CombSUM'), results[-1]['ndcg@10'])
+    baseline_ndcg = next((r.get('nDCG@10', 0) for r in results if r['method'] == 'CombSUM'), results[-1].get('nDCG@10', 0))
     
     print(f"\n{'Method':<25} {'Type':<15} {'NDCG@10':<10} {'MRR@10':<10} {'Recall@10':<10} {'Δ NDCG':<10}")
     print("-"*80)
     
     for r in results:
-        improvement = (r['ndcg@10'] - baseline_ndcg) / baseline_ndcg * 100
+        ndcg = r.get('nDCG@10', 0)
+        mrr = r.get('RR@10', 0)
+        recall = r.get('R@10', 0)
+        improvement = (ndcg - baseline_ndcg) / baseline_ndcg * 100 if baseline_ndcg > 0 else 0
         sign = "+" if improvement >= 0 else ""
-        print(f"{r['method']:<25} {r['type']:<15} {r['ndcg@10']:.4f}     {r.get('mrr@10', 0):.4f}     {r['recall@10']:.4f}     {sign}{improvement:.1f}%")
+        print(f"{r['method']:<25} {r['type']:<15} {ndcg:.4f}     {mrr:.4f}     {recall:.4f}     {sign}{improvement:.1f}%")
     
     print("-"*80)
     
@@ -215,7 +188,7 @@ def run_comparison(
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Compare Fusion Methods")
+    parser = argparse.ArgumentParser(description="Compare Fusion Methods (ir_measures)")
     parser.add_argument("--data_dir", default=None, help="Data directory")
     parser.add_argument("--corpus_path", default=None, help="Path to BEIR dataset")
     parser.add_argument("--qpp_model", default="RSD", help="QPP model for weighted methods")
@@ -241,4 +214,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
