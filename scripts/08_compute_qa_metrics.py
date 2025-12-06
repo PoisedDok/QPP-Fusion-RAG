@@ -119,11 +119,11 @@ def get_embeddings_batch(texts: List[str], model: str = EMBED_MODEL, batch_size:
                     json={"model": model, "input": batch},
                     timeout=30
                 )
-            if response.status_code == 200:
-                data = response.json()['data']
-                data.sort(key=lambda x: x['index'])
-                all_embeddings.extend([d['embedding'] for d in data])
-            else:
+                if response.status_code == 200:
+                    data = response.json()['data']
+                    data.sort(key=lambda x: x['index'])
+                    all_embeddings.extend([d['embedding'] for d in data])
+                else:
                     raise RuntimeError(f"LM Studio embedding failed: {response.status_code}")
             except requests.exceptions.ConnectionError:
                 raise RuntimeError("LM Studio not running at localhost:1234")
@@ -148,11 +148,12 @@ def cosine_similarity(a: List[float], b: List[float]) -> float:
 def compute_semantic_sim_batch(
     predictions: List[str],
     gold_list: List[List[str]],
-    model: str = EMBED_MODEL
+    model: str = EMBED_MODEL,
+    session: Optional[requests.Session] = None
 ) -> List[float]:
-    """Batch semantic similarity computation using LM Studio embeddings."""
+    """Batch semantic similarity computation using LM Studio embeddings (OPTIMIZED: connection pooling)."""
     print(f"  [Embeddings] Getting embeddings for {len(predictions)} predictions...")
-    pred_embeddings = get_embeddings_batch(predictions, model=model)
+    pred_embeddings = get_embeddings_batch(predictions, model=model, session=session)
     
     # Get unique gold answers
     all_golds = set()
