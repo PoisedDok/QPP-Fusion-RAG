@@ -1,8 +1,8 @@
-# Cache directories - contains model weights and indexes (multi-GB)
+# Cache directories - contains model weights and BGE indexes (multi-GB)
 cache/
 
-# PyTerrier/Pyserini indexes (large binary files)
-data/*/index/
+# BGE indexes only (15GB each - too large for Git)
+# PyTerrier and SPLADE indexes are tracked with LFS
 
 # Large result files - KEPT for reproducibility
 # data/*/runs/  # ~138MB - individual retriever runs
