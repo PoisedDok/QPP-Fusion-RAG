@@ -235,10 +235,11 @@ class BM25MonoT5Retriever(BaseRetriever):
         # Run pipeline
         results_df = self._run_pipeline(query_df)
         
-        # Group by query and build results
+        # Group by query and build results (OPTIMIZED: O(n) instead of O(n²))
         results = {}
-        for qid in queries.keys():
-            qid_results = results_df[results_df["qid"] == qid].head(top_k)
+        grouped = results_df.groupby("qid")
+        for qid, group in grouped:
+            qid_results = group.head(top_k)
             
             doc_list = []
             for rank, (_, row) in enumerate(qid_results.iterrows(), start=1):

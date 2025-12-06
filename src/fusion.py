@@ -283,15 +283,19 @@ def weighted_combsum(
     all_qids = sorted(set.union(*[set(df["qid"].unique()) for df in runs.values()]))
     fusion_mode = (qpp_index == -1)
     
+    # OPTIMIZED: Pre-group all dataframes to avoid O(n²) filtering
+    grouped_runs = {ranker: df.groupby("qid") for ranker, df in runs.items()}
+    
     for qid in all_qids:
         doc_scores = defaultdict(float)
         
-        for ranker, df in runs.items():
+        for ranker, grouped_df in grouped_runs.items():
             weight = get_qpp_weight(qid, ranker, qpp_data, qpp_index, fusion_mode)
             
-            sub = df[df["qid"] == qid]
-            for _, row in sub.iterrows():
-                doc_scores[row["docno"]] += weight * row["score"]
+            if qid in grouped_df.groups:
+                sub = grouped_df.get_group(qid)
+                for _, row in sub.iterrows():
+                    doc_scores[row["docno"]] += weight * row["score"]
         
         for docid, score in doc_scores.items():
             fused[qid].append((docid, score))
@@ -324,17 +328,21 @@ def weighted_combmnz(
     all_qids = sorted(set.union(*[set(df["qid"].unique()) for df in runs.values()]))
     fusion_mode = (qpp_index == -1)
     
+    # OPTIMIZED: Pre-group all dataframes to avoid O(n²) filtering
+    grouped_runs = {ranker: df.groupby("qid") for ranker, df in runs.items()}
+    
     for qid in all_qids:
         doc_scores = defaultdict(float)
         doc_counts = defaultdict(int)
         
-        for ranker, df in runs.items():
+        for ranker, grouped_df in grouped_runs.items():
             weight = get_qpp_weight(qid, ranker, qpp_data, qpp_index, fusion_mode)
             
-            sub = df[df["qid"] == qid]
-            for _, row in sub.iterrows():
-                doc_scores[row["docno"]] += weight * row["score"]
-                doc_counts[row["docno"]] += 1
+            if qid in grouped_df.groups:
+                sub = grouped_df.get_group(qid)
+                for _, row in sub.iterrows():
+                    doc_scores[row["docno"]] += weight * row["score"]
+                    doc_counts[row["docno"]] += 1
         
         for docid, score in doc_scores.items():
             fused[qid].append((docid, score * doc_counts[docid]))
@@ -369,15 +377,19 @@ def weighted_rrf(
     all_qids = sorted(set.union(*[set(df["qid"].unique()) for df in runs.values()]))
     fusion_mode = (qpp_index == -1)
     
+    # OPTIMIZED: Pre-group all dataframes to avoid O(n²) filtering
+    grouped_runs = {ranker: df.groupby("qid") for ranker, df in runs.items()}
+    
     for qid in all_qids:
         doc_scores = defaultdict(float)
         
-        for ranker, df in runs.items():
+        for ranker, grouped_df in grouped_runs.items():
             weight = get_qpp_weight(qid, ranker, qpp_data, qpp_index, fusion_mode)
             
-            sub = df[df["qid"] == qid].sort_values("rank")
-            for _, row in sub.iterrows():
-                doc_scores[row["docno"]] += weight / (k + row["rank"])
+            if qid in grouped_df.groups:
+                sub = grouped_df.get_group(qid).sort_values("rank")
+                for _, row in sub.iterrows():
+                    doc_scores[row["docno"]] += weight / (k + row["rank"])
         
         for docid, score in doc_scores.items():
             fused[qid].append((docid, score))
