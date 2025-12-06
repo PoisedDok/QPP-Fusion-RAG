@@ -165,15 +165,18 @@ def run_tct_colbert(corpus: Dict, queries: Dict[str, str], runs_dir: Path, cache
     clear_memory()
 
 
-def run_splade(queries: Dict[str, str], runs_dir: Path, top_k: int):
+def run_splade(queries: Dict[str, str], runs_dir: Path, top_k: int, dataset: str = "nq"):
     """Run SPLADE retriever using Pyserini pre-built index."""
     from src.retrievers import SpladeRetriever
     
     print(f"\n[02_retrieve] === SPLADE (Pyserini Pre-built) ===")
     start = time.time()
     
+    # Select dataset-specific index
+    index_name = f"beir-v1.0.0-{dataset}.splade-pp-ed"
+    
     # Uses Pyserini pre-built index - no corpus encoding needed
-    retriever = SpladeRetriever()
+    retriever = SpladeRetriever(index_name=index_name)
     results = retriever.retrieve_batch(queries, top_k=top_k)
     
     write_run(results, str(runs_dir / "Splade.res"), "Splade", normalize=False)
@@ -185,15 +188,18 @@ def run_splade(queries: Dict[str, str], runs_dir: Path, top_k: int):
     clear_memory()
 
 
-def run_bge(queries: Dict[str, str], runs_dir: Path, top_k: int):
+def run_bge(queries: Dict[str, str], runs_dir: Path, top_k: int, dataset: str = "nq"):
     """Run BGE retriever using Pyserini pre-built FAISS index."""
     from src.retrievers import BGERetriever
     
     print(f"\n[02_retrieve] === BGE (Pyserini Pre-built FAISS) ===")
     start = time.time()
     
+    # Select dataset-specific index
+    index_name = f"beir-v1.0.0-{dataset}.bge-base-en-v1.5"
+    
     # Uses Pyserini pre-built FAISS index - no corpus encoding needed
-    retriever = BGERetriever()
+    retriever = BGERetriever(index_name=index_name)
     results = retriever.retrieve_batch(queries, top_k=top_k)
     
     write_run(results, str(runs_dir / "BGE.res"), "BGE", normalize=False)
@@ -304,10 +310,14 @@ def main():
             run_tct_colbert(corpus, queries, runs_dir, cache_dir, args.top_k)
         
         if "Splade" in retrievers:
-            run_splade(queries, runs_dir, args.top_k)
+            # Detect dataset from corpus_path
+            dataset = "hotpotqa" if "hotpot" in args.corpus_path.lower() else "nq"
+            run_splade(queries, runs_dir, args.top_k, dataset=dataset)
         
         if "BGE" in retrievers:
-            run_bge(queries, runs_dir, args.top_k)
+            # Detect dataset from corpus_path
+            dataset = "hotpotqa" if "hotpot" in args.corpus_path.lower() else "nq"
+            run_bge(queries, runs_dir, args.top_k, dataset=dataset)
         
         if "BM25_TCT" in retrievers:
             # Uses lazy corpus loading - pass path not dict

@@ -303,6 +303,34 @@ def load_nq_gold_answers(cache_dir: Path) -> Dict[str, List[str]]:
     return gold_answers
 
 
+def load_hotpotqa_gold_answers(corpus_path: Path) -> Dict[str, List[str]]:
+    """Load HotpotQA gold answers from queries.jsonl metadata."""
+    gold_file = corpus_path / "hotpotqa_gold_answers.json"
+    
+    if gold_file.exists():
+        print(f"Loading HotpotQA gold answers from {gold_file}")
+        with open(gold_file) as f:
+            return json.load(f)
+    
+    # Fallback: extract from queries.jsonl
+    print("Extracting HotpotQA gold answers from queries.jsonl...")
+    queries_file = corpus_path / "queries.jsonl"
+    gold_answers = {}
+    
+    with open(queries_file) as f:
+        for line in f:
+            q = json.loads(line)
+            query_text = q['text']
+            answer = q.get('metadata', {}).get('answer')
+            
+            if answer:
+                q_norm = query_text.lower().strip('?').strip()
+                gold_answers[q_norm] = [answer]
+    
+    print(f"Extracted {len(gold_answers)} HotpotQA gold answers")
+    return gold_answers
+
+
 def match_query_to_gold(query: str, gold_answers: Dict[str, List[str]]) -> Optional[List[str]]:
     """Match query text to gold answers."""
     q_norm = query.lower().strip('?').strip()
@@ -458,6 +486,8 @@ def compute_qa_metrics_for_file(
 def main():
     parser = argparse.ArgumentParser(description="Compute QA Metrics (HuggingFace evaluate)")
     parser.add_argument("--results_file", required=True, help="Results JSON file")
+    parser.add_argument("--dataset", default="nq", choices=["nq", "hotpotqa"], 
+                        help="Dataset name (for gold answer loading)")
     parser.add_argument("--cache_dir", default=None, help="Cache directory for gold answers")
     parser.add_argument("--metrics", default="em,f1,containment",
                         help="Comma-separated metrics: em,f1,containment,semantic,llm_judge,all")
@@ -473,10 +503,16 @@ def main():
         metrics = [m.strip() for m in args.metrics.split(',')]
     
     print(f"Metrics to compute: {metrics}")
+    print(f"Dataset: {args.dataset}")
     
-    cache_dir = Path(args.cache_dir) if args.cache_dir else PROJECT_ROOT / "data" / "nq" / "cache"
+    # Load gold answers based on dataset
+    if args.dataset == "hotpotqa":
+        corpus_path = PROJECT_ROOT / "data" / "hotpotqa" / "BEIR-hotpotqa"
+        gold_answers = load_hotpotqa_gold_answers(corpus_path)
+    else:
+        cache_dir = Path(args.cache_dir) if args.cache_dir else PROJECT_ROOT / "data" / "nq" / "cache"
+        gold_answers = load_nq_gold_answers(cache_dir)
     
-    gold_answers = load_nq_gold_answers(cache_dir)
     print(f"Loaded {len(gold_answers)} gold answer mappings")
     
     results_path = Path(args.results_file)

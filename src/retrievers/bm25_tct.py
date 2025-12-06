@@ -85,36 +85,71 @@ class BM25TCTRetriever(BaseRetriever):
             verbose=False
         )
         
-        # Text loader for getting document content
-        self._corpus_texts = self._load_corpus_texts()
+        # Build offset index for lazy corpus loading
+        self._corpus_offsets = self._build_corpus_offsets()
+        self._corpus_cache = {}  # Cache for loaded docs
         
         # Pipeline is run manually (no >> operator) to avoid JVM init conflicts
-        print(f"[BM25_TCT] Pipeline ready: BM25(k={first_stage_k}) >> TCT-ColBERT")
+        print(f"[BM25_TCT] Pipeline ready: BM25(k={first_stage_k}) >> TCT-ColBERT (lazy loading)")
     
-    def _load_corpus_texts(self) -> Dict[str, str]:
-        """Load corpus texts for reranking."""
+    def _build_corpus_offsets(self) -> Dict[str, int]:
+        """Build doc_id -> byte offset map for lazy loading."""
+        import json
+        
+        corpus_file = os.path.join(self.corpus_path, "corpus.jsonl")
+        offsets = {}
+        
+        print(f"[BM25_TCT] Building corpus offset index (lazy loading)...")
+        with open(corpus_file, 'r', encoding='utf-8') as f:
+            offset = 0
+            for line in f:
+                doc = json.loads(line)
+                doc_id = doc.get("_id", "")
+                offsets[doc_id] = offset
+                offset += len(line.encode('utf-8'))
+        
+        print(f"[BM25_TCT] Indexed {len(offsets)} documents (0 loaded in RAM)")
+        return offsets
+    
+    def _load_docs(self, doc_ids: list) -> Dict[str, str]:
+        """Load specific docs by ID on-demand."""
         import json
         
         corpus_file = os.path.join(self.corpus_path, "corpus.jsonl")
         texts = {}
         
-        print(f"[BM25_TCT] Loading corpus texts...")
+        # Sort by offset for sequential reads
+        ids_with_offset = [(did, self._corpus_offsets.get(did, -1)) for did in doc_ids]
+        ids_with_offset = [(did, off) for did, off in ids_with_offset if off >= 0]
+        ids_with_offset.sort(key=lambda x: x[1])
+        
         with open(corpus_file, 'r', encoding='utf-8') as f:
-            for line in f:
-                doc = json.loads(line)
-                doc_id = doc.get("_id", "")
+            for doc_id, offset in ids_with_offset:
+                f.seek(offset)
+                doc = json.loads(f.readline())
                 text = (doc.get("title", "") + " " + doc.get("text", "")).strip()
                 texts[doc_id] = text
         
-        print(f"[BM25_TCT] Loaded {len(texts)} documents")
         return texts
     
     def _add_text(self, df):
-        """Add text column from corpus."""
+        """Add text column from corpus (lazy-loaded on demand)."""
         import pandas as pd
         
         df = df.copy()
-        df["text"] = df["docno"].apply(lambda x: self._corpus_texts.get(str(x), ""))
+        
+        # Get unique doc IDs needed for this batch
+        doc_ids = df["docno"].unique().tolist()
+        doc_ids_str = [str(d) for d in doc_ids]
+        
+        # Load only the docs we need (not in cache)
+        needed_ids = [d for d in doc_ids_str if d not in self._corpus_cache]
+        if needed_ids:
+            loaded = self._load_docs(needed_ids)
+            self._corpus_cache.update(loaded)
+        
+        # Add text column
+        df["text"] = df["docno"].apply(lambda x: self._corpus_cache.get(str(x), ""))
         return df
     
     def _run_pipeline(self, query_df):
