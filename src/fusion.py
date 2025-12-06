@@ -487,9 +487,11 @@ def _df_runs_to_ranx(runs: Dict[str, pd.DataFrame]) -> Dict[str, Run]:
 def _ranx_to_dict(run: Run) -> Dict[str, List[Tuple[str, float]]]:
     """Convert ranx Run to dict format."""
     result = {}
-    for qid in run.keys():
-        docs = run.get_doc_ids_and_scores(qid)
-        result[qid] = [(doc, score) for doc, score in zip(docs[0], docs[1])]
+    run_dict = run.to_dict()
+    for qid, doc_scores in run_dict.items():
+        # Sort by score descending
+        sorted_docs = sorted(doc_scores.items(), key=lambda x: -x[1])
+        result[qid] = [(doc, score) for doc, score in sorted_docs]
     return result
 
 

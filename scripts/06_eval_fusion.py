@@ -84,8 +84,8 @@ def run_comparison(
     print(f"Retrievers: {list(runs.keys())}")
     print(f"Queries with qrels: {len(qrels)}")
     
-    # Initialize evaluator with desired metrics
-    evaluator = IREvaluator(metrics=["nDCG@10", "RR@10", "R@10"])
+    # Initialize evaluator with desired metrics (@5 and @10)
+    evaluator = IREvaluator(metrics=["nDCG@5", "nDCG@10", "RR@5", "RR@10", "R@5", "R@10"])
     
     results = []
     
@@ -165,18 +165,21 @@ def run_comparison(
     # Get baseline for improvement calculation
     baseline_ndcg = next((r.get('nDCG@10', 0) for r in results if r['method'] == 'CombSUM'), results[-1].get('nDCG@10', 0))
     
-    print(f"\n{'Method':<25} {'Type':<15} {'NDCG@10':<10} {'MRR@10':<10} {'Recall@10':<10} {'Δ NDCG':<10}")
-    print("-"*80)
+    print(f"\n{'Method':<25} {'Type':<12} {'NDCG@5':<8} {'NDCG@10':<8} {'MRR@5':<8} {'MRR@10':<8} {'R@5':<8} {'R@10':<8} {'Δ':<8}")
+    print("-"*100)
     
     for r in results:
-        ndcg = r.get('nDCG@10', 0)
-        mrr = r.get('RR@10', 0)
-        recall = r.get('R@10', 0)
-        improvement = (ndcg - baseline_ndcg) / baseline_ndcg * 100 if baseline_ndcg > 0 else 0
+        ndcg5 = r.get('nDCG@5', 0)
+        ndcg10 = r.get('nDCG@10', 0)
+        mrr5 = r.get('RR@5', 0)
+        mrr10 = r.get('RR@10', 0)
+        r5 = r.get('R@5', 0)
+        r10 = r.get('R@10', 0)
+        improvement = (ndcg10 - baseline_ndcg) / baseline_ndcg * 100 if baseline_ndcg > 0 else 0
         sign = "+" if improvement >= 0 else ""
-        print(f"{r['method']:<25} {r['type']:<15} {ndcg:.4f}     {mrr:.4f}     {recall:.4f}     {sign}{improvement:.1f}%")
+        print(f"{r['method']:<25} {r['type']:<12} {ndcg5:.4f}   {ndcg10:.4f}   {mrr5:.4f}   {mrr10:.4f}   {r5:.4f}   {r10:.4f}   {sign}{improvement:.1f}%")
     
-    print("-"*80)
+    print("-"*100)
     
     # Save results
     results_file = output_dir / "comparison_results.json"
