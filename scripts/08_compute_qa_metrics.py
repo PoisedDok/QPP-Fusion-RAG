@@ -93,27 +93,48 @@ def compute_containment(prediction: str, gold_answers: List[str]) -> float:
 # Semantic Similarity (LM Studio Embeddings - not in HuggingFace evaluate)
 # =============================================================================
 
-def get_embeddings_batch(texts: List[str], model: str = EMBED_MODEL, batch_size: int = 32) -> List[Optional[List[float]]]:
-    """Get embeddings for multiple texts in batches from LM Studio."""
+def get_embeddings_batch(texts: List[str], model: str = EMBED_MODEL, batch_size: int = 32, session: Optional[requests.Session] = None) -> List[Optional[List[float]]]:
+    """Get embeddings for multiple texts in batches from LM Studio (OPTIMIZED: connection pooling)."""
+    # #region agent log
+    import time as _t; _embed_start = _t.time(); _request_count = 0
+    # #endregion
     all_embeddings = []
     
-    for i in range(0, len(texts), batch_size):
-        batch = texts[i:i+batch_size]
-        try:
-            response = requests.post(
-                LM_STUDIO_EMBED_URL,
-                json={"model": model, "input": batch},
-                timeout=30
-            )
+    # Use provided session or create one (connection pooling)
+    if session is None:
+        session = requests.Session()
+        close_session = True
+    else:
+        close_session = False
+    
+    try:
+        for i in range(0, len(texts), batch_size):
+            # #region agent log
+            _request_count += 1
+            # #endregion
+            batch = texts[i:i+batch_size]
+            try:
+                response = session.post(
+                    LM_STUDIO_EMBED_URL,
+                    json={"model": model, "input": batch},
+                    timeout=30
+                )
             if response.status_code == 200:
                 data = response.json()['data']
                 data.sort(key=lambda x: x['index'])
                 all_embeddings.extend([d['embedding'] for d in data])
             else:
-                raise RuntimeError(f"LM Studio embedding failed: {response.status_code}")
-        except requests.exceptions.ConnectionError:
-            raise RuntimeError("LM Studio not running at localhost:1234")
+                    raise RuntimeError(f"LM Studio embedding failed: {response.status_code}")
+            except requests.exceptions.ConnectionError:
+                raise RuntimeError("LM Studio not running at localhost:1234")
+    finally:
+        if close_session:
+            session.close()
     
+    # #region agent log
+    _total = _t.time() - _embed_start
+    with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as _f: _f.write(__import__('json').dumps({"location":"scripts/08_compute_qa_metrics.py:96","message":"embedding_batch_complete","data":{"num_texts":len(texts),"num_requests":_request_count,"total_sec":round(_total,2),"avg_per_request_ms":round(_total*1000/_request_count,2) if _request_count > 0 else 0,"connection_pooling":True,"optimization":"http_session"},"timestamp":int(__import__('time').time()*1000),"sessionId":"debug-session","runId":"post-fix","hypothesisId":"H5"})+'\n')
+    # #endregion
     return all_embeddings
 
 
@@ -140,7 +161,7 @@ def compute_semantic_sim_batch(
     all_golds = list(all_golds)
     
     print(f"  [Embeddings] Getting embeddings for {len(all_golds)} unique gold answers...")
-    gold_embeddings = get_embeddings_batch(all_golds, model=model)
+    gold_embeddings = get_embeddings_batch(all_golds, model=model, session=session)
     gold_emb_map = {g: e for g, e in zip(all_golds, gold_embeddings) if e is not None}
     
     results = []
@@ -222,10 +243,16 @@ Respond with ONLY a single number (1-5)."""
 
 def load_nq_gold_answers(cache_dir: Path) -> Dict[str, List[str]]:
     """Load gold answers from NQ dataset."""
+    # #region agent log
+    import time as _t; _start = _t.time(); _cache_hit = False
+    # #endregion
     answers_file = cache_dir / "nq_gold_answers.json"
     
     if answers_file.exists():
         print(f"Loading cached gold answers from {answers_file}")
+        # #region agent log
+        _cache_hit = True
+        # #endregion
         with open(answers_file) as f:
             return json.load(f)
     
@@ -341,11 +368,12 @@ def compute_qa_metrics_for_file(
     # Batch semantic similarity if requested
     if 'semantic' in metrics:
         print(f"  Computing semantic similarity (LM Studio embeddings: {embed_model})...")
-        predictions = [e['generated'] for e in all_entries]
-        gold_list = [e['gold'] for e in all_entries]
-        sem_scores = compute_semantic_sim_batch(predictions, gold_list, model=embed_model)
-        for i, e in enumerate(all_entries):
-            e['semantic'] = sem_scores[i]
+        with requests.Session() as session:
+            predictions = [e['generated'] for e in all_entries]
+            gold_list = [e['gold'] for e in all_entries]
+            sem_scores = compute_semantic_sim_batch(predictions, gold_list, model=embed_model, session=session)
+            for i, e in enumerate(all_entries):
+                e['semantic'] = sem_scores[i]
     
     # Process each entry
     total = len(all_entries)

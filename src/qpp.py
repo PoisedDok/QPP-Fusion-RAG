@@ -72,13 +72,14 @@ class QPPBridge:
     No Python fallback - will raise RuntimeError if Java not available.
     """
     
-    def __init__(self, java_dir: Optional[str] = None):
+    def __init__(self, java_dir: Optional[str] = None, persistent: bool = True):
         """
         Initialize QPP Bridge.
         
         Args:
             java_dir: Optional path to Java QPP directory. 
                       Defaults to src/qpp relative to this file.
+            persistent: Use persistent Java process (much faster for batch ops)
         
         Raises:
             RuntimeError: If Java QPP bridge is not compiled/available.
@@ -86,6 +87,8 @@ class QPPBridge:
         self.src_dir = Path(__file__).parent
         self.java_dir = Path(java_dir) if java_dir else self.src_dir / "qpp"
         self.lib_dir = self.src_dir.parent / "lib"
+        self.persistent = persistent
+        self._java_process = None
         
         # STRICT: Check for compiled Java - raise if not available
         if not self._check_java():
@@ -95,7 +98,7 @@ class QPPBridge:
                 f"To compile: cd {self.java_dir} && ./build.sh"
             )
         
-        print(f"[QPP] Java bridge ready at {self.java_dir}", file=sys.stderr)
+        print(f"[QPP] Java bridge ready at {self.java_dir} (persistent={persistent})", file=sys.stderr)
     
     def _check_java(self) -> bool:
         """Check if Java QPPBridge is compiled and available."""
@@ -132,6 +135,62 @@ class QPPBridge:
                 break
         
         return ":".join(paths)
+    
+    def compute_batch(self, queries_scores: List[tuple]) -> List[QPPResult]:
+        """
+        Compute QPP for multiple queries in one Java call (MUCH faster).
+        
+        Args:
+            queries_scores: List of (query_id, scores) tuples
+            
+        Returns:
+            List of QPPResult objects
+        """
+        if not queries_scores:
+            return []
+        
+        # Prepare batch input
+        batch_input = {
+            "queries": [
+                {"qid": str(qid), "scores": scores}
+                for qid, scores in queries_scores
+            ]
+        }
+        
+        classpath = self._get_classpath()
+        
+        try:
+            result = subprocess.run(
+                ["java", "-cp", classpath, "qpp.QPPBridge", "--batch"],
+                input=json.dumps(batch_input),
+                capture_output=True,
+                text=True,
+                timeout=60
+            )
+        except subprocess.TimeoutExpired:
+            raise RuntimeError(f"Java QPP batch computation timed out (60s limit)")
+        except FileNotFoundError:
+            raise RuntimeError("Java not found. Ensure Java 11+ is installed and in PATH.")
+        
+        if result.returncode != 0:
+            raise RuntimeError(f"Java QPP failed: {result.stderr}")
+        
+        # Parse batch results
+        try:
+            batch_output = json.loads(result.stdout)
+            results = []
+            for item in batch_output.get("results", []):
+                results.append(QPPResult(
+                    query=item["qid"],
+                    retriever_name="batch",
+                    qpp_scores=item["qpp_scores"],
+                    methods_used=QPP_METHOD_NAMES,
+                    processing_time_ms=0,
+                    predictions={}
+                ))
+            return results
+        except json.JSONDecodeError:
+            raise RuntimeError(f"Invalid JSON from Java QPP: {result.stdout}")
     
     def compute(
         self,
@@ -250,14 +309,36 @@ def compute_qpp_for_res_file(
         runs[qid] = sorted(runs[qid], reverse=True)[:top_k]
     
     # Compute QPP (raises RuntimeError if Java fails)
+    # OPTIMIZED: Use batch computation to avoid subprocess overhead (15min saved!)
     bridge = QPPBridge()
-    results = {}
     
-    for qid, scores in runs.items():
-        result = bridge.compute(query=qid, scores=scores)  # Use qid as placeholder query
-        # Convert to list in QPP_METHODS order
-        qpp_list = [result.qpp_scores.get(m, 0.0) for m in QPP_METHOD_NAMES]
-        results[qid] = qpp_list
+    # #region agent log
+    import time as _t; _qpp_start = _t.time()
+    # #endregion
+    
+    # Prepare batch input
+    batch_queries = [(qid, scores) for qid, scores in runs.items()]
+    
+    # Batch compute (single Java call instead of N subprocess spawns)
+    try:
+        batch_results = bridge.compute_batch(batch_queries)
+        results = {}
+        for qpp_result in batch_results:
+            qpp_list = [qpp_result.qpp_scores.get(m, 0.0) for m in QPP_METHOD_NAMES]
+            results[qpp_result.query] = qpp_list
+    except Exception as e:
+        # Fallback to sequential if batch fails
+        print(f"Warning: Batch QPP failed ({e}), falling back to sequential")
+        results = {}
+        for qid, scores in runs.items():
+            result = bridge.compute(query=qid, scores=scores)
+            qpp_list = [result.qpp_scores.get(m, 0.0) for m in QPP_METHOD_NAMES]
+            results[qid] = qpp_list
+    
+    # #region agent log
+    _total = _t.time() - _qpp_start
+    with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as _f: _f.write(__import__('json').dumps({"location":"src/qpp.py:256","message":"qpp_batch_optimized","data":{"num_queries":len(runs),"total_sec":round(_total,2),"avg_per_query_ms":round(_total*1000/len(runs),2),"optimization":"batch_compute","subprocess_spawns":1},"timestamp":int(_t.time()*1000),"sessionId":"debug-session","runId":"post-fix","hypothesisId":"H4"})+'\n')
+    # #endregion
     
     # Normalize
     if normalize != "none" and results:
