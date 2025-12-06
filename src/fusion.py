@@ -403,7 +403,7 @@ def learned_fusion(
     all_qids = sorted(set.union(*[set(df["qid"].unique()) for df in runs.values()]))
     n_retrievers = len(retrievers)
     
-    # Build feature matrix
+    # Build feature matrix with FULL QPP features (model.predict() will filter if needed)
     X = np.zeros((len(all_qids), n_qpp * n_retrievers))
     for i, qid in enumerate(all_qids):
         for j, retriever in enumerate(retrievers):
@@ -411,8 +411,19 @@ def learned_fusion(
                 scores = qpp_data[qid][retriever]
                 X[i, j*n_qpp:(j+1)*n_qpp] = scores[:n_qpp]
     
-    # Predict weights using model's predict method
+    # #region agent log
+    import json, time
+    with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as f:
+        f.write(json.dumps({'location': 'fusion.py:415', 'message': 'learned_fusion before predict', 'data': {'X_shape': X.shape, 'model_type': model_type, 'model_n_features': getattr(model, 'n_features', 'N/A'), 'model_qpp_indices': getattr(model, 'qpp_indices', 'N/A')}, 'timestamp': time.time(), 'sessionId': 'learned-fusion'}) + '\n')
+    # #endregion
+    
+    # Predict weights using model's predict method (MLP will auto-filter if needed)
     pred_weights = model.predict(X)
+    
+    # #region agent log
+    with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as f:
+        f.write(json.dumps({'location': 'fusion.py:428', 'message': 'learned_fusion after predict', 'data': {'pred_weights_shape': pred_weights.shape}, 'timestamp': time.time(), 'sessionId': 'learned-fusion'}) + '\n')
+    # #endregion
     
     # Create weights dict
     weights_dict = {}

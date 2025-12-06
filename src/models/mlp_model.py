@@ -143,6 +143,23 @@ class FusionMLP(BaseFusionModel):
         """Train the MLP model using CrossEntropyLoss."""
         print(f"\n=== Training FusionMLP on {self.device} (CrossEntropyLoss) ===")
         
+        # #region agent log
+        import json, time
+        with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as f:
+            f.write(json.dumps({'location': 'mlp_model.py:145', 'message': 'train() - before filter', 'data': {'X_train_shape': X_train.shape, 'model_n_features': self.n_features, 'qpp_indices': self.qpp_indices}, 'timestamp': time.time(), 'sessionId': 'mlp-train'}) + '\n')
+        # #endregion
+        
+        # Filter features if using subset of QPP methods
+        if len(self.qpp_indices) < self.n_qpp:
+            X_train = self._filter_features(X_train)
+            if X_val is not None:
+                X_val = self._filter_features(X_val)
+            
+            # #region agent log
+            with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as f:
+                f.write(json.dumps({'location': 'mlp_model.py:157', 'message': 'train() - after filter', 'data': {'X_train_filtered_shape': X_train.shape, 'X_val_filtered': X_val.shape if X_val is not None else None}, 'timestamp': time.time(), 'sessionId': 'mlp-train'}) + '\n')
+            # #endregion
+        
         # Normalize Y to sum to 1 (target distribution)
         Y_train_sum = Y_train.sum(axis=1, keepdims=True)
         Y_train_sum[Y_train_sum == 0] = 1
@@ -247,6 +264,21 @@ class FusionMLP(BaseFusionModel):
         """Predict weights (softmax at inference, then normalize like LightGBM)."""
         if not self.is_trained:
             raise RuntimeError("Model not trained")
+        
+        # #region agent log
+        import json, time
+        with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as f:
+            f.write(json.dumps({'location': 'mlp_model.py:280', 'message': 'predict() - before filter', 'data': {'X_shape': X.shape, 'model_n_features': self.n_features, 'qpp_indices': self.qpp_indices}, 'timestamp': time.time(), 'sessionId': 'mlp-predict'}) + '\n')
+        # #endregion
+        
+        # Filter features if using subset of QPP methods
+        if len(self.qpp_indices) < self.n_qpp:
+            X = self._filter_features(X)
+            
+            # #region agent log
+            with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as f:
+                f.write(json.dumps({'location': 'mlp_model.py:292', 'message': 'predict() - after filter', 'data': {'X_filtered_shape': X.shape}, 'timestamp': time.time(), 'sessionId': 'mlp-predict'}) + '\n')
+            # #endregion
         
         # Ensure model is on correct device
         self.model.to(self.device)
