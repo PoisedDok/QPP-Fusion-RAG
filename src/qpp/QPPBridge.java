@@ -228,63 +228,68 @@ public class QPPBridge {
     // ========================================================================
     
     private static double computeNQC(List<Float> scores) {
+        // NQC: Normalized Query Commitment
+        // With pre-normalized [0,1] scores, variance is naturally bounded [0, 0.25]
         if (scores.size() < 2) return 0.5;
         
         int k = Math.min(50, scores.size());
         List<Float> topK = getTopK(scores, k);
         
-        double mean = mean(topK);
-        double variance = variance(topK);
+        double std = stdDev(topK);
         
-        // Normalize
-        return 1.0 / (1.0 + Math.exp(-variance));
+        // High std = spread scores = hard query = low NQC
+        // Low std = tight cluster = easy query = high NQC
+        // With [0,1] scores, std is typically 0.0-0.35
+        return 1.0 - Math.min(1.0, std * 3);
     }
     
     private static double computeSMV(List<Float> scores) {
+        // SMV: Similarity Mean Variance
+        // Measures score dispersion relative to mean
         if (scores.size() < 2) return 0.5;
         
         int k = Math.min(10, scores.size());
         List<Float> topK = getTopK(scores, k);
         
         double muHat = mean(topK);
-        if (muHat == 0) return 0.0;
+        if (muHat < 0.01) return 0.0;
         
-        double smv = 0.0;
-        for (float score : topK) {
-            if (score > 0) {
-                smv += score * Math.abs(Math.log(score / muHat));
-            }
-        }
-        smv /= topK.size();
+        // Coefficient of variation (std/mean) - scale-invariant dispersion measure
+        double cv = stdDev(topK) / muHat;
         
-        return 1.0 / (1.0 + Math.exp(-smv));
+        // Low CV = consistent high scores = easy query = high SMV
+        // High CV = inconsistent = hard query = low SMV
+        return 1.0 - Math.min(1.0, cv);
     }
     
     private static double computeWIG(String query, List<Float> scores) {
+        // WIG: Weighted Information Gain
+        // With pre-normalized [0,1] scores, measures how much top-k exceeds corpus average
         if (scores.isEmpty()) return 0.0;
         
         int k = Math.min(20, scores.size());
         List<Float> topK = getTopK(scores, k);
         
-        // WIG: Weighted Information Gain - measures score deviation from corpus average
-        // Without real IDF, use mean of ALL scores as corpus baseline (not just top-k)
-        double corpusBaseline = mean(scores);  // Use full score list
+        // Corpus baseline = mean of all scores (now in [0,1])
+        double corpusBaseline = mean(scores);
         double topKMean = mean(topK);
         
-        // WIG is the gain of top-k over corpus baseline, normalized by query complexity
+        // WIG = (top-k mean - corpus mean) / query_complexity
         String[] terms = query.toLowerCase().split("\\s+");
-        int numTerms = terms.length;
-        java.util.Set<String> uniqueTerms = new java.util.HashSet<>();
-        for (String t : terms) uniqueTerms.add(t);
+        int numTerms = Math.max(1, terms.length);
         
-        // Incorporate term diversity as query difficulty proxy
-        double termDiversity = (double) uniqueTerms.size() / numTerms;
-        double wig = (topKMean - corpusBaseline) / (numTerms * termDiversity + 0.1);
+        // With normalized scores, WIG is naturally bounded
+        // Positive = top results much better than average
+        // Negative = top results not much better (hard query)
+        double wig = (topKMean - corpusBaseline) / Math.sqrt(numTerms);
         
-        return 1.0 / (1.0 + Math.exp(-wig * 10));
+        // Transform to [0,1] - WIG typically ranges from -0.5 to 0.5 with normalized scores
+        return 0.5 + wig;
     }
     
     private static double computeSigmaMax(String query, List<Float> scores) {
+        // SigmaMax: Maximum std across growing windows
+        // With pre-normalized [0,1] scores, std is bounded
         if (scores.size() < 2) return 0.5;
         
         int k = Math.min(50, scores.size());
@@ -293,36 +298,36 @@ public class QPPBridge {
         double maxStd = 0.0;
         for (int i = 2; i <= topK.size(); i++) {
             List<Float> window = topK.subList(0, i);
-            double std = stdDev(window);
-            maxStd = Math.max(maxStd, std);
+            maxStd = Math.max(maxStd, stdDev(window));
         }
         
-        int numTerms = query.split("\\s+").length;
-        double norm = Math.sqrt(Math.max(1, numTerms));
-        
-        double sigmaMax = maxStd / norm;
-        return 1.0 / (1.0 + Math.exp(-sigmaMax * 2));
+        // With [0,1] scores, maxStd is typically 0.0-0.4
+        // Low maxStd = consistent results = easy query
+        return 1.0 - Math.min(1.0, maxStd * 2.5);
     }
     
     private static double computeSigmaX(List<Float> scores) {
+        // SigmaX: Std of scores above threshold
+        // With pre-normalized [0,1] scores, threshold is meaningful
         if (scores.size() < 2) return 0.5;
         
-        double x = 0.5; // Threshold
         int k = Math.min(50, scores.size());
         List<Float> topK = getTopK(scores, k);
         
+        // Filter scores >= 50% of top score
         float topScore = topK.get(0);
+        float threshold = topScore * 0.5f;
+        
         List<Float> filtered = new ArrayList<>();
         for (float s : topK) {
-            if (s >= topScore * x) {
-                filtered.add(s);
-            }
+            if (s >= threshold) filtered.add(s);
         }
         
-        if (filtered.isEmpty()) return 0.0;
+        if (filtered.size() < 2) return 0.5;
         
         double std = stdDev(filtered);
-        return 1.0 / (1.0 + Math.exp(-std * 2));
+        // With [0,1] scores, std of filtered is typically 0.0-0.25
+        return 1.0 - Math.min(1.0, std * 4);
     }
     
     private static double computeRSD(List<Float> scores) {
@@ -394,99 +399,95 @@ public class QPPBridge {
     }
     
     private static double computeCumNQC(List<Float> scores) {
+        // CumNQC: Cumulative NQC - average std across growing windows
+        // With pre-normalized [0,1] scores, this is naturally bounded
         if (scores.size() < 2) return 0.5;
         
         int kMax = Math.min(50, scores.size());
         List<Float> topK = getTopK(scores, kMax);
         
-        double cumSum = 0.0;
-        for (int k = 1; k < kMax; k++) {
+        double cumStd = 0.0;
+        int count = 0;
+        for (int k = 2; k <= kMax; k++) {
             List<Float> window = topK.subList(0, k);
-            if (window.size() > 1) {
-                cumSum += variance(window);
-            }
+            cumStd += stdDev(window);
+            count++;
         }
         
-        double cumNQC = cumSum / kMax;
-        return 1.0 / (1.0 + Math.exp(-cumNQC * 10));
+        double avgStd = cumStd / Math.max(1, count);
+        // With [0,1] scores, avgStd is typically 0.0-0.3
+        return 1.0 - Math.min(1.0, avgStd * 3);
     }
     
     private static double computeSNQC(List<Float> scores) {
+        // SNQC: Calibrated NQC using coefficient of variation
+        // With pre-normalized [0,1] scores, simplified formula works
         if (scores.size() < 2) return 0.5;
-        
-        // Calibrated NQC with alpha, beta, gamma
-        double alpha = 0.33, beta = 0.33, gamma = 0.33;
         
         int k = Math.min(50, scores.size());
         List<Float> topK = getTopK(scores, k);
         
         double mean = mean(topK);
-        double avgIDF = 1.0; // Simplified
+        double std = stdDev(topK);
         
-        double snqc = 0.0;
-        for (float rsv : topK) {
-            if (rsv > 0) {
-                double factor1 = Math.pow(avgIDF, alpha);
-                double factor2 = Math.pow(Math.pow((rsv - mean), 2) / rsv, beta);
-                double prod = Math.pow(factor1 * factor2, gamma);
-                snqc += prod;
-            }
-        }
+        if (mean < 0.01) return 0.0;
         
-        snqc /= topK.size();
-        snqc *= avgIDF;
+        // Coefficient of variation scaled by mean level
+        double cv = std / mean;
+        double snqc = mean * (1.0 - cv);
         
-        return 1.0 / (1.0 + Math.exp(-snqc * 10));
+        // With [0,1] scores, snqc is typically 0.0-0.8
+        return Math.max(0, Math.min(1.0, snqc * 1.2));
     }
     
     private static double computeDenseQPP(List<Float> scores) {
+        // DenseQPP: Measures clustering tightness of top results
+        // With pre-normalized [0,1] scores, variance is naturally bounded
         if (scores.size() < 2) return 0.5;
         
         int k = Math.min(5, scores.size());
         List<Float> topK = getTopK(scores, k);
         
-        double variance = variance(topK);
-        double diameter = Math.sqrt(variance) + 0.01;
+        // Std dev of top-k (in [0,1] range, so std is typically 0-0.3)
+        double std = stdDev(topK);
         
-        // Use sigmoid to preserve variance
-        double denseQPP = Math.log(1 + 1 / diameter);
-        return 1.0 / (1.0 + Math.exp(-denseQPP + 2));
+        // Low std = tight clustering = easy query = high QPP
+        // High std = spread out = hard query = low QPP
+        // With normalized scores, std is typically 0.0-0.3
+        return 1.0 - Math.min(1.0, std * 3);
     }
     
     private static double computeDenseQPPMatryoshka(List<Float> scores) {
+        // DenseQPP-M: Multi-scale analysis of clustering consistency
+        // With pre-normalized [0,1] scores, this works properly
         if (scores.size() < 2) return 0.5;
         
         int kMax = Math.min(5, scores.size());
         List<Float> topK = getTopK(scores, kMax);
         
-        // Matryoshka: Multi-scale analysis at different k values
-        // Measures consistency of clustering across scales
-        double[] scaleValues = new double[kMax];
+        // Compute std at different scales
+        double[] scaleStd = new double[kMax];
         for (int i = 1; i <= kMax; i++) {
             List<Float> window = topK.subList(0, i);
-            double var = variance(window);
-            double std = Math.sqrt(var);
-            double mean = mean(window);
-            // Coefficient of variation at each scale
-            scaleValues[i-1] = (mean > 0.001) ? std / mean : std;
+            scaleStd[i-1] = (i > 1) ? stdDev(window) : 0.0;
         }
         
-        // Compute variance of scale values (how consistent is clustering?)
-        double scaleVariance = 0.0;
-        double scaleMean = 0.0;
-        for (double v : scaleValues) scaleMean += v;
-        scaleMean /= kMax;
-        for (double v : scaleValues) scaleVariance += Math.pow(v - scaleMean, 2);
-        scaleVariance /= kMax;
+        // Measure consistency: how stable is std across scales?
+        double meanStd = 0.0;
+        for (double s : scaleStd) meanStd += s;
+        meanStd /= kMax;
         
-        // Low scale variance = consistent clustering = easy query
-        // High scale variance = inconsistent = harder query
-        double consistency = 1.0 / (1.0 + Math.sqrt(scaleVariance) * 10);
+        double stdVariance = 0.0;
+        for (double s : scaleStd) stdVariance += Math.pow(s - meanStd, 2);
+        stdVariance /= kMax;
         
-        // Combine with average scale (tightness)
-        double tightness = 1.0 / (1.0 + scaleMean * 5);
+        // Low variance in std across scales = consistent clustering = easy query
+        double consistency = 1.0 - Math.min(1.0, Math.sqrt(stdVariance) * 5);
         
-        return 0.5 * consistency + 0.5 * tightness;
+        // Combine with overall tightness
+        double tightness = 1.0 - Math.min(1.0, meanStd * 3);
+        
+        return 0.4 * consistency + 0.6 * tightness;
     }
     
     // ========================================================================

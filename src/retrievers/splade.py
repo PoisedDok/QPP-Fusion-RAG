@@ -9,6 +9,7 @@ Uses Pyserini's pre-built SPLADE index for BEIR-NQ.
 No corpus encoding needed - index downloaded on first use.
 """
 
+import os
 import time
 from typing import Dict, Optional
 
