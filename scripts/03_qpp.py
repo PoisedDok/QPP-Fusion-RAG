@@ -32,6 +32,7 @@ def main():
     parser.add_argument("--queries", default=None, help="Path to queries.jsonl (BEIR format)")
     parser.add_argument("--top_k", type=int, default=100, help="Top-k for QPP computation")
     parser.add_argument("--normalize", default="minmax", choices=["none", "minmax", "zscore"])
+    parser.add_argument("--force", action="store_true", help="Recompute even if QPP file exists")
     args = parser.parse_args()
     
     # Setup paths
@@ -70,9 +71,16 @@ def main():
     print(f"[03_qpp] QPP methods: 13 (NQC, RSD, WIG, SMV, UEF, ...)")
     
     # Process files sequentially (each file uses optimized batch QPP internally)
+    processed = 0
+    skipped = 0
     for res_file in res_files:
         res_path = runs_dir / res_file
         qpp_output = qpp_dir / res_file.replace(".res", ".res.mmnorm.qpp")
+        
+        if qpp_output.exists() and not args.force:
+            print(f"[03_qpp] SKIP {res_file} (already exists, use --force to recompute)")
+            skipped += 1
+            continue
         
         print(f"\n[03_qpp] Processing {res_file}...")
         compute_qpp_for_res_file(
@@ -82,6 +90,9 @@ def main():
             normalize=args.normalize,
             queries_path=queries_path
         )
+        processed += 1
+    
+    print(f"\n[03_qpp] Processed: {processed}, Skipped: {skipped}")
     
     print(f"\n=== Step 3 Complete ===")
     print(f"QPP files: {qpp_dir}")

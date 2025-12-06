@@ -55,7 +55,10 @@ class SpladeRetriever(BaseRetriever):
         if not index_dir.exists():
             raise FileNotFoundError(f"Index not found: {index_dir}")
         
-        self.searcher = LuceneImpactSearcher(str(index_dir), self.encoder_name, impact_field="vector")
+        self.searcher = LuceneImpactSearcher(
+            index_dir=str(index_dir),
+            query_encoder=self.encoder_name
+        )
         
         print(f"[SPLADE] Index loaded. Ready for retrieval.")
     
