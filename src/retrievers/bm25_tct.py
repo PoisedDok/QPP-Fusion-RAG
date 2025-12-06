@@ -16,19 +16,17 @@ import os
 import time
 from typing import Dict
 
-# STRICT: Fail immediately if dependencies not available
-import pyterrier as pt
-
-# PyTerrier 0.11+ auto-starts Java; ensure initialized for earlier versions
-if hasattr(pt, 'java') and hasattr(pt.java, 'init'):
-    pt.java.init()  # New API
-elif not pt.started():
-    pt.init()  # Legacy API
-
-import pyterrier_dr as dr
-from sentence_transformers import SentenceTransformer
-
 from .base import BaseRetriever, RetrieverResult
+
+
+def _ensure_pyterrier_init():
+    """Lazy PyTerrier initialization to avoid JVM conflicts with pyserini."""
+    import pyterrier as pt
+    if hasattr(pt, 'java') and hasattr(pt.java, 'init') and not pt.started():
+        pt.java.init()
+    elif not pt.started():
+        pt.init()
+    return pt
 
 
 class BM25TCTRetriever(BaseRetriever):
@@ -59,6 +57,10 @@ class BM25TCTRetriever(BaseRetriever):
             first_stage_k: Number of candidates from BM25
             batch_size: Batch size for dense encoding
         """
+        import pyterrier_dr as dr
+        
+        pt = _ensure_pyterrier_init()
+        
         self.corpus_path = corpus_path
         self.first_stage_k = first_stage_k
         self.batch_size = batch_size
@@ -86,9 +88,7 @@ class BM25TCTRetriever(BaseRetriever):
         # Text loader for getting document content
         self._corpus_texts = self._load_corpus_texts()
         
-        # Build the pipeline
-        self.pipeline = self.bm25 >> self._add_text >> self.tct_reranker
-        
+        # Pipeline is run manually (no >> operator) to avoid JVM init conflicts
         print(f"[BM25_TCT] Pipeline ready: BM25(k={first_stage_k}) >> TCT-ColBERT")
     
     def _load_corpus_texts(self) -> Dict[str, str]:
@@ -110,12 +110,25 @@ class BM25TCTRetriever(BaseRetriever):
         return texts
     
     def _add_text(self, df):
-        """PyTerrier transformer to add text column."""
+        """Add text column from corpus."""
         import pandas as pd
         
         df = df.copy()
         df["text"] = df["docno"].apply(lambda x: self._corpus_texts.get(str(x), ""))
         return df
+    
+    def _run_pipeline(self, query_df):
+        """Run the manual BM25 >> text >> TCT-ColBERT pipeline."""
+        # Step 1: BM25 retrieval
+        results_df = self.bm25.transform(query_df)
+        
+        # Step 2: Add text
+        results_df = self._add_text(results_df)
+        
+        # Step 3: TCT-ColBERT reranking
+        results_df = self.tct_reranker.transform(results_df)
+        
+        return results_df
     
     def retrieve(
         self,
@@ -124,7 +137,7 @@ class BM25TCTRetriever(BaseRetriever):
         top_k: int = 100,
         **kwargs
     ) -> RetrieverResult:
-        """Retrieve using PyTerrier pipeline."""
+        """Retrieve using manual pipeline: BM25 >> text >> TCT-ColBERT."""
         import pandas as pd
         import re
         
@@ -137,7 +150,7 @@ class BM25TCTRetriever(BaseRetriever):
         query_df = pd.DataFrame([{"qid": qid, "query": clean_query}])
         
         # Run pipeline
-        results_df = self.pipeline.transform(query_df)
+        results_df = self._run_pipeline(query_df)
         results_df = results_df.head(top_k)
         
         results = []
@@ -164,7 +177,7 @@ class BM25TCTRetriever(BaseRetriever):
         top_k: int = 100,
         **kwargs
     ) -> Dict[str, RetrieverResult]:
-        """Batch retrieval using PyTerrier pipeline."""
+        """Batch retrieval using manual pipeline: BM25 >> text >> TCT-ColBERT."""
         import pandas as pd
         import re
         
@@ -183,7 +196,7 @@ class BM25TCTRetriever(BaseRetriever):
         ])
         
         # Run pipeline
-        results_df = self.pipeline.transform(query_df)
+        results_df = self._run_pipeline(query_df)
         
         # Group by query and build results
         results = {}

@@ -14,6 +14,16 @@ import pandas as pd
 from .base import BaseRetriever, RetrieverResult
 
 
+def _ensure_pyterrier_init():
+    """Lazy PyTerrier initialization to avoid JVM conflicts with pyserini."""
+    import pyterrier as pt
+    if hasattr(pt, 'java') and hasattr(pt.java, 'init') and not pt.started():
+        pt.java.init()
+    elif not pt.started():
+        pt.init()
+    return pt
+
+
 def sanitize_query(query: str) -> str:
     """Sanitize query for PyTerrier parser - keep only alphanumeric and spaces."""
     # Keep only letters, numbers, and spaces
@@ -35,12 +45,7 @@ class BM25Retriever(BaseRetriever):
         Args:
             index_path: Path to PyTerrier index directory
         """
-        import pyterrier as pt
-        # PyTerrier 0.11+ auto-starts Java
-        if hasattr(pt, 'java') and hasattr(pt.java, 'init'):
-            pt.java.init()
-        elif not pt.started():
-            pt.init()
+        pt = _ensure_pyterrier_init()
         
         self.index = pt.IndexFactory.of(index_path)
         # IMPORTANT: Set num_results in constructor, not per-call
