@@ -1,5 +1,7 @@
 {
-  "_description": "Schema documentation for RAG evaluation result files",
+  "_description": "CANONICAL Schema for RAG evaluation result files - v2.0",
+  "_version": "2.0",
+  "_updated": "2025-12-06",
   "_naming_convention": "{fusion_method}__{llm_model}.json",
   "_examples": [
     "wcombsum_rsd__liquid_lfm2-1.2b.json",
@@ -11,13 +13,15 @@
     "_metadata": {
       "_description": "File metadata and experiment info",
       "fields": {
-        "description": "string - Always 'RAG Evaluation Results'",
-        "fusion_method": "string - Fusion method used (combsum, wcombsum_rsd, learned_multioutput, etc.)",
-        "fusion_description": "string - Human-readable fusion description",
-        "llm_model": "string - LLM model identifier from LM Studio",
-        "dataset": "string - Dataset name (BEIR-NQ, etc.)",
         "created": "string - ISO timestamp when evaluation completed",
-        "status": "string - 'complete' or 'in_progress'"
+        "script": "string - Script that generated this file (07_rag_eval.py)",
+        "fusion_method": "string - Fusion method used (combsum, wcombsum_rsd, etc.)",
+        "model": "string - LLM model identifier",
+        "dataset": "string - Dataset name (nq, etc.)",
+        "total_queries": "int - Number of queries evaluated",
+        "k_values": "int[] - K values tested [0,1,2,3,4,5,6,10]",
+        "qa_metrics_computed": "bool - Whether QA metrics have been added",
+        "qa_metrics_list": "string[] - List of computed QA metrics"
       }
     },
 
@@ -35,28 +39,29 @@
       "fields": {
         "total_queries": "int - Number of queries evaluated",
         "k_values": "int[] - K values tested",
+        
         "metrics_by_k": {
-          "_description": "Per-k retrieval metrics",
+          "_description": "Per-k retrieval and generation metrics (keys are STRING: '0', '1', etc.)",
           "<k>": {
-            "has_relevant_pct": "float - % queries with relevant doc in top-k",
-            "mean_recall_at_k": "float - Mean recall@k across queries (%)",
-            "avg_latency_ms": "float - Average LLM generation latency (ms)"
+            "recall_at_k": "float - Mean recall@k as PERCENTAGE (0-100)",
+            "mrr_at_k": "float - Mean Reciprocal Rank as PERCENTAGE (0-100)",
+            "hit_rate": "float - % queries with >=1 relevant doc in top-k (0-100)",
+            "avg_latency_ms": "float - Average LLM generation latency (ms)",
+            "n_queries": "int - Number of queries"
           }
         },
+        
         "qa_metrics_by_k": {
-          "_description": "Per-k QA metrics (computed by 08_compute_qa_metrics.py)",
+          "_description": "Per-k QA metrics - added by 08_compute_qa_metrics.py",
           "<k>": {
-            "em": "float - Exact Match score (%)",
-            "f1": "float - Token F1 score (%)",
+            "em": "float - Exact Match score as PERCENTAGE (0-100)",
+            "f1": "float - Token F1 score as PERCENTAGE (0-100)",
+            "containment": "float - Answer containment as PERCENTAGE (0-100)",
+            "semantic": "float - Semantic similarity as PERCENTAGE (0-100)",
             "n_matched": "int - Number of queries matched to gold answers"
           }
         }
       }
-    },
-
-    "completed_qids": {
-      "_description": "string[] - List of completed query IDs",
-      "_example": ["test0", "test1", "test2", "..."]
     },
 
     "results": {
@@ -66,26 +71,32 @@
         "qid": "string - Query ID",
         "query": "string - Query text",
         "shots": {
-          "_description": "Results per k value",
+          "_description": "Results per k value (keys are STRING: '0', '1', etc.)",
           "<k>": {
             "k": "int - Number of context documents",
             "answer": "string - LLM generated answer",
             "context_length": "int - Total context length (chars)",
+            "latency_ms": "float - LLM generation time (ms)",
             "has_relevant": "bool - Whether top-k contains relevant doc",
             "relevant_in_top_k": "int - Count of relevant docs in top-k",
             "total_relevant": "int - Total relevant docs for query",
-            "recall_at_k": "float - Recall@k (0.0-1.0)",
-            "latency_ms": "float - LLM generation time (ms)"
+            "recall_at_k": "float - Recall@k as DECIMAL (0.0-1.0)",
+            "reciprocal_rank": "float - Reciprocal rank as DECIMAL (0.0-1.0)",
+            "gold_answers": "string[] - Gold answers (added by 08_compute_qa_metrics.py)",
+            "em": "float - Exact Match DECIMAL (added by 08_compute_qa_metrics.py)",
+            "f1": "float - Token F1 DECIMAL (added by 08_compute_qa_metrics.py)",
+            "containment": "float - Containment DECIMAL (added by 08_compute_qa_metrics.py)",
+            "semantic": "float - Semantic similarity DECIMAL (added by 08_compute_qa_metrics.py)"
           }
         }
       }
     }
   },
 
-  "checkpoint_format": {
-    "_description": "In-progress checkpoint files use prefix 'checkpoint_'",
-    "_naming": "checkpoint_{model_safe}.json",
-    "_note": "Same structure but status='in_progress', renamed on completion"
+  "conventions": {
+    "summary_metrics": "PERCENTAGE (0-100) for easy reading",
+    "per_query_metrics": "DECIMAL (0.0-1.0) for computation",
+    "key_format": "All k-value keys in summary and shots are STRING ('0', '1', not integers)"
   },
 
   "fusion_methods": {
@@ -95,9 +106,9 @@
     "wcombsum_rsd": "W-CombSUM with RSD QPP weighting",
     "wcombmnz_rsd": "W-CombMNZ with RSD QPP weighting",
     "wrrf_rsd": "W-RRF with RSD QPP weighting",
+    "wcombsum_learned": "W-CombSUM with learned weights",
     "learned_per_retriever": "LightGBM per-retriever model",
     "learned_multioutput": "LightGBM multi-output model",
     "learned_mlp": "Neural network MLP model"
   }
 }
-

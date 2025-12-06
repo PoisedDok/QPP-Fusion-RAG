@@ -193,8 +193,7 @@ def train_and_evaluate(
     runs: Dict,
     qrels: Dict,
     retrievers: List[str],
-    output_dir: Path,
-    qpp_indices: List[int] = None
+    output_dir: Path
 ) -> Dict:
     """Train model and evaluate."""
     
@@ -204,7 +203,7 @@ def train_and_evaluate(
     elif model_type == "multioutput":
         model = MultiOutputLGBM(retrievers)
     elif model_type == "mlp":
-        model = FusionMLP(retrievers, qpp_indices=qpp_indices)
+        model = FusionMLP(retrievers)
     else:
         raise ValueError(f"Unknown model type: {model_type}")
     
@@ -235,15 +234,7 @@ def main():
                         help="Model type to train")
     parser.add_argument("--data_dir", default=None, help="Data directory")
     parser.add_argument("--corpus_path", default=None, help="Path to BEIR dataset")
-    parser.add_argument("--qpp_indices", default="5", 
-                        help="Comma-separated QPP indices for MLP (default: 5=RSD only). "
-                             "Options: 0=SMV, 1=Sigma_max, 2=Sigma(%%), 3=NQC, 4=UEF, 5=RSD, "
-                             "6=QPP-PRP, 7=WIG, 8=SCNQC, 9=QV-NQC, 10=DM, 11=NQA-QPP, 12=BERTQPP")
     args = parser.parse_args()
-    
-    # Parse QPP indices
-    qpp_indices = [int(x.strip()) for x in args.qpp_indices.split(",")]
-    print(f"QPP indices for MLP: {qpp_indices}")
     
     # Paths
     data_dir = Path(args.data_dir) if args.data_dir else PROJECT_ROOT / "data" / "nq"
@@ -291,8 +282,7 @@ def main():
         
         result = train_and_evaluate(
             model_type, X_train, Y_train, X_test, Y_test,
-            qids_test, runs, qrels, retrievers, output_dir,
-            qpp_indices=qpp_indices
+            qids_test, runs, qrels, retrievers, output_dir
         )
         results.append(result)
     

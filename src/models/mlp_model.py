@@ -141,13 +141,7 @@ class FusionMLP(BaseFusionModel):
         patience: int = 10
     ) -> Dict:
         """Train the MLP model using CrossEntropyLoss."""
-        qpp_names = [self.QPP_NAMES.get(i, str(i)) for i in self.qpp_indices]
         print(f"\n=== Training FusionMLP on {self.device} (CrossEntropyLoss) ===")
-        print(f"    QPP methods: {qpp_names}")
-        print(f"    Input features: {self.n_features} ({self.n_retrievers} retrievers × {self.n_qpp_used} QPP)")
-        
-        # Filter features to only use selected QPP indices
-        X_train_filtered = self._filter_features(X_train)
         
         # Normalize Y to sum to 1 (target distribution)
         Y_train_sum = Y_train.sum(axis=1, keepdims=True)
@@ -155,7 +149,7 @@ class FusionMLP(BaseFusionModel):
         Y_train_norm = Y_train / Y_train_sum
         
         # Convert to tensors
-        X_train_t = torch.FloatTensor(X_train_filtered).to(self.device)
+        X_train_t = torch.FloatTensor(X_train).to(self.device)
         Y_train_t = torch.FloatTensor(Y_train_norm).to(self.device)
         
         train_dataset = TensorDataset(X_train_t, Y_train_t)
@@ -163,13 +157,11 @@ class FusionMLP(BaseFusionModel):
         
         # Validation data
         if X_val is not None and Y_val is not None:
-            X_val_filtered = self._filter_features(X_val)
-            
             Y_val_sum = Y_val.sum(axis=1, keepdims=True)
             Y_val_sum[Y_val_sum == 0] = 1
             Y_val_norm = Y_val / Y_val_sum
             
-            X_val_t = torch.FloatTensor(X_val_filtered).to(self.device)
+            X_val_t = torch.FloatTensor(X_val).to(self.device)
             Y_val_t = torch.FloatTensor(Y_val_norm).to(self.device)
         
         # CrossEntropyLoss: expects raw logits, applies log_softmax internally
@@ -256,15 +248,12 @@ class FusionMLP(BaseFusionModel):
         if not self.is_trained:
             raise RuntimeError("Model not trained")
         
-        # Filter features to only use selected QPP indices
-        X_filtered = self._filter_features(X)
-        
         # Ensure model is on correct device
         self.model.to(self.device)
         self.model.eval()
         
         with torch.no_grad():
-            X_t = torch.FloatTensor(X_filtered).to(self.device)
+            X_t = torch.FloatTensor(X).to(self.device)
             logits = self.forward(X_t)
             # Apply softmax at inference to get probabilities
             weights = torch.softmax(logits, dim=1).cpu().numpy()
@@ -283,15 +272,12 @@ class FusionMLP(BaseFusionModel):
         # Move model to CPU for saving
         self.model.cpu()
         
-        qpp_names = [self.QPP_NAMES.get(i, str(i)) for i in self.qpp_indices]
-        
         with open(path, 'wb') as f:
             pickle.dump({
                 'model': self,  # Save full object for easy loading
                 'model_state': self.model.state_dict(),
                 'retrievers': self.retrievers,
                 'n_qpp': self.n_qpp,
-                'qpp_indices': self.qpp_indices,
                 'hidden_sizes': self.hidden_sizes,
                 'dropout': self.dropout,
                 'model_type': 'FusionMLP',
@@ -300,7 +286,7 @@ class FusionMLP(BaseFusionModel):
         
         # Move back to device
         self.model.to(self.device)
-        print(f"Saved FusionMLP to {path} (QPP: {qpp_names})")
+        print(f"Saved FusionMLP to {path}")
     
     @classmethod
     def load(cls, path: str) -> 'FusionMLP':
@@ -310,13 +296,9 @@ class FusionMLP(BaseFusionModel):
         with open(path, 'rb') as f:
             data = pickle.load(f)
         
-        # Handle legacy models without qpp_indices
-        qpp_indices = data.get('qpp_indices', list(range(13)))
-        
         model = cls(
             retrievers=data['retrievers'],
             n_qpp=data['n_qpp'],
-            qpp_indices=qpp_indices,
             hidden_sizes=data['hidden_sizes'],
             dropout=data['dropout']
         )

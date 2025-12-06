@@ -43,7 +43,7 @@ def load_corpus(corpus_path: str) -> Dict[str, Dict[str, str]]:
     corpus = {}
     corpus_file = os.path.join(corpus_path, "corpus.jsonl")
     
-    print(f"[05_rag] Loading corpus...")
+    print(f"[07_rag] Loading corpus...")
     with open(corpus_file, 'r', encoding='utf-8') as f:
         for line in f:
             doc = json.loads(line)
@@ -53,7 +53,7 @@ def load_corpus(corpus_path: str) -> Dict[str, Dict[str, str]]:
                 "title": doc.get("title", "")
             }
     
-    print(f"[05_rag] Corpus: {len(corpus)} documents")
+    print(f"[07_rag] Corpus: {len(corpus)} documents")
     return corpus
 
 
@@ -67,7 +67,7 @@ def load_queries(corpus_path: str) -> Dict[str, str]:
             q = json.loads(line)
             queries[q.get("_id", "")] = q.get("text", "")
     
-    print(f"[05_rag] Queries: {len(queries)}")
+    print(f"[07_rag] Queries: {len(queries)}")
     return queries
 
 
@@ -84,7 +84,7 @@ def load_qrels(corpus_path: str) -> Dict[str, Dict[str, int]]:
                 qid, docid, rel = parts[0], parts[1], int(parts[2])
                 qrels[qid][docid] = rel
     
-    print(f"[05_rag] Qrels: {len(qrels)} queries with judgments")
+    print(f"[07_rag] Qrels: {len(qrels)} queries with judgments")
     return dict(qrels)
 
 
@@ -103,7 +103,7 @@ def load_run(run_path: str) -> Dict[str, List[tuple]]:
     for qid in runs:
         runs[qid].sort(key=lambda x: x[2])
     
-    print(f"[05_rag] Loaded run for {len(runs)} queries")
+    print(f"[07_rag] Loaded run for {len(runs)} queries")
     return dict(runs)
 
 
@@ -280,7 +280,7 @@ def main():
     
     # Parse k values
     k_values = [int(k.strip()) for k in args.shots.split(",")]
-    print(f"[05_rag] K values: {k_values}")
+    print(f"[07_rag] K values: {k_values}")
     
     # Load checkpoint
     if args.fresh and checkpoint_file.exists():
@@ -309,7 +309,7 @@ def main():
     print(f"[07_rag]   - Retry (empty answers): {len(needs_retry)}")
     
     if not pending_queries:
-        print("[05_rag] All queries already completed!")
+        print("[07_rag] All queries already completed!")
     else:
         # Initialize generator
         generator = GenerationOperation()
@@ -331,7 +331,7 @@ def main():
         }
         
         # Evaluate
-        print(f"\n[05_rag] Evaluating {len(pending_queries)} pending queries...")
+        print(f"\n[07_rag] Evaluating {len(pending_queries)} pending queries...")
         
         start_time = time.time()
         batch_count = 0
@@ -399,36 +399,51 @@ def main():
         # Final checkpoint
         save_checkpoint(checkpoint_file, completed_qids, all_results, config)
     
-    # Aggregate metrics
-    aggregated = {k: {"recall_at_k": [], "reciprocal_rank": [], "has_relevant": []} for k in k_values}
+    # Aggregate metrics - use INTEGER keys internally
+    aggregated = {k: {"recall_at_k": [], "reciprocal_rank": [], "has_relevant": [], "latency_ms": []} for k in k_values}
     
     for result in all_results:
-        for k, shot_result in result["shots"].items():
-            aggregated[k]["recall_at_k"].append(shot_result["recall_at_k"])
-            aggregated[k]["reciprocal_rank"].append(shot_result.get("reciprocal_rank", 0.0))
-            aggregated[k]["has_relevant"].append(shot_result["has_relevant"])
+        for k_str, shot_result in result["shots"].items():
+            # Convert string key from JSON to int for aggregation
+            k_int = int(k_str) if isinstance(k_str, str) else k_str
+            if k_int in aggregated:
+                aggregated[k_int]["recall_at_k"].append(shot_result.get("recall_at_k", 0.0))
+                aggregated[k_int]["reciprocal_rank"].append(shot_result.get("reciprocal_rank", 0.0))
+                aggregated[k_int]["has_relevant"].append(1 if shot_result.get("has_relevant", False) else 0)
+                aggregated[k_int]["latency_ms"].append(shot_result.get("latency_ms", 0.0))
     
-    # Compute averages - use string k as key for consistency with QA metrics
-    summary = {}
+    # Compute averages - CANONICAL SCHEMA: metrics_by_k with string keys, percentages for summary
+    metrics_by_k = {}
     for k in k_values:
-        if aggregated[k]["recall_at_k"]:
-            summary[str(k)] = {
-                "recall_at_k": sum(aggregated[k]["recall_at_k"]) / len(aggregated[k]["recall_at_k"]),
-                "mrr@k": sum(aggregated[k]["reciprocal_rank"]) / len(aggregated[k]["reciprocal_rank"]),
-                "hit_rate": sum(aggregated[k]["has_relevant"]) / len(aggregated[k]["has_relevant"]),
-                "n": len(aggregated[k]["recall_at_k"])
+        n = len(aggregated[k]["recall_at_k"])
+        if n > 0:
+            # Summary metrics as PERCENTAGES (0-100) per canonical schema
+            mean_recall = sum(aggregated[k]["recall_at_k"]) / n
+            mean_rr = sum(aggregated[k]["reciprocal_rank"]) / n
+            hit_rate = sum(aggregated[k]["has_relevant"]) / n
+            avg_latency = sum(aggregated[k]["latency_ms"]) / n
+            
+            metrics_by_k[str(k)] = {
+                "recall_at_k": round(mean_recall * 100, 2),      # Percentage
+                "mrr_at_k": round(mean_rr * 100, 2),             # Percentage
+                "hit_rate": round(hit_rate * 100, 2),           # Percentage
+                "avg_latency_ms": round(avg_latency, 2),
+                "n_queries": n
             }
     
-    # Save final results with standard schema
+    # Save final results with CANONICAL SCHEMA (see _SCHEMA.json v2.0)
     with open(results_file, 'w') as f:
         json.dump({
             "_metadata": {
-                "created": time.strftime("%Y-%m-%d %H:%M:%S"),
+                "created": time.strftime("%Y-%m-%dT%H:%M:%S"),
                 "script": "07_rag_eval.py",
                 "fusion_method": fusion_method,
                 "model": args.model,
+                "dataset": "nq",
                 "total_queries": len(all_results),
-                "k_values": k_values
+                "k_values": k_values,
+                "qa_metrics_computed": False,
+                "qa_metrics_list": []
             },
             "config": {
                 "model": args.model,
@@ -436,7 +451,9 @@ def main():
                 "run_path": run_path
             },
             "summary": {
-                "retrieval_metrics_by_k": summary
+                "total_queries": len(all_results),
+                "k_values": k_values,
+                "metrics_by_k": metrics_by_k
             },
             "results": all_results
         }, f, indent=2)
@@ -444,13 +461,13 @@ def main():
     # Clean up checkpoint if complete
     if len(completed_qids) >= len(queries) and checkpoint_file.exists():
         os.remove(checkpoint_file)
-        print("[05_rag] Removed checkpoint (complete)")
+        print("[07_rag] Removed checkpoint (complete)")
     
     print(f"\n=== Step 7 Complete ===")
     print(f"Results: {results_file}")
-    print("\nSummary:")
-    for k_str, metrics in sorted(summary.items(), key=lambda x: int(x[0])):
-        print(f"  k={k_str}: Recall@k={metrics['recall_at_k']:.3f}, MRR@k={metrics['mrr@k']:.3f}, HitRate={metrics['hit_rate']:.1%}")
+    print("\nSummary (metrics_by_k):")
+    for k_str, metrics in sorted(metrics_by_k.items(), key=lambda x: int(x[0])):
+        print(f"  k={k_str}: Recall@k={metrics['recall_at_k']:.2f}%, MRR@k={metrics['mrr_at_k']:.2f}%, HitRate={metrics['hit_rate']:.2f}%")
 
 
 if __name__ == "__main__":
