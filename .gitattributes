@@ -2,3 +2,8 @@
 data/nq/runs/* filter=lfs diff=lfs merge=lfs -text
 data/nq/fused/*.res filter=lfs diff=lfs merge=lfs -text
 data/nq/BEIR-nq/corpus.jsonl filter=lfs diff=lfs merge=lfs -text
+data/hotpotqa/runs/* filter=lfs diff=lfs merge=lfs -text
+data/hotpotqa/fused/*.res filter=lfs diff=lfs merge=lfs -text
+data/hotpotqa/BEIR-hotpotqa/corpus_part_* filter=lfs diff=lfs merge=lfs -text
+data/hotpotqa/BEIR-hotpotqa/queries.jsonl filter=lfs diff=lfs merge=lfs -text
+data/hotpotqa/BEIR-hotpotqa/hotpotqa_gold_answers.json filter=lfs diff=lfs merge=lfs -text
