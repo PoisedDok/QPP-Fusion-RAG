@@ -126,9 +126,22 @@ public class QPPBridge {
     ) {
         Map<String, Double> qppScores = new LinkedHashMap<>();
         
+        // CRITICAL FIX: Pre-normalize scores to [0,1] range per query
+        // This is what research papers do - QPP methods assume normalized scores
+        List<Float> normalizedScores = normalizeScoresToUnitRange(scores);
+        
         for (String method : methods) {
             try {
-                double score = computeSingleMethod(method, query, scores);
+                // RSD and IDF methods use raw scores (scale-invariant or query-based)
+                // All other methods use normalized scores
+                double score;
+                if (method.equalsIgnoreCase("rsd") || 
+                    method.equalsIgnoreCase("maxidf") || 
+                    method.equalsIgnoreCase("avgidf")) {
+                    score = computeSingleMethod(method, query, scores);
+                } else {
+                    score = computeSingleMethod(method, query, normalizedScores);
+                }
                 qppScores.put(method, score);
             } catch (Exception e) {
                 System.err.println("Warning: Method " + method + " failed: " + e.getMessage());
@@ -137,6 +150,35 @@ public class QPPBridge {
         }
         
         return qppScores;
+    }
+    
+    /**
+     * Normalize scores to [0,1] range using min-max normalization.
+     * This is critical for QPP methods to work across different retriever score ranges.
+     */
+    private static List<Float> normalizeScoresToUnitRange(List<Float> scores) {
+        if (scores.isEmpty()) return scores;
+        
+        float minScore = Float.MAX_VALUE;
+        float maxScore = Float.MIN_VALUE;
+        for (float s : scores) {
+            minScore = Math.min(minScore, s);
+            maxScore = Math.max(maxScore, s);
+        }
+        
+        float range = maxScore - minScore;
+        if (range < 1e-10) {
+            // All scores are the same - return uniform 0.5
+            List<Float> uniform = new ArrayList<>();
+            for (int i = 0; i < scores.size(); i++) uniform.add(0.5f);
+            return uniform;
+        }
+        
+        List<Float> normalized = new ArrayList<>();
+        for (float s : scores) {
+            normalized.add((s - minScore) / range);
+        }
+        return normalized;
     }
     
     private static double computeSingleMethod(String method, String query, List<Float> scores) {
@@ -301,6 +343,8 @@ public class QPPBridge {
     }
     
     private static double computeUEF(List<Float> scores) {
+        // UEF: Utility Estimation Framework
+        // With pre-normalized [0,1] scores, this now works properly
         if (scores.isEmpty()) return 0.0;
         
         List<Float> sorted = getTopK(scores, scores.size());
@@ -309,14 +353,13 @@ public class QPPBridge {
         double utility = 0.0;
         double weightSum = 0.0;
         for (int i = 0; i < k; i++) {
-            double weight = 1.0 / (i + 1);
+            double weight = 1.0 / (i + 1);  // DCG-style weighting
             utility += sorted.get(i) * weight;
             weightSum += weight;
         }
         
-        // Use sigmoid instead of min to preserve variance across queries
-        double ratio = utility / weightSum;
-        return 1.0 / (1.0 + Math.exp(-(ratio - 0.5) * 5));
+        // With normalized [0,1] scores, ratio is naturally in [0,1]
+        return utility / weightSum;
     }
     
     private static double computeMaxIDF(String query) {

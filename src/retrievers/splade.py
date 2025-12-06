@@ -41,14 +41,18 @@ class SpladeRetriever(BaseRetriever):
         self.index_name = index_name or self.INDEX_NAME
         self.encoder_name = encoder_name or self.ENCODER_NAME
         
-        print(f"[SPLADE] Loading Pyserini pre-built index: {self.index_name}")
+        print(f"[SPLADE] Loading impact index from cache")
+        print(f"[SPLADE] Index: {self.index_name}")
         print(f"[SPLADE] Query encoder: {self.encoder_name}")
-        print(f"[SPLADE] NOTE: First run downloads index (~2GB) - subsequent runs use cache")
         
-        self.searcher = LuceneImpactSearcher.from_prebuilt_index(
-            self.index_name,
-            self.encoder_name
-        )
+        # Use locally cached index - no downloads
+        cache_dir = os.environ.get("PYSERINI_CACHE", "cache/pyserini")
+        index_dir = f"{cache_dir}/indexes/lucene-inverted.{self.index_name}.20231124.a66f86f.b280ed3f7b12034c0cc4b302f92801b9"
+        
+        if not os.path.exists(index_dir):
+            raise FileNotFoundError(f"Index not found: {index_dir}")
+        
+        self.searcher = LuceneImpactSearcher(index_dir, self.encoder_name, impact_field="vector")
         
         print(f"[SPLADE] Index loaded. Ready for retrieval.")
     

@@ -45,14 +45,18 @@ class BGERetriever(BaseRetriever):
         self.index_name = index_name or self.INDEX_NAME
         self.encoder_name = encoder_name or self.ENCODER_NAME
         
-        print(f"[BGE] Loading Pyserini pre-built FAISS index: {self.index_name}")
+        print(f"[BGE] Loading FAISS index from cache")
+        print(f"[BGE] Index: {self.index_name}")
         print(f"[BGE] Query encoder: {self.encoder_name}")
-        print(f"[BGE] NOTE: First run downloads index (~8GB) - subsequent runs use cache")
         
-        self.searcher = FaissSearcher.from_prebuilt_index(
-            self.index_name,
-            self.encoder_name
-        )
+        # Use locally cached index - no downloads
+        cache_dir = os.environ.get("PYSERINI_CACHE", "cache/pyserini")
+        index_dir = f"{cache_dir}/indexes/faiss-flat.{self.index_name}.20240107.d2c08665e8cd750bd06ceb7d23897c94"
+        
+        if not os.path.exists(index_dir):
+            raise FileNotFoundError(f"Index not found: {index_dir}")
+        
+        self.searcher = FaissSearcher(index_dir, self.encoder_name)
         
         print(f"[BGE] Index loaded. Ready for retrieval.")
     
