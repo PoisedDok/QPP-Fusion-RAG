@@ -57,17 +57,34 @@ def load_corpus(corpus_path: str, limit: int = None) -> Dict[str, Dict[str, str]
     return corpus
 
 
-def load_queries(corpus_path: str) -> Dict[str, str]:
-    """Load BEIR queries."""
+def load_queries(corpus_path: str, split: str = "test") -> Dict[str, str]:
+    """Load BEIR queries, filtered by split (test/dev/train)."""
     queries = {}
     queries_file = os.path.join(corpus_path, "queries.jsonl")
+    qrels_file = os.path.join(corpus_path, "qrels", f"{split}.tsv")
     
+    # Get test query IDs from qrels
+    test_qids = set()
+    if os.path.exists(qrels_file):
+        with open(qrels_file, 'r') as f:
+            next(f)  # Skip header
+            for line in f:
+                parts = line.strip().split('\t')
+                if parts:
+                    test_qids.add(parts[0])
+        print(f"[02_retrieve] Found {len(test_qids)} unique {split} query IDs in qrels")
+    else:
+        print(f"[02_retrieve] No qrels/{split}.tsv found, loading all queries")
+    
+    # Load queries (filtered by test QIDs if available)
     with open(queries_file, 'r', encoding='utf-8') as f:
         for line in f:
             q = json.loads(line)
-            queries[q.get("_id", "")] = q.get("text", "")
+            qid = q.get("_id", "")
+            if not test_qids or qid in test_qids:
+                queries[qid] = q.get("text", "")
     
-    print(f"[02_retrieve] Queries: {len(queries)}")
+    print(f"[02_retrieve] Loaded {len(queries)} {split} queries")
     return queries
 
 

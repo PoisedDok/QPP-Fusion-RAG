@@ -107,12 +107,12 @@ class BM25Retriever(BaseRetriever):
         self.retriever.num_results = top_k
         results_df = self.retriever.transform(query_df)
         
-        # Group by query
+        # Group by query (OPTIMIZED: O(n) instead of O(n²))
         results = {}
-        for qid in queries.keys():
-            qid_results = results_df[results_df["qid"] == qid]
+        grouped = results_df.groupby("qid")
+        for qid, group in grouped:
             doc_list = []
-            for _, row in qid_results.iterrows():
+            for _, row in group.iterrows():
                 doc_list.append((
                     str(row["docno"]),
                     float(row["score"]),
