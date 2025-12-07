@@ -210,11 +210,14 @@ def run_bge(queries: Dict[str, str], runs_dir: Path, top_k: int, dataset: str = 
 
 
 def run_bm25_tct(index_path: str, corpus_path: str, queries: Dict[str, str], runs_dir: Path, top_k: int):
-    """Run BM25>>TCT-ColBERT retriever with lazy corpus loading."""
+    """Run BM25>>TCT-ColBERT retriever with lazy corpus loading and checkpointing."""
     from src.retrievers import BM25TCTRetriever
     
     print(f"\n[02_retrieve] === BM25>>TCT-ColBERT ===")
     start = time.time()
+    
+    # Checkpoint path for crash recovery
+    checkpoint_path = runs_dir / "BM25_TCT.checkpoint.jsonl"
     
     # Lazy loading: pass corpus_path, not corpus dict
     # first_stage_k=100 (not 500) for speed
@@ -222,12 +225,22 @@ def run_bm25_tct(index_path: str, corpus_path: str, queries: Dict[str, str], run
         index_path, 
         corpus_path, 
         first_stage_k=100,  # Reduced from 500 for 5x speedup
-        batch_size=64
+        tct_batch_size=64   # TCT encoding batch size
     )
-    results = retriever.retrieve_batch(queries, top_k=top_k)
+    results = retriever.retrieve_batch(
+        queries, 
+        top_k=top_k,
+        checkpoint_path=str(checkpoint_path),
+        mini_batch_size=100  # Checkpoint every 100 queries
+    )
     
     write_run(results, str(runs_dir / "BM25_TCT.res"), "BM25_TCT", normalize=False)
     write_run(results, str(runs_dir / "BM25_TCT.norm.res"), "BM25_TCT", normalize=True)
+    
+    # Clean up checkpoint after successful completion
+    if checkpoint_path.exists():
+        checkpoint_path.unlink()
+        print(f"[02_retrieve] Removed checkpoint file")
     
     print(f"[02_retrieve] BM25>>TCT completed in {time.time() - start:.1f}s")
     
