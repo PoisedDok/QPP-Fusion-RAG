@@ -231,7 +231,7 @@ def run_bm25_tct(index_path: str, corpus_path: str, queries: Dict[str, str], run
         queries, 
         top_k=top_k,
         checkpoint_path=str(checkpoint_path),
-        mini_batch_size=100  # Checkpoint every 100 queries
+        mini_batch_size=5  # Small batches for MPS efficiency
     )
     
     write_run(results, str(runs_dir / "BM25_TCT.res"), "BM25_TCT", normalize=False)

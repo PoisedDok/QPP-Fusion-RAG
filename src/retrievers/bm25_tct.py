@@ -158,16 +158,22 @@ class BM25TCTRetriever(BaseRetriever):
         ])
         
         # Step 1: BM25 retrieval
+        t0 = time.time()
         bm25_results = self.bm25.transform(query_df)
+        print(f"[BM25_TCT]     BM25: {len(bm25_results)} docs in {time.time()-t0:.1f}s")
         
         # Step 2: Load text for retrieved docs
+        t0 = time.time()
         unique_docs = bm25_results["docno"].unique().tolist()
         doc_texts = self._load_doc_texts([str(d) for d in unique_docs])
         bm25_results = bm25_results.copy()
         bm25_results["text"] = bm25_results["docno"].apply(lambda x: doc_texts.get(str(x), ""))
+        print(f"[BM25_TCT]     Texts: {len(doc_texts)} docs in {time.time()-t0:.1f}s")
         
         # Step 3: TCT-ColBERT reranking
+        t0 = time.time()
         reranked = self.tct_reranker.transform(bm25_results)
+        print(f"[BM25_TCT]     TCT: {len(reranked)} docs in {time.time()-t0:.1f}s")
         
         # Build results
         results = []
