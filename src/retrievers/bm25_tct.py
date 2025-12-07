@@ -79,11 +79,11 @@ class BM25TCTRetriever(BaseRetriever):
         
         # Use pyterrier_dr's TctColBert for reranking
         # This creates a proper PyTerrier transformer
-        # Use .hnp() classmethod for the HNP variant
-        self.tct_reranker = dr.TctColBert.hnp(
+        self.tct_reranker = dr.TctColBert.from_pretrained(
+            self.TCT_MODEL,
             batch_size=batch_size,
             verbose=False
-        ).scorer()
+        )
         
         # Build offset index for lazy corpus loading
         self._corpus_offsets = self._build_corpus_offsets()

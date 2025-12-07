@@ -1,0 +1,1 @@
+{"location": "scripts/07_rag_eval.py:237", "message": "checkpoint_save", "data": {"elapsed_ms": 54.88, "size_kb": 1013.79, "blocking_io": true}, "timestamp": 1765094243398, "sessionId": "debug-session", "hypothesisId": "H6"}
