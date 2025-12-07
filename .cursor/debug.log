@@ -1,1 +1,2 @@
-{"location": "scripts/07_rag_eval.py:237", "message": "checkpoint_save", "data": {"elapsed_ms": 54.88, "size_kb": 1013.79, "blocking_io": true}, "timestamp": 1765094243398, "sessionId": "debug-session", "hypothesisId": "H6"}
+{"location": "scripts/07_rag_eval.py:237", "message": "checkpoint_save", "data": {"elapsed_ms": 67.11, "size_kb": 2962.28, "blocking_io": true}, "timestamp": 1765107063549, "sessionId": "debug-session", "hypothesisId": "H6"}
+{"location": "scripts/07_rag_eval.py:237", "message": "checkpoint_save", "data": {"elapsed_ms": 69.71, "size_kb": 2984.21, "blocking_io": true}, "timestamp": 1765107066593, "sessionId": "debug-session", "hypothesisId": "H6"}
