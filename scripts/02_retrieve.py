@@ -190,16 +190,14 @@ def run_splade(queries: Dict[str, str], runs_dir: Path, top_k: int, dataset: str
 
 def run_bge(queries: Dict[str, str], runs_dir: Path, top_k: int, dataset: str = "nq"):
     """Run BGE retriever using Pyserini pre-built FAISS index."""
-    from src.retrievers import BGERetriever
-    
+    from src.retrievers import BGERetriever    
     print(f"\n[02_retrieve] === BGE (Pyserini Pre-built FAISS) ===")
     start = time.time()
     
     # Select dataset-specific index
-    index_name = f"beir-v1.0.0-{dataset}.bge-base-en-v1.5"
-    
+    index_name = f"beir-v1.0.0-{dataset}.bge-base-en-v1.5"    
     # Uses Pyserini pre-built FAISS index - no corpus encoding needed
-    retriever = BGERetriever(index_name=index_name)
+    retriever = BGERetriever(index_name=index_name)    
     results = retriever.retrieve_batch(queries, top_k=top_k)
     
     write_run(results, str(runs_dir / "BGE.res"), "BGE", normalize=False)
@@ -280,7 +278,11 @@ def main():
     output_dir = Path(args.output_dir) if args.output_dir else PROJECT_ROOT / "data" / "nq"
     runs_dir = output_dir / "runs"
     cache_dir = output_dir / "cache"
-    index_path = args.index_path or str(output_dir / "index" / "pyterrier")
+    # Use absolute path for PyTerrier index to avoid CWD issues
+    if args.index_path:
+        index_path = str(Path(args.index_path).resolve())
+    else:
+        index_path = str((output_dir / "index" / "pyterrier").resolve())
     
     os.makedirs(runs_dir, exist_ok=True)
     os.makedirs(cache_dir, exist_ok=True)
