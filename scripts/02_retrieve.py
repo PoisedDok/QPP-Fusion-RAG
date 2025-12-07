@@ -141,23 +141,33 @@ def run_bm25(index_path: str, queries: Dict[str, str], runs_dir: Path, top_k: in
 
 
 def run_tct_colbert(corpus: Dict, queries: Dict[str, str], runs_dir: Path, cache_dir: Path, top_k: int):
-    """Run TCT-ColBERT retriever."""
+    """Run TCT-ColBERT retriever with checkpointing."""
     from src.retrievers import TCTColBERTRetriever
     
     print(f"\n[02_retrieve] === TCT-ColBERT ===")
     start = time.time()
     
+    checkpoint_path = runs_dir / "TCT-ColBERT.checkpoint.jsonl"
+    
     retriever = TCTColBERTRetriever(
         corpus,
         cache_dir=str(cache_dir),
         batch_size=64,
-        use_fp16=True,
-        use_faiss=True
+        use_fp16=True
     )
-    results = retriever.retrieve_batch(queries, top_k=top_k)
+    results = retriever.retrieve_batch(
+        queries, 
+        top_k=top_k,
+        checkpoint_path=str(checkpoint_path),
+        mini_batch_size=100
+    )
     
     write_run(results, str(runs_dir / "TCT-ColBERT.res"), "TCT-ColBERT", normalize=False)
     write_run(results, str(runs_dir / "TCT-ColBERT.norm.res"), "TCT-ColBERT", normalize=True)
+    
+    if checkpoint_path.exists():
+        checkpoint_path.unlink()
+        print(f"[02_retrieve] Removed checkpoint file")
     
     print(f"[02_retrieve] TCT-ColBERT completed in {time.time() - start:.1f}s")
     
@@ -166,21 +176,29 @@ def run_tct_colbert(corpus: Dict, queries: Dict[str, str], runs_dir: Path, cache
 
 
 def run_splade(queries: Dict[str, str], runs_dir: Path, top_k: int, dataset: str = "nq"):
-    """Run SPLADE retriever using Pyserini pre-built index."""
+    """Run SPLADE retriever with checkpointing."""
     from src.retrievers import SpladeRetriever
     
     print(f"\n[02_retrieve] === SPLADE (Pyserini Pre-built) ===")
     start = time.time()
     
-    # Select dataset-specific index
+    checkpoint_path = runs_dir / "Splade.checkpoint.jsonl"
     index_name = f"beir-v1.0.0-{dataset}.splade-pp-ed"
     
-    # Uses Pyserini pre-built index - no corpus encoding needed
-    retriever = SpladeRetriever(index_name=index_name)
-    results = retriever.retrieve_batch(queries, top_k=top_k)
+    retriever = SpladeRetriever(index_name=index_name, threads=10)
+    results = retriever.retrieve_batch(
+        queries, 
+        top_k=top_k,
+        checkpoint_path=str(checkpoint_path),
+        mini_batch_size=500  # SPLADE is fast
+    )
     
     write_run(results, str(runs_dir / "Splade.res"), "Splade", normalize=False)
     write_run(results, str(runs_dir / "Splade.norm.res"), "Splade", normalize=True)
+    
+    if checkpoint_path.exists():
+        checkpoint_path.unlink()
+        print(f"[02_retrieve] Removed checkpoint file")
     
     print(f"[02_retrieve] SPLADE completed in {time.time() - start:.1f}s")
     
@@ -189,19 +207,29 @@ def run_splade(queries: Dict[str, str], runs_dir: Path, top_k: int, dataset: str
 
 
 def run_bge(queries: Dict[str, str], runs_dir: Path, top_k: int, dataset: str = "nq"):
-    """Run BGE retriever using Pyserini pre-built FAISS index."""
-    from src.retrievers import BGERetriever    
+    """Run BGE retriever with checkpointing."""
+    from src.retrievers import BGERetriever
+    
     print(f"\n[02_retrieve] === BGE (Pyserini Pre-built FAISS) ===")
     start = time.time()
     
-    # Select dataset-specific index
-    index_name = f"beir-v1.0.0-{dataset}.bge-base-en-v1.5"    
-    # Uses Pyserini pre-built FAISS index - no corpus encoding needed
-    retriever = BGERetriever(index_name=index_name)    
-    results = retriever.retrieve_batch(queries, top_k=top_k)
+    checkpoint_path = runs_dir / "BGE.checkpoint.jsonl"
+    index_name = f"beir-v1.0.0-{dataset}.bge-base-en-v1.5"
+    
+    retriever = BGERetriever(index_name=index_name, threads=10, use_mps=True)
+    results = retriever.retrieve_batch(
+        queries, 
+        top_k=top_k,
+        checkpoint_path=str(checkpoint_path),
+        mini_batch_size=200  # BGE is fast
+    )
     
     write_run(results, str(runs_dir / "BGE.res"), "BGE", normalize=False)
     write_run(results, str(runs_dir / "BGE.norm.res"), "BGE", normalize=True)
+    
+    if checkpoint_path.exists():
+        checkpoint_path.unlink()
+        print(f"[02_retrieve] Removed checkpoint file")
     
     print(f"[02_retrieve] BGE completed in {time.time() - start:.1f}s")
     
@@ -249,24 +277,33 @@ def run_bm25_tct(index_path: str, corpus_path: str, queries: Dict[str, str], run
 
 
 def run_bm25_monot5(index_path: str, corpus_path: str, queries: Dict[str, str], runs_dir: Path, top_k: int):
-    """Run BM25>>MonoT5 retriever with lazy corpus loading."""
+    """Run BM25>>MonoT5 retriever with checkpointing."""
     from src.retrievers import BM25MonoT5Retriever
     
     print(f"\n[02_retrieve] === BM25>>MonoT5 ===")
     start = time.time()
     
-    # Lazy loading: pass corpus_path, not corpus dict
-    # first_stage_k=100 (not 500) for speed
+    checkpoint_path = runs_dir / "BM25_MonoT5.checkpoint.jsonl"
+    
     retriever = BM25MonoT5Retriever(
         index_path, 
         corpus_path, 
-        first_stage_k=100,  # Reduced from 500 for 5x speedup
-        batch_size=64
+        first_stage_k=100,
+        ce_batch_size=256  # CrossEncoder batch size
     )
-    results = retriever.retrieve_batch(queries, top_k=top_k)
+    results = retriever.retrieve_batch(
+        queries, 
+        top_k=top_k,
+        checkpoint_path=str(checkpoint_path),
+        mini_batch_size=10  # CrossEncoder is slower, smaller batches
+    )
     
     write_run(results, str(runs_dir / "BM25_MonoT5.res"), "BM25_MonoT5", normalize=False)
     write_run(results, str(runs_dir / "BM25_MonoT5.norm.res"), "BM25_MonoT5", normalize=True)
+    
+    if checkpoint_path.exists():
+        checkpoint_path.unlink()
+        print(f"[02_retrieve] Removed checkpoint file")
     
     print(f"[02_retrieve] BM25>>MonoT5 completed in {time.time() - start:.1f}s")
     

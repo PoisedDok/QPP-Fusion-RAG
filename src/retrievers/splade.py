@@ -5,13 +5,20 @@ Outgoing: ranked results --- {RetrieverResult}
 
 SPLADE Sparse Learned Retriever (Pyserini)
 ------------------------------------------
-Uses Pyserini's pre-built SPLADE index for BEIR-NQ.
-No corpus encoding needed - index downloaded on first use.
+Uses Pyserini's pre-built SPLADE index.
+CPU-based (Lucene), uses multi-threading for efficiency.
+Supports checkpointing for crash recovery.
 """
 
+import gc
+import json
 import os
 import time
-from typing import Dict, Optional
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+
+# Configure threading for Lucene
+os.environ['OMP_NUM_THREADS'] = '10'
 
 from .base import BaseRetriever, RetrieverResult
 
@@ -27,27 +34,29 @@ class SpladeRetriever(BaseRetriever):
         self,
         index_name: Optional[str] = None,
         encoder_name: Optional[str] = None,
-        **kwargs  # Accept but ignore legacy params (corpus, cache_dir, etc.)
+        threads: int = 10,
+        **kwargs
     ):
         """
         Initialize SPLADE retriever using Pyserini pre-built index.
         
         Args:
-            index_name: Pyserini pre-built index name (default: beir-v1.0.0-nq-splade-pp-ed)
-            encoder_name: Query encoder model (default: naver/splade-cocondenser-ensembledistil)
-            **kwargs: Ignored (for backward compatibility with old interface)
+            index_name: Pyserini pre-built index name
+            encoder_name: Query encoder model
+            threads: Number of threads for batch search
         """
         from pyserini.search.lucene import LuceneImpactSearcher
         
         self.index_name = index_name or self.INDEX_NAME
         self.encoder_name = encoder_name or self.ENCODER_NAME
+        self.threads = threads
         
-        print(f"[SPLADE] Loading impact index from data folder (git LFS)")
+        print(f"[SPLADE] Loading impact index...")
         print(f"[SPLADE] Index: {self.index_name}")
         print(f"[SPLADE] Query encoder: {self.encoder_name}")
+        print(f"[SPLADE] Threads: {threads}")
         
-        # Use index from data folder (tracked in git LFS)
-        from pathlib import Path
+        # Use index from data folder
         project_root = Path(__file__).parent.parent.parent
         dataset = "hotpotqa" if "hotpotqa" in self.index_name else "nq"
         index_dir = project_root / "data" / dataset / "index" / "splade"
@@ -60,78 +69,126 @@ class SpladeRetriever(BaseRetriever):
             query_encoder=self.encoder_name
         )
         
-        print(f"[SPLADE] Index loaded. Ready for retrieval.")
+        print(f"[SPLADE] Ready for retrieval")
     
-    def retrieve(
-        self,
-        query: str,
-        qid: str,
-        top_k: int = 100,
-        **kwargs
-    ) -> RetrieverResult:
+    def retrieve(self, query: str, qid: str, top_k: int = 100, **kwargs) -> RetrieverResult:
         """Retrieve documents using SPLADE."""
         start = time.time()
         
         hits = self.searcher.search(query, k=top_k)
-        
-        results = [
-            (hit.docid, float(hit.score), rank + 1)
-            for rank, hit in enumerate(hits)
-        ]
-        
-        latency = (time.time() - start) * 1000
+        results = [(hit.docid, float(hit.score), rank + 1) for rank, hit in enumerate(hits)]
         
         return RetrieverResult(
-            qid=qid,
-            results=results,
-            retriever_name=self.name,
-            latency_ms=latency,
+            qid=qid, results=results, retriever_name=self.name,
+            latency_ms=(time.time() - start) * 1000,
             metadata={"index": self.index_name, "encoder": self.encoder_name}
         )
+    
+    def _process_mini_batch(
+        self,
+        queries: List[Tuple[str, str]],
+        top_k: int
+    ) -> List[RetrieverResult]:
+        """Process a mini-batch using Pyserini batch search."""
+        query_ids = [q[0] for q in queries]
+        query_texts = [q[1] for q in queries]
+        
+        t0 = time.time()
+        batch_hits = self.searcher.batch_search(
+            queries=query_texts,
+            qids=query_ids,
+            k=top_k,
+            threads=self.threads
+        )
+        print(f"[SPLADE]     Searched {len(queries)} queries in {time.time()-t0:.1f}s")
+        
+        results = []
+        for qid in query_ids:
+            hits = batch_hits.get(qid, [])
+            doc_results = [(hit.docid, float(hit.score), rank + 1) for rank, hit in enumerate(hits)]
+            results.append(RetrieverResult(
+                qid=qid, results=doc_results, retriever_name=self.name,
+                latency_ms=0, metadata={"index": self.index_name}
+            ))
+        
+        return results
     
     def retrieve_batch(
         self,
         queries: Dict[str, str],
         top_k: int = 100,
+        checkpoint_path: Optional[str] = None,
+        mini_batch_size: int = 500,  # SPLADE is fast, use larger batches
         **kwargs
     ) -> Dict[str, RetrieverResult]:
-        """Batch retrieval using Pyserini."""
+        """
+        Batch retrieval with checkpointing.
+        
+        Args:
+            queries: Dict of qid -> query text
+            top_k: Docs per query
+            checkpoint_path: JSONL file for crash recovery
+            mini_batch_size: Queries per mini-batch (SPLADE is fast, so larger batches OK)
+        """
         start = time.time()
+        n_queries = len(queries)
         
-        results = {}
+        # Load checkpoint
+        completed = {}
+        if checkpoint_path and Path(checkpoint_path).exists():
+            print(f"[SPLADE] Loading checkpoint...")
+            with open(checkpoint_path, 'r') as f:
+                for line in f:
+                    data = json.loads(line)
+                    qid = data["qid"]
+                    completed[qid] = RetrieverResult(
+                        qid=qid,
+                        results=[(d["docno"], d["score"], d["rank"]) for d in data["results"]],
+                        retriever_name=self.name, latency_ms=0, metadata={"index": self.index_name}
+                    )
+            print(f"[SPLADE] Resumed: {len(completed)}/{n_queries} queries from checkpoint")
         
-        # Pyserini supports batch search
-        query_ids = list(queries.keys())
-        query_texts = [queries[qid] for qid in query_ids]
+        # Filter pending
+        pending = [(qid, text) for qid, text in queries.items() if qid not in completed]
+        n_pending = len(pending)
         
-        # Use batch_search for efficiency
-        batch_hits = self.searcher.batch_search(
-            queries=query_texts,
-            qids=query_ids,
-            k=top_k,
-            threads=4
-        )
+        if n_pending == 0:
+            print(f"[SPLADE] All {n_queries} queries completed!")
+            return completed
         
-        for qid in query_ids:
-            hits = batch_hits.get(qid, [])
-            doc_results = [
-                (hit.docid, float(hit.score), rank + 1)
-                for rank, hit in enumerate(hits)
-            ]
+        print(f"[SPLADE] Processing {n_pending} queries in batches of {mini_batch_size}")
+        
+        n_batches = (n_pending + mini_batch_size - 1) // mini_batch_size
+        
+        for i in range(n_batches):
+            batch_start = i * mini_batch_size
+            batch_end = min(batch_start + mini_batch_size, n_pending)
+            batch = pending[batch_start:batch_end]
             
-            results[qid] = RetrieverResult(
-                qid=qid,
-                results=doc_results,
-                retriever_name=self.name,
-                latency_ms=0,
-                metadata={"index": self.index_name}
-            )
+            t0 = time.time()
+            print(f"[SPLADE] Batch {i+1}/{n_batches}: {len(batch)} queries...")
+            
+            batch_results = self._process_mini_batch(batch, top_k)
+            
+            # Save to checkpoint
+            if checkpoint_path:
+                with open(checkpoint_path, 'a') as f:
+                    for r in batch_results:
+                        f.write(json.dumps({
+                            "qid": r.qid,
+                            "results": [{"docno": d[0], "score": d[1], "rank": d[2]} for d in r.results]
+                        }) + "\n")
+            
+            for r in batch_results:
+                completed[r.qid] = r
+            
+            done = len(completed)
+            elapsed = time.time() - start
+            rate = done / elapsed if elapsed > 0 else 0
+            eta = (n_queries - done) / rate if rate > 0 else 0
+            print(f"[SPLADE]   → {done}/{n_queries} done ({time.time()-t0:.1f}s) | ETA: {eta/60:.1f}min")
+            
+            gc.collect()
         
-        total_time = (time.time() - start) * 1000
-        print(f"[SPLADE] Batch: {len(queries)} queries in {total_time:.1f}ms")
-        
-        return results
-
-
-# Backward compatibility alias
-SpladeRetrieverLegacy = None  # Old implementation removed - use Pyserini
+        print(f"[SPLADE] Complete: {n_queries} queries in {time.time()-start:.1f}s")
+        return completed

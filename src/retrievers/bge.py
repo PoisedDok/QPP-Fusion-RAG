@@ -6,15 +6,21 @@ Outgoing: ranked results --- {RetrieverResult}
 BGE Dense Retriever (Pyserini)
 ------------------------------
 Uses Pyserini's pre-built BGE FAISS flat index.
-Memory profile:
-- NQ: 7.7GB index (2.6M docs)
-- HotpotQA: 15GB index (5M docs)
-Sequential processing minimizes overhead beyond index size.
+CPU-based with multi-threaded FAISS search.
+Supports checkpointing for crash recovery.
 """
 
+import gc
+import json
 import os
 import time
-from typing import Dict, Optional
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+
+# Configure threading
+os.environ['OMP_NUM_THREADS'] = '10'
+os.environ['MKL_NUM_THREADS'] = '10'
+os.environ['OPENBLAS_NUM_THREADS'] = '10'
 
 from .base import BaseRetriever, RetrieverResult
 
@@ -30,36 +36,43 @@ class BGERetriever(BaseRetriever):
         self,
         index_name: Optional[str] = None,
         encoder_name: Optional[str] = None,
+        threads: int = 10,
+        use_mps: bool = True,
         **kwargs
     ):
         """
         Initialize BGE retriever using Pyserini pre-built FAISS index.
         
         Args:
-            index_name: Pyserini pre-built index name (default: beir-v1.0.0-nq.bge-base-en-v1.5)
-            encoder_name: Query encoder model (default: BAAI/bge-base-en-v1.5)
-            **kwargs: Ignored (for backward compatibility)
+            index_name: Pyserini pre-built index name
+            encoder_name: Query encoder model
+            threads: Number of threads for FAISS search
+            use_mps: Use MPS for query encoding (Apple Silicon)
         """
-        # FORCE multi-threading for FAISS (M4 has 10 cores)
-        # Override any previous OMP_NUM_THREADS=1 setting from PyTerrier/Java
-        os.environ['OMP_NUM_THREADS'] = '10'  # Use all M4 cores
-        os.environ['MKL_NUM_THREADS'] = '10'  # Also set MKL if present
-        os.environ['OPENBLAS_NUM_THREADS'] = '10'  # Cover all BLAS implementations
-        
         from pyserini.search.faiss import FaissSearcher
+        from pyserini.encode import AutoQueryEncoder
+        import torch
+        import faiss
         
         self.index_name = index_name or self.INDEX_NAME
         self.encoder_name = encoder_name or self.ENCODER_NAME
+        self.threads = threads
         
-        print(f"[BGE] Loading FAISS index from cache")
+        # Determine device for query encoding
+        if use_mps and torch.backends.mps.is_available():
+            self.device = "mps"
+        else:
+            self.device = "cpu"
+        
+        print(f"[BGE] Loading FAISS index...")
         print(f"[BGE] Index: {self.index_name}")
-        print(f"[BGE] Query encoder: {self.encoder_name}")
+        print(f"[BGE] Query encoder device: {self.device}")
+        print(f"[BGE] FAISS threads: {threads}")
         
-        # Detect dataset and use correct index hash
+        # Detect dataset
         dataset = "hotpotqa" if "hotpotqa" in self.index_name else "nq"
         cache_dir = os.environ.get("PYSERINI_CACHE", "cache/pyserini")
         
-        # Dataset-specific hashes
         index_hashes = {
             "nq": "faiss-flat.beir-v1.0.0-nq.bge-base-en-v1.5.20240107.b738bbbe7ca36532f25189b776d4e153",
             "hotpotqa": "faiss-flat.beir-v1.0.0-hotpotqa.bge-base-en-v1.5.20240107.d2c08665e8cd750bd06ceb7d23897c94"
@@ -70,101 +83,137 @@ class BGERetriever(BaseRetriever):
         if not os.path.exists(index_dir):
             raise FileNotFoundError(f"Index not found: {index_dir}")
         
-        # FaissSearcher loads both index and encoder model (~2-3GB combined)        
-        self.searcher = FaissSearcher(index_dir, self.encoder_name)
+        # Create MPS-accelerated query encoder
+        encoder = AutoQueryEncoder(
+            encoder_dir=self.encoder_name,
+            device=self.device,
+            pooling='cls',
+            l2_norm=True
+        )
         
-        # Force FAISS to use multiple threads (environment vars alone may not be enough)
-        import faiss
-        faiss.omp_set_num_threads(10)  # Explicitly set FAISS threads
-        omp_threads = faiss.omp_get_max_threads()        
-        print(f"[BGE] Index loaded. Ready for retrieval (FAISS threads: {omp_threads})")
+        self.searcher = FaissSearcher(index_dir, encoder)
+        
+        faiss.omp_set_num_threads(threads)
+        print(f"[BGE] Ready")
     
-    def retrieve(
-        self,
-        query: str,
-        qid: str,
-        top_k: int = 100,
-        **kwargs
-    ) -> RetrieverResult:
+    def retrieve(self, query: str, qid: str, top_k: int = 100, **kwargs) -> RetrieverResult:
         """Retrieve documents using BGE dense embeddings."""
         start = time.time()
         
         hits = self.searcher.search(query, k=top_k)
-        
-        results = [
-            (hit.docid, float(hit.score), rank + 1)
-            for rank, hit in enumerate(hits)
-        ]
-        
-        latency = (time.time() - start) * 1000
+        results = [(hit.docid, float(hit.score), rank + 1) for rank, hit in enumerate(hits)]
         
         return RetrieverResult(
-            qid=qid,
-            results=results,
-            retriever_name=self.name,
-            latency_ms=latency,
+            qid=qid, results=results, retriever_name=self.name,
+            latency_ms=(time.time() - start) * 1000,
             metadata={"index": self.index_name, "encoder": self.encoder_name}
         )
+    
+    def _process_mini_batch(
+        self,
+        queries: List[Tuple[str, str]],
+        top_k: int
+    ) -> List[RetrieverResult]:
+        """Process a mini-batch using FAISS batch search."""
+        query_ids = [q[0] for q in queries]
+        query_texts = [q[1] for q in queries]
+        
+        t0 = time.time()
+        batch_hits = self.searcher.batch_search(
+            queries=query_texts,
+            q_ids=query_ids,
+            k=top_k,
+            threads=self.threads
+        )
+        print(f"[BGE]     Searched {len(queries)} queries in {time.time()-t0:.1f}s")
+        
+        results = []
+        for qid in query_ids:
+            hits = batch_hits.get(qid, [])
+            doc_results = [(hit.docid, float(hit.score), rank + 1) for rank, hit in enumerate(hits)]
+            results.append(RetrieverResult(
+                qid=qid, results=doc_results, retriever_name=self.name,
+                latency_ms=0, metadata={"index": self.index_name}
+            ))
+        
+        return results
     
     def retrieve_batch(
         self,
         queries: Dict[str, str],
         top_k: int = 100,
+        checkpoint_path: Optional[str] = None,
+        mini_batch_size: int = 200,  # BGE is fast
         **kwargs
     ) -> Dict[str, RetrieverResult]:
-        """Batch retrieval with multi-threading for optimal M4 performance."""
-        import gc
+        """
+        Batch retrieval with checkpointing.
         
+        Args:
+            queries: Dict of qid -> query text
+            top_k: Docs per query
+            checkpoint_path: JSONL file for crash recovery
+            mini_batch_size: Queries per mini-batch
+        """
         start = time.time()
-        results = {}
+        n_queries = len(queries)
         
-        query_ids = list(queries.keys())
-        query_texts = [queries[qid] for qid in query_ids]
-        total_queries = len(query_ids)
+        # Load checkpoint
+        completed = {}
+        if checkpoint_path and Path(checkpoint_path).exists():
+            print(f"[BGE] Loading checkpoint...")
+            with open(checkpoint_path, 'r') as f:
+                for line in f:
+                    data = json.loads(line)
+                    qid = data["qid"]
+                    completed[qid] = RetrieverResult(
+                        qid=qid,
+                        results=[(d["docno"], d["score"], d["rank"]) for d in data["results"]],
+                        retriever_name=self.name, latency_ms=0, metadata={"index": self.index_name}
+                    )
+            print(f"[BGE] Resumed: {len(completed)}/{n_queries} queries from checkpoint")
         
-        # Process in chunks to manage memory (embeddings cached, then discarded)
-        # Smaller chunks for large corpora (HotpotQA 5M docs)
-        chunk_size = 100  # Balance: enough for batching, small enough for memory
+        # Filter pending
+        pending = [(qid, text) for qid, text in queries.items() if qid not in completed]
+        n_pending = len(pending)
         
-        print(f"[BGE] Processing {total_queries} queries in chunks of {chunk_size} (multi-threaded)")
+        if n_pending == 0:
+            print(f"[BGE] All {n_queries} queries completed!")
+            return completed
         
-        for i in range(0, total_queries, chunk_size):
-            chunk_ids = query_ids[i:i + chunk_size]
-            chunk_texts = query_texts[i:i + chunk_size]            
-            # Multi-threaded batch search (FAISS uses all 10 cores)
-            batch_hits = self.searcher.batch_search(
-                queries=chunk_texts,
-                q_ids=chunk_ids,
-                k=top_k,
-                threads=10  # M4 has 10 cores - use them all
-            )            
-            for qid in chunk_ids:
-                hits = batch_hits.get(qid, [])
-                doc_results = [
-                    (hit.docid, float(hit.score), rank + 1)
-                    for rank, hit in enumerate(hits)
-                ]
-                
-                results[qid] = RetrieverResult(
-                    qid=qid,
-                    results=doc_results,
-                    retriever_name=self.name,
-                    latency_ms=0,
-                    metadata={"index": self.index_name}
-                )
+        print(f"[BGE] Processing {n_pending} queries in batches of {mini_batch_size}")
+        
+        n_batches = (n_pending + mini_batch_size - 1) // mini_batch_size
+        
+        for i in range(n_batches):
+            batch_start = i * mini_batch_size
+            batch_end = min(batch_start + mini_batch_size, n_pending)
+            batch = pending[batch_start:batch_end]
             
-            # Progress reporting
+            t0 = time.time()
+            print(f"[BGE] Batch {i+1}/{n_batches}: {len(batch)} queries...")
+            
+            batch_results = self._process_mini_batch(batch, top_k)
+            
+            # Save to checkpoint
+            if checkpoint_path:
+                with open(checkpoint_path, 'a') as f:
+                    for r in batch_results:
+                        f.write(json.dumps({
+                            "qid": r.qid,
+                            "results": [{"docno": d[0], "score": d[1], "rank": d[2]} for d in r.results]
+                        }) + "\n")
+            
+            for r in batch_results:
+                completed[r.qid] = r
+            
+            done = len(completed)
             elapsed = time.time() - start
-            queries_done = i + len(chunk_ids)
-            qps = queries_done / elapsed
-            eta_sec = (total_queries - queries_done) / qps if qps > 0 else 0
-            print(f"[BGE] Progress: {queries_done}/{total_queries} queries ({qps:.1f} q/s, ETA: {eta_sec/60:.1f}m)")
+            rate = done / elapsed if elapsed > 0 else 0
+            eta = (n_queries - done) / rate if rate > 0 else 0
+            print(f"[BGE]   → {done}/{n_queries} done ({time.time()-t0:.1f}s) | ETA: {eta/60:.1f}min")
             
-            # Memory cleanup after each chunk
             gc.collect()
         
-        total_time = (time.time() - start) * 1000
-        qps = len(queries) / (total_time / 1000)
-        print(f"[BGE] Completed: {len(queries)} queries in {total_time/1000:.1f}s ({qps:.1f} q/s)")
-        
-        return results
+        print(f"[BGE] Complete: {n_queries} queries in {time.time()-start:.1f}s")
+        return completed

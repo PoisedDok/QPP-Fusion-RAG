@@ -5,23 +5,26 @@ Outgoing: ranked results --- {RetrieverResult}
 
 TCT-ColBERT Dense Retriever
 ---------------------------
-Optimized for Mac M4 16GB:
-- Uses MPS acceleration
+Optimized for Mac M4:
+- MPS acceleration
 - fp16 embeddings (half memory)
 - Chunked encoding with disk caching
 - FAISS index for efficient search
-
-STRICT: Requires FAISS. No numpy fallback.
+- Checkpointing for crash recovery
 """
 
-import os
 import gc
+import json
+import os
 import time
 import numpy as np
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Optional, Tuple
 
-# STRICT: Fail immediately if dependencies not available
+# Configure threading
+os.environ['OMP_NUM_THREADS'] = '10'
+os.environ['TOKENIZERS_PARALLELISM'] = 'true'
+
 import torch
 from sentence_transformers import SentenceTransformer
 import faiss
@@ -29,11 +32,20 @@ import faiss
 from .base import BaseRetriever, RetrieverResult
 
 
+def _get_device():
+    """Get best available device."""
+    if torch.backends.mps.is_available():
+        return "mps"
+    elif torch.cuda.is_available():
+        return "cuda"
+    return "cpu"
+
+
 class TCTColBERTRetriever(BaseRetriever):
     """
-    Dense retrieval using TCT-ColBERT with memory optimizations.
+    Dense retrieval using TCT-ColBERT with MPS acceleration.
     
-    STRICT: Requires FAISS for efficient search. No numpy fallback.
+    Supports checkpointing for crash recovery during batch retrieval.
     """
     
     name = "TCT-ColBERT"
@@ -48,7 +60,7 @@ class TCTColBERTRetriever(BaseRetriever):
         use_fp16: bool = True
     ):
         """
-        Initialize TCT-ColBERT retriever with memory optimizations.
+        Initialize TCT-ColBERT retriever.
         
         Args:
             corpus: {doc_id: {text, title}}
@@ -63,20 +75,11 @@ class TCTColBERTRetriever(BaseRetriever):
         self.cache_dir = Path(cache_dir) if cache_dir else Path("data/nq/cache")
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         
-        # Device setup - prefer MPS on Mac
-        if torch.backends.mps.is_available():
-            self.device = "mps"
-        elif torch.cuda.is_available():
-            self.device = "cuda"
-        else:
-            self.device = "cpu"
-        
+        self.device = _get_device()
         print(f"[TCT-ColBERT] Device: {self.device}, fp16: {use_fp16}")
         print(f"[TCT-ColBERT] Loading {self.MODEL_NAME}...")
         
         self.model = SentenceTransformer(self.MODEL_NAME, device=self.device)
-        
-        # Load or compute embeddings and build FAISS index
         self._load_or_compute_index()
     
     def _get_cache_path(self) -> Path:
@@ -91,26 +94,20 @@ class TCTColBERTRetriever(BaseRetriever):
         ids_path = self.cache_dir / f"tct_colbert_{len(self.doc_ids)}_ids.npy"
         
         if cache_path.exists() and ids_path.exists():
-            print(f"[TCT-ColBERT] Loading cached embeddings from {cache_path}")
+            print(f"[TCT-ColBERT] Loading cached embeddings...")
             self.doc_embeddings = np.load(str(cache_path))
             cached_ids = np.load(str(ids_path), allow_pickle=True)
             
-            # Verify IDs match
             if list(cached_ids) == self.doc_ids:
                 print(f"[TCT-ColBERT] Loaded {len(self.doc_embeddings)} embeddings")
                 self._build_faiss_index()
                 return
-            else:
-                print("[TCT-ColBERT] Cache IDs mismatch, recomputing...")
+            print("[TCT-ColBERT] Cache IDs mismatch, recomputing...")
         
-        # Compute embeddings
         self._encode_corpus_chunked()
-        
-        # Save cache
         np.save(str(cache_path), self.doc_embeddings)
         np.save(str(ids_path), np.array(self.doc_ids, dtype=object))
-        print(f"[TCT-ColBERT] Saved embeddings to {cache_path}")
-        
+        print(f"[TCT-ColBERT] Saved embeddings to cache")
         self._build_faiss_index()
     
     def _encode_corpus_chunked(self):
@@ -119,145 +116,181 @@ class TCTColBERTRetriever(BaseRetriever):
         
         dtype = np.float16 if self.use_fp16 else np.float32
         n_docs = len(self.doc_ids)
-        
-        # Pre-allocate array
         self.doc_embeddings = np.zeros((n_docs, self.EMBEDDING_DIM), dtype=dtype)
         
-        chunk_size = self.batch_size * 8  # Process in larger chunks
+        chunk_size = self.batch_size * 8
         
         for start_idx in range(0, n_docs, chunk_size):
             end_idx = min(start_idx + chunk_size, n_docs)
-            
-            # Get texts for this chunk
             chunk_ids = self.doc_ids[start_idx:end_idx]
             chunk_texts = [
                 (self.corpus[d].get("title", "") + " " + self.corpus[d].get("text", "")).strip()
                 for d in chunk_ids
             ]
             
-            # Encode
             with torch.no_grad():
                 embeddings = self.model.encode(
-                    chunk_texts,
-                    batch_size=self.batch_size,
-                    convert_to_numpy=True,
-                    normalize_embeddings=True,
-                    show_progress_bar=False
+                    chunk_texts, batch_size=self.batch_size,
+                    convert_to_numpy=True, normalize_embeddings=True, show_progress_bar=False
                 )
             
-            # Store as fp16 if requested
             if self.use_fp16:
                 embeddings = embeddings.astype(np.float16)
             
             self.doc_embeddings[start_idx:end_idx] = embeddings
+            print(f"  [{(end_idx/n_docs)*100:5.1f}%] Encoded {end_idx}/{n_docs} documents")
             
-            # Progress
-            progress = (end_idx / n_docs) * 100
-            print(f"  [{progress:5.1f}%] Encoded {end_idx}/{n_docs} documents")
-            
-            # Memory cleanup
             del embeddings, chunk_texts
             gc.collect()
         
-        print(f"[TCT-ColBERT] Encoding complete. Shape: {self.doc_embeddings.shape}")
+        print(f"[TCT-ColBERT] Encoding complete")
     
     def _build_faiss_index(self):
         """Build FAISS index for efficient search."""
         print("[TCT-ColBERT] Building FAISS index...")
-        
-        # Convert to float32 for FAISS (required)
         embeddings_f32 = self.doc_embeddings.astype(np.float32)
         
-        # Use IndexFlatIP for cosine similarity (embeddings are normalized)
         self.index = faiss.IndexFlatIP(self.EMBEDDING_DIM)
+        faiss.omp_set_num_threads(10)
         self.index.add(embeddings_f32)
         
-        print(f"[TCT-ColBERT] FAISS index built: {self.index.ntotal} vectors")
+        print(f"[TCT-ColBERT] FAISS index: {self.index.ntotal} vectors (threads: {faiss.omp_get_max_threads()})")
         
-        # Free the float32 copy
         del embeddings_f32
         gc.collect()
     
-    def retrieve(
-        self,
-        query: str,
-        qid: str,
-        top_k: int = 100,
-        **kwargs
-    ) -> RetrieverResult:
-        """Retrieve documents using dense similarity via FAISS."""
+    def retrieve(self, query: str, qid: str, top_k: int = 100, **kwargs) -> RetrieverResult:
+        """Retrieve documents using dense similarity."""
         start = time.time()
         
-        # Encode query
         with torch.no_grad():
             query_emb = self.model.encode(
-                [query],
-                convert_to_numpy=True,
-                normalize_embeddings=True
+                [query], convert_to_numpy=True, normalize_embeddings=True
             )[0].astype(np.float32)
         
-        # FAISS search
         scores, indices = self.index.search(query_emb.reshape(1, -1), top_k)
-        scores = scores[0]
-        indices = indices[0]
         
         results = [
-            (self.doc_ids[idx], float(scores[i]), i + 1)
-            for i, idx in enumerate(indices)
-            if idx >= 0  # FAISS returns -1 for empty slots
+            (self.doc_ids[idx], float(scores[0, i]), i + 1)
+            for i, idx in enumerate(indices[0]) if idx >= 0
         ]
         
-        latency = (time.time() - start) * 1000
-        
         return RetrieverResult(
-            qid=qid,
-            results=results,
-            retriever_name=self.name,
-            latency_ms=latency,
+            qid=qid, results=results, retriever_name=self.name,
+            latency_ms=(time.time() - start) * 1000,
             metadata={"model": self.MODEL_NAME, "device": self.device}
         )
+    
+    def _process_mini_batch(
+        self,
+        queries: List[Tuple[str, str]],
+        top_k: int
+    ) -> List[RetrieverResult]:
+        """Process a mini-batch using vectorized FAISS search."""
+        query_ids = [q[0] for q in queries]
+        query_texts = [q[1] for q in queries]
+        
+        t0 = time.time()
+        with torch.no_grad():
+            query_embs = self.model.encode(
+                query_texts, batch_size=self.batch_size,
+                convert_to_numpy=True, normalize_embeddings=True, show_progress_bar=False
+            ).astype(np.float32)
+        print(f"[TCT-ColBERT]     Encoded {len(queries)} queries in {time.time()-t0:.1f}s")
+        
+        t0 = time.time()
+        all_scores, all_indices = self.index.search(query_embs, top_k)
+        print(f"[TCT-ColBERT]     FAISS searched in {time.time()-t0:.1f}s")
+        
+        results = []
+        for i, qid in enumerate(query_ids):
+            doc_results = [
+                (self.doc_ids[idx], float(all_scores[i, j]), j + 1)
+                for j, idx in enumerate(all_indices[i]) if idx >= 0
+            ]
+            results.append(RetrieverResult(
+                qid=qid, results=doc_results, retriever_name=self.name,
+                latency_ms=0, metadata={"model": self.MODEL_NAME}
+            ))
+        
+        return results
     
     def retrieve_batch(
         self,
         queries: Dict[str, str],
         top_k: int = 100,
+        checkpoint_path: Optional[str] = None,
+        mini_batch_size: int = 100,
         **kwargs
     ) -> Dict[str, RetrieverResult]:
-        """Batch retrieval with vectorized FAISS search."""
+        """
+        Batch retrieval with checkpointing.
+        
+        Args:
+            queries: Dict of qid -> query text
+            top_k: Docs per query
+            checkpoint_path: JSONL file for crash recovery
+            mini_batch_size: Queries per mini-batch
+        """
         start = time.time()
+        n_queries = len(queries)
         
-        query_ids = list(queries.keys())
-        query_texts = [queries[q] for q in query_ids]
+        # Load checkpoint
+        completed = {}
+        if checkpoint_path and Path(checkpoint_path).exists():
+            print(f"[TCT-ColBERT] Loading checkpoint...")
+            with open(checkpoint_path, 'r') as f:
+                for line in f:
+                    data = json.loads(line)
+                    qid = data["qid"]
+                    completed[qid] = RetrieverResult(
+                        qid=qid,
+                        results=[(d["docno"], d["score"], d["rank"]) for d in data["results"]],
+                        retriever_name=self.name, latency_ms=0, metadata={"model": self.MODEL_NAME}
+                    )
+            print(f"[TCT-ColBERT] Resumed: {len(completed)}/{n_queries} queries from checkpoint")
         
-        # Encode all queries
-        with torch.no_grad():
-            query_embs = self.model.encode(
-                query_texts,
-                batch_size=self.batch_size,
-                convert_to_numpy=True,
-                normalize_embeddings=True,
-                show_progress_bar=len(query_texts) > 100
-            ).astype(np.float32)
+        # Filter pending
+        pending = [(qid, text) for qid, text in queries.items() if qid not in completed]
+        n_pending = len(pending)
         
-        # FAISS batch search
-        all_scores, all_indices = self.index.search(query_embs, top_k)
+        if n_pending == 0:
+            print(f"[TCT-ColBERT] All {n_queries} queries completed!")
+            return completed
         
-        results = {}
-        for i, qid in enumerate(query_ids):
-            doc_results = [
-                (self.doc_ids[idx], float(all_scores[i, j]), j + 1)
-                for j, idx in enumerate(all_indices[i])
-                if idx >= 0  # FAISS returns -1 for empty slots
-            ]
-            results[qid] = RetrieverResult(
-                qid=qid,
-                results=doc_results,
-                retriever_name=self.name,
-                latency_ms=0,
-                metadata={"model": self.MODEL_NAME}
-            )
+        print(f"[TCT-ColBERT] Processing {n_pending} queries in batches of {mini_batch_size}")
         
-        total_time = (time.time() - start) * 1000
-        print(f"[TCT-ColBERT] Batch: {len(queries)} queries in {total_time:.1f}ms")
+        n_batches = (n_pending + mini_batch_size - 1) // mini_batch_size
         
-        return results
+        for i in range(n_batches):
+            batch_start = i * mini_batch_size
+            batch_end = min(batch_start + mini_batch_size, n_pending)
+            batch = pending[batch_start:batch_end]
+            
+            t0 = time.time()
+            print(f"[TCT-ColBERT] Batch {i+1}/{n_batches}: {len(batch)} queries...")
+            
+            batch_results = self._process_mini_batch(batch, top_k)
+            
+            # Save to checkpoint
+            if checkpoint_path:
+                with open(checkpoint_path, 'a') as f:
+                    for r in batch_results:
+                        f.write(json.dumps({
+                            "qid": r.qid,
+                            "results": [{"docno": d[0], "score": d[1], "rank": d[2]} for d in r.results]
+                        }) + "\n")
+            
+            for r in batch_results:
+                completed[r.qid] = r
+            
+            done = len(completed)
+            elapsed = time.time() - start
+            rate = done / elapsed if elapsed > 0 else 0
+            eta = (n_queries - done) / rate if rate > 0 else 0
+            print(f"[TCT-ColBERT]   → {done}/{n_queries} done ({time.time()-t0:.1f}s) | ETA: {eta/60:.1f}min")
+            
+            gc.collect()
+        
+        print(f"[TCT-ColBERT] Complete: {n_queries} queries in {time.time()-start:.1f}s")
+        return completed
