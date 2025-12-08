@@ -1,27 +1,41 @@
 #!/usr/bin/env python3
 """
 Incoming: index, corpus, queries --- {pt.Index, Dict, Dict}
-Processing: retrieval --- {5 jobs: BM25, TCT, Splade, BM25_TCT, BM25_MonoT5}
+Processing: retrieval --- {6 jobs: BM25, TCT, Splade, BGE, BM25_TCT, BM25_MonoT5}
 Outgoing: TREC run files --- {.res files}
 
 Step 2: Run Retrievers
 ----------------------
-Runs retrievers sequentially with memory management.
-Optimized for Mac M4 16GB:
-- Loads corpus only when needed
-- Clears memory between retrievers
-- Uses disk caching for embeddings
+Runs retrievers sequentially with memory management and checkpointing.
+
+Memory Optimizations (baked in):
+- Java heap limited to 6GB (prevents JVM bloat)
+- MPS cache cleanup between batches
+- Aggressive garbage collection
+- Lazy corpus loading where possible
+- Checkpoint recovery for crash resilience
 
 Usage:
     python scripts/02_retrieve.py --corpus_path /data/beir/datasets/nq
     python scripts/02_retrieve.py --corpus_path /data/beir/datasets/nq --retrievers BM25
-    python scripts/02_retrieve.py --corpus_path /data/beir/datasets/nq --limit 10000
+    python scripts/02_retrieve.py --corpus_path /data/beir/datasets/hotpotqa --retrievers BM25_MonoT5
+
+Background execution (survives terminal close):
+    nohup python scripts/02_retrieve.py --corpus_path /data/beir/datasets/hotpotqa --retrievers BM25_MonoT5 > logs/retrieve.log 2>&1 &
 """
 
 import os
 import sys
+
+# =============================================================================
+# MEMORY OPTIMIZATIONS - Must be set BEFORE any Java/ML library imports
+# =============================================================================
+os.environ.setdefault('JAVA_TOOL_OPTIONS', '-Xmx6g -Xms2g')  # Limit Java heap to 6GB
+os.environ.setdefault('OMP_NUM_THREADS', '8')
+os.environ.setdefault('MKL_NUM_THREADS', '8')
+os.environ.setdefault('TOKENIZERS_PARALLELISM', 'true')
+
 import gc
-import json
 import argparse
 import time
 from pathlib import Path
@@ -30,7 +44,7 @@ from typing import Dict, Optional
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-# Set cache paths to Disk-D before importing ML libs
+# Set cache paths before importing ML libs
 from src.cache_config import CACHE_ROOT
 from src.data_utils import load_corpus as _load_corpus, load_queries as _load_queries
 

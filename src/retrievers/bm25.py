@@ -15,12 +15,15 @@ from .base import BaseRetriever, RetrieverResult
 
 
 def _ensure_pyterrier_init():
-    """Lazy PyTerrier initialization to avoid JVM conflicts with pyserini."""
+    """Lazy PyTerrier initialization with memory limits."""
     import pyterrier as pt
-    if hasattr(pt, 'java') and hasattr(pt.java, 'init') and not pt.started():
-        pt.java.init()
-    elif not pt.started():
-        pt.init()
+    if not pt.started():
+        try:
+            # Limit Java heap to 6GB to prevent memory bloat
+            pt.init(boot_packages=[], mem=6000)
+        except TypeError:
+            # Older PyTerrier version
+            pt.init()
     return pt
 
 

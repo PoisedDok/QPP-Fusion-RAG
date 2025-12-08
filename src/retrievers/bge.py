@@ -213,7 +213,17 @@ class BGERetriever(BaseRetriever):
             eta = (n_queries - done) / rate if rate > 0 else 0
             print(f"[BGE]   → {done}/{n_queries} done ({time.time()-t0:.1f}s) | ETA: {eta/60:.1f}min")
             
+            # Aggressive memory cleanup
+            del batch_results
             gc.collect()
+            
+            # MPS cache cleanup
+            try:
+                import torch
+                if torch.backends.mps.is_available():
+                    torch.mps.empty_cache()
+            except:
+                pass
         
         print(f"[BGE] Complete: {n_queries} queries in {time.time()-start:.1f}s")
         return completed

@@ -41,12 +41,15 @@ def _get_device():
 
 
 def _ensure_pyterrier_init():
-    """Lazy PyTerrier initialization."""
+    """Lazy PyTerrier initialization with memory limits."""
     import pyterrier as pt
-    if hasattr(pt, 'java') and hasattr(pt.java, 'init') and not pt.started():
-        pt.java.init()
-    elif not pt.started():
-        pt.init()
+    if not pt.started():
+        try:
+            # Limit Java heap to 6GB to prevent memory bloat
+            pt.init(boot_packages=[], mem=6000)
+        except TypeError:
+            # Older PyTerrier version
+            pt.init()
     return pt
 
 
@@ -194,6 +197,10 @@ class BM25TCTRetriever(BaseRetriever):
                 metadata={"model": self.TCT_MODEL}
             ))
         
+        # Cleanup intermediate dataframes
+        del bm25_results, reranked, doc_texts
+        gc.collect()
+        
         return results
     
     def retrieve(self, query: str, qid: str, top_k: int = 100, **kwargs) -> RetrieverResult:
@@ -282,8 +289,17 @@ class BM25TCTRetriever(BaseRetriever):
             eta = (n_queries - done) / rate if rate > 0 else 0
             print(f"[BM25_TCT]   → {done}/{n_queries} done ({time.time()-t0:.1f}s) | ETA: {eta/60:.1f}min")
             
-            # Clear memory between batches
+            # Aggressive memory cleanup
+            del batch_results
             gc.collect()
+            
+            # MPS cache cleanup
+            try:
+                import torch
+                if torch.backends.mps.is_available():
+                    torch.mps.empty_cache()
+            except:
+                pass
         
         print(f"[BM25_TCT] Complete: {n_queries} queries in {time.time()-start:.1f}s")
         return completed

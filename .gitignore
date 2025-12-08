@@ -49,3 +49,4 @@ combsum.txt
 
 # Java compiled
 *.class
+.log

@@ -46,12 +46,16 @@ def _get_device():
 
 
 def _ensure_pyterrier_init():
-    """Lazy PyTerrier initialization."""
+    """Lazy PyTerrier initialization with memory limits."""
     import pyterrier as pt
-    if hasattr(pt, 'java') and hasattr(pt.java, 'init') and not pt.started():
-        pt.java.init()
-    elif not pt.started():
-        pt.init()
+    if not pt.started():
+        # Limit Java heap via JAVA_TOOL_OPTIONS env var (set before JVM starts)
+        # or pass java_opts if using newer PyTerrier
+        try:
+            pt.init(boot_packages=[], mem=6000)  # 6GB max
+        except TypeError:
+            # Older PyTerrier version
+            pt.init()
     return pt
 
 
@@ -205,6 +209,10 @@ class BM25MonoT5Retriever(BaseRetriever):
                 latency_ms=0, metadata={"model": self.CE_MODEL}
             ))
         
+        # Cleanup intermediate dataframes
+        del bm25_results, reranked, doc_texts
+        gc.collect()
+        
         return results
     
     def retrieve(self, query: str, qid: str, top_k: int = 100, **kwargs) -> RetrieverResult:
@@ -287,7 +295,17 @@ class BM25MonoT5Retriever(BaseRetriever):
             eta = (n_queries - done) / rate if rate > 0 else 0
             print(f"[BM25_MonoT5]   → {done}/{n_queries} done ({time.time()-t0:.1f}s) | ETA: {eta/60:.1f}min")
             
+            # Aggressive memory cleanup
+            del batch_results
             gc.collect()
+            
+            # MPS cache cleanup if available
+            try:
+                import torch
+                if torch.backends.mps.is_available():
+                    torch.mps.empty_cache()
+            except:
+                pass
         
         print(f"[BM25_MonoT5] Complete: {n_queries} queries in {time.time()-start:.1f}s")
         return completed

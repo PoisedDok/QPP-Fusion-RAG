@@ -188,6 +188,8 @@ class SpladeRetriever(BaseRetriever):
             eta = (n_queries - done) / rate if rate > 0 else 0
             print(f"[SPLADE]   → {done}/{n_queries} done ({time.time()-t0:.1f}s) | ETA: {eta/60:.1f}min")
             
+            # Aggressive memory cleanup
+            del batch_results
             gc.collect()
         
         print(f"[SPLADE] Complete: {n_queries} queries in {time.time()-start:.1f}s")
