@@ -39,13 +39,7 @@ from typing import Dict, List, Any, Optional
 from dataclasses import dataclass
 
 
-# QPP method index mapping (matches Combsum.py and Java QPPBridge)
-QPP_METHODS = {
-    0: "SMV", 1: "Sigma_max", 2: "Sigma(%)", 3: "NQC", 4: "UEF", 5: "RSD",
-    6: "QPP-PRP", 7: "WIG", 8: "SCNQC", 9: "QV-NQC", 10: "DM",
-    11: "NQA-QPP", 12: "BERTQPP"
-}
-
+# 13 QPP methods (matches Java QPPBridge output order)
 QPP_METHOD_NAMES = [
     'nqc', 'smv', 'wig', 'SigmaMax', 'SigmaX', 'RSD', 'UEF',
     'MaxIDF', 'avgidf', 'cumnqc', 'snqc', 'dense-qpp', 'dense-qpp-m'
@@ -68,8 +62,8 @@ class QPPBridge:
     """
     Python-Java bridge for QPP computation.
     
-    STRICT: Requires compiled Java QPPBridge.class.
-    No Python fallback - will raise RuntimeError if Java not available.
+    Uses REAL QPP implementations from src/qpp/java (copied from lucene-msmarco).
+    STRICT: Requires compiled Java classes. No Python fallback.
     """
     
     def __init__(self, java_dir: Optional[str] = None, persistent: bool = True):
@@ -77,16 +71,21 @@ class QPPBridge:
         Initialize QPP Bridge.
         
         Args:
-            java_dir: Optional path to Java QPP directory. 
-                      Defaults to src/qpp relative to this file.
+            java_dir: Optional path to QPP Java directory. 
+                      Defaults to src/qpp relative to project root.
             persistent: Use persistent Java process (much faster for batch ops)
         
         Raises:
             RuntimeError: If Java QPP bridge is not compiled/available.
         """
         self.src_dir = Path(__file__).parent
-        self.java_dir = Path(java_dir) if java_dir else self.src_dir / "qpp"
-        self.lib_dir = self.src_dir.parent / "lib"
+        self.project_root = self.src_dir.parent
+        
+        # Use src/qpp for real QPP implementations
+        self.qpp_dir = Path(java_dir) if java_dir else self.src_dir / "qpp"
+        self.classes_dir = self.qpp_dir / "target" / "classes"
+        self.deps_dir = self.qpp_dir / "target" / "dependency"
+        
         self.persistent = persistent
         self._java_process = None
         
@@ -94,45 +93,25 @@ class QPPBridge:
         if not self._check_java():
             raise RuntimeError(
                 f"Java QPP bridge not compiled. "
-                f"Required: {self.java_dir / 'QPPBridge.class'} or {self.lib_dir / 'qpp-bridge.jar'}. "
-                f"To compile: cd {self.java_dir} && ./build.sh"
+                f"Required: {self.classes_dir / 'qpp' / 'QPPBridge.class'}. "
+                f"To compile: cd {self.qpp_dir} && ./build.sh"
             )
         
-        print(f"[QPP] Java bridge ready at {self.java_dir} (persistent={persistent})", file=sys.stderr)
+        print(f"[QPP] Real QPP from src/qpp ready (persistent={persistent})", file=sys.stderr)
     
     def _check_java(self) -> bool:
         """Check if Java QPPBridge is compiled and available."""
-        # Check for compiled class file
-        class_file = self.java_dir / "QPPBridge.class"
-        if class_file.exists():
-            return True
-        
-        # Check for JAR in lib/
-        jar_file = self.lib_dir / "qpp-bridge.jar"
-        if jar_file.exists():
-            return True
-        
-        return False
+        # Check for compiled class file in lucene-msmarco
+        class_file = self.classes_dir / "qpp" / "QPPBridge.class"
+        return class_file.exists()
     
     def _get_classpath(self) -> str:
-        """Build Java classpath."""
-        paths = []
+        """Build Java classpath from lucene-msmarco Maven build."""
+        paths = [str(self.classes_dir)]
         
-        # Add compiled classes directory (parent of qpp/ for package structure)
-        if (self.java_dir / "QPPBridge.class").exists():
-            paths.append(str(self.java_dir.parent))
-        
-        # Add JAR if exists
-        jar_file = self.lib_dir / "qpp-bridge.jar"
-        if jar_file.exists():
-            paths.append(str(jar_file))
-        
-        # Add Gson dependency - check multiple versions
-        for gson_name in ["gson-2.11.0.jar", "gson-2.10.1.jar", "gson.jar"]:
-            gson_jar = self.lib_dir / gson_name
-            if gson_jar.exists():
-                paths.append(str(gson_jar))
-                break
+        # Add all dependency JARs
+        if self.deps_dir.exists():
+            paths.append(str(self.deps_dir / "*"))
         
         return ":".join(paths)
     
@@ -321,13 +300,8 @@ def compute_qpp_for_res_file(
     for qid in runs:
         runs[qid] = sorted(runs[qid], reverse=True)[:top_k]
     
-    # Compute QPP (raises RuntimeError if Java fails)
-    # OPTIMIZED: Use batch computation to avoid subprocess overhead (15min saved!)
+    # Compute QPP via Java bridge (batch mode for efficiency)
     bridge = QPPBridge()
-    
-    # #region agent log
-    import time as _t; _qpp_start = _t.time()
-    # #endregion
     
     # Prepare batch input - use actual query text if available
     batch_queries = [
@@ -335,28 +309,13 @@ def compute_qpp_for_res_file(
         for qid, scores in runs.items()
     ]
     
-    # Batch compute (single Java call instead of N subprocess spawns)
-    try:
-        batch_results = bridge.compute_batch([(q[0], q[1]) for q in batch_queries])
-        results = {}
-        for i, qpp_result in enumerate(batch_results):
-            qid = batch_queries[i][2]  # Get original qid
-            qpp_list = [qpp_result.qpp_scores.get(m, 0.0) for m in QPP_METHOD_NAMES]
-            results[qid] = qpp_list
-    except Exception as e:
-        # Fallback to sequential if batch fails
-        print(f"Warning: Batch QPP failed ({e}), falling back to sequential")
-        results = {}
-        for qid, scores in runs.items():
-            query_text = query_texts.get(qid, qid)  # Use actual query text
-            result = bridge.compute(query=query_text, scores=scores)
-            qpp_list = [result.qpp_scores.get(m, 0.0) for m in QPP_METHOD_NAMES]
-            results[qid] = qpp_list
-    
-    # #region agent log
-    _total = _t.time() - _qpp_start
-    with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as _f: _f.write(__import__('json').dumps({"location":"src/qpp.py:256","message":"qpp_batch_optimized","data":{"num_queries":len(runs),"total_sec":round(_total,2),"avg_per_query_ms":round(_total*1000/len(runs),2),"optimization":"batch_compute","subprocess_spawns":1},"timestamp":int(_t.time()*1000),"sessionId":"debug-session","runId":"post-fix","hypothesisId":"H4"})+'\n')
-    # #endregion
+    # Batch compute (single Java call - no fallback)
+    batch_results = bridge.compute_batch([(q[0], q[1]) for q in batch_queries])
+    results = {}
+    for i, qpp_result in enumerate(batch_results):
+        qid = batch_queries[i][2]
+        qpp_list = [qpp_result.qpp_scores.get(m, 0.0) for m in QPP_METHOD_NAMES]
+        results[qid] = qpp_list
     
     # Normalize
     if normalize != "none" and results:

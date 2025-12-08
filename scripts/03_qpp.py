@@ -44,23 +44,32 @@ def main():
     parser.add_argument("--force", action="store_true", help="Recompute even if QPP file exists")
     args = parser.parse_args()
     
-    # Setup paths
-    output_dir = PROJECT_ROOT / "data" / "nq"
-    runs_dir = Path(args.runs_dir) if args.runs_dir else output_dir / "runs"
-    qpp_dir = Path(args.qpp_dir) if args.qpp_dir else output_dir / "qpp"
+    # Setup paths - detect dataset from runs_dir
+    if args.runs_dir:
+        runs_dir = Path(args.runs_dir)
+        # Infer dataset directory from runs path (e.g., data/hotpotqa/runs -> data/hotpotqa)
+        dataset_dir = runs_dir.parent
+    else:
+        dataset_dir = PROJECT_ROOT / "data" / "nq"
+        runs_dir = dataset_dir / "runs"
+    
+    qpp_dir = Path(args.qpp_dir) if args.qpp_dir else dataset_dir / "qpp"
     
     # Auto-detect queries.jsonl if not specified
     queries_path = args.queries
     if not queries_path:
-        # Try common locations
-        for candidate in [
-            output_dir / "BEIR-nq" / "queries.jsonl",
-            output_dir / "queries.jsonl",
-            PROJECT_ROOT / "data" / "nq" / "BEIR-nq" / "queries.jsonl"
-        ]:
+        # Try dataset-specific locations (BEIR-<dataset>/queries.jsonl)
+        for subdir in dataset_dir.iterdir():
+            if subdir.is_dir() and subdir.name.startswith("BEIR"):
+                candidate = subdir / "queries.jsonl"
+                if candidate.exists():
+                    queries_path = str(candidate)
+                    break
+        # Fallback to direct queries.jsonl
+        if not queries_path:
+            candidate = dataset_dir / "queries.jsonl"
             if candidate.exists():
                 queries_path = str(candidate)
-                break
     
     if queries_path:
         print(f"[03_qpp] Using query texts from: {queries_path}")
@@ -76,9 +85,12 @@ def main():
         print(f"[03_qpp] No .res files found in {runs_dir}")
         return
     
+    import multiprocessing
+    n_workers = min(8, multiprocessing.cpu_count())
+    
     print(f"[03_qpp] Processing {len(res_files)} run files")
-    print(f"[03_qpp] QPP methods: 13 (NQC, RSD, WIG, SMV, UEF, ...)")
-    print(f"[03_qpp] Parallel processing with 4 workers")
+    print(f"[03_qpp] QPP methods: 13 (NQC, WIG, SMV, SigmaMax, SigmaX, RSD, UEF, MaxIDF, AvgIDF, CumNQC, SNQC, DenseQPP, DenseQPP-M)")
+    print(f"[03_qpp] Parallel processing with {n_workers} workers (of {multiprocessing.cpu_count()} cores)")
     
     # Prepare jobs
     jobs = []
@@ -96,7 +108,7 @@ def main():
     processed = 0
     skipped = len(res_files) - len(jobs)
     
-    with ProcessPoolExecutor(max_workers=4) as executor:
+    with ProcessPoolExecutor(max_workers=n_workers) as executor:
         futures = {executor.submit(_process_qpp_file, job): job for job in jobs}
         
         for future in as_completed(futures):
