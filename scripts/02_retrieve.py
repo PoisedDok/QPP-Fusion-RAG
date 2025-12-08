@@ -192,12 +192,12 @@ def run_bge(queries: Dict[str, str], runs_dir: Path, top_k: int, dataset: str = 
     checkpoint_path = runs_dir / "BGE.checkpoint.jsonl"
     index_name = f"beir-v1.0.0-{dataset}.bge-base-en-v1.5"
     
-    retriever = BGERetriever(index_name=index_name, threads=10, use_mps=True)
+    retriever = BGERetriever(index_name=index_name, use_mps=True)
     results = retriever.retrieve_batch(
         queries, 
         top_k=top_k,
         checkpoint_path=str(checkpoint_path),
-        mini_batch_size=10  # Small batches for memory efficiency
+        mini_batch_size=100  # Larger batches with direct FAISS (no JVM conflict)
     )
     
     write_run(results, str(runs_dir / "BGE.res"), "BGE", normalize=False)
