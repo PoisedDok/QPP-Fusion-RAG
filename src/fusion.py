@@ -113,27 +113,11 @@ def load_runs_as_ranx(res_path: str, use_normalized: bool = True) -> Dict[str, R
 def load_qpp_scores(qpp_path: str) -> Dict[str, Dict[str, List[float]]]:
     """
     Load QPP files: {qid: {retriever: [13 qpp_scores]}}
+    
+    Delegates to centralized data_utils.load_qpp_scores.
     """
-    qpp_data = defaultdict(dict)
-    files = [f for f in os.listdir(qpp_path) if f.endswith(".mmnorm.qpp")]
-    
-    if not files:
-        raise FileNotFoundError(f"No .mmnorm.qpp files found in {qpp_path}")
-    
-    for f in files:
-        ranker = os.path.basename(f).replace(".res.mmnorm.qpp", "")
-        filepath = os.path.join(qpp_path, f)
-        
-        with open(filepath, "r") as fin:
-            for line in fin:
-                parts = line.strip().split("\t")
-                if len(parts) < 2:
-                    continue
-                qid = parts[0]
-                scores = [float(x) for x in parts[1:]]
-                qpp_data[qid][ranker] = scores
-    
-    return dict(qpp_data)
+    from .data_utils import load_qpp_scores as _load_qpp
+    return _load_qpp(qpp_path)
 
 
 def get_qpp_weight(

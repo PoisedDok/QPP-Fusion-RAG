@@ -37,27 +37,12 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from src.models import PerRetrieverLGBM, MultiOutputLGBM, FusionMLP
 from src.models.base import build_features
 from src.evaluation.ir_evaluator import compute_ndcg
+from src.data_utils import load_qpp_scores as _load_qpp, load_qrels as _load_qrels, load_run_as_dict
 
 
 def load_qpp_scores(qpp_dir: Path) -> Dict[str, Dict[str, List[float]]]:
     """Load QPP scores: {qid: {retriever: [13 scores]}}"""
-    qpp_data = {}
-    
-    for qpp_file in qpp_dir.glob("*.mmnorm.qpp"):
-        retriever = qpp_file.stem.replace(".res.mmnorm", "")
-        
-        with open(qpp_file) as f:
-            for line in f:
-                parts = line.strip().split('\t')
-                if len(parts) < 2:
-                    continue
-                qid = parts[0]
-                scores = [float(x) for x in parts[1:]]
-                
-                if qid not in qpp_data:
-                    qpp_data[qid] = {}
-                qpp_data[qid][retriever] = scores
-    
+    qpp_data = _load_qpp(qpp_dir)
     print(f"Loaded QPP for {len(qpp_data)} queries")
     return qpp_data
 
@@ -68,19 +53,12 @@ def load_runs(runs_dir: Path) -> Dict[str, Dict[str, Dict[str, float]]]:
     
     for run_file in runs_dir.glob("*.norm.res"):
         retriever = run_file.stem.replace(".norm", "")
+        run_data = load_run_as_dict(run_file)
         
-        with open(run_file) as f:
-            for line in f:
-                parts = line.strip().split()
-                if len(parts) < 5:
-                    continue
-                qid, _, docid, rank, score = parts[:5]
-                
-                if qid not in runs:
-                    runs[qid] = {}
-                if retriever not in runs[qid]:
-                    runs[qid][retriever] = {}
-                runs[qid][retriever][docid] = float(score)
+        for qid, doc_scores in run_data.items():
+            if qid not in runs:
+                runs[qid] = {}
+            runs[qid][retriever] = doc_scores
     
     print(f"Loaded runs for {len(runs)} queries")
     return runs
@@ -88,18 +66,9 @@ def load_runs(runs_dir: Path) -> Dict[str, Dict[str, Dict[str, float]]]:
 
 def load_qrels(qrels_path: Path) -> Dict[str, Dict[str, int]]:
     """Load qrels: {qid: {docid: relevance}}"""
-    qrels = defaultdict(dict)
-    
-    with open(qrels_path) as f:
-        next(f)  # Skip header
-        for line in f:
-            parts = line.strip().split('\t')
-            if len(parts) >= 3:
-                qid, docid, rel = parts[0], parts[1], int(parts[2])
-                qrels[qid][docid] = rel
-    
+    qrels = _load_qrels(qrels_path)
     print(f"Loaded qrels for {len(qrels)} queries")
-    return dict(qrels)
+    return qrels
 
 
 def compute_targets(

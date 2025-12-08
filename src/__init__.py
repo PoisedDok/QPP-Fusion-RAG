@@ -11,6 +11,19 @@ Uses research-grade packages: ir_measures, ranx, HuggingFace evaluate.
 
 __version__ = "2.0.0"
 
+# Data utilities (centralized loaders)
+from .data_utils import (
+    LazyCorpus,
+    load_corpus,
+    load_queries,
+    load_qrels,
+    load_run_file,
+    load_run_as_dict,
+    load_qpp_scores,
+    get_model_safe_name,
+    detect_dataset,
+)
+
 # QPP Bridge (13 methods via Java - STRICT: no fallback)
 from .qpp import QPPBridge, QPP_METHOD_NAMES, compute_qpp_for_res_file
 
@@ -24,6 +37,16 @@ from .evaluation import IREvaluator, QAEvaluator, evaluate_run, compute_qa_metri
 from .fusion import combsum, combmnz, rrf, weighted_combsum, weighted_rrf, learned_fusion
 
 __all__ = [
+    # Data utilities
+    "LazyCorpus",
+    "load_corpus",
+    "load_queries",
+    "load_qrels",
+    "load_run_file",
+    "load_run_as_dict",
+    "load_qpp_scores",
+    "get_model_safe_name",
+    "detect_dataset",
     # QPP
     "QPPBridge",
     "QPP_METHOD_NAMES",

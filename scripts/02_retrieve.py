@@ -32,58 +32,20 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 # Set cache paths to Disk-D before importing ML libs
 from src.cache_config import CACHE_ROOT
+from src.data_utils import load_corpus as _load_corpus, load_queries as _load_queries
 
 
 def load_corpus(corpus_path: str, limit: int = None) -> Dict[str, Dict[str, str]]:
-    """Load BEIR corpus."""
-    corpus = {}
-    corpus_file = os.path.join(corpus_path, "corpus.jsonl")
-    
+    """Load BEIR corpus (eager mode for retrieval)."""
     print(f"[02_retrieve] Loading corpus...")
-    with open(corpus_file, 'r', encoding='utf-8') as f:
-        for i, line in enumerate(f):
-            if limit and i >= limit:
-                break
-            doc = json.loads(line)
-            doc_id = doc.get("_id", str(i))
-            corpus[doc_id] = {
-                "text": doc.get("text", ""),
-                "title": doc.get("title", "")
-            }
-            if (i + 1) % 500000 == 0:
-                print(f"  Loaded {i + 1} documents...")
-    
+    corpus = _load_corpus(corpus_path, lazy=False, limit=limit)
     print(f"[02_retrieve] Corpus: {len(corpus)} documents")
     return corpus
 
 
 def load_queries(corpus_path: str, split: str = "test") -> Dict[str, str]:
-    """Load BEIR queries, filtered by split (test/dev/train)."""
-    queries = {}
-    queries_file = os.path.join(corpus_path, "queries.jsonl")
-    qrels_file = os.path.join(corpus_path, "qrels", f"{split}.tsv")
-    
-    # Get test query IDs from qrels
-    test_qids = set()
-    if os.path.exists(qrels_file):
-        with open(qrels_file, 'r') as f:
-            next(f)  # Skip header
-            for line in f:
-                parts = line.strip().split('\t')
-                if parts:
-                    test_qids.add(parts[0])
-        print(f"[02_retrieve] Found {len(test_qids)} unique {split} query IDs in qrels")
-    else:
-        print(f"[02_retrieve] No qrels/{split}.tsv found, loading all queries")
-    
-    # Load queries (filtered by test QIDs if available)
-    with open(queries_file, 'r', encoding='utf-8') as f:
-        for line in f:
-            q = json.loads(line)
-            qid = q.get("_id", "")
-            if not test_qids or qid in test_qids:
-                queries[qid] = q.get("text", "")
-    
+    """Load BEIR queries, filtered by split."""
+    queries = _load_queries(corpus_path, split=split)
     print(f"[02_retrieve] Loaded {len(queries)} {split} queries")
     return queries
 

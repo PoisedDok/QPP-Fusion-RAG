@@ -19,10 +19,10 @@ Methods:
   all       - Run all methods and output comparison
 
 Usage:
-    python scripts/04_fusion.py --method combsum
-    python scripts/04_fusion.py --method wcombsum --qpp_model RSD
-    python scripts/04_fusion.py --method learned --model_path data/nq/models/fusion_weights_model.pkl
-    python scripts/04_fusion.py --method all  # Run all methods
+    python scripts/05_fusion.py --method combsum
+    python scripts/05_fusion.py --method wcombsum --qpp_model RSD
+    python scripts/05_fusion.py --method learned --model_path data/nq/models/fusion_weights_model.pkl
+    python scripts/05_fusion.py --method all  # Run all methods
 """
 
 import os
@@ -58,41 +58,40 @@ def run_all_methods(
     qpp_dir: Path,
     fused_dir: Path,
     qpp_model: str = "RSD",
-    model_path: str = None,
     rrf_k: int = 60
 ):
     """Run all fusion methods and output comparison."""
-    print(f"[04_fusion] Running all fusion methods...")
-    print(f"[04_fusion] QPP model for weighted: {qpp_model}")
+    print(f"[05_fusion] Running all fusion methods...")
+    print(f"[05_fusion] QPP model for weighted: {qpp_model}")
     
     results = {}
     
     # Load data once
     runs = load_runs(str(runs_dir), use_normalized=True)
-    print(f"[04_fusion] Loaded {len(runs)} rankers: {list(runs.keys())}")
+    print(f"[05_fusion] Loaded {len(runs)} rankers: {list(runs.keys())}")
     
     # Unweighted methods
     print("\n--- Unweighted Methods ---")
     
     # CombSUM
-    print("[04_fusion] Running CombSUM...")
+    print("[05_fusion] Running CombSUM...")
     fused = combsum(runs)
     output_path = fused_dir / "combsum.res"
     write_runfile(fused, str(output_path), "combsum")
     results["combsum"] = output_path
     
     # CombMNZ
-    print("[04_fusion] Running CombMNZ...")
+    print("[05_fusion] Running CombMNZ...")
     fused = combmnz(runs)
     output_path = fused_dir / "combmnz.res"
     write_runfile(fused, str(output_path), "combmnz")
     results["combmnz"] = output_path
     
     # RRF
-    print(f"[04_fusion] Running RRF (k={rrf_k})...")
+    print(f"[05_fusion] Running RRF (k={rrf_k})...")
     fused = rrf(runs, k=rrf_k)
-    output_path = fused_dir / f"rrf_k{rrf_k}.res"
-    write_runfile(fused, str(output_path), f"rrf-k{rrf_k}")
+    output_path = fused_dir / "rrf.res"
+    write_runfile(fused, str(output_path), "rrf")
     results["rrf"] = output_path
     
     # Weighted methods (need QPP)
@@ -102,37 +101,45 @@ def run_all_methods(
         qpp_index = get_qpp_index(qpp_model)
         
         # W-CombSUM
-        print(f"[04_fusion] Running W-CombSUM ({qpp_model})...")
+        print(f"[05_fusion] Running W-CombSUM ({qpp_model})...")
         fused = weighted_combsum(runs, qpp_data, qpp_index)
         output_path = fused_dir / f"wcombsum_{qpp_model.lower()}.res"
         write_runfile(fused, str(output_path), f"wcombsum-{qpp_model.lower()}")
         results["wcombsum"] = output_path
         
         # W-CombMNZ
-        print(f"[04_fusion] Running W-CombMNZ ({qpp_model})...")
+        print(f"[05_fusion] Running W-CombMNZ ({qpp_model})...")
         fused = weighted_combmnz(runs, qpp_data, qpp_index)
         output_path = fused_dir / f"wcombmnz_{qpp_model.lower()}.res"
         write_runfile(fused, str(output_path), f"wcombmnz-{qpp_model.lower()}")
         results["wcombmnz"] = output_path
         
         # W-RRF
-        print(f"[04_fusion] Running W-RRF ({qpp_model})...")
+        print(f"[05_fusion] Running W-RRF ({qpp_model})...")
         fused = weighted_rrf(runs, qpp_data, qpp_index, k=rrf_k)
         output_path = fused_dir / f"wrrf_{qpp_model.lower()}.res"
         write_runfile(fused, str(output_path), f"wrrf-{qpp_model.lower()}")
         results["wrrf"] = output_path
         
-        # Learned fusion (if model exists)
-        if model_path and Path(model_path).exists():
-            print("[04_fusion] Running Learned Fusion...")
-            fused = learned_fusion(runs, qpp_data, model_path)
-            output_path = fused_dir / "learned.res"
-            write_runfile(fused, str(output_path), "learned")
-            results["learned"] = output_path
-        else:
-            print("[04_fusion] Skipping learned fusion (no model)")
+        # Learned fusion (for each available model)
+        models_dir = fused_dir.parent / "models"
+        learned_models = [
+            ("per_retriever", models_dir / "fusion_per_retriever.pkl"),
+            ("multioutput", models_dir / "fusion_multioutput.pkl"),
+            ("mlp", models_dir / "fusion_mlp.pkl"),
+        ]
+        
+        for model_name, model_file in learned_models:
+            if model_file.exists():
+                print(f"[05_fusion] Running Learned ({model_name})...")
+                fused = learned_fusion(runs, qpp_data, str(model_file))
+                output_path = fused_dir / f"learned_{model_name}.res"
+                write_runfile(fused, str(output_path), f"learned-{model_name}")
+                results[f"learned_{model_name}"] = output_path
+            else:
+                print(f"[05_fusion] Skipping learned ({model_name}) - model not found")
     else:
-        print(f"[04_fusion] Skipping weighted methods (no QPP at {qpp_dir})")
+        print(f"[05_fusion] Skipping weighted methods (no QPP at {qpp_dir})")
     
     print(f"\n=== Generated {len(results)} fusion runs ===")
     for method, path in results.items():
@@ -143,7 +150,7 @@ def run_all_methods(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Step 4: Multi-Method Fusion",
+        description="Step 5: Multi-Method Fusion",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Methods:
@@ -157,9 +164,9 @@ Methods:
   all       - Run all methods
 
 Examples:
-  python scripts/04_fusion.py --method combsum
-  python scripts/04_fusion.py --method wcombsum --qpp_model NQC
-  python scripts/04_fusion.py --method all
+  python scripts/05_fusion.py --method combsum
+  python scripts/05_fusion.py --method wcombsum --qpp_model NQC
+  python scripts/05_fusion.py --method all
 """
     )
     parser.add_argument("--method", default="wcombsum",
@@ -191,7 +198,6 @@ Examples:
             qpp_dir=qpp_dir,
             fused_dir=fused_dir,
             qpp_model=args.qpp_model,
-            model_path=model_path,
             rrf_k=args.rrf_k
         )
     else:
@@ -206,7 +212,7 @@ Examples:
             else:
                 output_path = str(fused_dir / f"{args.method}.res")
         
-        print(f"[04_fusion] Running {args.method}...")
+        print(f"[05_fusion] Running {args.method}...")
         
         run_fusion(
             method=args.method,
@@ -218,7 +224,7 @@ Examples:
             rrf_k=args.rrf_k
         )
         
-        print(f"\n=== Step 4 Complete ===")
+        print(f"\n=== Step 5 Complete ===")
         print(f"Fused run: {output_path}")
 
 

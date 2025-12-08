@@ -30,128 +30,44 @@ PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.generation import GenerationOperation
-
-
-def get_model_safe_name(model: str) -> str:
-    """Convert model name to safe filename."""
-    return model.replace("/", "_").replace(":", "_")
-
-
-class LazyCorpus:
-    """Lazy-loading corpus that only loads documents when accessed."""
-    
-    def __init__(self, corpus_path: str):
-        self.corpus_file = os.path.join(corpus_path, "corpus.jsonl")
-        self._cache = {}
-        self._offsets = None
-        self._build_offset_index()
-    
-    def _build_offset_index(self):
-        """Build document ID to file offset map."""
-        print(f"[07_rag] Building corpus offset index (lazy loading)...")
-        self._offsets = {}
-        with open(self.corpus_file, 'r', encoding='utf-8') as f:
-            offset = 0
-            for line in f:
-                doc = json.loads(line)
-                doc_id = doc.get("_id", "")
-                self._offsets[doc_id] = offset
-                offset += len(line.encode('utf-8'))
-        print(f"[07_rag] Indexed {len(self._offsets)} documents (0 loaded in RAM)")
-    
-    def get(self, doc_id: str, default=None):
-        """Get document by ID (loads on-demand)."""
-        if doc_id in self._cache:
-            return self._cache[doc_id]
-        
-        if doc_id not in self._offsets:
-            return default
-        
-        # Load from disk
-        with open(self.corpus_file, 'r', encoding='utf-8') as f:
-            f.seek(self._offsets[doc_id])
-            doc = json.loads(f.readline())
-            result = {
-                "text": doc.get("text", ""),
-                "title": doc.get("title", "")
-            }
-            self._cache[doc_id] = result
-            return result
-    
-    def __getitem__(self, doc_id):
-        result = self.get(doc_id)
-        if result is None:
-            raise KeyError(doc_id)
-        return result
-    
-    def __contains__(self, doc_id):
-        return doc_id in self._offsets
+from src.data_utils import (
+    LazyCorpus,
+    load_corpus as _load_corpus,
+    load_queries as _load_queries,
+    load_qrels as _load_qrels,
+    load_run_file as _load_run,
+    get_model_safe_name,
+)
 
 
 def load_corpus(corpus_path: str) -> LazyCorpus:
-    """Load BEIR corpus with lazy loading (OPTIMIZED: 99.96% memory saved)."""
-    # #region agent log
-    import time as _t; _start = _t.time()
-    # #endregion
-    
-    corpus = LazyCorpus(corpus_path)
-    
-    # #region agent log
-    _elapsed = _t.time() - _start
-    with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as _f: _f.write(__import__('json').dumps({"location":"scripts/07_rag_eval.py:40","message":"corpus_lazy_load_complete","data":{"num_docs":len(corpus._offsets),"elapsed_sec":round(_elapsed,2),"optimization":"lazy_loading","memory_saved_gb":round(1.4,1)},"timestamp":int(__import__('time').time()*1000),"sessionId":"debug-session","runId":"post-fix","hypothesisId":"H1"})+'\n')
-    # #endregion
-    
+    """Load BEIR corpus with lazy loading."""
+    print(f"[07_rag] Loading corpus (lazy mode)...")
+    corpus = _load_corpus(corpus_path, lazy=True)
+    print(f"[07_rag] Indexed {len(corpus)} documents (0 loaded in RAM)")
     return corpus
 
 
 def load_queries(corpus_path: str) -> Dict[str, str]:
     """Load BEIR queries."""
-    queries = {}
-    queries_file = os.path.join(corpus_path, "queries.jsonl")
-    
-    with open(queries_file, 'r', encoding='utf-8') as f:
-        for line in f:
-            q = json.loads(line)
-            queries[q.get("_id", "")] = q.get("text", "")
-    
+    queries = _load_queries(corpus_path, split="test")
     print(f"[07_rag] Queries: {len(queries)}")
     return queries
 
 
 def load_qrels(corpus_path: str) -> Dict[str, Dict[str, int]]:
     """Load BEIR qrels."""
-    qrels = defaultdict(dict)
     qrels_file = os.path.join(corpus_path, "qrels", "test.tsv")
-    
-    with open(qrels_file, 'r', encoding='utf-8') as f:
-        next(f)  # Skip header
-        for line in f:
-            parts = line.strip().split('\t')
-            if len(parts) >= 3:
-                qid, docid, rel = parts[0], parts[1], int(parts[2])
-                qrels[qid][docid] = rel
-    
+    qrels = _load_qrels(qrels_file)
     print(f"[07_rag] Qrels: {len(qrels)} queries with judgments")
-    return dict(qrels)
+    return qrels
 
 
 def load_run(run_path: str) -> Dict[str, List[tuple]]:
     """Load TREC run file."""
-    runs = defaultdict(list)
-    
-    with open(run_path, 'r') as f:
-        for line in f:
-            parts = line.strip().split()
-            if len(parts) >= 5:
-                qid, _, docno, rank, score = parts[:5]
-                runs[qid].append((docno, float(score), int(rank)))
-    
-    # Sort by rank
-    for qid in runs:
-        runs[qid].sort(key=lambda x: x[2])
-    
-    print(f"[07_rag] Loaded run for {len(runs)} queries")
-    return dict(runs)
+    run_data = _load_run(run_path)
+    print(f"[07_rag] Loaded run for {len(run_data)} queries")
+    return run_data
 
 
 def build_context(doc_ids: List[str], corpus: Dict[str, Dict[str, str]], k: int) -> str:
