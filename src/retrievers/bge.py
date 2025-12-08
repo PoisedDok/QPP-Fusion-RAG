@@ -143,7 +143,7 @@ class BGERetriever(BaseRetriever):
         queries: Dict[str, str],
         top_k: int = 100,
         checkpoint_path: Optional[str] = None,
-        mini_batch_size: int = 200,  # BGE is fast
+        mini_batch_size: int = 10,  # Small batches for memory efficiency
         **kwargs
     ) -> Dict[str, RetrieverResult]:
         """

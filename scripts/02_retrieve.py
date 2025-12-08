@@ -197,7 +197,7 @@ def run_bge(queries: Dict[str, str], runs_dir: Path, top_k: int, dataset: str = 
         queries, 
         top_k=top_k,
         checkpoint_path=str(checkpoint_path),
-        mini_batch_size=200  # BGE is fast
+        mini_batch_size=10  # Small batches for memory efficiency
     )
     
     write_run(results, str(runs_dir / "BGE.res"), "BGE", normalize=False)
