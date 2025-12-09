@@ -1,68 +1,63 @@
 #!/usr/bin/env python3
 """
-Incoming: BEIR corpus (corpus.jsonl) --- {JSON lines, Pyserini pre-built}
-Processing: indexing --- {2 jobs: PyTerrier build, Pyserini download}
-Outgoing: indexes --- {PyTerrier index, Pyserini cache}
+Incoming: BEIR corpus or Pyserini pre-built --- {corpus.jsonl or remote index}
+Processing: indexing --- {3 jobs: PyTerrier build, Pyserini download, HNSW build}
+Outgoing: search indexes --- {PyTerrier index, FAISS flat, HNSW segments}
 
-Step 1: Index NQ Corpus
------------------------
-Creates/downloads indexes for retrieval:
-- PyTerrier: Builds BM25 inverted index from BEIR corpus (streaming, memory-efficient)
-- SPLADE: Downloads Pyserini pre-built index (~2GB, no encoding needed)
+Step 1: Build/Download Search Indexes
+-------------------------------------
+Creates indexes for retrieval:
+- PyTerrier: BM25 inverted index from BEIR corpus
+- Pyserini: Downloads pre-built indexes (SPLADE, BGE, Contriever)
+- HNSW: Builds segmented HNSW from BGE FAISS for fast dense search
 
 Usage:
-    python scripts/01_index.py --corpus_path /data/beir/datasets/nq
-    python scripts/01_index.py --corpus_path /data/beir/datasets/nq --indexes pyterrier
-    python scripts/01_index.py --corpus_path /data/beir/datasets/nq --indexes splade
-    python scripts/01_index.py --corpus_path /data/beir/datasets/nq --indexes pyterrier,splade
+    # Download BGE FAISS + build HNSW (recommended for dense retrieval)
+    python scripts/01_index.py --dataset hotpotqa --indexes bge --hnsw
+    
+    # PyTerrier BM25 only
+    python scripts/01_index.py --dataset nq --corpus_path /data/beir/nq --indexes pyterrier
+    
+    # Multiple indexes
+    python scripts/01_index.py --dataset nq --indexes bge,splade
 """
-
+import argparse
+import json
 import os
 import sys
-import json
-import argparse
 import time
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-# Set cache paths to Disk-D before importing ML libs
 from src.cache_config import CACHE_ROOT
-print(f"[01_index] Cache root: {CACHE_ROOT}")
 
-
-# Pre-built index registry (use dot notation: beir-v1.0.0-nq.splade-pp-ed)
+# Pre-built index registry
 PREBUILT_INDEXES = {
     "splade": {
-        "index_name": "beir-v1.0.0-nq.splade-pp-ed",
+        "index_name": "beir-v1.0.0-{dataset}.splade-pp-ed",
         "encoder": "naver/splade-cocondenser-ensembledistil",
         "searcher_class": "LuceneImpactSearcher",
-        "description": "SPLADE++ EnsembleDistil for BEIR-NQ (~2GB download)"
-    },
-    "splade-v3": {
-        "index_name": "beir-v1.0.0-nq.splade-v3",
-        "encoder": "naver/splade-v3",
-        "searcher_class": "LuceneImpactSearcher",
-        "description": "SPLADE v3 for BEIR-NQ"
-    },
-    "bm25-pyserini": {
-        "index_name": "beir-v1.0.0-nq.flat",
-        "encoder": None,
-        "searcher_class": "LuceneSearcher",
-        "description": "Pyserini BM25 for BEIR-NQ"
-    },
-    "contriever": {
-        "index_name": "beir-v1.0.0-nq.contriever-msmarco",
-        "encoder": "facebook/contriever-msmarco",
-        "searcher_class": "FaissSearcher",
-        "description": "Contriever-MSMARCO dense for BEIR-NQ"
+        "description": "SPLADE++ EnsembleDistil"
     },
     "bge": {
-        "index_name": "beir-v1.0.0-nq.bge-base-en-v1.5",
+        "index_name": "beir-v1.0.0-{dataset}.bge-base-en-v1.5",
         "encoder": "BAAI/bge-base-en-v1.5",
         "searcher_class": "FaissSearcher",
-        "description": "BGE-base dense for BEIR-NQ"
+        "description": "BGE-base dense vectors"
+    },
+    "contriever": {
+        "index_name": "beir-v1.0.0-{dataset}.contriever-msmarco",
+        "encoder": "facebook/contriever-msmarco",
+        "searcher_class": "FaissSearcher",
+        "description": "Contriever-MSMARCO dense"
+    },
+    "bm25-pyserini": {
+        "index_name": "beir-v1.0.0-{dataset}.flat",
+        "encoder": None,
+        "searcher_class": "LuceneSearcher",
+        "description": "Pyserini BM25"
     }
 }
 
@@ -70,198 +65,212 @@ PREBUILT_INDEXES = {
 def stream_corpus(corpus_path: str, limit: int = None):
     """Stream BEIR corpus without loading all into memory."""
     corpus_file = os.path.join(corpus_path, "corpus.jsonl")
+    print(f"[Index] Streaming from {corpus_file}")
     
-    print(f"[01_index] Streaming corpus from {corpus_file}")
     count = 0
-    
     with open(corpus_file, 'r', encoding='utf-8') as f:
         for line in f:
             if limit and count >= limit:
                 break
-            
             doc = json.loads(line)
-            doc_id = doc.get("_id", str(count))
-            text = (doc.get("title", "") + " " + doc.get("text", "")).strip()
-            
-            yield {"docno": doc_id, "text": text}
-            
+            yield {
+                "docno": doc.get("_id", str(count)),
+                "text": (doc.get("title", "") + " " + doc.get("text", "")).strip()
+            }
             count += 1
             if count % 500000 == 0:
-                print(f"  Processed {count} documents...")
+                print(f"  Processed {count:,} documents...")
     
-    print(f"[01_index] Total: {count} documents")
-
-
-def count_docs(corpus_path: str) -> int:
-    """Count documents in corpus (for progress tracking)."""
-    corpus_file = os.path.join(corpus_path, "corpus.jsonl")
-    count = 0
-    with open(corpus_file, 'r') as f:
-        for _ in f:
-            count += 1
-    return count
+    print(f"[Index] Total: {count:,} documents")
 
 
 def build_pyterrier_index(corpus_path: str, index_path: str, limit: int = None) -> str:
-    """Build PyTerrier inverted index with streaming."""
+    """Build PyTerrier BM25 inverted index."""
     import pyterrier as pt
     if not pt.started():
         pt.init()
     
-    print(f"[01_index] Building PyTerrier index at {index_path}")
+    print(f"[Index] Building PyTerrier index at {index_path}")
     os.makedirs(index_path, exist_ok=True)
     
-    start = time.time()
-    
-    # Use streaming iterator
-    indexer = pt.IterDictIndexer(
-        index_path,
-        meta={"docno": 100},
-        verbose=True
-    )
-    
+    t0 = time.time()
+    indexer = pt.IterDictIndexer(index_path, meta={"docno": 100}, verbose=True)
     index_ref = indexer.index(stream_corpus(corpus_path, limit))
-    elapsed = time.time() - start
     
-    print(f"[01_index] PyTerrier index built in {elapsed:.1f}s")
-    print(f"[01_index] Index ref: {index_ref}")
-    
-    # Verify index
     index = pt.IndexFactory.of(index_ref)
     stats = index.getCollectionStatistics()
-    print(f"[01_index] Index stats: {stats.getNumberOfDocuments()} docs, "
-          f"{stats.getNumberOfTokens()} tokens")
+    print(f"[Index] Built in {time.time()-t0:.1f}s: "
+          f"{stats.getNumberOfDocuments():,} docs, {stats.getNumberOfTokens():,} tokens")
     
     return str(index_ref)
 
 
-def download_prebuilt_index(index_key: str) -> bool:
-    """Download and cache Pyserini pre-built index."""
+def download_prebuilt_index(index_key: str, dataset: str) -> bool:
+    """Download Pyserini pre-built index."""
     if index_key not in PREBUILT_INDEXES:
-        print(f"[01_index] ERROR: Unknown pre-built index: {index_key}")
-        print(f"[01_index] Available: {list(PREBUILT_INDEXES.keys())}")
+        print(f"[Index] Unknown index: {index_key}")
         return False
     
     config = PREBUILT_INDEXES[index_key]
-    index_name = config["index_name"]
+    index_name = config["index_name"].format(dataset=dataset)
     encoder = config["encoder"]
     searcher_class = config["searcher_class"]
     
-    print(f"\n[01_index] === Downloading Pre-built Index: {index_key} ===")
-    print(f"[01_index] {config['description']}")
-    print(f"[01_index] Index: {index_name}")
-    if encoder:
-        print(f"[01_index] Encoder: {encoder}")
+    print(f"\n[Index] Downloading {index_key}: {config['description']}")
+    print(f"  Index: {index_name}")
     
-    start = time.time()
-    
+    t0 = time.time()
     try:
         if searcher_class == "LuceneImpactSearcher":
             from pyserini.search.lucene import LuceneImpactSearcher
-            print(f"[01_index] Initializing LuceneImpactSearcher (downloads on first use)...")
             searcher = LuceneImpactSearcher.from_prebuilt_index(index_name, encoder)
-            
         elif searcher_class == "LuceneSearcher":
             from pyserini.search.lucene import LuceneSearcher
-            print(f"[01_index] Initializing LuceneSearcher (downloads on first use)...")
             searcher = LuceneSearcher.from_prebuilt_index(index_name)
-            
         elif searcher_class == "FaissSearcher":
             from pyserini.search.faiss import FaissSearcher
-            print(f"[01_index] Initializing FaissSearcher (downloads on first use)...")
             searcher = FaissSearcher.from_prebuilt_index(index_name, encoder)
-        
         else:
-            print(f"[01_index] ERROR: Unknown searcher class: {searcher_class}")
+            print(f"[Index] Unknown searcher: {searcher_class}")
             return False
         
-        # Test search to verify
-        print(f"[01_index] Verifying index with test query...")
+        # Verify
         hits = searcher.search("test query", k=5)
-        
-        elapsed = time.time() - start
-        print(f"[01_index] SUCCESS: {index_key} index ready ({elapsed:.1f}s)")
-        print(f"[01_index] Test search returned {len(hits)} hits")
-        
-        # Cleanup
         del searcher
         
+        print(f"[Index] Ready ({time.time()-t0:.1f}s, {len(hits)} test hits)")
         return True
         
     except Exception as e:
-        print(f"[01_index] ERROR downloading {index_key}: {e}")
-        import traceback
-        traceback.print_exc()
+        print(f"[Index] ERROR: {e}")
         return False
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Step 1: Index NQ Corpus")
-    parser.add_argument("--corpus_path", required=True, help="Path to BEIR dataset")
-    parser.add_argument("--index_path", default=None, help="Output index path (for PyTerrier)")
-    parser.add_argument("--limit", type=int, default=None, help="Limit corpus size (PyTerrier only)")
-    parser.add_argument("--indexes", default="pyterrier",
-                        help="Comma-separated indexes to build/download: pyterrier,splade,contriever,bge")
-    parser.add_argument("--list-prebuilt", action="store_true", help="List available pre-built indexes")
-    parser.add_argument("--force", action="store_true", help="Force rebuild even if exists")
+    parser = argparse.ArgumentParser(
+        description="Step 1: Build/Download Search Indexes",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  # BGE dense with HNSW (fast retrieval)
+  python scripts/01_index.py --dataset hotpotqa --indexes bge --hnsw
+  
+  # PyTerrier BM25
+  python scripts/01_index.py --dataset nq --corpus_path /data/beir/nq --indexes pyterrier
+  
+  # Multiple indexes
+  python scripts/01_index.py --dataset nq --indexes bge,splade
+"""
+    )
+    parser.add_argument("--dataset", default="nq", choices=["nq", "hotpotqa"],
+                        help="Dataset name")
+    parser.add_argument("--corpus_path", help="Path to BEIR corpus (for PyTerrier)")
+    parser.add_argument("--index_path", help="Output path for PyTerrier index")
+    parser.add_argument("--indexes", default="bge",
+                        help="Comma-separated: pyterrier,bge,splade,contriever")
+    parser.add_argument("--hnsw", action="store_true",
+                        help="Build HNSW segments for BGE (fast dense search)")
+    parser.add_argument("--hnsw-segments", type=int, default=4,
+                        help="Number of HNSW segments")
+    parser.add_argument("--hnsw-threads", type=int, default=8,
+                        help="Threads for HNSW build")
+    parser.add_argument("--limit", type=int, help="Limit corpus size (PyTerrier)")
+    parser.add_argument("--force", action="store_true", help="Force rebuild")
+    parser.add_argument("--list", action="store_true", help="List available indexes")
+    
     args = parser.parse_args()
     
-    # List pre-built indexes
-    if args.list_prebuilt:
-        print("\n=== Available Pre-built Indexes ===\n")
-        for key, config in PREBUILT_INDEXES.items():
-            print(f"  {key}:")
-            print(f"    Index: {config['index_name']}")
-            print(f"    {config['description']}")
-            print()
+    if args.list:
+        print("\n=== Available Indexes ===\n")
+        print("PyTerrier (requires corpus):")
+        print("  pyterrier - BM25 inverted index\n")
+        print("Pyserini Pre-built (auto-download):")
+        for key, cfg in PREBUILT_INDEXES.items():
+            print(f"  {key} - {cfg['description']}")
+        print("\nHNSW (add --hnsw flag with bge):")
+        print("  Builds segmented HNSW for fast BGE retrieval (~6ms/query)")
         return
     
-    # Parse requested indexes
+    print(f"[Index] Dataset: {args.dataset}")
+    print(f"[Index] Cache: {CACHE_ROOT}")
+    
     requested = [idx.strip().lower() for idx in args.indexes.split(",")]
-    print(f"[01_index] Requested indexes: {requested}")
-    
-    # Default paths
-    output_dir = PROJECT_ROOT / "data" / "nq"
-    index_path = args.index_path or str(output_dir / "index" / "pyterrier")
-    
     results = {}
     
-    # Build PyTerrier index if requested
+    # PyTerrier
     if "pyterrier" in requested:
-        print(f"\n[01_index] === PyTerrier BM25 Index ===")
-        
-        if os.path.exists(index_path) and os.listdir(index_path) and not args.force:
-            print(f"[01_index] PyTerrier index already exists at {index_path}")
-            print("[01_index] Use --force to rebuild")
-            results["pyterrier"] = "EXISTS"
+        if not args.corpus_path:
+            print("[Index] ERROR: --corpus_path required for pyterrier")
+            results["pyterrier"] = "ERROR"
         else:
-            build_pyterrier_index(args.corpus_path, index_path, args.limit)
-            results["pyterrier"] = "BUILT"
+            output_dir = PROJECT_ROOT / "data" / args.dataset
+            index_path = args.index_path or str(output_dir / "index" / "pyterrier")
+            
+            if os.path.exists(index_path) and os.listdir(index_path) and not args.force:
+                print(f"[Index] PyTerrier exists: {index_path}")
+                results["pyterrier"] = "EXISTS"
+            else:
+                build_pyterrier_index(args.corpus_path, index_path, args.limit)
+                results["pyterrier"] = "BUILT"
     
-    # Download pre-built indexes
+    # Check if HNSW exists (skip BGE download if so)
+    from src.indexing import HNSW_DATASETS
+    cache_dir = Path(os.environ.get("PYSERINI_CACHE", "cache/pyserini"))
+    hnsw_meta = cache_dir / "indexes" / HNSW_DATASETS.get(args.dataset, "") / "hnsw_segments_meta.json"
+    hnsw_exists = hnsw_meta.exists()
+    
+    # Pre-built indexes
     for idx in requested:
         if idx == "pyterrier":
-            continue  # Already handled
-        
+            continue
+        # Skip BGE FAISS download if HNSW already built
+        if idx == "bge" and hnsw_exists and args.hnsw:
+            print(f"[Index] Skipping BGE FAISS (HNSW already exists)")
+            results[idx] = "SKIPPED"
+            continue
         if idx in PREBUILT_INDEXES:
-            success = download_prebuilt_index(idx)
+            success = download_prebuilt_index(idx, args.dataset)
             results[idx] = "READY" if success else "FAILED"
         else:
-            print(f"[01_index] WARNING: Unknown index type: {idx}")
-            print(f"[01_index] Use --list-prebuilt to see available options")
+            print(f"[Index] Unknown: {idx}")
             results[idx] = "UNKNOWN"
     
+    # HNSW for BGE
+    if args.hnsw:
+        from src.indexing import build_hnsw_index
+        
+        if hnsw_exists:
+            print(f"\n[Index] HNSW already exists")
+            results["hnsw"] = "EXISTS"
+        else:
+            # Need BGE FAISS first
+            if "bge" not in requested and results.get("bge") not in ["READY", "EXISTS"]:
+                print("[Index] Downloading BGE FAISS for HNSW build...")
+                success = download_prebuilt_index("bge", args.dataset)
+                results["bge"] = "READY" if success else "FAILED"
+            
+            if results.get("bge") in ["READY", "EXISTS", None]:
+                print(f"\n[Index] Building HNSW segments...")
+                try:
+                    build_hnsw_index(
+                        dataset=args.dataset,
+                        n_segments=args.hnsw_segments,
+                        num_threads=args.hnsw_threads
+                    )
+                    results["hnsw"] = "BUILT"
+                except Exception as e:
+                    print(f"[Index] HNSW ERROR: {e}")
+                    results["hnsw"] = "FAILED"
+    
     # Summary
-    print(f"\n=== Step 1 Complete ===")
-    print(f"Results:")
+    print(f"\n{'='*40}")
+    print("Results:")
     for idx, status in results.items():
-        print(f"  {idx}: {status}")
+        symbol = "✅" if status in ["READY", "BUILT", "EXISTS", "SKIPPED"] else "❌"
+        print(f"  {symbol} {idx}: {status}")
     
-    if "pyterrier" in results:
-        print(f"\nPyTerrier index: {index_path}")
-    
-    if any(k in results for k in PREBUILT_INDEXES):
-        print(f"\nPre-built indexes cached in: ~/.cache/pyserini/")
+    if "hnsw" in results and results["hnsw"] == "BUILT":
+        print(f"\n💡 Use BGERetriever for ~6ms/query dense search")
 
 
 if __name__ == "__main__":
