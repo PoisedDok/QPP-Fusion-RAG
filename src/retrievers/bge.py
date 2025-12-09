@@ -152,15 +152,19 @@ class BGERetriever(BaseRetriever):
     def _search_segments(self, query_emb: np.ndarray, top_k: int) -> Tuple[np.ndarray, np.ndarray]:
         """Search all segments and merge results."""
         all_ids = []
-        all_scores = []
+        all_distances = []
         
         for hnsw, start_id in self.hnsw_segments:
             labels, distances = hnsw.knn_query(query_emb, k=top_k)
             all_ids.extend(labels[0] + start_id)
-            all_scores.extend(distances[0])
+            all_distances.extend(distances[0])
         
-        all_scores = np.array(all_scores)
+        all_distances = np.array(all_distances)
         all_ids = np.array(all_ids)
+        
+        # HNSW 'ip' space returns 1 - inner_product (distance), convert to similarity
+        all_scores = 1.0 - all_distances
+        
         sorted_idx = np.argsort(-all_scores)[:top_k]
         
         return all_ids[sorted_idx], all_scores[sorted_idx]
@@ -172,7 +176,9 @@ class BGERetriever(BaseRetriever):
         
         for hnsw, start_id in self.hnsw_segments:
             labels, distances = hnsw.knn_query(query_embs, k=top_k)
-            segment_results.append((labels + start_id, distances))
+            # HNSW 'ip' space returns 1 - inner_product, convert to similarity
+            scores = 1.0 - distances
+            segment_results.append((labels + start_id, scores))
         
         merged_ids = np.zeros((n_queries, top_k), dtype=np.int64)
         merged_scores = np.zeros((n_queries, top_k), dtype=np.float32)
