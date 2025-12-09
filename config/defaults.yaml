@@ -146,7 +146,7 @@ processing:
     tct_mini: 100
     splade_mini: 500
     bm25_tct_mini: 5
-    bm25_monot5_mini: 10
+    bm25_monot5_mini: 2
   
   # Default retrieval parameters
   retrieval:

@@ -26,6 +26,13 @@ Background execution (survives terminal close):
 
 import os
 import sys
+
+# CRITICAL: Set OMP env vars and import faiss BEFORE any torch/transformers imports
+# PyTorch and FAISS have OpenMP conflicts on Apple Silicon that cause segfaults
+os.environ.setdefault('KMP_DUPLICATE_LIB_OK', 'TRUE')
+os.environ.setdefault('OMP_NUM_THREADS', '1')  # Single thread avoids OMP conflicts
+import faiss  # Must be imported before torch/transformers
+
 import gc
 import argparse
 import time
@@ -35,7 +42,7 @@ from typing import Dict, Optional
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-# Import config FIRST - sets up environment (Java heap, OMP threads, etc.)
+# Import config AFTER faiss - config triggers transformers which imports torch
 from src.config import config, detect_dataset
 from src.data_utils import load_corpus as _load_corpus, load_queries as _load_queries
 
