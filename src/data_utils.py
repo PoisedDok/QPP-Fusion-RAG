@@ -294,6 +294,135 @@ def load_qpp_scores(
 
 
 # =============================================================================
+# Gold Answer Loading (Task-specific)
+# =============================================================================
+
+def load_gold_answers(
+    dataset: str,
+    data_root: Optional[Union[str, Path]] = None
+) -> Dict:
+    """
+    Load gold answers for a dataset (auto-detects task type).
+    
+    Args:
+        dataset: Dataset name (nq, hotpotqa, scifact, etc.)
+        data_root: Root data directory (uses config default if None)
+    
+    Returns:
+        Dict with task-specific gold answer format:
+        - QA: {query_text: [answers]}
+        - FactVerification: {claim_id: {claim, label, evidence_doc_ids, evidence_sentences}}
+    """
+    from src.evaluation.base import get_task_type, TaskType
+    
+    data_root = Path(data_root) if data_root else config.project_root / "data"
+    task_type = get_task_type(dataset)
+    
+    if task_type == TaskType.QA:
+        return load_qa_gold_answers(dataset, data_root)
+    elif task_type == TaskType.FACT_VERIFICATION:
+        return load_fact_verification_gold_answers(dataset, data_root)
+    else:
+        raise ValueError(f"Unknown task type for dataset: {dataset}")
+
+
+def load_qa_gold_answers(
+    dataset: str,
+    data_root: Optional[Union[str, Path]] = None
+) -> Dict[str, List[str]]:
+    """
+    Load QA gold answers (NQ, HotpotQA format).
+    
+    Args:
+        dataset: Dataset name (nq, hotpotqa)
+        data_root: Root data directory
+        
+    Returns:
+        Dict[query_text, List[gold_answers]]
+    """
+    data_root = Path(data_root) if data_root else config.project_root / "data"
+    dataset_config = config.get_dataset_config(dataset)
+    corpus_subdir = dataset_config.corpus_subdir
+    
+    gold_file = data_root / dataset / corpus_subdir / f"{dataset}_gold_answers.json"
+    
+    if not gold_file.exists():
+        raise FileNotFoundError(
+            f"Gold answers not found: {gold_file}\n"
+            f"Expected format: {{query_text: [answer1, answer2, ...]}}"
+        )
+    
+    with open(gold_file, 'r') as f:
+        return json.load(f)
+
+
+def load_fact_verification_gold_answers(
+    dataset: str,
+    data_root: Optional[Union[str, Path]] = None
+) -> Dict[str, Dict]:
+    """
+    Load fact verification gold answers (SciFact, FEVER format).
+    
+    Args:
+        dataset: Dataset name (scifact, fever)
+        data_root: Root data directory
+        
+    Returns:
+        Dict[claim_id, {claim, label, evidence_doc_ids, evidence_sentences}]
+    """
+    data_root = Path(data_root) if data_root else config.project_root / "data"
+    dataset_config = config.get_dataset_config(dataset)
+    corpus_subdir = dataset_config.corpus_subdir
+    
+    gold_file = data_root / dataset / corpus_subdir / f"{dataset}_gold_answers.json"
+    
+    if not gold_file.exists():
+        raise FileNotFoundError(
+            f"Gold answers not found: {gold_file}\n"
+            f"Expected format: {{claim_id: {{claim, label, evidence_doc_ids, ...}}}}"
+        )
+    
+    with open(gold_file, 'r') as f:
+        return json.load(f)
+
+
+def get_gold_answer_for_query(
+    query_id: str,
+    query_text: str,
+    gold_answers: Dict,
+    dataset: str
+) -> Optional[Dict]:
+    """
+    Get gold answer for a specific query (handles both QA and FV formats).
+    
+    Args:
+        query_id: Query/claim ID
+        query_text: Query/claim text
+        gold_answers: Full gold answers dict
+        dataset: Dataset name
+        
+    Returns:
+        Gold answer in task-specific format, or None if not found
+    """
+    from src.evaluation.base import get_task_type, TaskType
+    
+    task_type = get_task_type(dataset)
+    
+    if task_type == TaskType.QA:
+        # QA format: keyed by query text
+        answers = gold_answers.get(query_text)
+        if answers:
+            return {"answers": answers}
+        return None
+    
+    elif task_type == TaskType.FACT_VERIFICATION:
+        # FV format: keyed by claim ID
+        return gold_answers.get(query_id)
+    
+    return None
+
+
+# =============================================================================
 # Re-exported from config (these are utility functions, not data loaders)
 # =============================================================================
 

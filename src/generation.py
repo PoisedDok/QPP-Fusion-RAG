@@ -7,14 +7,21 @@ Generation Operations
 ---------------------
 LLM generation via LM Studio API (OpenAI-compatible).
 
+Supports multiple task types:
+- QA: Answer extraction/generation from context
+- FactVerification: 3-way claim classification (SUPPORT, CONTRADICT, NOT_ENOUGH_INFO)
+
+All prompts loaded from config/defaults.yaml - no hardcoding.
+
 STRICT: No silent error handling. Connection failures raise exceptions.
 """
 
 import time
 import requests
+from abc import ABC, abstractmethod
 from typing import Dict, List, Any, Optional
 
-# Import config
+# Import config - all prompts come from here
 from src.config import config
 
 
@@ -228,3 +235,170 @@ class ValidateOperation:
             'issues': issues,
             'processing_time_ms': processing_time * 1000
         }
+
+
+# =============================================================================
+# Task-Specific Generators (use prompts from config)
+# =============================================================================
+
+class TaskGenerator(ABC):
+    """Abstract base for task-specific generation."""
+    
+    def __init__(self, base_url: str = None):
+        self._gen_op = GenerationOperation(base_url)
+    
+    @abstractmethod
+    def generate(
+        self,
+        query: str,
+        context: List[Dict[str, str]],
+        **kwargs
+    ) -> Dict[str, Any]:
+        """Generate response for task."""
+        pass
+    
+    def _format_context(self, context: List[Dict[str, str]]) -> str:
+        """Format context documents as string."""
+        parts = []
+        for i, doc in enumerate(context, 1):
+            title = doc.get('title', '')
+            text = doc.get('text', doc.get('content', ''))
+            if title:
+                parts.append(f"[{i}] {title}: {text}")
+            else:
+                parts.append(f"[{i}] {text}")
+        return "\n\n".join(parts)
+
+
+class QAGenerator(TaskGenerator):
+    """QA task generator - answers questions from context."""
+    
+    def generate(
+        self,
+        query: str,
+        context: List[Dict[str, str]],
+        **kwargs
+    ) -> Dict[str, Any]:
+        """
+        Generate answer for QA task.
+        
+        Args:
+            query: Question text
+            context: Retrieved documents
+            
+        Returns:
+            Dict with answer, model, latency_ms, metadata
+        """
+        # Get prompts from config
+        prompts = config.generation.prompts.qa
+        system_prompt = prompts.system
+        user_template = prompts.user_template
+        
+        context_str = self._format_context(context)
+        user_prompt = user_template.format(context=context_str, query=query)
+        
+        result = self._gen_op.execute(
+            prompt=user_prompt,
+            system_prompt=system_prompt,
+            **kwargs
+        )
+        
+        result['task'] = 'qa'
+        result['query'] = query
+        return result
+
+
+class FactVerificationGenerator(TaskGenerator):
+    """Fact verification generator - classifies claims against evidence."""
+    
+    def generate(
+        self,
+        query: str,  # claim text
+        context: List[Dict[str, str]],
+        **kwargs
+    ) -> Dict[str, Any]:
+        """
+        Generate verdict for fact verification task.
+        
+        Args:
+            query: Claim text to verify
+            context: Evidence documents
+            
+        Returns:
+            Dict with predicted_label, rationale, confidence, model, latency_ms
+        """
+        # Get prompts from config
+        prompts = config.generation.prompts.fact_verification
+        system_prompt = prompts.system
+        user_template = prompts.user_template
+        valid_labels = prompts.labels
+        
+        context_str = self._format_context(context)
+        user_prompt = user_template.format(context=context_str, claim=query)
+        
+        result = self._gen_op.execute(
+            prompt=user_prompt,
+            system_prompt=system_prompt,
+            **kwargs
+        )
+        
+        # Parse label from response
+        response = result['answer']
+        predicted_label = self._extract_label(response, valid_labels)
+        rationale = self._extract_rationale(response)
+        
+        result['task'] = 'fact_verification'
+        result['claim'] = query
+        result['predicted_label'] = predicted_label
+        result['rationale'] = rationale
+        result['raw_response'] = response
+        
+        return result
+    
+    def _extract_label(self, response: str, valid_labels: List[str]) -> str:
+        """Extract label from model response."""
+        response_upper = response.upper()
+        
+        # Check for verdict line
+        if 'VERDICT:' in response_upper:
+            verdict_part = response_upper.split('VERDICT:')[1].strip()
+            for label in valid_labels:
+                if label in verdict_part:
+                    return label
+        
+        # Fall back to finding label anywhere
+        for label in valid_labels:
+            if label in response_upper:
+                return label
+        
+        # Default if no label found
+        return 'NOT_ENOUGH_INFO'
+    
+    def _extract_rationale(self, response: str) -> str:
+        """Extract rationale from model response."""
+        if 'Verdict:' in response:
+            return response.split('Verdict:')[0].strip()
+        if 'VERDICT:' in response:
+            return response.split('VERDICT:')[0].strip()
+        return response
+
+
+def get_generator(task_type: str, **kwargs) -> TaskGenerator:
+    """
+    Factory function to get task-specific generator.
+    
+    Args:
+        task_type: 'qa' or 'fact_verification'
+        
+    Returns:
+        TaskGenerator instance
+    """
+    generators = {
+        'qa': QAGenerator,
+        'fact_verification': FactVerificationGenerator,
+    }
+    
+    if task_type not in generators:
+        raise ValueError(f"Unknown task type: {task_type}. Valid: {list(generators.keys())}")
+    
+    return generators[task_type](**kwargs)

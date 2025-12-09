@@ -1,14 +1,13 @@
 """
 Incoming: query --- {str}
-Processing: dense retrieval --- {1 job: HNSW search with BGE encoding}
+Processing: dense retrieval --- {1 job: HNSW/FAISS search with BGE encoding}
 Outgoing: ranked results --- {RetrieverResult}
 
-BGE Dense Retriever using segmented HNSW index.
-- Loads pre-built HNSW segments for memory-efficient search
-- Uses sentence-transformers for query encoding (MPS/CUDA/CPU)
-- ~6ms search latency on 5.2M vectors
+BGE Dense Retriever supporting:
+- HNSW segments for large datasets (memory-efficient)
+- FAISS flat for small datasets (uses pre-built Pyserini index)
 
-Build index: python scripts/01_index.py --dataset hotpotqa --hnsw
+Build HNSW: python scripts/01_index.py --dataset hotpotqa --hnsw
 """
 import gc
 import json
@@ -17,6 +16,7 @@ import time
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+import faiss
 import hnswlib
 import numpy as np
 import torch
@@ -72,6 +72,8 @@ class BGERetriever(BaseRetriever):
         self.encoder_batch_size = encoder_batch_size or config.processing.batch_sizes.bge_encoding
         self.ef_search = ef_search or config.indexes.hnsw.ef_search
         self.hnsw_segments: List[Tuple[hnswlib.Index, int]] = []
+        self.faiss_index: Optional[faiss.Index] = None
+        self.use_hnsw = False
         
         # Device selection
         self.device = get_device() if use_mps else "cpu"
@@ -83,7 +85,7 @@ class BGERetriever(BaseRetriever):
         self._load_encoder()
     
     def _load_index(self):
-        """Load HNSW segments and document IDs."""
+        """Load HNSW segments or FAISS index and document IDs."""
         cache_dir = Path(os.environ.get("PYSERINI_CACHE", str(config.cache_root / "pyserini")))
         
         # Get index hash from config
@@ -95,18 +97,30 @@ class BGERetriever(BaseRetriever):
         
         docid_path = index_dir / "docid"
         metadata_path = index_dir / "hnsw_segments_meta.json"
+        faiss_path = index_dir / "index"
         
         # Load docids
         with open(docid_path, 'r') as f:
             self.docids = [line.strip() for line in f]
         
-        # Load HNSW segments
-        if not metadata_path.exists():
+        # Try HNSW first (for large datasets)
+        if metadata_path.exists():
+            self._load_hnsw_segments(index_dir, metadata_path)
+            self.use_hnsw = True
+        elif faiss_path.exists():
+            # Fall back to FAISS flat (for small datasets or pre-built only)
+            self._load_faiss_index(faiss_path)
+            self.use_hnsw = False
+        else:
             raise FileNotFoundError(
-                f"HNSW index not found. Build with:\n"
+                f"No index found. Build HNSW with:\n"
                 f"  python scripts/01_index.py --dataset {self.dataset} --hnsw"
             )
         
+        print(f"[BGE] Total vectors: {len(self.docids):,}")
+    
+    def _load_hnsw_segments(self, index_dir: Path, metadata_path: Path):
+        """Load HNSW segments."""
         print(f"[BGE] Loading HNSW segments...")
         t0 = time.time()
         
@@ -126,9 +140,15 @@ class BGERetriever(BaseRetriever):
             
             self.hnsw_segments.append((hnsw, seg_info["start_global_id"]))
         
-        print(f"[BGE] Loaded {len(self.hnsw_segments)} segments ({time.time()-t0:.1f}s)")
-        print(f"[BGE] Total vectors: {len(self.docids):,}")
+        print(f"[BGE] Loaded {len(self.hnsw_segments)} HNSW segments ({time.time()-t0:.1f}s)")
         print(f"[BGE] ef_search={self.ef_search}")
+    
+    def _load_faiss_index(self, faiss_path: Path):
+        """Load FAISS flat index (for small datasets)."""
+        print(f"[BGE] Loading FAISS index...")
+        t0 = time.time()
+        self.faiss_index = faiss.read_index(str(faiss_path))
+        print(f"[BGE] Loaded FAISS index ({time.time()-t0:.1f}s)")
     
     def _load_encoder(self):
         """Load BGE query encoder."""
@@ -149,8 +169,32 @@ class BGERetriever(BaseRetriever):
             )
         return embeddings.astype(np.float32)
     
-    def _search_segments(self, query_emb: np.ndarray, top_k: int) -> Tuple[np.ndarray, np.ndarray]:
-        """Search all segments and merge results."""
+    def _search(self, query_emb: np.ndarray, top_k: int) -> Tuple[np.ndarray, np.ndarray]:
+        """Search index (HNSW or FAISS)."""
+        if self.use_hnsw:
+            return self._search_hnsw(query_emb, top_k)
+        else:
+            return self._search_faiss(query_emb, top_k)
+    
+    def _search_batch(self, query_embs: np.ndarray, top_k: int) -> Tuple[np.ndarray, np.ndarray]:
+        """Batch search (HNSW or FAISS)."""
+        if self.use_hnsw:
+            return self._search_hnsw_batch(query_embs, top_k)
+        else:
+            return self._search_faiss_batch(query_embs, top_k)
+    
+    def _search_faiss(self, query_emb: np.ndarray, top_k: int) -> Tuple[np.ndarray, np.ndarray]:
+        """Search FAISS index."""
+        scores, ids = self.faiss_index.search(query_emb, top_k)
+        return ids[0], scores[0]
+    
+    def _search_faiss_batch(self, query_embs: np.ndarray, top_k: int) -> Tuple[np.ndarray, np.ndarray]:
+        """Batch search FAISS index."""
+        scores, ids = self.faiss_index.search(query_embs, top_k)
+        return ids, scores
+    
+    def _search_hnsw(self, query_emb: np.ndarray, top_k: int) -> Tuple[np.ndarray, np.ndarray]:
+        """Search all HNSW segments and merge results."""
         all_ids = []
         all_distances = []
         
@@ -169,8 +213,8 @@ class BGERetriever(BaseRetriever):
         
         return all_ids[sorted_idx], all_scores[sorted_idx]
     
-    def _search_segments_batch(self, query_embs: np.ndarray, top_k: int) -> Tuple[np.ndarray, np.ndarray]:
-        """Batch search all segments and merge results."""
+    def _search_hnsw_batch(self, query_embs: np.ndarray, top_k: int) -> Tuple[np.ndarray, np.ndarray]:
+        """Batch search all HNSW segments and merge results."""
         n_queries = query_embs.shape[0]
         segment_results = []
         
@@ -192,13 +236,13 @@ class BGERetriever(BaseRetriever):
         
         return merged_ids, merged_scores
     
-    def retrieve(self, query: str, qid: str, top_k: int = None, **kwargs) -> RetrieverResult:
+    def retrieve(self, query: str, qid: str = "", top_k: int = None, **kwargs) -> RetrieverResult:
         """Retrieve documents for a single query."""
         top_k = top_k or config.processing.retrieval.top_k
         start = time.time()
         
         query_emb = self._encode_queries([query])
-        indices, scores = self._search_segments(query_emb, top_k)
+        indices, scores = self._search(query_emb, top_k)
         
         results = [
             (self.docids[idx], float(score), rank)
@@ -206,12 +250,13 @@ class BGERetriever(BaseRetriever):
             if 0 <= idx < len(self.docids)
         ]
         
+        index_type = "hnsw-segmented" if self.use_hnsw else "faiss-flat"
         return RetrieverResult(
             qid=qid,
             results=results,
             retriever_name=self.name,
             latency_ms=(time.time() - start) * 1000,
-            metadata={"dataset": self.dataset, "index_type": "hnsw-segmented"}
+            metadata={"dataset": self.dataset, "index_type": index_type}
         )
     
     def retrieve_batch(
@@ -272,7 +317,7 @@ class BGERetriever(BaseRetriever):
             encode_time = time.time() - t0
             
             t0 = time.time()
-            all_ids, all_scores = self._search_segments_batch(query_embs, top_k)
+            all_ids, all_scores = self._search_batch(query_embs, top_k)
             search_time = time.time() - t0
             
             print(f"[BGE] Batch {i+1}/{n_batches}: encode={encode_time:.2f}s, search={search_time:.3f}s")
