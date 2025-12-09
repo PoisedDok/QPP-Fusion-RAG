@@ -13,7 +13,7 @@ STRICT: Read-only evaluation. No fusion computation.
 
 Usage:
     python scripts/06_eval_fusion.py
-    python scripts/06_eval_fusion.py --data_dir data/hotpotqa
+    python scripts/06_eval_fusion.py --dataset hotpotqa
 """
 
 import os
@@ -26,6 +26,9 @@ from typing import Dict, List, Tuple
 
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
+
+# Import config first
+from src.config import config
 
 from src.evaluation import IREvaluator
 from src.data_utils import load_qrels as _load_qrels, load_run_file as _load_run
@@ -68,8 +71,8 @@ def evaluate_fused_runs(
     
     print(f"Found {len(res_files)} fused run files")
     
-    # Initialize evaluator
-    evaluator = IREvaluator(metrics=["nDCG@5", "nDCG@10", "RR@5", "RR@10", "R@5", "R@10"])
+    # Initialize evaluator with metrics from config
+    evaluator = IREvaluator(metrics=config.evaluation.ir_metrics[:6])  # First 6 metrics
     
     results = []
     
@@ -149,16 +152,18 @@ Expects qrels at: <corpus_path>/qrels/test.tsv
 
 Examples:
     python scripts/06_eval_fusion.py
-    python scripts/06_eval_fusion.py --data_dir data/hotpotqa
+    python scripts/06_eval_fusion.py --dataset hotpotqa
     python scripts/06_eval_fusion.py --corpus_path /path/to/beir/nq
 """
     )
-    parser.add_argument("--data_dir", default=None, help="Data directory (default: data/nq)")
+    parser.add_argument("--dataset", default="nq", choices=config.datasets.supported,
+                        help="Dataset name")
+    parser.add_argument("--data_dir", default=None, help="Data directory (default: data/<dataset>)")
     parser.add_argument("--corpus_path", default=None, help="Path to BEIR dataset for qrels")
     args = parser.parse_args()
     
     # Paths
-    data_dir = Path(args.data_dir) if args.data_dir else PROJECT_ROOT / "data" / "nq"
+    data_dir = Path(args.data_dir) if args.data_dir else config.project_root / "data" / args.dataset
     fused_dir = data_dir / "fused"
     
     if not fused_dir.exists():
@@ -166,16 +171,19 @@ Examples:
         print("Run 05_fusion.py first to generate fusion results.")
         sys.exit(1)
     
-    # Qrels path
+    # Qrels path - use config
     if args.corpus_path:
         qrels_path = Path(args.corpus_path) / "qrels" / "test.tsv"
     else:
-        qrels_path = Path("/Volumes/Disk-D/RAGit/data/beir/datasets/nq/qrels/test.tsv")
+        qrels_path = config.get_qrels_path(args.dataset)
     
     if not qrels_path.exists():
         print(f"Error: Qrels not found: {qrels_path}")
         print("Specify --corpus_path to point to BEIR dataset.")
         sys.exit(1)
+    
+    print(f"[06_eval] Dataset: {args.dataset}")
+    print(f"[06_eval] Qrels: {qrels_path}")
     
     evaluate_fused_runs(fused_dir, qrels_path, fused_dir)
 

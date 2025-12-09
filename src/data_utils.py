@@ -18,6 +18,9 @@ from pathlib import Path
 from collections import defaultdict
 from typing import Dict, List, Tuple, Optional, Union
 
+# Import config for dataset detection
+from src.config import config
+
 
 # =============================================================================
 # Corpus Loading
@@ -266,7 +269,7 @@ def load_qpp_scores(
         qpp_path: Directory containing .mmnorm.qpp files
     
     Returns:
-        Dict[query_id, Dict[retriever_name, List[13 QPP scores]]]
+        Dict[query_id, Dict[retriever_name, List[n_qpp QPP scores]]]
     """
     qpp_data = defaultdict(dict)
     qpp_path = Path(qpp_path)
@@ -291,22 +294,8 @@ def load_qpp_scores(
 
 
 # =============================================================================
-# Utility Functions
+# Re-exported from config (these are utility functions, not data loaders)
 # =============================================================================
 
-def get_model_safe_name(model: str) -> str:
-    """Convert model name to filesystem-safe name."""
-    return model.replace("/", "_").replace(":", "_")
-
-
-def detect_dataset(path: str) -> str:
-    """Detect dataset name from path."""
-    path_lower = path.lower()
-    if "hotpot" in path_lower:
-        return "hotpotqa"
-    elif "nq" in path_lower or "natural" in path_lower:
-        return "nq"
-    elif "msmarco" in path_lower:
-        return "msmarco"
-    else:
-        return "unknown"
+# Import from config - these functions belong there but are re-exported for convenience
+from src.config import get_model_safe_name, detect_dataset

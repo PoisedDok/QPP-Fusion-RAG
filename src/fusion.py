@@ -9,14 +9,14 @@ Fusion Methods for Multi-Retriever RAG
 Implements all fusion baselines and QPP-weighted variants using ranx library.
 
 Unweighted (via ranx):
-- CombSUM: Σ S_i(d,q)
-- CombMNZ: |{i: d ∈ R_i}| × Σ S_i(d,q)
-- RRF: Σ 1/(k + rank_i(d,q))
+- CombSUM: Sigma S_i(d,q)
+- CombMNZ: |{i: d in R_i}| x Sigma S_i(d,q)
+- RRF: Sigma 1/(k + rank_i(d,q))
 
 QPP-Weighted (custom):
-- W-CombSUM: Σ w_i(q) × S_i(d,q)
-- W-CombMNZ: |{i}| × Σ w_i(q) × S_i(d,q)
-- W-RRF: Σ w_i(q) / (k + rank_i(d,q))
+- W-CombSUM: Sigma w_i(q) x S_i(d,q)
+- W-CombMNZ: |{i}| x Sigma w_i(q) x S_i(d,q)
+- W-RRF: Sigma w_i(q) / (k + rank_i(d,q))
 
 Learned:
 - Learned fusion with ML model weights
@@ -35,15 +35,8 @@ from typing import Dict, List, Optional, Tuple, Any
 # STRICT: Fail immediately if ranx not available
 from ranx import Run, fuse, Qrels
 
-
-# QPP model index mapping (strict order from research plan)
-QPP_MODELS = {
-    0: "SMV", 1: "Sigma_max", 2: "Sigma(%)", 3: "NQC", 4: "UEF", 5: "RSD",
-    6: "QPP-PRP", 7: "WIG", 8: "SCNQC", 9: "QV-NQC", 10: "DM",
-    11: "NQA-QPP", 12: "BERTQPP"
-}
-
-QPP_MODEL_NAMES = list(QPP_MODELS.values())
+# Import config
+from src.config import config
 
 
 # =============================================================================
@@ -124,7 +117,7 @@ def get_qpp_weight(
     qid: str,
     ranker: str,
     qpp_data: Dict[str, Dict[str, List[float]]],
-    qpp_index: int = 5,  # Default: RSD
+    qpp_index: int = None,
     fusion_mode: bool = False
 ) -> float:
     """
@@ -134,8 +127,8 @@ def get_qpp_weight(
         qid: Query ID
         ranker: Retriever name
         qpp_data: QPP scores dict
-        qpp_index: Which QPP method to use (0-12), or -1 for fusion
-        fusion_mode: If True, average all 13 QPP methods
+        qpp_index: Which QPP method to use (0-12), or -1 for fusion. Uses config default if None.
+        fusion_mode: If True, average all QPP methods
     
     Returns:
         Weight value (0-1 range after normalization)
@@ -144,6 +137,10 @@ def get_qpp_weight(
         KeyError: If QPP data missing for qid or ranker (data integrity issue).
         IndexError: If qpp_index out of range.
     """
+    # Use default from config if not specified
+    if qpp_index is None:
+        qpp_index = config.qpp.default_index
+    
     if qid not in qpp_data:
         raise KeyError(f"QPP data missing for query '{qid}'. Run QPP computation first.")
     
@@ -163,15 +160,7 @@ def get_qpp_weight(
 
 def get_qpp_index(model_name: str) -> int:
     """Resolve QPP model name to index. Returns -1 for 'fusion'."""
-    if model_name.lower() == "fusion":
-        return -1
-    
-    for idx, name in QPP_MODELS.items():
-        if name.lower() == model_name.lower():
-            return idx
-    
-    valid = list(QPP_MODELS.values()) + ["fusion"]
-    raise ValueError(f"Invalid QPP model '{model_name}'. Valid: {valid}")
+    return config.get_qpp_index(model_name)
 
 
 # =============================================================================
@@ -182,7 +171,7 @@ def combsum(runs: Dict[str, pd.DataFrame]) -> Dict[str, List[Tuple[str, float]]]
     """
     CombSUM using ranx library.
     
-    Formula: CombSUM(d,q) = Σ S_i(d,q)
+    Formula: CombSUM(d,q) = Sigma S_i(d,q)
     
     Returns:
         {qid: [(docid, fused_score), ...]}
@@ -201,7 +190,7 @@ def combmnz(runs: Dict[str, pd.DataFrame]) -> Dict[str, List[Tuple[str, float]]]
     """
     CombMNZ using ranx library.
     
-    Formula: CombMNZ(d,q) = |{i: d ∈ R_i}| × Σ S_i(d,q)
+    Formula: CombMNZ(d,q) = |{i: d in R_i}| x Sigma S_i(d,q)
     
     Returns:
         {qid: [(docid, fused_score), ...]}
@@ -216,19 +205,21 @@ def combmnz(runs: Dict[str, pd.DataFrame]) -> Dict[str, List[Tuple[str, float]]]
     return result
 
 
-def rrf(runs: Dict[str, pd.DataFrame], k: int = 60) -> Dict[str, List[Tuple[str, float]]]:
+def rrf(runs: Dict[str, pd.DataFrame], k: int = None) -> Dict[str, List[Tuple[str, float]]]:
     """
     Reciprocal Rank Fusion using ranx library.
     
-    Formula: RRF(d,q) = Σ 1/(k + rank_i(d,q))
+    Formula: RRF(d,q) = Sigma 1/(k + rank_i(d,q))
     
     Args:
         runs: Dict of ranker DataFrames
-        k: RRF constant (default 60)
+        k: RRF constant (from config if None)
     
     Returns:
         {qid: [(docid, fused_score), ...]}
     """
+    k = k if k is not None else config.fusion.rrf_k
+    
     print("[fusion] Running RRF (ranx)...")
     
     ranx_runs = _df_runs_to_ranx(runs)
@@ -246,28 +237,30 @@ def rrf(runs: Dict[str, pd.DataFrame], k: int = 60) -> Dict[str, List[Tuple[str,
 def weighted_combsum(
     runs: Dict[str, pd.DataFrame],
     qpp_data: Dict[str, Dict[str, List[float]]],
-    qpp_index: int = 5
+    qpp_index: int = None
 ) -> Dict[str, List[Tuple[str, float]]]:
     """
     QPP-Weighted CombSUM.
     
-    Formula: W-CombSUM(d,q) = Σ w_i(q) × S_i(d,q)
+    Formula: W-CombSUM(d,q) = Sigma w_i(q) x S_i(d,q)
     
     Args:
         runs: Dict of ranker DataFrames
         qpp_data: QPP scores dict
-        qpp_index: QPP method index (0-12) or -1 for fusion
+        qpp_index: QPP method index (0-12) or -1 for fusion. Uses config default if None.
     
     Returns:
         {qid: [(docid, fused_score), ...]}
     """
+    qpp_index = qpp_index if qpp_index is not None else config.qpp.default_index
+    
     print(f"[fusion] Running W-CombSUM (QPP index={qpp_index})...")
     
     fused = defaultdict(list)
     all_qids = sorted(set.union(*[set(df["qid"].unique()) for df in runs.values()]))
     fusion_mode = (qpp_index == -1)
     
-    # OPTIMIZED: Pre-group all dataframes to avoid O(n²) filtering
+    # OPTIMIZED: Pre-group all dataframes to avoid O(n^2) filtering
     grouped_runs = {ranker: df.groupby("qid") for ranker, df in runs.items()}
     
     for qid in all_qids:
@@ -291,28 +284,30 @@ def weighted_combsum(
 def weighted_combmnz(
     runs: Dict[str, pd.DataFrame],
     qpp_data: Dict[str, Dict[str, List[float]]],
-    qpp_index: int = 5
+    qpp_index: int = None
 ) -> Dict[str, List[Tuple[str, float]]]:
     """
     QPP-Weighted CombMNZ.
     
-    Formula: W-CombMNZ(d,q) = |{i}| × Σ w_i(q) × S_i(d,q)
+    Formula: W-CombMNZ(d,q) = |{i}| x Sigma w_i(q) x S_i(d,q)
     
     Args:
         runs: Dict of ranker DataFrames
         qpp_data: QPP scores dict
-        qpp_index: QPP method index (0-12) or -1 for fusion
+        qpp_index: QPP method index (0-12) or -1 for fusion. Uses config default if None.
     
     Returns:
         {qid: [(docid, fused_score), ...]}
     """
+    qpp_index = qpp_index if qpp_index is not None else config.qpp.default_index
+    
     print(f"[fusion] Running W-CombMNZ (QPP index={qpp_index})...")
     
     fused = defaultdict(list)
     all_qids = sorted(set.union(*[set(df["qid"].unique()) for df in runs.values()]))
     fusion_mode = (qpp_index == -1)
     
-    # OPTIMIZED: Pre-group all dataframes to avoid O(n²) filtering
+    # OPTIMIZED: Pre-group all dataframes to avoid O(n^2) filtering
     grouped_runs = {ranker: df.groupby("qid") for ranker, df in runs.items()}
     
     for qid in all_qids:
@@ -338,30 +333,33 @@ def weighted_combmnz(
 def weighted_rrf(
     runs: Dict[str, pd.DataFrame],
     qpp_data: Dict[str, Dict[str, List[float]]],
-    qpp_index: int = 5,
-    k: int = 60
+    qpp_index: int = None,
+    k: int = None
 ) -> Dict[str, List[Tuple[str, float]]]:
     """
     QPP-Weighted RRF.
     
-    Formula: W-RRF(d,q) = Σ w_i(q) / (k + rank_i(d,q))
+    Formula: W-RRF(d,q) = Sigma w_i(q) / (k + rank_i(d,q))
     
     Args:
         runs: Dict of ranker DataFrames
         qpp_data: QPP scores dict
-        qpp_index: QPP method index (0-12) or -1 for fusion
-        k: RRF constant
+        qpp_index: QPP method index (0-12) or -1 for fusion. Uses config default if None.
+        k: RRF constant (from config if None)
     
     Returns:
         {qid: [(docid, fused_score), ...]}
     """
+    qpp_index = qpp_index if qpp_index is not None else config.qpp.default_index
+    k = k if k is not None else config.fusion.rrf_k
+    
     print(f"[fusion] Running W-RRF (QPP index={qpp_index})...")
     
     fused = defaultdict(list)
     all_qids = sorted(set.union(*[set(df["qid"].unique()) for df in runs.values()]))
     fusion_mode = (qpp_index == -1)
     
-    # OPTIMIZED: Pre-group all dataframes to avoid O(n²) filtering
+    # OPTIMIZED: Pre-group all dataframes to avoid O(n^2) filtering
     grouped_runs = {ranker: df.groupby("qid") for ranker, df in runs.items()}
     
     for qid in all_qids:
@@ -412,7 +410,7 @@ def learned_fusion(
     model = model_data.get('model')
     model_type = model_data.get('model_type', 'PerRetrieverLGBM')
     retrievers = retrievers or model_data.get('retrievers', sorted(runs.keys()))
-    n_qpp = model_data.get('n_qpp', 13)
+    n_qpp = model_data.get('n_qpp', config.qpp.n_methods)
     
     all_qids = sorted(set.union(*[set(df["qid"].unique()) for df in runs.values()]))
     n_retrievers = len(retrievers)
@@ -498,10 +496,10 @@ def run_fusion(
     method: str,
     runs_dir: str,
     qpp_dir: Optional[str] = None,
-    qpp_model: str = "RSD",
+    qpp_model: str = None,
     model_path: Optional[str] = None,
     output_path: Optional[str] = None,
-    rrf_k: int = 60
+    rrf_k: int = None
 ) -> Dict[str, List[Tuple[str, float]]]:
     """
     Run specified fusion method.
@@ -510,14 +508,17 @@ def run_fusion(
         method: One of combsum, combmnz, rrf, wcombsum, wcombmnz, wrrf, learned
         runs_dir: Directory with run files
         qpp_dir: Directory with QPP files (required for weighted methods)
-        qpp_model: QPP model name for weighting
+        qpp_model: QPP model name for weighting (from config if None)
         model_path: Path to trained model (for learned fusion)
         output_path: Output file path (optional)
-        rrf_k: RRF constant
+        rrf_k: RRF constant (from config if None)
     
     Returns:
         Fused results dict
     """
+    qpp_model = qpp_model or config.qpp.default_method
+    rrf_k = rrf_k if rrf_k is not None else config.fusion.rrf_k
+    
     runs = load_runs(runs_dir, use_normalized=True)
     print(f"Loaded {len(runs)} rankers: {list(runs.keys())}")
     
@@ -569,7 +570,7 @@ def run_fusion(
         tag = "learned"
     
     else:
-        valid = ["combsum", "combmnz", "rrf", "wcombsum", "wcombmnz", "wrrf", "learned"]
+        valid = config.fusion.methods
         raise ValueError(f"Unknown method '{method}'. Valid: {valid}")
     
     if output_path:
@@ -591,7 +592,7 @@ if __name__ == "__main__":
         epilog="""
 Methods:
   combsum   - Sum of normalized scores (ranx)
-  combmnz   - CombSUM × number of rankers returning doc (ranx)
+  combmnz   - CombSUM x number of rankers returning doc (ranx)
   rrf       - Reciprocal Rank Fusion (ranx)
   wcombsum  - QPP-weighted CombSUM
   wcombmnz  - QPP-weighted CombMNZ
@@ -605,14 +606,14 @@ Examples:
 """
     )
     parser.add_argument("--method", required=True,
-                        choices=["combsum", "combmnz", "rrf", "wcombsum", "wcombmnz", "wrrf", "learned"],
+                        choices=config.fusion.methods,
                         help="Fusion method")
     parser.add_argument("--runs_dir", required=True, help="Directory with .norm.res files")
     parser.add_argument("--qpp_dir", default=None, help="Directory with .qpp files")
-    parser.add_argument("--qpp_model", default="RSD", help="QPP model for weighting")
+    parser.add_argument("--qpp_model", default=config.qpp.default_method, help="QPP model for weighting")
     parser.add_argument("--model_path", default=None, help="Path to learned model")
     parser.add_argument("--output", required=True, help="Output TREC run file")
-    parser.add_argument("--rrf_k", type=int, default=60, help="RRF k constant")
+    parser.add_argument("--rrf_k", type=int, default=config.fusion.rrf_k, help="RRF k constant")
     
     args = parser.parse_args()
     

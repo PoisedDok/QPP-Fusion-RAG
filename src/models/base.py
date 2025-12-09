@@ -12,6 +12,9 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+# Import config
+from src.config import config
+
 
 class BaseFusionModel(ABC):
     """
@@ -21,17 +24,17 @@ class BaseFusionModel(ABC):
     based on QPP features.
     """
     
-    def __init__(self, retrievers: List[str], n_qpp: int = 13):
+    def __init__(self, retrievers: List[str], n_qpp: int = None):
         """
         Args:
             retrievers: List of retriever names
-            n_qpp: Number of QPP methods (default 13)
+            n_qpp: Number of QPP methods (from config if None)
         """
         self.retrievers = retrievers
         self.n_retrievers = len(retrievers)
-        self.n_qpp = n_qpp
-        self.n_features = n_qpp * len(retrievers)
-        self.feature_names = [f"{r}_{i}" for r in retrievers for i in range(n_qpp)]
+        self.n_qpp = n_qpp if n_qpp is not None else config.qpp.n_methods
+        self.n_features = self.n_qpp * len(retrievers)
+        self.feature_names = [f"{r}_{i}" for r in retrievers for i in range(self.n_qpp)]
         self.is_trained = False
     
     @abstractmethod
@@ -74,7 +77,7 @@ class BaseFusionModel(ABC):
         Predict weights for a single query.
         
         Args:
-            qpp_scores: {retriever: [13 qpp scores]}
+            qpp_scores: {retriever: [qpp scores]}
         
         Returns:
             {retriever: weight}
@@ -125,7 +128,7 @@ class BaseFusionModel(ABC):
 def build_features(
     qpp_data: Dict[str, Dict[str, List[float]]],
     retrievers: List[str],
-    n_qpp: int = 13
+    n_qpp: int = None
 ) -> Tuple[np.ndarray, List[str]]:
     """
     Build feature matrix from QPP scores.
@@ -133,12 +136,14 @@ def build_features(
     Args:
         qpp_data: {qid: {retriever: [qpp_scores]}}
         retrievers: List of retriever names
-        n_qpp: Number of QPP methods
+        n_qpp: Number of QPP methods (from config if None)
     
     Returns:
         X: Feature matrix (n_queries, n_features)
         qids: List of query IDs
     """
+    n_qpp = n_qpp if n_qpp is not None else config.qpp.n_methods
+    
     qids = sorted(qpp_data.keys())
     X = np.zeros((len(qids), n_qpp * len(retrievers)))
     
@@ -151,7 +156,7 @@ def build_features(
     return X, qids
 
 
-# Re-export compute_ndcg from evaluation module for backward compatibility
+# Re-export compute_ndcg from evaluation module
 from src.evaluation.ir_evaluator import compute_ndcg
 
 __all__ = ["BaseFusionModel", "build_features", "compute_ndcg"]

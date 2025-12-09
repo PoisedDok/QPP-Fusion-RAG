@@ -15,30 +15,19 @@ Optimized for Mac M4:
 
 import gc
 import json
-import os
 import time
 import numpy as np
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-# Configure threading
-os.environ['OMP_NUM_THREADS'] = '10'
-os.environ['TOKENIZERS_PARALLELISM'] = 'true'
-
 import torch
 from sentence_transformers import SentenceTransformer
 import faiss
 
+# Import config first - sets up environment
+from src.config import config, get_device
+
 from .base import BaseRetriever, RetrieverResult
-
-
-def _get_device():
-    """Get best available device."""
-    if torch.backends.mps.is_available():
-        return "mps"
-    elif torch.cuda.is_available():
-        return "cuda"
-    return "cpu"
 
 
 class TCTColBERTRetriever(BaseRetriever):
@@ -49,14 +38,12 @@ class TCTColBERTRetriever(BaseRetriever):
     """
     
     name = "TCT-ColBERT"
-    MODEL_NAME = "castorini/tct_colbert-v2-hnp-msmarco"
-    EMBEDDING_DIM = 768
     
     def __init__(
         self,
         corpus: Dict[str, Dict[str, str]],
         cache_dir: Optional[str] = None,
-        batch_size: int = 64,
+        batch_size: Optional[int] = None,
         use_fp16: bool = True
     ):
         """
@@ -65,21 +52,25 @@ class TCTColBERTRetriever(BaseRetriever):
         Args:
             corpus: {doc_id: {text, title}}
             cache_dir: Directory to cache embeddings
-            batch_size: Batch size for encoding
+            batch_size: Batch size for encoding (from config if None)
             use_fp16: Use float16 to halve memory
         """
+        # Get config values
+        self.model_name = config.models.tct_colbert.name
+        self.embedding_dim = config.models.tct_colbert.embedding_dim
+        
         self.corpus = corpus
-        self.batch_size = batch_size
+        self.batch_size = batch_size or config.processing.batch_sizes.tct_encoding
         self.use_fp16 = use_fp16
         self.doc_ids = list(corpus.keys())
-        self.cache_dir = Path(cache_dir) if cache_dir else Path("data/nq/cache")
+        self.cache_dir = Path(cache_dir) if cache_dir else config.project_root / "data" / "nq" / "cache"
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         
-        self.device = _get_device()
+        self.device = get_device()
         print(f"[TCT-ColBERT] Device: {self.device}, fp16: {use_fp16}")
-        print(f"[TCT-ColBERT] Loading {self.MODEL_NAME}...")
+        print(f"[TCT-ColBERT] Loading {self.model_name}...")
         
-        self.model = SentenceTransformer(self.MODEL_NAME, device=self.device)
+        self.model = SentenceTransformer(self.model_name, device=self.device)
         self._load_or_compute_index()
     
     def _get_cache_path(self) -> Path:
@@ -116,7 +107,7 @@ class TCTColBERTRetriever(BaseRetriever):
         
         dtype = np.float16 if self.use_fp16 else np.float32
         n_docs = len(self.doc_ids)
-        self.doc_embeddings = np.zeros((n_docs, self.EMBEDDING_DIM), dtype=dtype)
+        self.doc_embeddings = np.zeros((n_docs, self.embedding_dim), dtype=dtype)
         
         chunk_size = self.batch_size * 8
         
@@ -150,8 +141,8 @@ class TCTColBERTRetriever(BaseRetriever):
         print("[TCT-ColBERT] Building FAISS index...")
         embeddings_f32 = self.doc_embeddings.astype(np.float32)
         
-        self.index = faiss.IndexFlatIP(self.EMBEDDING_DIM)
-        faiss.omp_set_num_threads(10)
+        self.index = faiss.IndexFlatIP(self.embedding_dim)
+        faiss.omp_set_num_threads(config.processing.threads.faiss)
         self.index.add(embeddings_f32)
         
         print(f"[TCT-ColBERT] FAISS index: {self.index.ntotal} vectors (threads: {faiss.omp_get_max_threads()})")
@@ -159,8 +150,9 @@ class TCTColBERTRetriever(BaseRetriever):
         del embeddings_f32
         gc.collect()
     
-    def retrieve(self, query: str, qid: str, top_k: int = 100, **kwargs) -> RetrieverResult:
+    def retrieve(self, query: str, qid: str, top_k: int = None, **kwargs) -> RetrieverResult:
         """Retrieve documents using dense similarity."""
+        top_k = top_k or config.processing.retrieval.top_k
         start = time.time()
         
         with torch.no_grad():
@@ -178,7 +170,7 @@ class TCTColBERTRetriever(BaseRetriever):
         return RetrieverResult(
             qid=qid, results=results, retriever_name=self.name,
             latency_ms=(time.time() - start) * 1000,
-            metadata={"model": self.MODEL_NAME, "device": self.device}
+            metadata={"model": self.model_name, "device": self.device}
         )
     
     def _process_mini_batch(
@@ -210,7 +202,7 @@ class TCTColBERTRetriever(BaseRetriever):
             ]
             results.append(RetrieverResult(
                 qid=qid, results=doc_results, retriever_name=self.name,
-                latency_ms=0, metadata={"model": self.MODEL_NAME}
+                latency_ms=0, metadata={"model": self.model_name}
             ))
         
         return results
@@ -218,9 +210,9 @@ class TCTColBERTRetriever(BaseRetriever):
     def retrieve_batch(
         self,
         queries: Dict[str, str],
-        top_k: int = 100,
+        top_k: int = None,
         checkpoint_path: Optional[str] = None,
-        mini_batch_size: int = 100,
+        mini_batch_size: Optional[int] = None,
         **kwargs
     ) -> Dict[str, RetrieverResult]:
         """
@@ -232,6 +224,9 @@ class TCTColBERTRetriever(BaseRetriever):
             checkpoint_path: JSONL file for crash recovery
             mini_batch_size: Queries per mini-batch
         """
+        top_k = top_k or config.processing.retrieval.top_k
+        mini_batch_size = mini_batch_size or config.processing.batch_sizes.tct_mini
+        
         start = time.time()
         n_queries = len(queries)
         
@@ -246,7 +241,7 @@ class TCTColBERTRetriever(BaseRetriever):
                     completed[qid] = RetrieverResult(
                         qid=qid,
                         results=[(d["docno"], d["score"], d["rank"]) for d in data["results"]],
-                        retriever_name=self.name, latency_ms=0, metadata={"model": self.MODEL_NAME}
+                        retriever_name=self.name, latency_ms=0, metadata={"model": self.model_name}
                     )
             print(f"[TCT-ColBERT] Resumed: {len(completed)}/{n_queries} queries from checkpoint")
         
@@ -288,18 +283,14 @@ class TCTColBERTRetriever(BaseRetriever):
             elapsed = time.time() - start
             rate = done / elapsed if elapsed > 0 else 0
             eta = (n_queries - done) / rate if rate > 0 else 0
-            print(f"[TCT-ColBERT]   → {done}/{n_queries} done ({time.time()-t0:.1f}s) | ETA: {eta/60:.1f}min")
+            print(f"[TCT-ColBERT]   -> {done}/{n_queries} done ({time.time()-t0:.1f}s) | ETA: {eta/60:.1f}min")
             
-            # Aggressive memory cleanup
+            # Memory cleanup
             del batch_results
             gc.collect()
             
-            # MPS cache cleanup
-            try:
-                if torch.backends.mps.is_available():
-                    torch.mps.empty_cache()
-            except:
-                pass
+            if torch.backends.mps.is_available():
+                torch.mps.empty_cache()
         
         print(f"[TCT-ColBERT] Complete: {n_queries} queries in {time.time()-start:.1f}s")
         return completed

@@ -8,8 +8,8 @@ Step 2: Run Retrievers
 ----------------------
 Runs retrievers sequentially with memory management and checkpointing.
 
-Memory Optimizations (baked in):
-- Java heap limited to 6GB (prevents JVM bloat)
+Memory Optimizations (baked in via config):
+- Java heap limited (config.processing.java)
 - MPS cache cleanup between batches
 - Aggressive garbage collection
 - Lazy corpus loading where possible
@@ -26,15 +26,6 @@ Background execution (survives terminal close):
 
 import os
 import sys
-
-# =============================================================================
-# MEMORY OPTIMIZATIONS - Must be set BEFORE any Java/ML library imports
-# =============================================================================
-os.environ.setdefault('JAVA_TOOL_OPTIONS', '-Xmx6g -Xms2g')  # Limit Java heap to 6GB
-os.environ.setdefault('OMP_NUM_THREADS', '8')
-os.environ.setdefault('MKL_NUM_THREADS', '8')
-os.environ.setdefault('TOKENIZERS_PARALLELISM', 'true')
-
 import gc
 import argparse
 import time
@@ -44,8 +35,8 @@ from typing import Dict, Optional
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-# Set cache paths before importing ML libs
-from src.cache_config import CACHE_ROOT
+# Import config FIRST - sets up environment (Java heap, OMP threads, etc.)
+from src.config import config, detect_dataset
 from src.data_utils import load_corpus as _load_corpus, load_queries as _load_queries
 
 
@@ -128,14 +119,14 @@ def run_tct_colbert(corpus: Dict, queries: Dict[str, str], runs_dir: Path, cache
     retriever = TCTColBERTRetriever(
         corpus,
         cache_dir=str(cache_dir),
-        batch_size=64,
+        batch_size=config.processing.batch_sizes.tct_encoding,
         use_fp16=True
     )
     results = retriever.retrieve_batch(
         queries, 
         top_k=top_k,
         checkpoint_path=str(checkpoint_path),
-        mini_batch_size=100
+        mini_batch_size=config.processing.batch_sizes.tct_mini
     )
     
     write_run(results, str(runs_dir / "TCT-ColBERT.res"), "TCT-ColBERT", normalize=False)
@@ -159,14 +150,17 @@ def run_splade(queries: Dict[str, str], runs_dir: Path, top_k: int, dataset: str
     start = time.time()
     
     checkpoint_path = runs_dir / "Splade.checkpoint.jsonl"
-    index_name = f"beir-v1.0.0-{dataset}.splade-pp-ed"
+    index_name = config.get_index_name("splade", dataset)
     
-    retriever = SpladeRetriever(index_name=index_name, threads=10)
+    retriever = SpladeRetriever(
+        index_name=index_name, 
+        threads=config.processing.threads.faiss
+    )
     results = retriever.retrieve_batch(
         queries, 
         top_k=top_k,
         checkpoint_path=str(checkpoint_path),
-        mini_batch_size=500  # SPLADE is fast
+        mini_batch_size=config.processing.batch_sizes.splade_mini
     )
     
     write_run(results, str(runs_dir / "Splade.res"), "Splade", normalize=False)
@@ -190,14 +184,14 @@ def run_bge(queries: Dict[str, str], runs_dir: Path, top_k: int, dataset: str = 
     start = time.time()
     
     checkpoint_path = runs_dir / "BGE.checkpoint.jsonl"
-    index_name = f"beir-v1.0.0-{dataset}.bge-base-en-v1.5"
+    index_name = config.get_index_name("bge", dataset)
     
     retriever = BGERetriever(index_name=index_name, use_mps=True)
     results = retriever.retrieve_batch(
         queries, 
         top_k=top_k,
         checkpoint_path=str(checkpoint_path),
-        mini_batch_size=100  # Larger batches with direct FAISS (no JVM conflict)
+        mini_batch_size=config.processing.batch_sizes.bge_mini
     )
     
     write_run(results, str(runs_dir / "BGE.res"), "BGE", normalize=False)
@@ -220,28 +214,24 @@ def run_bm25_tct(index_path: str, corpus_path: str, queries: Dict[str, str], run
     print(f"\n[02_retrieve] === BM25>>TCT-ColBERT ===")
     start = time.time()
     
-    # Checkpoint path for crash recovery
     checkpoint_path = runs_dir / "BM25_TCT.checkpoint.jsonl"
     
-    # Lazy loading: pass corpus_path, not corpus dict
-    # first_stage_k=100 (not 500) for speed
     retriever = BM25TCTRetriever(
         index_path, 
         corpus_path, 
-        first_stage_k=100,  # Reduced from 500 for 5x speedup
-        tct_batch_size=64   # TCT encoding batch size
+        first_stage_k=config.processing.retrieval.first_stage_k,
+        tct_batch_size=config.processing.batch_sizes.tct_encoding
     )
     results = retriever.retrieve_batch(
         queries, 
         top_k=top_k,
         checkpoint_path=str(checkpoint_path),
-        mini_batch_size=5  # Small batches for MPS efficiency
+        mini_batch_size=config.processing.batch_sizes.bm25_tct_mini
     )
     
     write_run(results, str(runs_dir / "BM25_TCT.res"), "BM25_TCT", normalize=False)
     write_run(results, str(runs_dir / "BM25_TCT.norm.res"), "BM25_TCT", normalize=True)
     
-    # Clean up checkpoint after successful completion
     if checkpoint_path.exists():
         checkpoint_path.unlink()
         print(f"[02_retrieve] Removed checkpoint file")
@@ -264,14 +254,14 @@ def run_bm25_monot5(index_path: str, corpus_path: str, queries: Dict[str, str], 
     retriever = BM25MonoT5Retriever(
         index_path, 
         corpus_path, 
-        first_stage_k=100,
-        ce_batch_size=256  # CrossEncoder batch size
+        first_stage_k=config.processing.retrieval.first_stage_k,
+        ce_batch_size=config.processing.batch_sizes.cross_encoder
     )
     results = retriever.retrieve_batch(
         queries, 
         top_k=top_k,
         checkpoint_path=str(checkpoint_path),
-        mini_batch_size=10  # CrossEncoder is slower, smaller batches
+        mini_batch_size=config.processing.batch_sizes.bm25_monot5_mini
     )
     
     write_run(results, str(runs_dir / "BM25_MonoT5.res"), "BM25_MonoT5", normalize=False)
@@ -294,16 +284,21 @@ def main():
     parser.add_argument("--output_dir", default=None, help="Output directory")
     parser.add_argument("--retrievers", default="BM25,TCT-ColBERT,BM25_TCT,BM25_MonoT5",
                         help="Comma-separated retriever names (Splade excluded by default)")
-    parser.add_argument("--top_k", type=int, default=100, help="Number of docs to retrieve")
+    parser.add_argument("--top_k", type=int, default=config.processing.retrieval.top_k,
+                        help="Number of docs to retrieve")
     parser.add_argument("--limit", type=int, default=None, help="Limit corpus size")
     parser.add_argument("--splade_max_docs", type=int, default=None, 
                         help="Max docs for SPLADE (memory safety)")
     args = parser.parse_args()
     
+    # Detect dataset from corpus path
+    dataset = detect_dataset(args.corpus_path)
+    
     # Setup paths
-    output_dir = Path(args.output_dir) if args.output_dir else PROJECT_ROOT / "data" / "nq"
+    output_dir = Path(args.output_dir) if args.output_dir else config.project_root / "data" / dataset
     runs_dir = output_dir / "runs"
     cache_dir = output_dir / "cache"
+    
     # Use absolute path for PyTerrier index to avoid CWD issues
     if args.index_path:
         index_path = str(Path(args.index_path).resolve())
@@ -315,6 +310,7 @@ def main():
     
     # Parse retrievers
     retrievers = [r.strip() for r in args.retrievers.split(",")]
+    print(f"[02_retrieve] Dataset: {dataset}")
     print(f"[02_retrieve] Retrievers: {retrievers}")
     print(f"[02_retrieve] Cache dir: {cache_dir}")
     
@@ -338,21 +334,15 @@ def main():
             run_tct_colbert(corpus, queries, runs_dir, cache_dir, args.top_k)
         
         if "Splade" in retrievers:
-            # Detect dataset from corpus_path
-            dataset = "hotpotqa" if "hotpot" in args.corpus_path.lower() else "nq"
             run_splade(queries, runs_dir, args.top_k, dataset=dataset)
         
         if "BGE" in retrievers:
-            # Detect dataset from corpus_path
-            dataset = "hotpotqa" if "hotpot" in args.corpus_path.lower() else "nq"
             run_bge(queries, runs_dir, args.top_k, dataset=dataset)
         
         if "BM25_TCT" in retrievers:
-            # Uses lazy corpus loading - pass path not dict
             run_bm25_tct(index_path, args.corpus_path, queries, runs_dir, args.top_k)
         
         if "BM25_MonoT5" in retrievers:
-            # Uses lazy corpus loading - pass path not dict
             run_bm25_monot5(index_path, args.corpus_path, queries, runs_dir, args.top_k)
             
     except Exception as e:

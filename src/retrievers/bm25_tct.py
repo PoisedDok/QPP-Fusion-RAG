@@ -7,7 +7,7 @@ BM25 >> TCT-ColBERT Hybrid Retriever
 ------------------------------------
 Efficient mini-batch processing:
 1. Process N queries at a time (not all at once)
-2. BM25 → text load → TCT for each mini-batch
+2. BM25 -> text load -> TCT for each mini-batch
 3. Checkpoint after each batch for crash recovery
 4. Clear memory between batches
 
@@ -18,39 +18,18 @@ Optimized for Mac M4:
 
 import gc
 import json
-import os
+import re
 import time
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-# Configure threading BEFORE imports
-os.environ['OMP_NUM_THREADS'] = '10'  # M4 has 10 performance cores
-os.environ['TOKENIZERS_PARALLELISM'] = 'true'  # Enable parallel tokenization
+import pandas as pd
+import torch
+
+# Import config first - sets up environment
+from src.config import config, get_device, ensure_pyterrier_init
 
 from .base import BaseRetriever, RetrieverResult
-
-
-def _get_device():
-    """Get best available device (MPS > CUDA > CPU)."""
-    import torch
-    if torch.backends.mps.is_available():
-        return "mps"
-    elif torch.cuda.is_available():
-        return "cuda"
-    return "cpu"
-
-
-def _ensure_pyterrier_init():
-    """Lazy PyTerrier initialization with memory limits."""
-    import pyterrier as pt
-    if not pt.started():
-        try:
-            # Limit Java heap to 6GB to prevent memory bloat
-            pt.init(boot_packages=[], mem=6000)
-        except TypeError:
-            # Older PyTerrier version
-            pt.init()
-    return pt
 
 
 class BM25TCTRetriever(BaseRetriever):
@@ -61,22 +40,24 @@ class BM25TCTRetriever(BaseRetriever):
     """
     
     name = "BM25_TCT"
-    TCT_MODEL = "castorini/tct_colbert-v2-hnp-msmarco"
     
     def __init__(
         self,
         index_path: str,
         corpus_path: str,
-        first_stage_k: int = 100,
-        tct_batch_size: int = 32
+        first_stage_k: Optional[int] = None,
+        tct_batch_size: Optional[int] = None
     ):
         import pyterrier_dr as dr
         
-        pt = _ensure_pyterrier_init()
+        pt = ensure_pyterrier_init()
+        
+        # Get config values
+        self.tct_model = config.models.tct_colbert.name
         
         self.corpus_path = corpus_path
-        self.first_stage_k = first_stage_k
-        self.tct_batch_size = tct_batch_size
+        self.first_stage_k = first_stage_k or config.processing.retrieval.first_stage_k
+        self.tct_batch_size = tct_batch_size or config.processing.batch_sizes.tct_encoding
         
         # BM25 first stage
         print(f"[BM25_TCT] Loading BM25 index...")
@@ -84,15 +65,15 @@ class BM25TCTRetriever(BaseRetriever):
         self.bm25 = pt.BatchRetrieve(
             self.index, 
             wmodel="BM25", 
-            num_results=first_stage_k,
+            num_results=self.first_stage_k,
             metadata=["docno"]
         )
         
         # TCT-ColBERT reranker with MPS acceleration
-        self.device = _get_device()
-        print(f"[BM25_TCT] Loading {self.TCT_MODEL} on {self.device}...")
+        self.device = get_device()
+        print(f"[BM25_TCT] Loading {self.tct_model} on {self.device}...")
         self.tct_reranker = dr.TctColBert.hnp(
-            batch_size=tct_batch_size,
+            batch_size=self.tct_batch_size,
             verbose=False,
             device=self.device
         ).text_scorer()
@@ -100,11 +81,11 @@ class BM25TCTRetriever(BaseRetriever):
         # Build corpus offset index for lazy loading
         self._corpus_offsets = self._build_corpus_offsets()
         
-        print(f"[BM25_TCT] Ready: BM25(k={first_stage_k}) >> TCT-ColBERT")
+        print(f"[BM25_TCT] Ready: BM25(k={self.first_stage_k}) >> TCT-ColBERT")
     
     def _build_corpus_offsets(self) -> Dict[str, int]:
         """Build doc_id -> byte offset map for lazy loading."""
-        corpus_file = os.path.join(self.corpus_path, "corpus.jsonl")
+        corpus_file = Path(self.corpus_path) / "corpus.jsonl"
         offsets = {}
         
         print(f"[BM25_TCT] Building corpus offset index...")
@@ -121,7 +102,7 @@ class BM25TCTRetriever(BaseRetriever):
     
     def _load_doc_texts(self, doc_ids: List[str]) -> Dict[str, str]:
         """Load document texts by ID (sorted seek for efficiency)."""
-        corpus_file = os.path.join(self.corpus_path, "corpus.jsonl")
+        corpus_file = Path(self.corpus_path) / "corpus.jsonl"
         texts = {}
         
         # Sort by offset for sequential disk reads
@@ -144,13 +125,10 @@ class BM25TCTRetriever(BaseRetriever):
         top_k: int
     ) -> List[RetrieverResult]:
         """
-        Process a mini-batch: BM25 → text load → TCT rerank
+        Process a mini-batch: BM25 -> text load -> TCT rerank
         
         Returns list of RetrieverResult for this batch.
         """
-        import pandas as pd
-        import re
-        
         # Build query DataFrame
         query_df = pd.DataFrame([
             {
@@ -194,7 +172,7 @@ class BM25TCTRetriever(BaseRetriever):
                 results=doc_list,
                 retriever_name=self.name,
                 latency_ms=0,
-                metadata={"model": self.TCT_MODEL}
+                metadata={"model": self.tct_model}
             ))
         
         # Cleanup intermediate dataframes
@@ -203,17 +181,18 @@ class BM25TCTRetriever(BaseRetriever):
         
         return results
     
-    def retrieve(self, query: str, qid: str, top_k: int = 100, **kwargs) -> RetrieverResult:
+    def retrieve(self, query: str, qid: str, top_k: int = None, **kwargs) -> RetrieverResult:
         """Single query retrieval."""
+        top_k = top_k or config.processing.retrieval.top_k
         results = self._process_mini_batch([(qid, query)], top_k)
         return results[0] if results else RetrieverResult(qid=qid, results=[], retriever_name=self.name)
     
     def retrieve_batch(
         self,
         queries: Dict[str, str],
-        top_k: int = 100,
+        top_k: int = None,
         checkpoint_path: Optional[str] = None,
-        mini_batch_size: int = 50,  # Small batches to avoid CPU overload
+        mini_batch_size: Optional[int] = None,
         **kwargs
     ) -> Dict[str, RetrieverResult]:
         """
@@ -225,6 +204,9 @@ class BM25TCTRetriever(BaseRetriever):
             checkpoint_path: JSONL file for crash recovery
             mini_batch_size: Queries per mini-batch (50 = ~5K docs to rerank)
         """
+        top_k = top_k or config.processing.retrieval.top_k
+        mini_batch_size = mini_batch_size or config.processing.batch_sizes.bm25_tct_mini
+        
         start = time.time()
         n_queries = len(queries)
         
@@ -241,7 +223,7 @@ class BM25TCTRetriever(BaseRetriever):
                         results=[(d["docno"], d["score"], d["rank"]) for d in data["results"]],
                         retriever_name=self.name,
                         latency_ms=0,
-                        metadata={"model": self.TCT_MODEL}
+                        metadata={"model": self.tct_model}
                     )
             print(f"[BM25_TCT] Resumed: {len(completed)}/{n_queries} queries from checkpoint")
         
@@ -287,19 +269,14 @@ class BM25TCTRetriever(BaseRetriever):
             elapsed = time.time() - start
             rate = done / elapsed if elapsed > 0 else 0
             eta = (n_queries - done) / rate if rate > 0 else 0
-            print(f"[BM25_TCT]   → {done}/{n_queries} done ({time.time()-t0:.1f}s) | ETA: {eta/60:.1f}min")
+            print(f"[BM25_TCT]   -> {done}/{n_queries} done ({time.time()-t0:.1f}s) | ETA: {eta/60:.1f}min")
             
-            # Aggressive memory cleanup
+            # Memory cleanup
             del batch_results
             gc.collect()
             
-            # MPS cache cleanup
-            try:
-                import torch
-                if torch.backends.mps.is_available():
-                    torch.mps.empty_cache()
-            except:
-                pass
+            if torch.backends.mps.is_available():
+                torch.mps.empty_cache()
         
         print(f"[BM25_TCT] Complete: {n_queries} queries in {time.time()-start:.1f}s")
         return completed

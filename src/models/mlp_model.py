@@ -8,18 +8,17 @@ MLP (Neural Network) fusion weight model.
 STRICT: Requires PyTorch. No fallbacks.
 """
 
-import os
 import numpy as np
 from typing import Dict, List, Optional
-
-# Fix for M4 OpenMP threading issue
-os.environ.setdefault('OMP_NUM_THREADS', '1')
 
 # STRICT: Fail immediately if PyTorch not available
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
+
+# Import config
+from src.config import config, get_device
 
 from .base import BaseFusionModel
 
@@ -35,56 +34,53 @@ class FusionMLP(BaseFusionModel):
     Post-prediction normalization like LightGBM for consistency.
     
     Args:
-        qpp_indices: Which QPP methods to use. Default [5] = RSD only.
-                    Options: 0=SMV, 1=Sigma_max, 2=Sigma(%), 3=NQC, 4=UEF, 
-                            5=RSD, 6=QPP-PRP, 7=WIG, 8=SCNQC, 9=QV-NQC,
-                            10=DM, 11=NQA-QPP, 12=BERTQPP
+        qpp_indices: Which QPP methods to use. Default [5] = RSD only (config.qpp.default_index).
     """
-    
-    # QPP method index mapping
-    QPP_NAMES = {
-        0: "SMV", 1: "Sigma_max", 2: "Sigma(%)", 3: "NQC", 4: "UEF", 5: "RSD",
-        6: "QPP-PRP", 7: "WIG", 8: "SCNQC", 9: "QV-NQC", 10: "DM", 
-        11: "NQA-QPP", 12: "BERTQPP"
-    }
     
     def __init__(
         self,
         retrievers: List[str],
-        n_qpp: int = 13,
+        n_qpp: int = None,
         qpp_indices: Optional[List[int]] = None,
         hidden_sizes: Optional[List[int]] = None,
-        dropout: float = 0.2,
+        dropout: float = None,
         device: Optional[str] = None
     ):
-        # Default to RSD only (index 5) - best single predictor
-        self.qpp_indices = qpp_indices if qpp_indices is not None else [5]
+        # Get defaults from config
+        n_qpp = n_qpp if n_qpp is not None else config.qpp.n_methods
+        dropout = dropout if dropout is not None else config.training.mlp.dropout
+        
+        # Default to RSD only (from config) - best single predictor
+        self.qpp_indices = qpp_indices if qpp_indices is not None else [config.qpp.default_index]
         self.n_qpp_used = len(self.qpp_indices)
         
         super().__init__(retrievers, n_qpp)
         
         # Override n_features to use only selected QPP methods
         self.n_features = self.n_qpp_used * len(retrievers)
-        self.feature_names = [f"{r}_{self.QPP_NAMES.get(i, i)}" 
-                              for r in retrievers for i in self.qpp_indices]
+        
+        # Build feature names from config QPP method names
+        qpp_method_names = config.qpp.methods
+        self.feature_names = [
+            f"{r}_{qpp_method_names[i] if i < len(qpp_method_names) else str(i)}" 
+            for r in retrievers for i in self.qpp_indices
+        ]
         
         # Scale hidden sizes based on input size
         if hidden_sizes is None:
             if self.n_qpp_used == 1:
                 hidden_sizes = [32, 16]  # Smaller network for single QPP
             else:
-                hidden_sizes = [128, 64]
+                hidden_sizes = config.training.mlp.hidden_sizes
         
         self.hidden_sizes = hidden_sizes
         self.dropout = dropout
-        self.device = device or ('mps' if torch.backends.mps.is_available() 
-                                  else 'cuda' if torch.cuda.is_available() 
-                                  else 'cpu')
+        self.device = device or get_device()
         
         self.model = self._build_model()
         self.model.to(self.device)
         
-        qpp_names = [self.QPP_NAMES.get(i, str(i)) for i in self.qpp_indices]
+        qpp_names = [qpp_method_names[i] if i < len(qpp_method_names) else str(i) for i in self.qpp_indices]
         print(f"[FusionMLP] Using QPP methods: {qpp_names} ({self.n_features} features)")
     
     def _build_model(self) -> nn.Module:
@@ -109,7 +105,7 @@ class FusionMLP(BaseFusionModel):
         """
         Filter input features to only use selected QPP indices.
         
-        Input X has shape (n_samples, n_retrievers * 13)
+        Input X has shape (n_samples, n_retrievers * n_qpp)
         Output has shape (n_samples, n_retrievers * n_qpp_used)
         """
         n_samples = X.shape[0]
@@ -117,7 +113,7 @@ class FusionMLP(BaseFusionModel):
         
         for j in range(self.n_retrievers):
             for k, qpp_idx in enumerate(self.qpp_indices):
-                # Source: retriever j, QPP index qpp_idx (out of 13)
+                # Source: retriever j, QPP index qpp_idx (out of n_qpp)
                 src_idx = j * self.n_qpp + qpp_idx
                 # Dest: retriever j, QPP position k (out of n_qpp_used)
                 dst_idx = j * self.n_qpp_used + k
@@ -135,12 +131,18 @@ class FusionMLP(BaseFusionModel):
         Y_train: np.ndarray,
         X_val: Optional[np.ndarray] = None,
         Y_val: Optional[np.ndarray] = None,
-        epochs: int = 100,
-        batch_size: int = 64,
-        learning_rate: float = 0.001,
-        patience: int = 10
+        epochs: int = None,
+        batch_size: int = None,
+        learning_rate: float = None,
+        patience: int = None
     ) -> Dict:
         """Train the MLP model using CrossEntropyLoss."""
+        # Get defaults from config
+        epochs = epochs or config.training.mlp.epochs
+        batch_size = batch_size or config.training.mlp.batch_size
+        learning_rate = learning_rate or config.training.mlp.learning_rate
+        patience = patience or config.training.mlp.patience
+        
         print(f"\n=== Training FusionMLP on {self.device} (CrossEntropyLoss) ===")
         
         # Filter features if using subset of QPP methods

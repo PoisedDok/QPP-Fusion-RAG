@@ -34,6 +34,8 @@ from typing import Dict, List
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+# Import config first
+from src.config import config, detect_dataset
 from src.models import PerRetrieverLGBM, MultiOutputLGBM, FusionMLP
 from src.models.base import build_features
 from src.evaluation.ir_evaluator import compute_ndcg
@@ -41,7 +43,7 @@ from src.data_utils import load_qpp_scores as _load_qpp, load_qrels as _load_qre
 
 
 def load_qpp_scores(qpp_dir: Path) -> Dict[str, Dict[str, List[float]]]:
-    """Load QPP scores: {qid: {retriever: [13 scores]}}"""
+    """Load QPP scores: {qid: {retriever: [n_qpp scores]}}"""
     qpp_data = _load_qpp(qpp_dir)
     print(f"Loaded QPP for {len(qpp_data)} queries")
     return qpp_data
@@ -179,9 +181,9 @@ def train_and_evaluate(
     else:
         raise ValueError(f"Unknown model type: {model_type}")
     
-    # Train
+    # Train - use config defaults
     if model_type == "mlp":
-        model.train(X_train, Y_train, X_test, Y_test, epochs=100, patience=15)
+        model.train(X_train, Y_train, X_test, Y_test)
     else:
         model.train(X_train, Y_train, X_test, Y_test)
     
@@ -205,22 +207,27 @@ def main():
                         choices=["per_retriever", "multioutput", "mlp", "all"],
                         help="Model type to train")
     parser.add_argument("--data_dir", default=None, help="Data directory")
+    parser.add_argument("--dataset", default="nq", choices=config.datasets.supported,
+                        help="Dataset name (for qrels path)")
     parser.add_argument("--corpus_path", default=None, help="Path to BEIR dataset")
     args = parser.parse_args()
     
     # Paths
-    data_dir = Path(args.data_dir) if args.data_dir else PROJECT_ROOT / "data" / "nq"
+    data_dir = Path(args.data_dir) if args.data_dir else config.project_root / "data" / args.dataset
     runs_dir = data_dir / "runs"
     qpp_dir = data_dir / "qpp"
     output_dir = data_dir / "models"
     
     os.makedirs(output_dir, exist_ok=True)
     
-    # Qrels path
+    # Qrels path - use config
     if args.corpus_path:
         qrels_path = Path(args.corpus_path) / "qrels" / "test.tsv"
     else:
-        qrels_path = Path("/Volumes/Disk-D/RAGit/data/beir/datasets/nq/qrels/test.tsv")
+        qrels_path = config.get_qrels_path(args.dataset)
+    
+    print(f"[04_train] Dataset: {args.dataset}")
+    print(f"[04_train] Qrels: {qrels_path}")
     
     # Load data
     qpp_data = load_qpp_scores(qpp_dir)
@@ -235,8 +242,9 @@ def main():
     X, qids = build_features(qpp_data, retrievers)
     Y = compute_targets(qids, runs, qrels, retrievers)
     
-    # Train/test split
-    n_train = int(0.8 * len(qids))
+    # Train/test split - use config
+    train_ratio = config.training.train_ratio
+    n_train = int(train_ratio * len(qids))
     X_train, X_test = X[:n_train], X[n_train:]
     Y_train, Y_test = Y[:n_train], Y[n_train:]
     qids_test = qids[n_train:]

@@ -15,18 +15,11 @@ import time
 from pathlib import Path
 from typing import List, Optional
 
-os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
-
-# Dataset FAISS index hashes (Pyserini pre-built BGE)
-HNSW_DATASETS = {
-    "nq": "faiss-flat.beir-v1.0.0-nq.bge-base-en-v1.5.20240107.b738bbbe7ca36532f25189b776d4e153",
-    "hotpotqa": "faiss-flat.beir-v1.0.0-hotpotqa.bge-base-en-v1.5.20240107.d2c08665e8cd750bd06ceb7d23897c94"
-}
-
-EMBEDDING_DIM = 768
+# Import config first - sets up environment (KMP_DUPLICATE_LIB_OK, etc.)
+from src.config import config
 
 
-def _extract_vectors(index_dir: Path, faiss_path: Path) -> tuple:
+def _extract_vectors(index_dir: Path, faiss_path: Path, embedding_dim: int) -> tuple:
     """Extract vectors from FAISS to memory-mapped file."""
     import faiss
     import numpy as np
@@ -34,7 +27,7 @@ def _extract_vectors(index_dir: Path, faiss_path: Path) -> tuple:
     vectors_path = index_dir / "vectors_extracted.npy"
     
     if vectors_path.exists():
-        n_vectors = vectors_path.stat().st_size // (EMBEDDING_DIM * 4)
+        n_vectors = vectors_path.stat().st_size // (embedding_dim * 4)
         print(f"  [HNSW] Using existing vectors ({n_vectors:,})")
         return vectors_path, n_vectors
     
@@ -46,7 +39,7 @@ def _extract_vectors(index_dir: Path, faiss_path: Path) -> tuple:
     
     print(f"  [HNSW] Extracting to mmap...")
     vectors_mmap = np.memmap(str(vectors_path), dtype=np.float32, mode='w+',
-                             shape=(n_vectors, EMBEDDING_DIM))
+                             shape=(n_vectors, embedding_dim))
     
     chunk_size = 50000
     t0 = time.time()
@@ -70,10 +63,10 @@ def _extract_vectors(index_dir: Path, faiss_path: Path) -> tuple:
 
 def build_hnsw_index(
     dataset: str,
-    n_segments: int = 4,
-    ef_construction: int = 200,
-    M: int = 16,
-    num_threads: int = 8,
+    n_segments: Optional[int] = None,
+    ef_construction: Optional[int] = None,
+    M: Optional[int] = None,
+    num_threads: Optional[int] = None,
     cache_dir: Optional[Path] = None
 ) -> List[str]:
     """
@@ -81,10 +74,10 @@ def build_hnsw_index(
     
     Args:
         dataset: Dataset name (nq, hotpotqa)
-        n_segments: Number of segments (4 = ~1.3M vectors each)
-        ef_construction: Build quality (200 = high)
-        M: Connections per node (16 = balanced)
-        num_threads: Build parallelism
+        n_segments: Number of segments (default from config)
+        ef_construction: Build quality (default from config)
+        M: Connections per node (default from config)
+        num_threads: Build parallelism (default from config)
         cache_dir: Override cache directory
     
     Returns:
@@ -95,13 +88,24 @@ def build_hnsw_index(
     
     sys.stdout.reconfigure(line_buffering=True)
     
+    # Get parameters from config with overrides
+    hnsw_config = config.indexes.hnsw
+    n_segments = n_segments if n_segments is not None else hnsw_config.n_segments
+    ef_construction = ef_construction if ef_construction is not None else hnsw_config.ef_construction
+    M = M if M is not None else hnsw_config.M
+    num_threads = num_threads if num_threads is not None else hnsw_config.num_threads
+    embedding_dim = config.models.bge.embedding_dim
+    
     if cache_dir is None:
-        cache_dir = Path(os.environ.get("PYSERINI_CACHE", "cache/pyserini"))
+        cache_dir = Path(os.environ.get("PYSERINI_CACHE", str(config.cache_root / "pyserini")))
     
-    if dataset not in HNSW_DATASETS:
-        raise ValueError(f"Unknown dataset: {dataset}. Available: {list(HNSW_DATASETS.keys())}")
+    # Get index hash from config
+    supported_datasets = config.datasets.supported
+    if dataset not in supported_datasets:
+        raise ValueError(f"Unknown dataset: {dataset}. Available: {supported_datasets}")
     
-    index_dir = cache_dir / "indexes" / HNSW_DATASETS[dataset]
+    index_hash = config.get_index_hash("bge", dataset)
+    index_dir = cache_dir / "indexes" / index_hash
     faiss_path = index_dir / "index"
     metadata_path = index_dir / "hnsw_segments_meta.json"
     
@@ -122,15 +126,15 @@ def build_hnsw_index(
     print(f"  [HNSW] Building: segments={n_segments}, M={M}, ef={ef_construction}")
     
     # Extract vectors
-    vectors_path, n_vectors = _extract_vectors(index_dir, faiss_path)
+    vectors_path, n_vectors = _extract_vectors(index_dir, faiss_path, embedding_dim)
     
     # Build segments
     segment_size = (n_vectors + n_segments - 1) // n_segments
-    mem_gb = (segment_size * EMBEDDING_DIM * 4 + segment_size * M * 2 * 8) / 1e9
+    mem_gb = (segment_size * embedding_dim * 4 + segment_size * M * 2 * 8) / 1e9
     print(f"  [HNSW] ~{segment_size:,} vectors/segment, ~{mem_gb:.1f}GB peak memory")
     
     vectors_mmap = np.memmap(str(vectors_path), dtype=np.float32, mode='r',
-                             shape=(n_vectors, EMBEDDING_DIM))
+                             shape=(n_vectors, embedding_dim))
     
     segment_paths = []
     for seg_idx in range(n_segments):
@@ -147,7 +151,7 @@ def build_hnsw_index(
         
         print(f"  [HNSW] Building segment {seg_idx}/{n_segments-1} ({seg_n:,} vectors)...")
         
-        hnsw = hnswlib.Index(space='ip', dim=EMBEDDING_DIM)
+        hnsw = hnswlib.Index(space='ip', dim=embedding_dim)
         hnsw.init_index(max_elements=seg_n, ef_construction=ef_construction, M=M)
         hnsw.set_num_threads(num_threads)
         
@@ -176,6 +180,7 @@ def build_hnsw_index(
         "segment_size": segment_size,
         "M": M,
         "ef_construction": ef_construction,
+        "embedding_dim": embedding_dim,
         "segments": [
             {"index": i, "start_global_id": i * segment_size,
              "end_global_id": min((i+1) * segment_size, n_vectors),

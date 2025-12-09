@@ -34,6 +34,9 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+# Import config first
+from src.config import config
+
 from src.fusion import (
     run_fusion,
     load_runs,
@@ -50,17 +53,18 @@ from src.fusion import (
 )
 
 
-METHODS = ["combsum", "combmnz", "rrf", "wcombsum", "wcombmnz", "wrrf", "learned"]
-
-
 def run_all_methods(
     runs_dir: Path,
     qpp_dir: Path,
     fused_dir: Path,
-    qpp_model: str = "RSD",
-    rrf_k: int = 60
+    qpp_model: str = None,
+    rrf_k: int = None
 ):
     """Run all fusion methods and output comparison."""
+    # Get defaults from config
+    qpp_model = qpp_model or config.qpp.default_method
+    rrf_k = rrf_k if rrf_k is not None else config.fusion.rrf_k
+    
     print(f"[05_fusion] Running all fusion methods...")
     print(f"[05_fusion] QPP model for weighted: {qpp_model}")
     
@@ -170,18 +174,20 @@ Examples:
 """
     )
     parser.add_argument("--method", default="wcombsum",
-                        choices=METHODS + ["all"],
+                        choices=config.fusion.methods + ["all"],
                         help="Fusion method (default: wcombsum)")
+    parser.add_argument("--dataset", default="nq", choices=config.datasets.supported,
+                        help="Dataset name")
     parser.add_argument("--runs_dir", default=None, help="Directory with .norm.res files")
     parser.add_argument("--qpp_dir", default=None, help="Directory with .qpp files")
-    parser.add_argument("--qpp_model", default="RSD", help="QPP model for weights")
+    parser.add_argument("--qpp_model", default=config.qpp.default_method, help="QPP model for weights")
     parser.add_argument("--model_path", default=None, help="Path to learned model")
     parser.add_argument("--output", default=None, help="Output fused run file")
-    parser.add_argument("--rrf_k", type=int, default=60, help="RRF k constant")
+    parser.add_argument("--rrf_k", type=int, default=config.fusion.rrf_k, help="RRF k constant")
     args = parser.parse_args()
     
     # Setup paths
-    output_dir = PROJECT_ROOT / "data" / "nq"
+    output_dir = config.project_root / "data" / args.dataset
     runs_dir = Path(args.runs_dir) if args.runs_dir else output_dir / "runs"
     qpp_dir = Path(args.qpp_dir) if args.qpp_dir else output_dir / "qpp"
     fused_dir = output_dir / "fused"

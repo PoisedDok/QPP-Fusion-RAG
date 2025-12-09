@@ -25,7 +25,7 @@ from .data_utils import (
 )
 
 # QPP Bridge (13 methods via Java - STRICT: no fallback)
-from .qpp import QPPBridge, QPP_METHOD_NAMES, compute_qpp_for_res_file
+from .qpp import QPPBridge, compute_qpp_for_res_file
 
 # LM Studio Generation
 from .generation import GenerationOperation
@@ -49,7 +49,6 @@ __all__ = [
     "detect_dataset",
     # QPP
     "QPPBridge",
-    "QPP_METHOD_NAMES",
     "compute_qpp_for_res_file",
     # Generation
     "GenerationOperation",

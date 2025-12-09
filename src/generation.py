@@ -14,6 +14,9 @@ import time
 import requests
 from typing import Dict, List, Any, Optional
 
+# Import config
+from src.config import config
+
 
 class LMStudioConnectionError(Exception):
     """Raised when LM Studio is not running or unreachable."""
@@ -34,17 +37,24 @@ class GenerationOperation:
     STRICT: Connection failures raise LMStudioConnectionError.
     """
     
-    def __init__(self, executor=None, base_url: str = "http://localhost:1234/v1"):
-        self.executor = executor
-        self.base_url = base_url
+    def __init__(self, base_url: str = None):
+        """
+        Initialize generation operation.
+        
+        Args:
+            base_url: LM Studio API base URL (from config if None)
+        """
+        self.base_url = base_url or config.models.lm_studio.base_url
+        self.default_model = config.models.lm_studio.default_model
+        self.timeout = config.models.lm_studio.timeout_seconds
     
     def execute(
         self,
         prompt: str,
-        system_prompt: str = "You are a helpful assistant.",
-        model: str = "qwen/qwen3-4b-2507",
-        temperature: float = 0.1,
-        max_tokens: int = 256,
+        system_prompt: str = None,
+        model: str = None,
+        temperature: float = None,
+        max_tokens: int = None,
         **kwargs
     ) -> Dict[str, Any]:
         """
@@ -52,10 +62,10 @@ class GenerationOperation:
         
         Args:
             prompt: User prompt
-            system_prompt: System instructions
-            model: Model identifier
-            temperature: Sampling temperature
-            max_tokens: Maximum tokens to generate
+            system_prompt: System instructions (from config if None)
+            model: Model identifier (from config if None)
+            temperature: Sampling temperature (from config if None)
+            max_tokens: Maximum tokens to generate (from config if None)
             
         Returns:
             Dict with answer, model, tokens_used, latency_ms, metadata
@@ -64,6 +74,12 @@ class GenerationOperation:
             LMStudioConnectionError: If LM Studio is not running.
             GenerationError: If API call fails.
         """
+        # Get defaults from config
+        system_prompt = system_prompt or config.generation.system_prompt
+        model = model or self.default_model
+        temperature = temperature if temperature is not None else config.generation.temperature
+        max_tokens = max_tokens or config.generation.max_tokens
+        
         start_time = time.time()
         
         try:
@@ -78,7 +94,7 @@ class GenerationOperation:
                     "temperature": temperature,
                     "max_tokens": max_tokens,
                 },
-                timeout=60
+                timeout=self.timeout
             )
         except requests.exceptions.ConnectionError as e:
             raise LMStudioConnectionError(
@@ -86,7 +102,7 @@ class GenerationOperation:
                 f"Start LM Studio and load a model first. Error: {e}"
             )
         except requests.exceptions.Timeout:
-            raise GenerationError(f"LM Studio request timed out after 60s")
+            raise GenerationError(f"LM Studio request timed out after {self.timeout}s")
         
         if response.status_code != 200:
             raise GenerationError(
@@ -118,81 +134,6 @@ class GenerationOperation:
         }
 
 
-class GenerateOperation:
-    """
-    Atomic generation operation (uses executor).
-    
-    STRICT: Requires executor with generator. No fallbacks.
-    """
-    
-    def __init__(self, executor):
-        if executor is None:
-            raise ValueError("GenerateOperation requires an executor")
-        self.executor = executor
-    
-    def execute(
-        self,
-        prompt: str,
-        context: Optional[List[Dict[str, Any]]] = None,
-        model: str = None,
-        provider: str = None,
-        temperature: float = 0.7,
-        max_tokens: int = 500,
-        stream: bool = False,
-        **kwargs
-    ) -> Dict[str, Any]:
-        """
-        Execute LLM generation.
-        
-        Args:
-            prompt: Query/prompt text
-            context: Retrieved documents with 'content' field
-            model: Model override
-            provider: Provider override
-            temperature: Sampling temperature
-            max_tokens: Maximum tokens
-            stream: Stream mode (not implemented)
-            
-        Returns:
-            Dict with answer, model, tokens_used, latency_ms, metadata
-            
-        Raises:
-            GenerationError: If generation fails.
-        """
-        start_time = time.time()
-        
-        if context:
-            context_text = '\n\n'.join([doc['content'] for doc in context])
-            full_prompt = f"Context:\n{context_text}\n\nQuery: {prompt}\n\nAnswer:"
-        else:
-            full_prompt = prompt
-        
-        generator = self.executor.get_generator()
-        result = generator.run(prompt=full_prompt)
-        
-        if 'replies' not in result or not result['replies']:
-            raise GenerationError(f"Generator returned no replies: {result}")
-        
-        answer = result['replies'][0]
-        
-        prompt_tokens = len(full_prompt.split()) * 1.3
-        completion_tokens = len(answer.split()) * 1.3
-        
-        processing_time = time.time() - start_time
-        
-        return {
-            'answer': answer,
-            'model': model or self.executor.gen_model,
-            'tokens_used': int(prompt_tokens + completion_tokens),
-            'latency_ms': processing_time * 1000,
-            'metadata': {
-                'prompt_tokens': int(prompt_tokens),
-                'completion_tokens': int(completion_tokens),
-                'temperature': temperature
-            }
-        }
-
-
 class ValidateOperation:
     """
     Atomic validation operation.
@@ -200,8 +141,8 @@ class ValidateOperation:
     Validates generated answers against context.
     """
     
-    def __init__(self, executor=None):
-        self.executor = executor
+    def __init__(self):
+        pass
     
     def execute(
         self,

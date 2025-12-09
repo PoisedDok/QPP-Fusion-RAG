@@ -12,13 +12,12 @@ Supports checkpointing for crash recovery.
 
 import gc
 import json
-import os
 import time
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-# Configure threading for Lucene
-os.environ['OMP_NUM_THREADS'] = '10'
+# Import config first - sets up environment
+from src.config import config
 
 from .base import BaseRetriever, RetrieverResult
 
@@ -27,38 +26,47 @@ class SpladeRetriever(BaseRetriever):
     """Sparse learned retrieval using Pyserini pre-built SPLADE index."""
     
     name = "Splade"
-    INDEX_NAME = "beir-v1.0.0-nq.splade-pp-ed"
-    ENCODER_NAME = "naver/splade-cocondenser-ensembledistil"
     
     def __init__(
         self,
         index_name: Optional[str] = None,
         encoder_name: Optional[str] = None,
-        threads: int = 10,
+        threads: Optional[int] = None,
         **kwargs
     ):
         """
         Initialize SPLADE retriever using Pyserini pre-built index.
         
         Args:
-            index_name: Pyserini pre-built index name
-            encoder_name: Query encoder model
-            threads: Number of threads for batch search
+            index_name: Pyserini pre-built index name (from config if None)
+            encoder_name: Query encoder model (from config if None)
+            threads: Number of threads for batch search (from config if None)
         """
         from pyserini.search.lucene import LuceneImpactSearcher
         
-        self.index_name = index_name or self.INDEX_NAME
-        self.encoder_name = encoder_name or self.ENCODER_NAME
-        self.threads = threads
+        # Get config values
+        splade_config = config.indexes.pyserini.splade
+        
+        # Detect dataset from index_name if provided
+        dataset = "nq"
+        if index_name:
+            for ds in config.datasets.supported:
+                if ds in index_name.lower():
+                    dataset = ds
+                    break
+        
+        self.dataset = dataset
+        self.index_name = index_name or config.get_index_name("splade", dataset)
+        self.encoder_name = encoder_name or splade_config.encoder
+        self.threads = threads or config.processing.threads.faiss
         
         print(f"[SPLADE] Loading impact index...")
         print(f"[SPLADE] Index: {self.index_name}")
         print(f"[SPLADE] Query encoder: {self.encoder_name}")
-        print(f"[SPLADE] Threads: {threads}")
+        print(f"[SPLADE] Threads: {self.threads}")
         
         # Use index from data folder
-        project_root = Path(__file__).parent.parent.parent
-        dataset = "hotpotqa" if "hotpotqa" in self.index_name else "nq"
+        project_root = config.project_root
         index_dir = project_root / "data" / dataset / "index" / "splade"
         
         if not index_dir.exists():
@@ -71,8 +79,9 @@ class SpladeRetriever(BaseRetriever):
         
         print(f"[SPLADE] Ready for retrieval")
     
-    def retrieve(self, query: str, qid: str, top_k: int = 100, **kwargs) -> RetrieverResult:
+    def retrieve(self, query: str, qid: str, top_k: int = None, **kwargs) -> RetrieverResult:
         """Retrieve documents using SPLADE."""
+        top_k = top_k or config.processing.retrieval.top_k
         start = time.time()
         
         hits = self.searcher.search(query, k=top_k)
@@ -116,9 +125,9 @@ class SpladeRetriever(BaseRetriever):
     def retrieve_batch(
         self,
         queries: Dict[str, str],
-        top_k: int = 100,
+        top_k: int = None,
         checkpoint_path: Optional[str] = None,
-        mini_batch_size: int = 500,  # SPLADE is fast, use larger batches
+        mini_batch_size: Optional[int] = None,
         **kwargs
     ) -> Dict[str, RetrieverResult]:
         """
@@ -130,6 +139,9 @@ class SpladeRetriever(BaseRetriever):
             checkpoint_path: JSONL file for crash recovery
             mini_batch_size: Queries per mini-batch (SPLADE is fast, so larger batches OK)
         """
+        top_k = top_k or config.processing.retrieval.top_k
+        mini_batch_size = mini_batch_size or config.processing.batch_sizes.splade_mini
+        
         start = time.time()
         n_queries = len(queries)
         
@@ -186,9 +198,9 @@ class SpladeRetriever(BaseRetriever):
             elapsed = time.time() - start
             rate = done / elapsed if elapsed > 0 else 0
             eta = (n_queries - done) / rate if rate > 0 else 0
-            print(f"[SPLADE]   → {done}/{n_queries} done ({time.time()-t0:.1f}s) | ETA: {eta/60:.1f}min")
+            print(f"[SPLADE]   -> {done}/{n_queries} done ({time.time()-t0:.1f}s) | ETA: {eta/60:.1f}min")
             
-            # Aggressive memory cleanup
+            # Memory cleanup
             del batch_results
             gc.collect()
         

@@ -23,6 +23,9 @@ import pandas as pd
 import ir_measures
 from ir_measures import nDCG, RR, R, P, AP, Judged
 
+# Import config
+from src.config import config
+
 
 class IREvaluator:
     """
@@ -34,18 +37,15 @@ class IREvaluator:
     - Per-query and aggregate metrics
     """
     
-    # Default metrics for QPP-Fusion experiments
-    DEFAULT_METRICS = ["nDCG@10", "nDCG@20", "RR@10", "R@10", "R@100", "P@10", "AP"]
-    
     def __init__(self, metrics: Optional[List[str]] = None):
         """
         Initialize evaluator.
         
         Args:
             metrics: List of metric names (e.g., ["nDCG@10", "RR@10"])
-                    Uses DEFAULT_METRICS if not specified.
+                    Uses config defaults if not specified.
         """
-        self.metric_names = metrics or self.DEFAULT_METRICS
+        self.metric_names = metrics or config.evaluation.ir_metrics
         self._metrics = [ir_measures.parse_measure(m) for m in self.metric_names]
     
     def evaluate(
@@ -166,7 +166,7 @@ def evaluate_run(
     Args:
         run: Run results (dict or DataFrame)
         qrels: Relevance judgments
-        metrics: Metric names (default: nDCG@10, RR@10, R@10)
+        metrics: Metric names (uses config defaults if None)
         per_query: Return per-query scores
         
     Returns:
@@ -187,7 +187,7 @@ def evaluate_runs(
     Args:
         runs: {run_name: run_data}
         qrels: Relevance judgments
-        metrics: Metric names
+        metrics: Metric names (uses config defaults if None)
         
     Returns:
         DataFrame comparison table

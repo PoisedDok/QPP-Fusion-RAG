@@ -8,7 +8,7 @@ BGE Dense Retriever using segmented HNSW index.
 - Uses sentence-transformers for query encoding (MPS/CUDA/CPU)
 - ~6ms search latency on 5.2M vectors
 
-Build index: python scripts/build_hnsw_index.py --dataset hotpotqa
+Build index: python scripts/01_index.py --dataset hotpotqa --hnsw
 """
 import gc
 import json
@@ -17,15 +17,13 @@ import time
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
-os.environ.setdefault('OMP_NUM_THREADS', '8')
-os.environ.setdefault('MKL_NUM_THREADS', '8')
-os.environ.setdefault('TOKENIZERS_PARALLELISM', 'true')
-
 import hnswlib
 import numpy as np
 import torch
 from sentence_transformers import SentenceTransformer
+
+# Import config first - sets up environment
+from src.config import config, get_device
 
 from .base import BaseRetriever, RetrieverResult
 
@@ -35,25 +33,18 @@ class BGERetriever(BaseRetriever):
     Dense retrieval using segmented HNSW index with BGE embeddings.
     
     Build index first:
-        python scripts/build_hnsw_index.py --dataset hotpotqa
+        python scripts/01_index.py --dataset hotpotqa --hnsw
     """
     
     name = "BGE"
-    MODEL_NAME = "BAAI/bge-base-en-v1.5"
-    EMBEDDING_DIM = 768
-    
-    INDEX_HASHES = {
-        "nq": "faiss-flat.beir-v1.0.0-nq.bge-base-en-v1.5.20240107.b738bbbe7ca36532f25189b776d4e153",
-        "hotpotqa": "faiss-flat.beir-v1.0.0-hotpotqa.bge-base-en-v1.5.20240107.d2c08665e8cd750bd06ceb7d23897c94"
-    }
     
     def __init__(
         self,
         index_name: Optional[str] = None,
         dataset: str = "nq",
-        encoder_batch_size: int = 64,
+        encoder_batch_size: Optional[int] = None,
         use_mps: bool = True,
-        ef_search: int = 128,
+        ef_search: Optional[int] = None,
         **kwargs
     ):
         """
@@ -62,26 +53,28 @@ class BGERetriever(BaseRetriever):
         Args:
             index_name: Pyserini index name (extracts dataset automatically)
             dataset: Dataset name ('nq' or 'hotpotqa')
-            encoder_batch_size: Batch size for query encoding
+            encoder_batch_size: Batch size for query encoding (from config if None)
             use_mps: Use MPS for encoding (Apple Silicon)
-            ef_search: HNSW search accuracy (64-256, higher=more accurate)
+            ef_search: HNSW search accuracy (from config if None)
         """
-        if index_name and "hotpotqa" in index_name.lower():
-            dataset = "hotpotqa"
-        elif index_name and "nq" in index_name.lower():
-            dataset = "nq"
+        # Get config values
+        self.model_name = config.models.bge.name
+        self.embedding_dim = config.models.bge.embedding_dim
+        
+        # Parse dataset from index_name if provided
+        if index_name:
+            for ds in config.datasets.supported:
+                if ds in index_name.lower():
+                    dataset = ds
+                    break
         
         self.dataset = dataset
-        self.encoder_batch_size = encoder_batch_size
-        self.ef_search = ef_search
+        self.encoder_batch_size = encoder_batch_size or config.processing.batch_sizes.bge_encoding
+        self.ef_search = ef_search or config.indexes.hnsw.ef_search
         self.hnsw_segments: List[Tuple[hnswlib.Index, int]] = []
         
-        if use_mps and torch.backends.mps.is_available():
-            self.device = "mps"
-        elif torch.cuda.is_available():
-            self.device = "cuda"
-        else:
-            self.device = "cpu"
+        # Device selection
+        self.device = get_device() if use_mps else "cpu"
         
         print(f"[BGE] Initializing for {dataset}...")
         print(f"[BGE] Encoder device: {self.device}")
@@ -91,12 +84,11 @@ class BGERetriever(BaseRetriever):
     
     def _load_index(self):
         """Load HNSW segments and document IDs."""
-        cache_dir = Path(os.environ.get("PYSERINI_CACHE", "cache/pyserini"))
+        cache_dir = Path(os.environ.get("PYSERINI_CACHE", str(config.cache_root / "pyserini")))
         
-        if self.dataset not in self.INDEX_HASHES:
-            raise ValueError(f"Unknown dataset: {self.dataset}")
-        
-        index_dir = cache_dir / "indexes" / self.INDEX_HASHES[self.dataset]
+        # Get index hash from config
+        index_hash = config.get_index_hash("bge", self.dataset)
+        index_dir = cache_dir / "indexes" / index_hash
         
         if not index_dir.exists():
             raise FileNotFoundError(f"Index not found: {index_dir}")
@@ -112,7 +104,7 @@ class BGERetriever(BaseRetriever):
         if not metadata_path.exists():
             raise FileNotFoundError(
                 f"HNSW index not found. Build with:\n"
-                f"  python scripts/build_hnsw_index.py --dataset {self.dataset}"
+                f"  python scripts/01_index.py --dataset {self.dataset} --hnsw"
             )
         
         print(f"[BGE] Loading HNSW segments...")
@@ -127,7 +119,7 @@ class BGERetriever(BaseRetriever):
                 raise FileNotFoundError(f"Segment missing: {seg_path}")
             
             seg_size = seg_info["end_global_id"] - seg_info["start_global_id"]
-            hnsw = hnswlib.Index(space='ip', dim=self.EMBEDDING_DIM)
+            hnsw = hnswlib.Index(space='ip', dim=self.embedding_dim)
             hnsw.load_index(str(seg_path), max_elements=seg_size)
             hnsw.set_ef(self.ef_search)
             hnsw.set_num_threads(4)
@@ -140,9 +132,9 @@ class BGERetriever(BaseRetriever):
     
     def _load_encoder(self):
         """Load BGE query encoder."""
-        print(f"[BGE] Loading encoder: {self.MODEL_NAME}...")
+        print(f"[BGE] Loading encoder: {self.model_name}...")
         t0 = time.time()
-        self.encoder = SentenceTransformer(self.MODEL_NAME, device=self.device)
+        self.encoder = SentenceTransformer(self.model_name, device=self.device)
         print(f"[BGE] Encoder ready ({time.time()-t0:.1f}s)")
     
     def _encode_queries(self, queries: List[str]) -> np.ndarray:
@@ -194,8 +186,9 @@ class BGERetriever(BaseRetriever):
         
         return merged_ids, merged_scores
     
-    def retrieve(self, query: str, qid: str, top_k: int = 100, **kwargs) -> RetrieverResult:
+    def retrieve(self, query: str, qid: str, top_k: int = None, **kwargs) -> RetrieverResult:
         """Retrieve documents for a single query."""
+        top_k = top_k or config.processing.retrieval.top_k
         start = time.time()
         
         query_emb = self._encode_queries([query])
@@ -218,9 +211,9 @@ class BGERetriever(BaseRetriever):
     def retrieve_batch(
         self,
         queries: Dict[str, str],
-        top_k: int = 100,
+        top_k: int = None,
         checkpoint_path: Optional[str] = None,
-        mini_batch_size: int = 100,
+        mini_batch_size: Optional[int] = None,
         **kwargs
     ) -> Dict[str, RetrieverResult]:
         """
@@ -232,6 +225,9 @@ class BGERetriever(BaseRetriever):
             checkpoint_path: JSONL file for crash recovery
             mini_batch_size: Queries per mini-batch
         """
+        top_k = top_k or config.processing.retrieval.top_k
+        mini_batch_size = mini_batch_size or config.processing.batch_sizes.bge_mini
+        
         start = time.time()
         n_queries = len(queries)
         

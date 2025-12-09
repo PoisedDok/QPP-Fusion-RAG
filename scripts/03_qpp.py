@@ -6,7 +6,7 @@ Outgoing: .qpp files --- {per-query QPP scores}
 
 Step 3: Compute QPP Scores
 --------------------------
-Computes 13 QPP methods for each retriever run.
+Computes QPP methods for each retriever run.
 
 Usage:
     python scripts/03_qpp.py
@@ -23,6 +23,8 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+# Import config first - sets up environment
+from src.config import config
 from src.qpp import compute_qpp_for_res_file
 
 
@@ -39,8 +41,10 @@ def main():
     parser.add_argument("--runs_dir", default=None, help="Directory with .res files")
     parser.add_argument("--qpp_dir", default=None, help="Output directory for QPP files")
     parser.add_argument("--queries", default=None, help="Path to queries.jsonl (BEIR format)")
-    parser.add_argument("--top_k", type=int, default=100, help="Top-k for QPP computation")
-    parser.add_argument("--normalize", default="minmax", choices=["none", "minmax", "zscore"])
+    parser.add_argument("--top_k", type=int, default=config.processing.retrieval.top_k, 
+                        help="Top-k for QPP computation")
+    parser.add_argument("--normalize", default=config.qpp.normalization, 
+                        choices=["none", "minmax", "zscore"])
     parser.add_argument("--force", action="store_true", help="Recompute even if QPP file exists")
     args = parser.parse_args()
     
@@ -50,7 +54,7 @@ def main():
         # Infer dataset directory from runs path (e.g., data/hotpotqa/runs -> data/hotpotqa)
         dataset_dir = runs_dir.parent
     else:
-        dataset_dir = PROJECT_ROOT / "data" / "nq"
+        dataset_dir = config.project_root / "data" / "nq"
         runs_dir = dataset_dir / "runs"
     
     qpp_dir = Path(args.qpp_dir) if args.qpp_dir else dataset_dir / "qpp"
@@ -88,8 +92,11 @@ def main():
     import multiprocessing
     n_workers = min(8, multiprocessing.cpu_count())
     
+    # Get QPP method names from config
+    qpp_methods = config.qpp.methods
+    
     print(f"[03_qpp] Processing {len(res_files)} run files")
-    print(f"[03_qpp] QPP methods: 13 (NQC, WIG, SMV, SigmaMax, SigmaX, RSD, UEF, MaxIDF, AvgIDF, CumNQC, SNQC, DenseQPP, DenseQPP-M)")
+    print(f"[03_qpp] QPP methods: {config.qpp.n_methods} ({', '.join(qpp_methods[:5])}...)")
     print(f"[03_qpp] Parallel processing with {n_workers} workers (of {multiprocessing.cpu_count()} cores)")
     
     # Prepare jobs
@@ -131,4 +138,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

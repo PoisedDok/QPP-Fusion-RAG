@@ -11,20 +11,10 @@ import time
 from typing import Dict, Any, Optional
 import pandas as pd
 
+# Import config first - sets up environment
+from src.config import config, ensure_pyterrier_init
+
 from .base import BaseRetriever, RetrieverResult
-
-
-def _ensure_pyterrier_init():
-    """Lazy PyTerrier initialization with memory limits."""
-    import pyterrier as pt
-    if not pt.started():
-        try:
-            # Limit Java heap to 6GB to prevent memory bloat
-            pt.init(boot_packages=[], mem=6000)
-        except TypeError:
-            # Older PyTerrier version
-            pt.init()
-    return pt
 
 
 def sanitize_query(query: str) -> str:
@@ -48,20 +38,22 @@ class BM25Retriever(BaseRetriever):
         Args:
             index_path: Path to PyTerrier index directory
         """
-        pt = _ensure_pyterrier_init()
+        pt = ensure_pyterrier_init()
         
         self.index = pt.IndexFactory.of(index_path)
-        # IMPORTANT: Set num_results in constructor, not per-call
-        self.retriever = pt.BatchRetrieve(self.index, wmodel="BM25", num_results=100)
+        # Use num_results from config
+        default_top_k = config.processing.retrieval.top_k
+        self.retriever = pt.BatchRetrieve(self.index, wmodel="BM25", num_results=default_top_k)
     
     def retrieve(
         self,
         query: str,
         qid: str,
-        top_k: int = 100,
+        top_k: int = None,
         **kwargs
     ) -> RetrieverResult:
         """Retrieve documents using BM25."""
+        top_k = top_k or config.processing.retrieval.top_k
         start = time.time()
         
         # Query as DataFrame with sanitized query
@@ -93,11 +85,11 @@ class BM25Retriever(BaseRetriever):
     def retrieve_batch(
         self,
         queries: Dict[str, str],
-        top_k: int = 100,
+        top_k: int = None,
         **kwargs
     ) -> Dict[str, RetrieverResult]:
         """Batch retrieval (more efficient for PyTerrier)."""
-        import time
+        top_k = top_k or config.processing.retrieval.top_k
         start = time.time()
         
         # Build query DataFrame with sanitized queries
@@ -110,7 +102,7 @@ class BM25Retriever(BaseRetriever):
         self.retriever.num_results = top_k
         results_df = self.retriever.transform(query_df)
         
-        # Group by query (OPTIMIZED: O(n) instead of O(n²))
+        # Group by query (OPTIMIZED: O(n) instead of O(n^2))
         results = {}
         grouped = results_df.groupby("qid")
         for qid, group in grouped:
@@ -134,4 +126,3 @@ class BM25Retriever(BaseRetriever):
         print(f"BM25 batch: {len(queries)} queries in {total_time:.1f}ms")
         
         return results
-

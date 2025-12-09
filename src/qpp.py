@@ -38,12 +38,8 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 from dataclasses import dataclass
 
-
-# 13 QPP methods (matches Java QPPBridge output order)
-QPP_METHOD_NAMES = [
-    'nqc', 'smv', 'wig', 'SigmaMax', 'SigmaX', 'RSD', 'UEF',
-    'MaxIDF', 'avgidf', 'cumnqc', 'snqc', 'dense-qpp', 'dense-qpp-m'
-]
+# Import config
+from src.config import config
 
 
 @dataclass
@@ -79,7 +75,7 @@ class QPPBridge:
             RuntimeError: If Java QPP bridge is not compiled/available.
         """
         self.src_dir = Path(__file__).parent
-        self.project_root = self.src_dir.parent
+        self.project_root = config.project_root
         
         # Use src/qpp for real QPP implementations
         self.qpp_dir = Path(java_dir) if java_dir else self.src_dir / "qpp"
@@ -88,6 +84,9 @@ class QPPBridge:
         
         self.persistent = persistent
         self._java_process = None
+        
+        # Get QPP method names from config
+        self.qpp_method_names = config.qpp.methods
         
         # STRICT: Check for compiled Java - raise if not available
         if not self._check_java():
@@ -163,7 +162,7 @@ class QPPBridge:
                     query=item["qid"],
                     retriever_name="batch",
                     qpp_scores=item["qpp_scores"],
-                    methods_used=QPP_METHOD_NAMES,
+                    methods_used=self.qpp_method_names,
                     processing_time_ms=0,
                     predictions={}
                 ))
@@ -185,7 +184,7 @@ class QPPBridge:
             query: Query text
             scores: List of retrieval scores (top-k documents)
             retriever_name: Name of retriever
-            methods: List of QPP methods to compute (default: all 13)
+            methods: List of QPP methods to compute (default: all from config)
             
         Returns:
             QPPResult with all QPP scores
@@ -196,7 +195,7 @@ class QPPBridge:
         import time
         start = time.time()
         
-        methods = methods or QPP_METHOD_NAMES
+        methods = methods or self.qpp_method_names
         
         # Build input JSON
         input_data = {
@@ -246,8 +245,8 @@ class QPPBridge:
 def compute_qpp_for_res_file(
     res_path: str,
     output_path: Optional[str] = None,
-    top_k: int = 100,
-    normalize: str = "minmax",
+    top_k: int = None,
+    normalize: str = None,
     queries_path: Optional[str] = None
 ) -> Dict[str, List[float]]:
     """
@@ -256,8 +255,8 @@ def compute_qpp_for_res_file(
     Args:
         res_path: Path to .res file
         output_path: Path for .qpp output (optional)
-        top_k: Top-k documents for QPP
-        normalize: "minmax", "zscore", or "none"
+        top_k: Top-k documents for QPP (from config if None)
+        normalize: "minmax", "zscore", or "none" (from config if None)
         queries_path: Path to queries.jsonl (BEIR format) for actual query text.
                      Required for IDF-based QPP methods (WIG, MaxIDF, AvgIDF).
         
@@ -270,6 +269,11 @@ def compute_qpp_for_res_file(
     """
     import numpy as np
     from collections import defaultdict
+    
+    # Get defaults from config
+    top_k = top_k or config.processing.retrieval.top_k
+    normalize = normalize or config.qpp.normalization
+    qpp_method_names = config.qpp.methods
     
     if not os.path.exists(res_path):
         raise FileNotFoundError(f"Run file not found: {res_path}")
@@ -314,7 +318,7 @@ def compute_qpp_for_res_file(
     results = {}
     for i, qpp_result in enumerate(batch_results):
         qid = batch_queries[i][2]
-        qpp_list = [qpp_result.qpp_scores.get(m, 0.0) for m in QPP_METHOD_NAMES]
+        qpp_list = [qpp_result.qpp_scores.get(m, 0.0) for m in qpp_method_names]
         results[qid] = qpp_list
     
     # Normalize
@@ -337,7 +341,7 @@ def _normalize_qpp(results: Dict[str, List[float]], method: str) -> Dict[str, Li
     """Normalize QPP scores across queries."""
     import numpy as np
     
-    n_methods = len(QPP_METHOD_NAMES)
+    n_methods = config.qpp.n_methods
     
     # Collect per-method values
     method_values = [[] for _ in range(n_methods)]
@@ -380,9 +384,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="QPP Bridge - Compute 13 QPP methods (Java required)")
     parser.add_argument("--res_file", help="TREC .res file to process")
     parser.add_argument("--output", help="Output .qpp file")
-    parser.add_argument("--top_k", type=int, default=100, help="Top-k for QPP")
+    parser.add_argument("--top_k", type=int, default=config.processing.retrieval.top_k, help="Top-k for QPP")
     parser.add_argument("--normalize", choices=["none", "minmax", "zscore"], 
-                        default="minmax", help="Normalization")
+                        default=config.qpp.normalization, help="Normalization")
     parser.add_argument("--test", action="store_true", help="Run test")
     args = parser.parse_args()
     

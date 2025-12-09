@@ -14,6 +14,9 @@ from typing import Dict, List, Optional
 # STRICT: Fail immediately if LightGBM not available
 import lightgbm as lgb
 
+# Import config
+from src.config import config
+
 from .base import BaseFusionModel
 
 
@@ -25,18 +28,22 @@ class PerRetrieverLGBM(BaseFusionModel):
     for one retriever based on all QPP features.
     """
     
-    def __init__(self, retrievers: List[str], n_qpp: int = 13, **lgb_params):
+    def __init__(self, retrievers: List[str], n_qpp: int = None, **lgb_params):
         super().__init__(retrievers, n_qpp)
         
         self.models = {}
+        
+        # Get defaults from config
+        lgb_config = config.training.lightgbm
+        
         self.lgb_params = {
             'objective': 'regression',
             'metric': 'rmse',
-            'num_leaves': 31,
-            'learning_rate': 0.05,
-            'feature_fraction': 0.8,
-            'bagging_fraction': 0.8,
-            'bagging_freq': 5,
+            'num_leaves': lgb_config.num_leaves,
+            'learning_rate': lgb_config.learning_rate,
+            'feature_fraction': lgb_config.feature_fraction,
+            'bagging_fraction': lgb_config.bagging_fraction,
+            'bagging_freq': lgb_config.bagging_freq,
             'verbose': -1,
             **lgb_params
         }
@@ -47,10 +54,15 @@ class PerRetrieverLGBM(BaseFusionModel):
         Y_train: np.ndarray,
         X_val: Optional[np.ndarray] = None,
         Y_val: Optional[np.ndarray] = None,
-        num_boost_round: int = 200,
-        early_stopping_rounds: int = 20
+        num_boost_round: int = None,
+        early_stopping_rounds: int = None
     ) -> Dict:
         """Train separate model for each retriever."""
+        # Get defaults from config
+        lgb_config = config.training.lightgbm
+        num_boost_round = num_boost_round or lgb_config.num_boost_round
+        early_stopping_rounds = early_stopping_rounds or lgb_config.early_stopping_rounds
+        
         print(f"\n=== Training PerRetrieverLGBM ({self.n_retrievers} models) ===")
         
         metrics = {'per_retriever': {}}
@@ -119,16 +131,20 @@ class MultiOutputLGBM(BaseFusionModel):
     allowing the model to learn correlations between retrievers.
     """
     
-    def __init__(self, retrievers: List[str], n_qpp: int = 13, **lgb_params):
+    def __init__(self, retrievers: List[str], n_qpp: int = None, **lgb_params):
         super().__init__(retrievers, n_qpp)
         
         self.models = []  # One model per output (LightGBM doesn't support true multi-output)
+        
+        # Get defaults from config
+        lgb_config = config.training.lightgbm
+        
         self.lgb_params = {
             'objective': 'regression',
             'metric': 'rmse',
-            'num_leaves': 31,
-            'learning_rate': 0.05,
-            'feature_fraction': 0.8,
+            'num_leaves': lgb_config.num_leaves,
+            'learning_rate': lgb_config.learning_rate,
+            'feature_fraction': lgb_config.feature_fraction,
             'verbose': -1,
             **lgb_params
         }
@@ -139,8 +155,8 @@ class MultiOutputLGBM(BaseFusionModel):
         Y_train: np.ndarray,
         X_val: Optional[np.ndarray] = None,
         Y_val: Optional[np.ndarray] = None,
-        num_boost_round: int = 200,
-        early_stopping_rounds: int = 20
+        num_boost_round: int = None,
+        early_stopping_rounds: int = None
     ) -> Dict:
         """
         Train multi-output model.
@@ -148,6 +164,11 @@ class MultiOutputLGBM(BaseFusionModel):
         Note: LightGBM doesn't natively support multi-output,
         so we train models jointly with shared hyperparameters.
         """
+        # Get defaults from config
+        lgb_config = config.training.lightgbm
+        num_boost_round = num_boost_round or lgb_config.num_boost_round
+        early_stopping_rounds = early_stopping_rounds or lgb_config.early_stopping_rounds
+        
         print(f"\n=== Training MultiOutputLGBM ({self.n_retrievers} outputs) ===")
         
         # For true multi-output, we train all at once with same stopping

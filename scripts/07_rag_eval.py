@@ -13,7 +13,6 @@ Supports checkpointing for resume on restart.
 Usage:
     python scripts/07_rag_eval.py --corpus_path /data/beir/datasets/nq
     python scripts/07_rag_eval.py --corpus_path /data/beir/datasets/nq --shots 1,2,6 --limit 100
-    python scripts/07_rag_eval.py --corpus_path /data/beir/datasets/nq --model "qwen/qwen3-4b-2507"
 """
 
 import os
@@ -29,6 +28,9 @@ from collections import defaultdict
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+# Import config first - sets up environment
+from src.config import config, detect_dataset, get_model_safe_name
+
 from src.generation import GenerationOperation
 from src.data_utils import (
     LazyCorpus,
@@ -36,7 +38,6 @@ from src.data_utils import (
     load_queries as _load_queries,
     load_qrels as _load_qrels,
     load_run_file as _load_run,
-    get_model_safe_name,
 )
 
 
@@ -136,13 +137,13 @@ def evaluate_query(
         else:
             prompt = f"Question: {query}\n\nAnswer:"
         
-        # Generate answer
+        # Generate answer - use config defaults
         gen_result = generator.execute(
             prompt=prompt,
             system_prompt=system_prompt,
             model=model,
-            temperature=0.1,
-            max_tokens=256
+            temperature=config.generation.temperature,
+            max_tokens=config.generation.max_tokens
         )
         
         answer = gen_result.get("answer", "")
@@ -198,22 +199,15 @@ def load_checkpoint(checkpoint_file: Path) -> tuple:
     return set(), [], set(), {}
 
 
-def save_checkpoint(checkpoint_file: Path, completed_qids: Set[str], results: List[Dict], config: Dict):
+def save_checkpoint(checkpoint_file: Path, completed_qids: Set[str], results: List[Dict], cfg: Dict):
     """Save checkpoint with current progress."""
-    # #region agent log
-    import time as _t; _ckpt_start = _t.time()
-    # #endregion
     with open(checkpoint_file, 'w') as f:
         json.dump({
             "completed_qids": list(completed_qids),
             "results": results,
-            "config": config,
+            "config": cfg,
             "last_updated": time.strftime("%Y-%m-%d %H:%M:%S")
         }, f, indent=2)
-    # #region agent log
-    _elapsed = _t.time() - _ckpt_start; _size_kb = checkpoint_file.stat().st_size / 1024 if checkpoint_file.exists() else 0
-    with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as _f: _f.write(__import__('json').dumps({"location":"scripts/07_rag_eval.py:237","message":"checkpoint_save","data":{"elapsed_ms":round(_elapsed*1000,2),"size_kb":round(_size_kb,2),"blocking_io":True},"timestamp":int(_t.time()*1000),"sessionId":"debug-session","hypothesisId":"H6"})+'\n')
-    # #endregion
 
 
 def main():
@@ -221,16 +215,20 @@ def main():
     parser.add_argument("--corpus_path", required=True, help="Path to BEIR dataset")
     parser.add_argument("--run_path", default=None, help="Path to fused .res file")
     parser.add_argument("--output_dir", default=None, help="Output directory")
-    parser.add_argument("--shots", default="0,1,2,3,4,5,6,10", help="Comma-separated k values")
-    parser.add_argument("--model", default="qwen/qwen3-4b-2507", help="LLM model")
+    parser.add_argument("--shots", default=",".join(map(str, config.evaluation.default_k_shots)),
+                        help="Comma-separated k values")
+    parser.add_argument("--model", default=config.models.lm_studio.default_model, help="LLM model")
     parser.add_argument("--limit", type=int, default=None, help="Limit queries (for testing)")
     parser.add_argument("--batch_size", type=int, default=10, help="Checkpoint every N queries")
     parser.add_argument("--fresh", action="store_true", help="Ignore checkpoint, start fresh")
     args = parser.parse_args()
     
+    # Detect dataset from corpus_path
+    dataset = detect_dataset(args.corpus_path)
+    
     # Setup paths
-    data_dir = PROJECT_ROOT / "data" / "nq"
-    run_path = args.run_path or str(data_dir / "fused" / "wcombsum_rsd.res")
+    data_dir = config.project_root / "data" / dataset
+    run_path = args.run_path or str(data_dir / "fused" / f"wcombsum_{config.qpp.default_method.lower()}.res")
     output_dir = Path(args.output_dir) if args.output_dir else data_dir / "results"
     
     os.makedirs(output_dir, exist_ok=True)
@@ -243,6 +241,7 @@ def main():
     checkpoint_file = output_dir / f"checkpoint_{fusion_method}__{model_safe}.json"
     results_file = output_dir / f"{fusion_method}__{model_safe}.json"
     
+    print(f"[07_rag] Dataset: {dataset}")
     print(f"[07_rag] Fusion: {fusion_method}")
     print(f"[07_rag] Model: {args.model}")
     print(f"[07_rag] Checkpoint: {checkpoint_file}")
@@ -284,16 +283,11 @@ def main():
         # Initialize generator
         generator = GenerationOperation()
         
-        # System prompt
-        system_prompt = (
-            "You are a precise question answering assistant. "
-            "Answer the question using ONLY the provided context. "
-            "If the answer is not in the context, say 'I cannot answer.' "
-            "Be concise and direct."
-        )
+        # System prompt from config
+        system_prompt = config.generation.system_prompt
         
         # Config for checkpoint
-        config = {
+        cfg = {
             "fusion_method": fusion_method,
             "model": args.model,
             "k_values": k_values,
@@ -348,7 +342,7 @@ def main():
             
             # Checkpoint every batch_size queries
             if batch_count >= args.batch_size:
-                save_checkpoint(checkpoint_file, completed_qids, all_results, config)
+                save_checkpoint(checkpoint_file, completed_qids, all_results, cfg)
                 elapsed = time.time() - start_time
                 total_done = len(completed_qids)
                 remaining = len(queries) - total_done
@@ -359,7 +353,7 @@ def main():
                 batch_count = 0
         
         # Final checkpoint
-        save_checkpoint(checkpoint_file, completed_qids, all_results, config)
+        save_checkpoint(checkpoint_file, completed_qids, all_results, cfg)
     
     # Aggregate metrics
     aggregated = {k: {"recall_at_k": [], "reciprocal_rank": [], "has_relevant": [], "latency_ms": []} for k in k_values}
@@ -399,7 +393,7 @@ def main():
                 "script": "07_rag_eval.py",
                 "fusion_method": fusion_method,
                 "model": args.model,
-                "dataset": "nq",
+                "dataset": dataset,
                 "total_queries": len(all_results),
                 "k_values": k_values,
                 "qa_metrics_computed": False,

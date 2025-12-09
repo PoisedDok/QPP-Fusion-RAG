@@ -23,13 +23,6 @@ Usage:
 
 import os
 import sys
-
-# Set cache to Disk-D BEFORE any imports
-CACHE_ROOT = "/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/cache"
-os.environ["HF_HOME"] = f"{CACHE_ROOT}/huggingface"
-os.environ["HF_DATASETS_CACHE"] = f"{CACHE_ROOT}/huggingface/datasets"
-os.environ["TRANSFORMERS_CACHE"] = f"{CACHE_ROOT}/huggingface/transformers"
-
 import json
 import re
 import argparse
@@ -43,13 +36,11 @@ import requests
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+# Import config FIRST - sets up cache environment
+from src.config import config
+
 # STRICT: Use research-grade QA evaluation
 from src.evaluation import QAEvaluator
-
-# LM Studio endpoints
-LM_STUDIO_URL = "http://localhost:1234/v1/chat/completions"
-LM_STUDIO_EMBED_URL = "http://localhost:1234/v1/embeddings"
-EMBED_MODEL = "text-embedding-bge-small-en-v1.5"
 
 
 # =============================================================================
@@ -93,11 +84,17 @@ def compute_containment(prediction: str, gold_answers: List[str]) -> float:
 # Semantic Similarity (LM Studio Embeddings - not in HuggingFace evaluate)
 # =============================================================================
 
-def get_embeddings_batch(texts: List[str], model: str = EMBED_MODEL, batch_size: int = 32, session: Optional[requests.Session] = None) -> List[Optional[List[float]]]:
+def get_embeddings_batch(
+    texts: List[str], 
+    model: str = None, 
+    batch_size: int = 32, 
+    session: Optional[requests.Session] = None
+) -> List[Optional[List[float]]]:
     """Get embeddings for multiple texts in batches from LM Studio (OPTIMIZED: connection pooling)."""
-    # #region agent log
-    import time as _t; _embed_start = _t.time(); _request_count = 0
-    # #endregion
+    # Get settings from config
+    embed_url = f"{config.models.lm_studio.base_url.rstrip('/v1')}/v1/embeddings"
+    model = model or config.models.lm_studio.embed_model
+    
     all_embeddings = []
     
     # Use provided session or create one (connection pooling)
@@ -109,15 +106,12 @@ def get_embeddings_batch(texts: List[str], model: str = EMBED_MODEL, batch_size:
     
     try:
         for i in range(0, len(texts), batch_size):
-            # #region agent log
-            _request_count += 1
-            # #endregion
             batch = texts[i:i+batch_size]
             try:
                 response = session.post(
-                    LM_STUDIO_EMBED_URL,
+                    embed_url,
                     json={"model": model, "input": batch},
-                    timeout=30
+                    timeout=config.models.lm_studio.timeout_seconds
                 )
                 if response.status_code == 200:
                     data = response.json()['data']
@@ -126,15 +120,11 @@ def get_embeddings_batch(texts: List[str], model: str = EMBED_MODEL, batch_size:
                 else:
                     raise RuntimeError(f"LM Studio embedding failed: {response.status_code}")
             except requests.exceptions.ConnectionError:
-                raise RuntimeError("LM Studio not running at localhost:1234")
+                raise RuntimeError(f"LM Studio not running at {config.models.lm_studio.base_url}")
     finally:
         if close_session:
             session.close()
     
-    # #region agent log
-    _total = _t.time() - _embed_start
-    with open('/Volumes/Disk-D/RAGit/L4-Ind_Proj/QPP-Fusion-RAG/.cursor/debug.log', 'a') as _f: _f.write(__import__('json').dumps({"location":"scripts/08_compute_qa_metrics.py:96","message":"embedding_batch_complete","data":{"num_texts":len(texts),"num_requests":_request_count,"total_sec":round(_total,2),"avg_per_request_ms":round(_total*1000/_request_count,2) if _request_count > 0 else 0,"connection_pooling":True,"optimization":"http_session"},"timestamp":int(__import__('time').time()*1000),"sessionId":"debug-session","runId":"post-fix","hypothesisId":"H5"})+'\n')
-    # #endregion
     return all_embeddings
 
 
@@ -148,10 +138,12 @@ def cosine_similarity(a: List[float], b: List[float]) -> float:
 def compute_semantic_sim_batch(
     predictions: List[str],
     gold_list: List[List[str]],
-    model: str = EMBED_MODEL,
+    model: str = None,
     session: Optional[requests.Session] = None
 ) -> List[float]:
     """Batch semantic similarity computation using LM Studio embeddings (OPTIMIZED: connection pooling)."""
+    model = model or config.models.lm_studio.embed_model
+    
     print(f"  [Embeddings] Getting embeddings for {len(predictions)} predictions...")
     pred_embeddings = get_embeddings_batch(predictions, model=model, session=session)
     
@@ -190,9 +182,11 @@ def compute_llm_judge(
     question: str,
     prediction: str,
     gold_answers: List[str],
-    model: str = "liquid/lfm2-1.2b"
+    model: str = None
 ) -> float:
     """LLM-as-Judge: Rate answer correctness 1-5 using LM Studio."""
+    model = model or config.models.lm_studio.default_model
+    chat_url = f"{config.models.lm_studio.base_url}/chat/completions"
     
     gold_str = ", ".join(gold_answers[:3])
     
@@ -213,14 +207,14 @@ Respond with ONLY a single number (1-5)."""
 
     try:
         response = requests.post(
-            LM_STUDIO_URL,
+            chat_url,
             json={
                 "model": model,
                 "messages": [{"role": "user", "content": prompt}],
                 "temperature": 0.0,
                 "max_tokens": 5
             },
-            timeout=30
+            timeout=config.models.lm_studio.timeout_seconds
         )
         
         if response.status_code != 200:
@@ -235,7 +229,7 @@ Respond with ONLY a single number (1-5)."""
         raise ValueError(f"LLM did not return valid rating: {answer}")
         
     except requests.exceptions.ConnectionError:
-        raise RuntimeError("LM Studio not running at localhost:1234")
+        raise RuntimeError(f"LM Studio not running at {config.models.lm_studio.base_url}")
 
 
 # =============================================================================
@@ -244,16 +238,10 @@ Respond with ONLY a single number (1-5)."""
 
 def load_nq_gold_answers(cache_dir: Path) -> Dict[str, List[str]]:
     """Load gold answers from NQ dataset."""
-    # #region agent log
-    import time as _t; _start = _t.time(); _cache_hit = False
-    # #endregion
     answers_file = cache_dir / "nq_gold_answers.json"
     
     if answers_file.exists():
         print(f"Loading cached gold answers from {answers_file}")
-        # #region agent log
-        _cache_hit = True
-        # #endregion
         with open(answers_file) as f:
             return json.load(f)
     
@@ -262,10 +250,10 @@ def load_nq_gold_answers(cache_dir: Path) -> Dict[str, List[str]]:
     # STRICT: Fail if datasets not installed
     from datasets import load_dataset
     
-    hf_cache = Path(CACHE_ROOT) / "huggingface" / "datasets"
+    hf_cache = config.cache_root / "huggingface" / "datasets"
     hf_cache.mkdir(parents=True, exist_ok=True)
     
-    print("Downloading NQ validation set (~40GB) to Disk-D...")
+    print("Downloading NQ validation set (~40GB) to cache...")
     dataset = load_dataset(
         "natural_questions", 
         "default", 
@@ -354,9 +342,12 @@ def compute_qa_metrics_for_file(
     gold_answers: Dict[str, List[str]],
     metrics: List[str],
     judge_model: str = None,
-    embed_model: str = EMBED_MODEL
+    embed_model: str = None
 ) -> Dict:
     """Compute selected QA metrics for all results in a file."""
+    # Get defaults from config
+    embed_model = embed_model or config.models.lm_studio.embed_model
+    judge_model = judge_model or config.models.lm_studio.default_model
     
     print(f"\nProcessing: {results_file.name}")
     print(f"Metrics: {metrics}")
@@ -486,14 +477,14 @@ def compute_qa_metrics_for_file(
 def main():
     parser = argparse.ArgumentParser(description="Compute QA Metrics (HuggingFace evaluate)")
     parser.add_argument("--results_file", required=True, help="Results JSON file")
-    parser.add_argument("--dataset", default="nq", choices=["nq", "hotpotqa"], 
+    parser.add_argument("--dataset", default="nq", choices=config.datasets.supported, 
                         help="Dataset name (for gold answer loading)")
     parser.add_argument("--cache_dir", default=None, help="Cache directory for gold answers")
     parser.add_argument("--metrics", default="em,f1,containment",
                         help="Comma-separated metrics: em,f1,containment,semantic,llm_judge,all")
-    parser.add_argument("--judge_model", default="liquid/lfm2-1.2b",
+    parser.add_argument("--judge_model", default=config.models.lm_studio.default_model,
                         help="LM Studio model for LLM-as-Judge")
-    parser.add_argument("--embed_model", default="text-embedding-bge-small-en-v1.5",
+    parser.add_argument("--embed_model", default=config.models.lm_studio.embed_model,
                         help="LM Studio embedding model")
     args = parser.parse_args()
     
@@ -507,10 +498,10 @@ def main():
     
     # Load gold answers based on dataset
     if args.dataset == "hotpotqa":
-        corpus_path = PROJECT_ROOT / "data" / "hotpotqa" / "BEIR-hotpotqa"
+        corpus_path = config.project_root / "data" / "hotpotqa" / "BEIR-hotpotqa"
         gold_answers = load_hotpotqa_gold_answers(corpus_path)
     else:
-        cache_dir = Path(args.cache_dir) if args.cache_dir else PROJECT_ROOT / "data" / "nq" / "cache"
+        cache_dir = Path(args.cache_dir) if args.cache_dir else config.project_root / "data" / args.dataset / "cache"
         gold_answers = load_nq_gold_answers(cache_dir)
     
     print(f"Loaded {len(gold_answers)} gold answer mappings")
