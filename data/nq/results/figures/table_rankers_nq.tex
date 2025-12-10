@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\caption{Individual Ranker Performance on NQ}
+\label{tab:rankers_nq}
+\begin{tabular}{lccccc}
+\toprule
+Ranker & nDCG@5 & nDCG@10 & nDCG@20 & MRR@10 & R@10 \\
+\midrule
+Splade & \textbf{0.4999} & \textbf{0.5373} & \textbf{0.5609} & \textbf{0.4876} & \textbf{0.7390} \\
+BM25_MonoT5 & 0.4900 & 0.5153 & 0.5271 & 0.4820 & 0.6685 \\
+BGE & 0.4679 & 0.5106 & 0.5340 & 0.4596 & 0.7231 \\
+BM25 & 0.2449 & 0.2814 & 0.3093 & 0.2434 & 0.4405 \\
+BM25_TCT & 0.0597 & 0.0919 & 0.1371 & 0.0643 & 0.1971 \\
+\bottomrule
+\end{tabular}
+\end{table}

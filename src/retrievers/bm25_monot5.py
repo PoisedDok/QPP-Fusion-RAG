@@ -86,14 +86,15 @@ class BM25MonoT5Retriever(BaseRetriever):
         self.first_stage_k = first_stage_k or config.processing.retrieval.first_stage_k
         self.ce_batch_size = ce_batch_size or config.processing.batch_sizes.cross_encoder
         
-        # BM25 first stage
+        # BM25 first stage - use BEIR params for consistency
         print(f"[BM25_MonoT5] Loading BM25 index...")
         self.index = pt.IndexFactory.of(index_path)
         self.bm25 = pt.BatchRetrieve(
             self.index,
             wmodel="BM25",
             num_results=self.first_stage_k,
-            metadata=["docno"]
+            metadata=["docno"],
+            controls={"bm25.k_1": "0.9", "bm25.b": "0.4"}  # BEIR standard params
         )
         
         # CrossEncoder reranker with MPS

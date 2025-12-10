@@ -43,7 +43,13 @@ class BM25Retriever(BaseRetriever):
         self.index = pt.IndexFactory.of(index_path)
         # Use num_results from config
         default_top_k = config.processing.retrieval.top_k
-        self.retriever = pt.BatchRetrieve(self.index, wmodel="BM25", num_results=default_top_k)
+        # Use BEIR-standard BM25 parameters (k1=0.9, b=0.4)
+        self.retriever = pt.BatchRetrieve(
+            self.index, 
+            wmodel="BM25", 
+            num_results=default_top_k,
+            controls={"bm25.k_1": "0.9", "bm25.b": "0.4"}
+        )
     
     def retrieve(
         self,

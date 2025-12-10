@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Comparison with BEIR Benchmark on NQ (nDCG@10)}
+\label{tab:nq_beir}
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Our Method} & \textbf{Type} & \textbf{Ours} & \textbf{BEIR Ref.} & \textbf{BEIR} & \textbf{$\Delta$} \\
+\midrule
+Splade & Sparse & 0.537 & docT5query & 0.399 & +34.7\% \\
+BM25_MonoT5 & Rerank & 0.515 & BM25+CE$^\dagger$ & 0.533 & -3.3\% \\
+BGE & Dense & 0.511 & TAS-B$^\dagger$ & 0.463 & +10.3\% \\
+BM25 & Lexical & 0.304 & BM25 & 0.329 & -7.5\% \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\footnotesize{$^\dagger$ In-domain trained model.}
+\end{table}

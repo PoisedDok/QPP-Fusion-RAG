@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Retrieval Performance on NQ (nDCG@10)}
+\label{tab:nq_results}
+\begin{tabular}{llccccc}
+\toprule
+\textbf{Method} & \textbf{Type} & \textbf{nDCG@5} & \textbf{nDCG@10} & \textbf{nDCG@20} & \textbf{MRR@10} & \textbf{R@100} \\
+\midrule
+Splade & Sparse & 0.500 & \textbf{0.537} & 0.561 & 0.488 & 0.930 \\
+BM25_MonoT5 & Rerank & 0.490 & 0.515 & 0.527 & 0.482 & 0.739 \\
+BGE & Dense & 0.468 & 0.511 & 0.534 & 0.460 & 0.927 \\
+BM25 & Lexical & 0.265 & 0.304 & 0.332 & 0.262 & 0.750 \\
+\bottomrule
+\end{tabular}
+\end{table}

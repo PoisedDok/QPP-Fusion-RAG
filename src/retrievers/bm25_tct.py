@@ -59,14 +59,15 @@ class BM25TCTRetriever(BaseRetriever):
         self.first_stage_k = first_stage_k or config.processing.retrieval.first_stage_k
         self.tct_batch_size = tct_batch_size or config.processing.batch_sizes.tct_encoding
         
-        # BM25 first stage
+        # BM25 first stage - use BEIR params for consistency
         print(f"[BM25_TCT] Loading BM25 index...")
         self.index = pt.IndexFactory.of(index_path)
         self.bm25 = pt.BatchRetrieve(
             self.index, 
             wmodel="BM25", 
             num_results=self.first_stage_k,
-            metadata=["docno"]
+            metadata=["docno"],
+            controls={"bm25.k_1": "0.9", "bm25.b": "0.4"}  # BEIR standard params
         )
         
         # TCT-ColBERT reranker with MPS acceleration
