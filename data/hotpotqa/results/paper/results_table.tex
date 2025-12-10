@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Retrieval Performance on HOTPOTQA (nDCG@10)}
+\label{tab:hotpotqa_results}
+\begin{tabular}{llccccc}
+\toprule
+\textbf{Method} & \textbf{Type} & \textbf{nDCG@5} & \textbf{nDCG@10} & \textbf{nDCG@20} & \textbf{MRR@10} & \textbf{R@100} \\
+\midrule
+BM25_MonoT5 & Rerank & 0.698 & \textbf{0.714} & 0.721 & 0.880 & 0.770 \\
+Splade & Sparse & 0.668 & 0.687 & 0.700 & 0.866 & 0.818 \\
+BGE & Dense & 0.640 & 0.658 & 0.669 & 0.787 & 0.794 \\
+BM25_TCT & Late-Int & 0.589 & 0.612 & 0.627 & 0.786 & 0.770 \\
+BM25 & Lexical & 0.562 & 0.586 & 0.602 & 0.751 & 0.770 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Comparison with BEIR Benchmark on HOTPOTQA (nDCG@10)}
+\label{tab:hotpotqa_beir}
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Our Method} & \textbf{Type} & \textbf{Ours} & \textbf{BEIR Ref.} & \textbf{BEIR} & \textbf{$\Delta$} \\
+\midrule
+BM25_MonoT5 & Rerank & 0.714 & BM25+CE & 0.707 & +0.9\% \\
+Splade & Sparse & 0.687 & docT5query & 0.580 & +18.4\% \\
+BGE & Dense & 0.658 & TAS-B & 0.584 & +12.7\% \\
+BM25_TCT & Late-Int & 0.612 & ColBERT & 0.593 & +3.2\% \\
+BM25 & Lexical & 0.586 & BM25 & 0.603 & -2.9\% \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\footnotesize{$^\dagger$ In-domain trained model.}
+\end{table}
